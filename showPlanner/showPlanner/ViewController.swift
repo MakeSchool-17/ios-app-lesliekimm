@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  showPlanner
+//  ShowPlanner
 //
 //  Created by Leslie Kim on 11/13/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
