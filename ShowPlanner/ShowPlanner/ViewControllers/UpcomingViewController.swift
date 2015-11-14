@@ -9,10 +9,14 @@
 import UIKit
 
 class UpcomingViewController: UIViewController {
+    @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            print("Identifier \(identifier)")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

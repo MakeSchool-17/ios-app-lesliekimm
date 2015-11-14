@@ -15,6 +15,10 @@
 		818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98851BF6A43000D8157F /* HistoryViewController.swift */; };
 		818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98871BF6A44000D8157F /* ComediansViewController.swift */; };
 		818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98891BF6A44800D8157F /* AccountViewController.swift */; };
+		818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */; };
+		818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */; };
+		818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */; };
+		818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		818E98851BF6A43000D8157F /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		818E98871BF6A44000D8157F /* ComediansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComediansViewController.swift; sourceTree = "<group>"; };
 		818E98891BF6A44800D8157F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastShowTableViewCell.swift; sourceTree = "<group>"; };
+		818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComedianTableViewCell.swift; sourceTree = "<group>"; };
+		818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectComedianTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		818E986F1BF661FE00D8157F /* ShowPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				818E988B1BF6AAA700D8157F /* Views */,
 				818E98821BF6A40100D8157F /* ViewControllers */,
 				818E98701BF661FF00D8157F /* AppDelegate.swift */,
 				818E98741BF661FF00D8157F /* Main.storyboard */,
@@ -79,6 +88,17 @@
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		818E988B1BF6AAA700D8157F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */,
+				818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */,
+				818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */,
+				818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */,
+				818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */,
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
+				818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
+				818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */,
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
 				818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
