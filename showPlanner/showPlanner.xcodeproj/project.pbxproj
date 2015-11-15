@@ -19,6 +19,8 @@
 		818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */; };
 		818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */; };
 		818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */; };
+		818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98961BF9108C00D8157F /* AddShowViewController.swift */; };
+		818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98B61BF925AB00D8157F /* AddComedianViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastShowTableViewCell.swift; sourceTree = "<group>"; };
 		818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComedianTableViewCell.swift; sourceTree = "<group>"; };
 		818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectComedianTableViewCell.swift; sourceTree = "<group>"; };
+		818E98961BF9108C00D8157F /* AddShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShowViewController.swift; sourceTree = "<group>"; };
+		818E98B61BF925AB00D8157F /* AddComedianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComedianViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
 				818E98871BF6A44000D8157F /* ComediansViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
+				818E98961BF9108C00D8157F /* AddShowViewController.swift */,
+				818E98B61BF925AB00D8157F /* AddComedianViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -178,8 +184,10 @@
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
 				818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
+				818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */,
 				818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */,
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
+				818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */,
 				818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
 			);

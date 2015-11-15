@@ -1,19 +1,14 @@
 //
-//  ComediansViewController.swift
+//  AddComedianViewController.swift
 //  ShowPlanner
 //
-//  Created by Leslie Kim on 11/13/15.
+//  Created by Leslie Kim on 11/15/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
 import UIKit
 
-class ComediansViewController: UIViewController {
-    @IBAction func backToComediansVC(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
-            print("Identifier \(identifier)")
-        }
-    }
+class AddComedianViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
