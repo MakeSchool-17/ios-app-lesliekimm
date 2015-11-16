@@ -9,7 +9,6 @@
 import UIKit
 
 class ComedianTableViewCell: UITableViewCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +16,6 @@ class ComedianTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }

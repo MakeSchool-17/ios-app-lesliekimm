@@ -53,7 +53,6 @@ class UpcomingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -64,8 +63,6 @@ class UpcomingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-
 }
 
 extension UpcomingViewController: UITableViewDataSource {
@@ -74,9 +71,6 @@ extension UpcomingViewController: UITableViewDataSource {
         let row = indexPath.row
         let show = shows[row] as Show
         cell.show = show
-//        cell.showNameLabel.text = self.shows[indexPath.row]
-//        cell.lineupLabel.text = self.lineup[indexPath.row]
-//        cell.locationLabel.text = self.locations[indexPath.row]
         return cell
     }
     
