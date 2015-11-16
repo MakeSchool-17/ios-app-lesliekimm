@@ -24,18 +24,11 @@ class AddShowViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController
+        // Pass the selected object to the new view controller
+        currentShow = Show()
+        currentShow!.name = "All Star Comedy"
+        currentShow!.lineup = "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen"
+        currentShow!.location = "The Comedy Store"
     }
 }
-
-
-
-//override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    // Get the new view controller using segue.destinationViewController.
-//    // Pass the selected object to the new view controller.
-//    
-//    currentNote = Note()
-//    currentNote!.title   = "Super Simple New Note"
-//    currentNote!.content = "Yet More Content"
-//}

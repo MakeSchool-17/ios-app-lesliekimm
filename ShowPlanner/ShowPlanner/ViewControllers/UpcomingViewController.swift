@@ -14,7 +14,31 @@ class UpcomingViewController: UIViewController {
     
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
-            print("Identifier \(identifier)")
+            do {
+                let realm = try Realm()
+            
+                switch identifier {
+                case "addAddShowSegue":
+                    let source = segue.sourceViewController as! AddShowViewController
+                    try realm.write() {
+                        realm.add(source.currentShow!)
+                    }
+                case "trashShowSegue":
+                    try realm.write() {
+                        realm.delete(self.selectedShow!)
+                    }
+                    let source = segue.sourceViewController as! ShowDisplayViewController
+                    source.show = nil
+                default:
+                    print("No one loves \(identifier)")
+                    
+                }
+                
+                shows = realm.objects(Show).sorted("location", ascending: true)
+            }
+            catch {
+                print("handle error")
+            }
         }
     }
     
@@ -23,6 +47,7 @@ class UpcomingViewController: UIViewController {
             tableView?.reloadData()
         }
     }
+    var selectedShow: Show?
     
 //    var shows: [String] = ["The Kevin Nealon Show", "All Star Comedy", "Chocolate Sundaes"]
 //    var lineup: [String] = ["Kevin Nealon, Iliza Shlesinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman", "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen", "Alonzo Bodden, Tiffany Haddish, Aries Spears, Finesse Mitchell, Jerrod Carmichael, Mario Joyner"]
@@ -31,18 +56,11 @@ class UpcomingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        
-        let myShow = Show()
-        myShow.name = "The Kevin Nealon Show"
-        myShow.lineup = "Kevin Nealon, Iliza Shlesinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman"
-        myShow.location = "The Laugh Factory"
+        tableView.delegate = self
         
         do {
             let realm = try Realm()
-            try realm.write() {
-                realm.add(myShow)
-            }
-            shows = realm.objects(Show)
+            shows = realm.objects(Show).sorted("location", ascending: true)
         }
         catch {
             print("ERROR")
@@ -76,5 +94,33 @@ extension UpcomingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shows?.count ?? 0
+    }
+}
+
+extension UpcomingViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedShow = shows[indexPath.row]
+        self.performSegueWithIdentifier("showExistingShowSegue", sender: self)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let show = shows[indexPath.row] as Object
+            
+            do {
+                let realm = try Realm()
+                try realm.write() {
+                    realm.delete(show)
+                }
+            shows = realm.objects(Show).sorted("location", ascending: true)
+            }
+            catch {
+                print("ERROR")
+            }
+        }
     }
 }

@@ -22,6 +22,7 @@
 		818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98961BF9108C00D8157F /* AddShowViewController.swift */; };
 		818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98B61BF925AB00D8157F /* AddComedianViewController.swift */; };
 		818E98BF1BF979DE00D8157F /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98BE1BF979DE00D8157F /* Show.swift */; };
+		818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		818E98961BF9108C00D8157F /* AddShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShowViewController.swift; sourceTree = "<group>"; };
 		818E98B61BF925AB00D8157F /* AddComedianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComedianViewController.swift; sourceTree = "<group>"; };
 		818E98BE1BF979DE00D8157F /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDisplayViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
 				818E98961BF9108C00D8157F /* AddShowViewController.swift */,
 				818E98B61BF925AB00D8157F /* AddComedianViewController.swift */,
+				818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */,
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
 				818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */,
+				818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */,
 				818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
 			);
