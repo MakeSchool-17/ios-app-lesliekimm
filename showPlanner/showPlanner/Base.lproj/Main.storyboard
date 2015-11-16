@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--My Account-->
@@ -255,7 +256,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Osc-Sm-EnJ" firstAttribute="width" secondItem="6ED-E6-l38" secondAttribute="width" id="BVi-eA-5n6"/>
-                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="leading" secondItem="6ED-E6-l38" secondAttribute="leading" id="c7E-vh-O8T"/>
+                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="leading" secondItem="6ED-E6-l38" secondAttribute="leadingMargin" constant="-20" id="iQl-Nf-YsQ"/>
                             <constraint firstItem="TJT-s5-HHh" firstAttribute="top" secondItem="Osc-Sm-EnJ" secondAttribute="bottom" id="pJk-bc-yUF"/>
                             <constraint firstItem="Osc-Sm-EnJ" firstAttribute="top" secondItem="2SF-NK-o8l" secondAttribute="bottom" id="pla-DL-D10"/>
                         </constraints>
@@ -362,6 +363,10 @@
         <scene sceneID="SYT-K6-RaL">
             <objects>
                 <viewController id="4FR-ju-nyd" userLabel="Show Display View Controller" customClass="ShowDisplayViewController" customModule="ShowPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cbm-Mj-3I9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bpe-Rb-upf"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LfA-M9-xye">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,20 +382,39 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
+                                <rect key="frame" x="10" y="10" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
+                                <rect key="frame" x="0.0" y="50" width="600" height="216"/>
+                                <animations/>
+                                <date key="date" timeIntervalSinceReferenceDate="469343796.18963701">
+                                    <!--2015-11-16 05:16:36 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" constant="10" id="IlX-3E-lZv"/>
+                            <constraint firstItem="g3Z-4D-h84" firstAttribute="top" secondItem="iYX-yX-pem" secondAttribute="bottom" constant="10" id="Q8p-tP-rHM"/>
                             <constraint firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="UAn-d3-s5N"/>
+                            <constraint firstAttribute="trailing" secondItem="g3Z-4D-h84" secondAttribute="trailing" id="bQx-1Y-dU4"/>
                             <constraint firstItem="yps-Gm-PiW" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="eaE-4h-aEy"/>
+                            <constraint firstAttribute="trailing" secondItem="iYX-yX-pem" secondAttribute="trailing" constant="10" id="eae-Nw-RgJ"/>
                             <constraint firstItem="yps-Gm-PiW" firstAttribute="bottom" secondItem="LfA-M9-xye" secondAttribute="bottom" id="gX3-59-ig9"/>
+                            <constraint firstItem="g3Z-4D-h84" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="haq-a5-VsX"/>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="LfA-M9-xye" secondAttribute="top" constant="10" id="kxf-qi-O1z"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onk-DA-aGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jwx-Oh-7ue" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="868.5"/>
+            <point key="canvasLocation" x="1687" y="1555.5"/>
         </scene>
     </scenes>
     <resources>
