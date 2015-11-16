@@ -21,9 +21,13 @@
 		818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */; };
 		818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98961BF9108C00D8157F /* AddShowViewController.swift */; };
 		818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98B61BF925AB00D8157F /* AddComedianViewController.swift */; };
+		818E98BF1BF979DE00D8157F /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98BE1BF979DE00D8157F /* Show.swift */; };
+		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E986D1BF661FE00D8157F /* ShowPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818E98751BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectComedianTableViewCell.swift; sourceTree = "<group>"; };
 		818E98961BF9108C00D8157F /* AddShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShowViewController.swift; sourceTree = "<group>"; };
 		818E98B61BF925AB00D8157F /* AddComedianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComedianViewController.swift; sourceTree = "<group>"; };
+		818E98BE1BF979DE00D8157F /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24ABA3527670BC2888C33340 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */,
+				63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		818E98641BF661FE00D8157F = {
 			isa = PBXGroup;
 			children = (
 				818E986F1BF661FE00D8157F /* ShowPlanner */,
 				818E986E1BF661FE00D8157F /* Products */,
+				24ABA3527670BC2888C33340 /* Pods */,
+				82728DF0689C62D9C4BFBDCD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +90,7 @@
 		818E986F1BF661FE00D8157F /* ShowPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				818E98BC1BF9795800D8157F /* Entities */,
 				818E988B1BF6AAA700D8157F /* Views */,
 				818E98821BF6A40100D8157F /* ViewControllers */,
 				818E98701BF661FF00D8157F /* AppDelegate.swift */,
@@ -107,6 +126,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		818E98BC1BF9795800D8157F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				818E98BE1BF979DE00D8157F /* Show.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		82728DF0689C62D9C4BFBDCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 818E987F1BF661FF00D8157F /* Build configuration list for PBXNativeTarget "ShowPlanner" */;
 			buildPhases = (
+				E1231B7901744CBB5D33CDB2 /* Check Pods Manifest.lock */,
 				818E98691BF661FE00D8157F /* Sources */,
 				818E986A1BF661FE00D8157F /* Frameworks */,
 				818E986B1BF661FE00D8157F /* Resources */,
+				226D28FA23FFCC2A8B3F524B /* Embed Pods Frameworks */,
+				08A116FBDD0AC5A65A72614C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,6 +212,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08A116FBDD0AC5A65A72614C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		226D28FA23FFCC2A8B3F524B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1231B7901744CBB5D33CDB2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		818E98691BF661FE00D8157F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -185,6 +271,7 @@
 				818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */,
+				818E98BF1BF979DE00D8157F /* Show.swift in Sources */,
 				818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */,
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
 				818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */,
@@ -300,8 +387,14 @@
 		};
 		818E98801BF661FF00D8157F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
@@ -311,8 +404,14 @@
 		};
 		818E98811BF661FF00D8157F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
@@ -339,6 +438,7 @@
 				818E98811BF661FF00D8157F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
