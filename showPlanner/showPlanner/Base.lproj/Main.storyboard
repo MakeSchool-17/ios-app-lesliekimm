@@ -97,14 +97,38 @@
                     <view key="view" contentMode="scaleToFill" id="WDH-1N-I0j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Oa-Duy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="WnV-s7-ot5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="LYd-Gu-7ys"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ovx-Oa-Duy" secondAttribute="trailing" id="ESk-Da-KwS"/>
+                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="NUu-YB-fKt"/>
+                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="-20" id="Tie-wp-5a8"/>
+                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" id="kAB-ag-wzK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kAB-ag-wzK"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="tRa-rF-C9l"/>
                     <navigationItem key="navigationItem" title="Past Shows" id="Dfe-om-eIo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvP-5j-7gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="1573"/>
+            <point key="canvasLocation" x="350" y="1585"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4wJ-QT-TqQ">
@@ -126,9 +150,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y8M-Zd-rc8" kind="relationship" relationship="viewControllers" id="oqC-AE-UWb"/>
-                        <segue destination="g1D-CE-InR" kind="relationship" relationship="viewControllers" id="HhO-gs-Sfg"/>
                         <segue destination="lsj-xg-M6k" kind="relationship" relationship="viewControllers" id="7lh-gZ-X9r"/>
                         <segue destination="Df3-Kl-ule" kind="relationship" relationship="viewControllers" id="kvQ-n4-tAw"/>
+                        <segue destination="v93-yh-i8F" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtL-mS-Qh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +180,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xmv-Pv-Plj" id="ejb-O6-6Dz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Kevin Nealon Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-67-K05">
@@ -225,7 +249,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ntp-Hh-EAW" id="qzS-VJ-Yo0"/>
-                        <segue destination="4FR-ju-nyd" kind="show" identifier="showExistingShowSegue" id="Dgc-yq-dSB"/>
+                        <segue destination="4FR-ju-nyd" kind="show" identifier="showExistingShowSegue" id="hKQ-BT-8z8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CO2-WG-Unu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,10 +279,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="width" secondItem="6ED-E6-l38" secondAttribute="width" id="BVi-eA-5n6"/>
-                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="leading" secondItem="6ED-E6-l38" secondAttribute="leadingMargin" constant="-20" id="iQl-Nf-YsQ"/>
-                            <constraint firstItem="TJT-s5-HHh" firstAttribute="top" secondItem="Osc-Sm-EnJ" secondAttribute="bottom" id="pJk-bc-yUF"/>
-                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="top" secondItem="2SF-NK-o8l" secondAttribute="bottom" id="pla-DL-D10"/>
+                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="leading" secondItem="6ED-E6-l38" secondAttribute="leading" id="GjS-5f-R1s"/>
+                            <constraint firstItem="Osc-Sm-EnJ" firstAttribute="top" secondItem="2SF-NK-o8l" secondAttribute="bottom" id="N64-Pp-9hA"/>
+                            <constraint firstAttribute="trailing" secondItem="Osc-Sm-EnJ" secondAttribute="trailing" id="sge-K1-GEA"/>
+                            <constraint firstItem="TJT-s5-HHh" firstAttribute="top" secondItem="Osc-Sm-EnJ" secondAttribute="bottom" id="zAg-bD-OuQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Show" id="7Nv-wW-7Z2">
@@ -339,26 +363,6 @@
             </objects>
             <point key="canvasLocation" x="355" y="869"/>
         </scene>
-        <!--Past-->
-        <scene sceneID="zQi-Mv-8pK">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g1D-CE-InR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Past" image="history" id="WUa-KO-yju"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bsS-34-Ppc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="v93-yh-i8F" kind="relationship" relationship="rootViewController" id="Wog-AT-EhA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttq-Wi-IfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="355" y="1573"/>
-        </scene>
         <!--Show Display View Controller-->
         <scene sceneID="SYT-K6-RaL">
             <objects>
@@ -368,11 +372,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Bpe-Rb-upf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LfA-M9-xye">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
+                                <rect key="frame" x="0.0" y="114" width="600" height="216"/>
+                                <animations/>
+                                <date key="date" timeIntervalSinceReferenceDate="469343796.18963701">
+                                    <!--2015-11-16 05:16:36 +0000-->
+                                </date>
+                            </datePicker>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yps-Gm-PiW">
-                                <rect key="frame" x="0.0" y="443" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="Maw-bt-2un">
@@ -383,47 +394,45 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
-                                <rect key="frame" x="10" y="10" width="580" height="30"/>
+                                <rect key="frame" x="10" y="74" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
-                                <rect key="frame" x="0.0" y="50" width="600" height="216"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="469343796.18963701">
-                                    <!--2015-11-16 05:16:36 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iYX-yX-pem" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" constant="10" id="IlX-3E-lZv"/>
-                            <constraint firstItem="g3Z-4D-h84" firstAttribute="top" secondItem="iYX-yX-pem" secondAttribute="bottom" constant="10" id="Q8p-tP-rHM"/>
-                            <constraint firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="UAn-d3-s5N"/>
-                            <constraint firstAttribute="trailing" secondItem="g3Z-4D-h84" secondAttribute="trailing" id="bQx-1Y-dU4"/>
-                            <constraint firstItem="yps-Gm-PiW" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="eaE-4h-aEy"/>
-                            <constraint firstAttribute="trailing" secondItem="iYX-yX-pem" secondAttribute="trailing" constant="10" id="eae-Nw-RgJ"/>
-                            <constraint firstItem="yps-Gm-PiW" firstAttribute="bottom" secondItem="LfA-M9-xye" secondAttribute="bottom" id="gX3-59-ig9"/>
-                            <constraint firstItem="g3Z-4D-h84" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="haq-a5-VsX"/>
-                            <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="LfA-M9-xye" secondAttribute="top" constant="10" id="kxf-qi-O1z"/>
+                            <constraint firstItem="yps-Gm-PiW" firstAttribute="bottom" secondItem="Bpe-Rb-upf" secondAttribute="top" id="0eB-0K-PX2"/>
+                            <constraint firstItem="g3Z-4D-h84" firstAttribute="top" secondItem="iYX-yX-pem" secondAttribute="bottom" constant="10" id="2GX-l2-n46"/>
+                            <constraint firstItem="yps-Gm-PiW" firstAttribute="leading" secondItem="g3Z-4D-h84" secondAttribute="leading" id="7II-2F-4KX"/>
+                            <constraint firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="8vw-Le-dzd"/>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leadingMargin" constant="-10" id="WY2-3T-ypQ"/>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="centerX" secondItem="g3Z-4D-h84" secondAttribute="centerX" id="iXZ-u4-YxC"/>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="LfA-M9-xye" secondAttribute="topMargin" constant="10" id="jgD-nb-UvU"/>
+                            <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="cbm-Mj-3I9" secondAttribute="bottom" constant="10" id="m0i-vY-PBo"/>
+                            <constraint firstItem="g3Z-4D-h84" firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="sZ6-hb-pvG"/>
+                            <constraint firstItem="g3Z-4D-h84" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="xkU-2L-j7F"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jgD-nb-UvU"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onk-DA-aGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jwx-Oh-7ue" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="1555.5"/>
+            <point key="canvasLocation" x="1687" y="1605.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="account" width="42" height="42"/>
         <image name="comedians" width="42" height="42"/>
-        <image name="history" width="42" height="42"/>
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8cB-f6-kxG"/>
+        <segue reference="hKQ-BT-8z8"/>
     </inferredMetricsTieBreakers>
 </document>
