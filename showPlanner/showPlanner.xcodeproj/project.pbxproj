@@ -14,15 +14,14 @@
 		818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98831BF6A42500D8157F /* UpcomingViewController.swift */; };
 		818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98851BF6A43000D8157F /* HistoryViewController.swift */; };
 		818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98891BF6A44800D8157F /* AccountViewController.swift */; };
-		818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */; };
-		818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */; };
-		818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */; };
-		818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */; };
-		818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98961BF9108C00D8157F /* AddShowViewController.swift */; };
-		818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98B61BF925AB00D8157F /* AddComedianViewController.swift */; };
-		818E98BF1BF979DE00D8157F /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98BE1BF979DE00D8157F /* Show.swift */; };
-		818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */; };
 		81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */; };
+		81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */; };
+		81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */; };
+		81C23CCB1BFE4FC3000E3838 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCA1BFE4FC3000E3838 /* EventTableViewCell.swift */; };
+		81C23CCD1BFE5001000E3838 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCC1BFE5001000E3838 /* Event.swift */; };
+		81C23CCF1BFE563D000E3838 /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCE1BFE563D000E3838 /* EventDisplayViewController.swift */; };
+		81C23CD11BFE5716000E3838 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD01BFE5716000E3838 /* AddEventViewController.swift */; };
+		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,15 +37,14 @@
 		818E98831BF6A42500D8157F /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		818E98851BF6A43000D8157F /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		818E98891BF6A44800D8157F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
-		818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastShowTableViewCell.swift; sourceTree = "<group>"; };
-		818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComedianTableViewCell.swift; sourceTree = "<group>"; };
-		818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectComedianTableViewCell.swift; sourceTree = "<group>"; };
-		818E98961BF9108C00D8157F /* AddShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShowViewController.swift; sourceTree = "<group>"; };
-		818E98B61BF925AB00D8157F /* AddComedianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComedianViewController.swift; sourceTree = "<group>"; };
-		818E98BE1BF979DE00D8157F /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDisplayViewController.swift; sourceTree = "<group>"; };
 		81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		81C23CCA1BFE4FC3000E3838 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		81C23CCC1BFE5001000E3838 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		81C23CCE1BFE563D000E3838 /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
+		81C23CD01BFE5716000E3838 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		81C23CD31BFE580D000E3838 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,10 +108,10 @@
 				818E98831BF6A42500D8157F /* UpcomingViewController.swift */,
 				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
-				818E98961BF9108C00D8157F /* AddShowViewController.swift */,
-				818E98B61BF925AB00D8157F /* AddComedianViewController.swift */,
-				818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */,
 				81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */,
+				81C23CCE1BFE563D000E3838 /* EventDisplayViewController.swift */,
+				81C23CD01BFE5716000E3838 /* AddEventViewController.swift */,
+				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,10 +119,9 @@
 		818E988B1BF6AAA700D8157F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */,
-				818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */,
-				818E98901BF6AAFE00D8157F /* ComedianTableViewCell.swift */,
-				818E98921BF6AB0900D8157F /* SelectComedianTableViewCell.swift */,
+				81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */,
+				81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */,
+				81C23CCA1BFE4FC3000E3838 /* EventTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,7 +129,7 @@
 		818E98BC1BF9795800D8157F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				818E98BE1BF979DE00D8157F /* Show.swift */,
+				81C23CCC1BFE5001000E3838 /* Event.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -268,18 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */,
+				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
+				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
 				81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */,
-				818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */,
+				81C23CCB1BFE4FC3000E3838 /* EventTableViewCell.swift in Sources */,
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
-				818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
-				818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */,
-				818E98BF1BF979DE00D8157F /* Show.swift in Sources */,
-				818E98931BF6AB0900D8157F /* SelectComedianTableViewCell.swift in Sources */,
+				81C23CCF1BFE563D000E3838 /* EventDisplayViewController.swift in Sources */,
+				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
-				818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */,
-				818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */,
+				81C23CD11BFE5716000E3838 /* AddEventViewController.swift in Sources */,
+				81C23CCD1BFE5001000E3838 /* Event.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

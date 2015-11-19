@@ -1,16 +1,18 @@
 //
-//  AddComedianViewController.swift
+//  AddContactViewController.swift
 //  ShowPlanner
 //
-//  Created by Leslie Kim on 11/15/15.
+//  Created by Leslie Kim on 11/19/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
 import UIKit
 
-class AddComedianViewController: UIViewController {
+class AddContactViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -19,6 +21,7 @@ class AddComedianViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 
@@ -28,4 +31,5 @@ class AddComedianViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }

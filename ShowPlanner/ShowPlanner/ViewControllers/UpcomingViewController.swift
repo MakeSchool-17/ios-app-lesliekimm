@@ -18,23 +18,23 @@ class UpcomingViewController: UIViewController {
                 let realm = try Realm()
             
                 switch identifier {
-                case "addAddShowSegue":
-                    let source = segue.sourceViewController as! AddShowViewController
+                case "saveAddEventSegue":
+                    let source = segue.sourceViewController as! AddEventViewController
                     try realm.write() {
-                        realm.add(source.currentShow!)
+                        realm.add(source.currentEvent!)
                     }
                 case "trashShowSegue":
                     try realm.write() {
-                        realm.delete(self.selectedShow!)
+                        realm.delete(self.selectedEvent!)
                     }
-                    let source = segue.sourceViewController as! ShowDisplayViewController
-                    source.show = nil
+                    let source = segue.sourceViewController as! EventDisplayViewController
+                    source.event = nil
                 default:
                     print("No one loves \(identifier)")
                     
                 }
                 
-                shows = realm.objects(Show).sorted("location", ascending: true)
+                events = realm.objects(Event).sorted("location", ascending: true)
             }
             catch {
                 print("handle error")
@@ -42,12 +42,12 @@ class UpcomingViewController: UIViewController {
         }
     }
     
-    var shows: Results<Show>! {
+    var events: Results<Event>! {
         didSet {
             tableView?.reloadData()
         }
     }
-    var selectedShow: Show?
+    var selectedEvent: Event?
     
 //    var shows: [String] = ["The Kevin Nealon Show", "All Star Comedy", "Chocolate Sundaes"]
 //    var lineup: [String] = ["Kevin Nealon, Iliza Shlesinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman", "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen", "Alonzo Bodden, Tiffany Haddish, Aries Spears, Finesse Mitchell, Jerrod Carmichael, Mario Joyner"]
@@ -60,7 +60,7 @@ class UpcomingViewController: UIViewController {
         
         do {
             let realm = try Realm()
-            shows = realm.objects(Show).sorted("location", ascending: true)
+            events = realm.objects(Event).sorted("location", ascending: true)
         }
         catch {
             print("ERROR")
@@ -85,22 +85,22 @@ class UpcomingViewController: UIViewController {
 
 extension UpcomingViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingCell") as! ShowTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingCell") as! EventTableViewCell
         let row = indexPath.row
-        let show = shows[row] as Show
-        cell.show = show
+        let event = events[row] as Event
+        cell.event = event
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows?.count ?? 0
+        return events?.count ?? 0
     }
 }
 
 extension UpcomingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedShow = shows[indexPath.row]
-        self.performSegueWithIdentifier("showExistingShowSegue", sender: self)
+        selectedEvent = events[indexPath.row]
+        self.performSegueWithIdentifier("showExistingEventSegue", sender: self)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -109,14 +109,14 @@ extension UpcomingViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let show = shows[indexPath.row] as Object
+            let event = events[indexPath.row] as Object
             
             do {
                 let realm = try Realm()
                 try realm.write() {
-                    realm.delete(show)
+                    realm.delete(event)
                 }
-            shows = realm.objects(Show).sorted("location", ascending: true)
+            events = realm.objects(Event).sorted("location", ascending: true)
             }
             catch {
                 print("ERROR")

@@ -1,14 +1,15 @@
 //
-//  SelectComedianTableViewCell.swift
+//  ContactTableViewCell.swift
 //  ShowPlanner
 //
-//  Created by Leslie Kim on 11/13/15.
+//  Created by Leslie Kim on 11/19/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
 import UIKit
 
-class SelectComedianTableViewCell: UITableViewCell {
+class ContactTableViewCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -16,6 +17,8 @@ class SelectComedianTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // Configure the view for the selected state
     }
+
 }
