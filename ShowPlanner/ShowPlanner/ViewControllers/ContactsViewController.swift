@@ -1,15 +1,15 @@
 //
-//  ComediansViewController.swift
+//  ContactsViewController.swift
 //  ShowPlanner
 //
-//  Created by Leslie Kim on 11/13/15.
+//  Created by Leslie Kim on 11/19/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
 import UIKit
 
-class ComediansViewController: UIViewController {
-    @IBAction func backToComediansVC(segue: UIStoryboardSegue) {
+class ContactsViewController: UIViewController {
+    @IBAction func backtoContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             print("Identifier \(identifier)")
         }
@@ -17,6 +17,7 @@ class ComediansViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +26,7 @@ class ComediansViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 
@@ -34,4 +36,5 @@ class ComediansViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }

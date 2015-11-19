@@ -28,64 +28,6 @@
             </objects>
             <point key="canvasLocation" x="1021" y="2994"/>
         </scene>
-        <!--Comedians-->
-        <scene sceneID="RMF-kk-Ick">
-            <objects>
-                <viewController id="kEe-wJ-uv7" customClass="ComediansViewController" customModule="ShowPlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jhh-8r-HwQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="4kM-8Q-gCJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qSt-HF-0ND">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Comedians" id="Lt0-mk-Y7T">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="L8L-jW-aEs">
-                            <connections>
-                                <segue destination="h0f-Op-GRo" kind="show" identifier="addComedianSegue" id="v0U-FQ-wbs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L5S-H1-W0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1021" y="2274"/>
-        </scene>
-        <!--Add Comedian-->
-        <scene sceneID="Z9d-gC-FKd">
-            <objects>
-                <viewController id="h0f-Op-GRo" customClass="AddComedianViewController" customModule="ShowPlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fIe-UN-rXK"/>
-                        <viewControllerLayoutGuide type="bottom" id="yt1-nY-5Od"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tpc-WR-yfQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add Comedian" id="CGh-Ob-mgJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zj1-BN-tPO">
-                            <connections>
-                                <segue destination="I3a-Dc-j9Q" kind="unwind" identifier="cancelAddComedianSegue" unwindAction="backToComediansVC:" id="z8S-IV-tfZ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="BBS-zY-ivt">
-                            <connections>
-                                <segue destination="I3a-Dc-j9Q" kind="unwind" identifier="addAddComedianSegue" unwindAction="backToComediansVC:" id="U1x-BK-NNO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hvg-g2-Fmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="I3a-Dc-j9Q" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1687" y="2274"/>
-        </scene>
         <!--Past Shows-->
         <scene sceneID="bCW-87-Dgl">
             <objects>
@@ -123,7 +65,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="tRa-rF-C9l"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="tRa-rF-C9l"/>
                     <navigationItem key="navigationItem" title="Past Shows" id="Dfe-om-eIo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvP-5j-7gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,9 +92,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y8M-Zd-rc8" kind="relationship" relationship="viewControllers" id="oqC-AE-UWb"/>
-                        <segue destination="lsj-xg-M6k" kind="relationship" relationship="viewControllers" id="7lh-gZ-X9r"/>
-                        <segue destination="Df3-Kl-ule" kind="relationship" relationship="viewControllers" id="kvQ-n4-tAw"/>
                         <segue destination="v93-yh-i8F" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
+                        <segue destination="VuD-at-mcS" kind="relationship" relationship="viewControllers" id="SjN-Sc-xtR"/>
+                        <segue destination="Df3-Kl-ule" kind="relationship" relationship="viewControllers" id="kvQ-n4-tAw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtL-mS-Qh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,7 +122,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xmv-Pv-Plj" id="ejb-O6-6Dz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="104.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Kevin Nealon Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-67-K05">
@@ -303,25 +245,63 @@
             </objects>
             <point key="canvasLocation" x="1687" y="869"/>
         </scene>
-        <!--Comedians-->
-        <scene sceneID="pmQ-a4-1jM">
+        <!--Contacts-->
+        <scene sceneID="jE6-sG-StU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lsj-xg-M6k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Comedians" image="comedians" id="zpn-6w-w4k"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jnU-AK-gPU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController id="fb5-vq-Sve" customClass="ContactsViewController" customModule="ShowPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aIF-Ba-kPO"/>
+                        <viewControllerLayoutGuide type="bottom" id="chv-Cv-NEM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LSf-Qn-7Rh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kEe-wJ-uv7" kind="relationship" relationship="rootViewController" id="oYz-y0-3PC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wWk-Je-reO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="an3-42-pMe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8EZ-k8-5WC">
+                            <connections>
+                                <segue destination="VBz-aM-KG1" kind="show" id="8AK-Po-BvT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCx-Pj-vYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="2274"/>
+            <point key="canvasLocation" x="1021" y="2292"/>
+        </scene>
+        <!--Add Contact-->
+        <scene sceneID="AbQ-FH-aVk">
+            <objects>
+                <viewController id="VBz-aM-KG1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="okK-la-N29"/>
+                        <viewControllerLayoutGuide type="bottom" id="t3u-DC-cDt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Npd-tL-aUz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Contact" id="j9S-nV-OY6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jOX-2N-YFX">
+                            <connections>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactCancelSegue" unwindAction="backtoContactsVC:" id="Jl1-dt-yiT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="djy-nj-FrB">
+                            <connections>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactSaveSegue" unwindAction="backtoContactsVC:" id="CSi-R5-oTJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UrQ-H6-wRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gtK-4V-vaC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="2292"/>
         </scene>
         <!--Account-->
         <scene sceneID="mPt-ak-YEk">
@@ -426,10 +406,31 @@
             </objects>
             <point key="canvasLocation" x="1687" y="1605.5"/>
         </scene>
+        <!--Contacts-->
+        <scene sceneID="khF-Jf-V4P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VuD-at-mcS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="pNE-CI-i4i"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rxc-bY-63s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fb5-vq-Sve" kind="relationship" relationship="rootViewController" id="yMY-K2-VNb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1eF-9P-gee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="2292"/>
+        </scene>
     </scenes>
     <resources>
         <image name="account" width="42" height="42"/>
-        <image name="comedians" width="42" height="42"/>
+        <image name="contacts" width="42" height="42"/>
+        <image name="history" width="42" height="42"/>
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>

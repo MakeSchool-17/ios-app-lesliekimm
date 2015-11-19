@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var contactStore = CNContactStore()                     // initialize ContactStore for ContactsVC
+        var contactListToSelectFromStore = CNContactStore()     // initialize ContactStore to be used to select Contacts from
         return true
     }
 

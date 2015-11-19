@@ -13,7 +13,6 @@
 		818E987B1BF661FF00D8157F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98791BF661FF00D8157F /* LaunchScreen.storyboard */; };
 		818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98831BF6A42500D8157F /* UpcomingViewController.swift */; };
 		818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98851BF6A43000D8157F /* HistoryViewController.swift */; };
-		818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98871BF6A44000D8157F /* ComediansViewController.swift */; };
 		818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98891BF6A44800D8157F /* AccountViewController.swift */; };
 		818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */; };
 		818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */; };
@@ -23,6 +22,7 @@
 		818E98B71BF925AB00D8157F /* AddComedianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98B61BF925AB00D8157F /* AddComedianViewController.swift */; };
 		818E98BF1BF979DE00D8157F /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98BE1BF979DE00D8157F /* Show.swift */; };
 		818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */; };
+		81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,6 @@
 		818E987C1BF661FF00D8157F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		818E98831BF6A42500D8157F /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		818E98851BF6A43000D8157F /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		818E98871BF6A44000D8157F /* ComediansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComediansViewController.swift; sourceTree = "<group>"; };
 		818E98891BF6A44800D8157F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		818E988C1BF6AAE500D8157F /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		818E988E1BF6AAF500D8157F /* PastShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastShowTableViewCell.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		818E98B61BF925AB00D8157F /* AddComedianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComedianViewController.swift; sourceTree = "<group>"; };
 		818E98BE1BF979DE00D8157F /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDisplayViewController.swift; sourceTree = "<group>"; };
+		81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,11 +109,11 @@
 			children = (
 				818E98831BF6A42500D8157F /* UpcomingViewController.swift */,
 				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
-				818E98871BF6A44000D8157F /* ComediansViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
 				818E98961BF9108C00D8157F /* AddShowViewController.swift */,
 				818E98B61BF925AB00D8157F /* AddComedianViewController.swift */,
 				818E9B831BF996AB00D8157F /* ShowDisplayViewController.swift */,
+				81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				818E988D1BF6AAE500D8157F /* ShowTableViewCell.swift in Sources */,
+				81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */,
 				818E98911BF6AAFE00D8157F /* ComedianTableViewCell.swift in Sources */,
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
 				818E988F1BF6AAF500D8157F /* PastShowTableViewCell.swift in Sources */,
@@ -279,7 +280,6 @@
 				818E98841BF6A42500D8157F /* UpcomingViewController.swift in Sources */,
 				818E98971BF9108C00D8157F /* AddShowViewController.swift in Sources */,
 				818E9B841BF996AB00D8157F /* ShowDisplayViewController.swift in Sources */,
-				818E98881BF6A44000D8157F /* ComediansViewController.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
