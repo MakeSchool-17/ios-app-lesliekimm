@@ -23,7 +23,7 @@ class UpcomingViewController: UIViewController {
                     try realm.write() {
                         realm.add(source.currentEvent!)
                     }
-                case "trashShowSegue":
+                case "trashShowSegue":          // not needed for case where adding new event - causes error FIX
                     try realm.write() {
                         realm.delete(self.selectedEvent!)
                     }
@@ -48,10 +48,6 @@ class UpcomingViewController: UIViewController {
         }
     }
     var selectedEvent: Event?
-    
-//    var shows: [String] = ["The Kevin Nealon Show", "All Star Comedy", "Chocolate Sundaes"]
-//    var lineup: [String] = ["Kevin Nealon, Iliza Shlesinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman", "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen", "Alonzo Bodden, Tiffany Haddish, Aries Spears, Finesse Mitchell, Jerrod Carmichael, Mario Joyner"]
-//    var locations: [String] = ["The Laugh Factory", "The Comedy Store", "The Improv"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

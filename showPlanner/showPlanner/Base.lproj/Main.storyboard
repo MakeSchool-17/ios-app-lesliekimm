@@ -105,6 +105,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
+                        <segue destination="4ho-2Y-cty" kind="relationship" relationship="viewControllers" id="OUr-e6-SHD"/>
                         <segue destination="v93-yh-i8F" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
                         <segue destination="VuD-at-mcS" kind="relationship" relationship="viewControllers" id="SjN-Sc-xtR"/>
                         <segue destination="Nvy-h7-F84" kind="relationship" relationship="viewControllers" id="ail-3e-UAp"/>
@@ -135,25 +136,25 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fp3-MN-h1e" id="D69-Or-lB9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Kevin Nealon Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-67-K05">
-                                                    <rect key="frame" x="15" y="8" width="440" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Kevin Nealon Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-67-K05">
+                                                    <rect key="frame" x="15" y="3" width="440" height="24"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kevin Nealon, Iliza Shelsinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJa-VZ-gwN">
-                                                    <rect key="frame" x="15" y="35" width="440" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kevin Nealon, Iliza Shelsinger, Bobby Lee, Aries Spears, CJ Sullivan, Chris D'Elia, Sarah Silverman" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJa-VZ-gwN">
+                                                    <rect key="frame" x="15" y="30" width="435" height="29"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Laugh Factory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRI-Cv-rNo">
-                                                    <rect key="frame" x="15" y="67" width="440" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Laugh Factory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRI-Cv-rNo">
+                                                    <rect key="frame" x="15" y="62" width="435" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,13 +162,23 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xJa-VZ-gwN" secondAttribute="trailing" constant="150" id="0Lu-V5-SuF"/>
+                                                <constraint firstItem="maQ-67-K05" firstAttribute="leading" secondItem="D69-Or-lB9" secondAttribute="leading" constant="15" id="9y7-DC-awr"/>
+                                                <constraint firstItem="YRI-Cv-rNo" firstAttribute="top" secondItem="xJa-VZ-gwN" secondAttribute="bottom" constant="3" id="M64-qw-6Z1"/>
+                                                <constraint firstItem="xJa-VZ-gwN" firstAttribute="leading" secondItem="D69-Or-lB9" secondAttribute="leading" constant="15" id="SPZ-cc-yFa"/>
+                                                <constraint firstItem="xJa-VZ-gwN" firstAttribute="top" secondItem="maQ-67-K05" secondAttribute="bottom" constant="3" id="emH-XA-9HM"/>
+                                                <constraint firstItem="YRI-Cv-rNo" firstAttribute="leading" secondItem="D69-Or-lB9" secondAttribute="leading" constant="15" id="exC-fd-H9m"/>
+                                                <constraint firstAttribute="trailing" secondItem="maQ-67-K05" secondAttribute="trailing" constant="145" id="gNy-pR-0eA"/>
+                                                <constraint firstAttribute="trailing" secondItem="YRI-Cv-rNo" secondAttribute="trailing" constant="150" id="mGt-RI-hQj"/>
+                                                <constraint firstItem="maQ-67-K05" firstAttribute="top" secondItem="D69-Or-lB9" secondAttribute="top" constant="3" id="prk-Fh-mWj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
                                             <outlet property="eventNameLabel" destination="maQ-67-K05" id="bDi-a0-QGF"/>
                                             <outlet property="lineupLabel" destination="xJa-VZ-gwN" id="B49-nb-s1I"/>
                                             <outlet property="locationLabel" destination="YRI-Cv-rNo" id="Rmo-4n-9de"/>
-                                            <segue destination="4FR-ju-nyd" kind="show" identifier="showExistingEventSegue" id="8OL-Eo-VXx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -193,6 +204,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Uk5-nw-gUB" id="liV-Og-sSD"/>
+                        <segue destination="4FR-ju-nyd" kind="show" identifier="showExistingEventSegue" id="tii-wY-imG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B64-8W-zYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,32 +225,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETm-Oi-UJc">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-QM-mW7">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="4FR-ju-nyd" kind="show" id="Iza-jL-fxh"/>
+                                    <segue destination="4FR-ju-nyd" kind="embed" id="ZxT-03-0yo"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ETm-Oi-UJc" firstAttribute="top" secondItem="o9P-8b-Npo" secondAttribute="bottom" id="2Am-P0-VXj"/>
-                            <constraint firstItem="ETm-Oi-UJc" firstAttribute="leading" secondItem="hWq-Mv-CVQ" secondAttribute="leading" id="JpP-tv-VGj"/>
-                            <constraint firstItem="ETm-Oi-UJc" firstAttribute="width" secondItem="hWq-Mv-CVQ" secondAttribute="width" id="ntO-9w-7nk"/>
-                            <constraint firstItem="bCc-bE-UbT" firstAttribute="top" secondItem="ETm-Oi-UJc" secondAttribute="bottom" id="vU3-e2-uTh"/>
+                            <constraint firstItem="bCc-bE-UbT" firstAttribute="top" secondItem="4fr-QM-mW7" secondAttribute="bottom" id="O64-fO-U43"/>
+                            <constraint firstItem="4fr-QM-mW7" firstAttribute="leading" secondItem="hWq-Mv-CVQ" secondAttribute="leading" id="OmV-wU-Cg7"/>
+                            <constraint firstItem="4fr-QM-mW7" firstAttribute="top" secondItem="o9P-8b-Npo" secondAttribute="bottom" id="aW9-NZ-CQO"/>
+                            <constraint firstItem="4fr-QM-mW7" firstAttribute="width" secondItem="hWq-Mv-CVQ" secondAttribute="width" id="cMF-c0-iG3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="tcU-KA-afY">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uoy-Xl-hhk">
                             <connections>
-                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="saveAddEventSegue" unwindAction="backToUpcomingVC:" id="5iK-4x-42f"/>
+                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="cancelAddEventSegue" unwindAction="backToUpcomingVC:" id="5iK-4x-42f"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Fdh-FD-RHe">
                             <connections>
-                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="cancelAddEventSegue" unwindAction="backToUpcomingVC:" id="tD4-64-vEO"/>
+                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="saveAddEventSegue" unwindAction="backToUpcomingVC:" id="tD4-64-vEO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -414,6 +429,6 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8OL-Eo-VXx"/>
+        <segue reference="tii-wY-imG"/>
     </inferredMetricsTieBreakers>
 </document>
