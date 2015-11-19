@@ -40,14 +40,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Oa-Duy">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Oa-Duy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="WnV-s7-ot5"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="LYd-Gu-7ys"/>
+                                    <navigationItem title="History" id="LYd-Gu-7ys"/>
                                 </items>
                             </navigationBar>
                         </subviews>
