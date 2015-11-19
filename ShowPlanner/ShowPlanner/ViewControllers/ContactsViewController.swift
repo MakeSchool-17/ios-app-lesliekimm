@@ -17,7 +17,7 @@ class ContactsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Contacts View Controller")
         // Do any additional setup after loading the view.
     }
 

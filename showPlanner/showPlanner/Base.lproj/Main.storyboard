@@ -17,16 +17,36 @@
                     <view key="view" contentMode="scaleToFill" id="OUg-7u-T4A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXx-72-Ufr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="lu8-VI-xUS"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Account" id="3uk-6R-hk7">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DnE-QW-fR4"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NXx-72-Ufr" firstAttribute="width" secondItem="OUg-7u-T4A" secondAttribute="width" id="01m-Tk-87j"/>
+                            <constraint firstItem="NXx-72-Ufr" firstAttribute="top" secondItem="3LK-A4-prx" secondAttribute="bottom" constant="-20" id="5CO-ca-6jb"/>
+                            <constraint firstItem="NXx-72-Ufr" firstAttribute="leading" secondItem="OUg-7u-T4A" secondAttribute="leading" id="HUU-Q7-lck"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="account" id="TZ9-M4-vla"/>
                     <navigationItem key="navigationItem" title="My Account" id="4sv-sQ-ZDf">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="a0O-cS-wfW"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6J-dX-b7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="2994"/>
+            <point key="canvasLocation" x="350" y="2997"/>
         </scene>
         <!--Past Shows-->
         <scene sceneID="bCW-87-Dgl">
@@ -57,13 +77,7 @@
                             <constraint firstAttribute="trailing" secondItem="ovx-Oa-Duy" secondAttribute="trailing" id="ESk-Da-KwS"/>
                             <constraint firstItem="ovx-Oa-Duy" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="NUu-YB-fKt"/>
                             <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="-20" id="Tie-wp-5a8"/>
-                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" id="kAB-ag-wzK"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kAB-ag-wzK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history" id="tRa-rF-C9l"/>
                     <navigationItem key="navigationItem" title="Past Shows" id="Dfe-om-eIo"/>
@@ -93,7 +107,7 @@
                     <connections>
                         <segue destination="v93-yh-i8F" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
                         <segue destination="VuD-at-mcS" kind="relationship" relationship="viewControllers" id="SjN-Sc-xtR"/>
-                        <segue destination="Df3-Kl-ule" kind="relationship" relationship="viewControllers" id="kvQ-n4-tAw"/>
+                        <segue destination="Nvy-h7-F84" kind="relationship" relationship="viewControllers" id="ail-3e-UAp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtL-mS-Qh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,26 +302,6 @@
                 <exit id="gtK-4V-vaC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1687" y="2292"/>
-        </scene>
-        <!--Account-->
-        <scene sceneID="mPt-ak-YEk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Df3-Kl-ule" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="account" id="kFU-uI-SMu"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIu-f4-I0u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Nvy-h7-F84" kind="relationship" relationship="rootViewController" id="EPL-5L-Ptj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8yt-bR-O4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="350" y="2994"/>
         </scene>
         <!--Event Display View Controller-->
         <scene sceneID="SYT-K6-RaL">
