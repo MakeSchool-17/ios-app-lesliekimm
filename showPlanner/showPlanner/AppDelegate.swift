@@ -6,6 +6,9 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+// SOURCES: 1) Import contacts using Contacts framework
+//             http://www.appcoda.com/ios-contacts-framework/
+
 import UIKit
 import Contacts
 
@@ -41,5 +44,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    class func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    func showMessage(message: String) {
+        // create an alert controller for ContactsViewController
+        let alertController = UIAlertController(title: "Contacts", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        // create action for OK button
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+        }
+        
+        alertController.addAction(dismissAction)            // add action for OK buton to alert controller
+        
+        // get stack of view controllers
+        let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
+        // get view controller at top of stack
+        let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
+        
+        // present alert controller in top view controller
+        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
-

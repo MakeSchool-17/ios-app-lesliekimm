@@ -6,6 +6,9 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+// SOURCES: 1) Import contacts using Contacts framework
+//             http://www.appcoda.com/ios-contacts-framework/
+
 import UIKit
 
 class ContactsViewController: UIViewController {
