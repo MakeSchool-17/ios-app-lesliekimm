@@ -58,6 +58,18 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         print("Contacts View Controller")
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
+//        
+//        do {
+//            let realm = try Realm()
+//            contacts = realm.objects(Contact).sorted("name", ascending: true)
+//        }
+//        catch {
+//            print("ERROR")
+//        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
         do {
             let realm = try Realm()
@@ -73,15 +85,16 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
+    // MARK: Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "showExistingContactSegue") {
+            let contactViewController = segue.destinationViewController as! ContactDisplayViewController
+            contactViewController.contact = selectedContact
+        }
     }
-    */
     
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
