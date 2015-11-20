@@ -66,4 +66,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // present alert controller in top view controller
         presentedViewController.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    func requestForAcces(completionHandler: (accessGranted: Bool) -> Void) {
+        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+        
+        switch authorizationStatus {
+        case .Authorized:
+            completionHandler(accessGranted: true)
+        case .Denied, .NotDetermined:
+            self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
+                if access {
+                    completionHandler(accessGranted: access)
+                }
+                else {
+                    if authorizationStatus == CNAuthorizationStatus.Denied {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through Account."
+                            self.showMessage(message)
+                        })
+                    }
+                }
+            })
+        default:
+            completionHandler(accessGranted: false)
+        }
+    }
 }

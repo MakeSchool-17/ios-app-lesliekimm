@@ -9,6 +9,10 @@
 import UIKit
 
 class ContactTableViewCell: UITableViewCell {
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var contactEmailLabel: UILabel!
+    @IBOutlet weak var contactCellLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

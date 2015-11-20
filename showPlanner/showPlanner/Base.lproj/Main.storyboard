@@ -271,16 +271,84 @@
                     <view key="view" contentMode="scaleToFill" id="LSf-Qn-7Rh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5u3-6d-6di">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="71" id="wVF-lN-aqz" customClass="ContactTableViewCell" customModule="ShowPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wVF-lN-aqz" id="vL0-w6-2fx">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-FB-UMk">
+                                                    <rect key="frame" x="15" y="3" width="570" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@domain.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efb-Ee-0cg">
+                                                    <rect key="frame" x="15" y="26" width="570" height="17"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(555) 555-5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H80-5Q-eVk">
+                                                    <rect key="frame" x="15" y="47" width="570" height="16"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="efb-Ee-0cg" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="GrF-KA-iy1"/>
+                                                <constraint firstItem="efb-Ee-0cg" firstAttribute="top" secondItem="VyI-FB-UMk" secondAttribute="bottom" constant="3" id="QPK-yn-gcC"/>
+                                                <constraint firstItem="VyI-FB-UMk" firstAttribute="top" secondItem="vL0-w6-2fx" secondAttribute="top" constant="3" id="SH7-ky-ert"/>
+                                                <constraint firstAttribute="trailing" secondItem="H80-5Q-eVk" secondAttribute="trailing" constant="15" id="XIq-zC-PN9"/>
+                                                <constraint firstAttribute="trailing" secondItem="efb-Ee-0cg" secondAttribute="trailing" constant="15" id="gZB-0K-3ne"/>
+                                                <constraint firstItem="H80-5Q-eVk" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="n1h-gc-Zyh"/>
+                                                <constraint firstAttribute="trailing" secondItem="VyI-FB-UMk" secondAttribute="trailing" constant="15" id="rdO-9x-0m8"/>
+                                                <constraint firstItem="H80-5Q-eVk" firstAttribute="top" secondItem="efb-Ee-0cg" secondAttribute="bottom" constant="3" id="sxg-Pw-zm2"/>
+                                                <constraint firstItem="VyI-FB-UMk" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="xAM-gY-flb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="contactCellLabel" destination="H80-5Q-eVk" id="iaC-Ns-VCw"/>
+                                            <outlet property="contactEmailLabel" destination="efb-Ee-0cg" id="I7A-Zd-DMj"/>
+                                            <outlet property="contactNameLabel" destination="VyI-FB-UMk" id="g5y-y7-90E"/>
+                                            <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="28s-e7-NJX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5u3-6d-6di" firstAttribute="leading" secondItem="LSf-Qn-7Rh" secondAttribute="leading" id="7rR-0J-oha"/>
+                            <constraint firstItem="5u3-6d-6di" firstAttribute="top" secondItem="aIF-Ba-kPO" secondAttribute="bottom" constant="-64" id="Rer-ug-Msa"/>
+                            <constraint firstItem="5u3-6d-6di" firstAttribute="width" secondItem="LSf-Qn-7Rh" secondAttribute="width" id="T9z-pd-jjc"/>
+                            <constraint firstItem="chv-Cv-NEM" firstAttribute="top" secondItem="5u3-6d-6di" secondAttribute="bottom" id="tFa-4w-4Vu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="an3-42-pMe">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8EZ-k8-5WC">
                             <connections>
-                                <segue destination="VBz-aM-KG1" kind="show" id="8AK-Po-BvT"/>
+                                <segue destination="VBz-aM-KG1" kind="show" identifier="addContactSegue" id="8AK-Po-BvT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contactsTableView" destination="5u3-6d-6di" id="PAZ-GU-JBW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCx-Pj-vYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,8 +365,23 @@
                     <view key="view" contentMode="scaleToFill" id="Npd-tL-aUz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22g-Pb-sSB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="WrD-oQ-lTK" kind="embed" id="HfR-AU-9Dw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t3u-DC-cDt" firstAttribute="top" secondItem="22g-Pb-sSB" secondAttribute="bottom" id="5uh-uL-sxp"/>
+                            <constraint firstItem="22g-Pb-sSB" firstAttribute="top" secondItem="okK-la-N29" secondAttribute="bottom" id="7jD-Wc-qEe"/>
+                            <constraint firstItem="22g-Pb-sSB" firstAttribute="leading" secondItem="Npd-tL-aUz" secondAttribute="leading" id="J4W-Mp-uf2"/>
+                            <constraint firstItem="22g-Pb-sSB" firstAttribute="width" secondItem="Npd-tL-aUz" secondAttribute="width" id="rlJ-mt-Nxa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Contact" id="j9S-nV-OY6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jOX-2N-YFX">
@@ -421,6 +504,21 @@
             </objects>
             <point key="canvasLocation" x="350" y="890"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="PdU-hy-EMP">
+            <objects>
+                <viewController id="WrD-oQ-lTK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kM5-FT-NLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="2915.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="account" width="42" height="42"/>
@@ -429,6 +527,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HfR-AU-9Dw"/>
         <segue reference="tii-wY-imG"/>
     </inferredMetricsTieBreakers>
 </document>
