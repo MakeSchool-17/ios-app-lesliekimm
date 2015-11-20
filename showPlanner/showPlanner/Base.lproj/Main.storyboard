@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6J-dX-b7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="2997"/>
+            <point key="canvasLocation" x="350" y="3015"/>
         </scene>
         <!--Past Shows-->
         <scene sceneID="bCW-87-Dgl">
@@ -324,7 +324,7 @@
                                             <outlet property="contactCellLabel" destination="H80-5Q-eVk" id="iaC-Ns-VCw"/>
                                             <outlet property="contactEmailLabel" destination="efb-Ee-0cg" id="I7A-Zd-DMj"/>
                                             <outlet property="contactNameLabel" destination="VyI-FB-UMk" id="g5y-y7-90E"/>
-                                            <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="28s-e7-NJX"/>
+                                            <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="wTf-m4-NaU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -413,15 +413,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
-                                <rect key="frame" x="0.0" y="114" width="600" height="216"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
+                                <rect key="frame" x="0.0" y="50" width="600" height="216"/>
                                 <animations/>
                                 <date key="date" timeIntervalSinceReferenceDate="469343796.18963701">
                                     <!--2015-11-16 05:16:36 +0000-->
                                 </date>
                             </datePicker>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yps-Gm-PiW">
-                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yps-Gm-PiW">
+                                <rect key="frame" x="0.0" y="443" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="Maw-bt-2un">
@@ -431,8 +431,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
-                                <rect key="frame" x="10" y="74" width="580" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
+                                <rect key="frame" x="10" y="10" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -447,22 +447,16 @@
                             <constraint firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="8vw-Le-dzd"/>
                             <constraint firstItem="iYX-yX-pem" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leadingMargin" constant="-10" id="WY2-3T-ypQ"/>
                             <constraint firstItem="iYX-yX-pem" firstAttribute="centerX" secondItem="g3Z-4D-h84" secondAttribute="centerX" id="iXZ-u4-YxC"/>
-                            <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="LfA-M9-xye" secondAttribute="topMargin" constant="10" id="jgD-nb-UvU"/>
                             <constraint firstItem="iYX-yX-pem" firstAttribute="top" secondItem="cbm-Mj-3I9" secondAttribute="bottom" constant="10" id="m0i-vY-PBo"/>
                             <constraint firstItem="g3Z-4D-h84" firstAttribute="trailing" secondItem="yps-Gm-PiW" secondAttribute="trailing" id="sZ6-hb-pvG"/>
                             <constraint firstItem="g3Z-4D-h84" firstAttribute="leading" secondItem="LfA-M9-xye" secondAttribute="leading" id="xkU-2L-j7F"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="jgD-nb-UvU"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onk-DA-aGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jwx-Oh-7ue" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="1605.5"/>
+            <point key="canvasLocation" x="1687" y="1528.5"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="khF-Jf-V4P">
@@ -504,20 +498,72 @@
             </objects>
             <point key="canvasLocation" x="350" y="890"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Display View Controller-->
         <scene sceneID="PdU-hy-EMP">
             <objects>
-                <viewController id="WrD-oQ-lTK" sceneMemberID="viewController">
+                <viewController id="WrD-oQ-lTK" customClass="ContactDisplayViewController" customModule="ShowPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
+                                <rect key="frame" x="10" y="10" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ub1-NP-ISj">
+                                <rect key="frame" x="10" y="50" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
+                                <rect key="frame" x="10" y="90" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
+                                <rect key="frame" x="10" y="130" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="8sU-8g-UzE">
+                                        <connections>
+                                            <segue destination="awR-gP-DV2" kind="unwind" identifier="trashContactSegue" unwindAction="backtoContactsVC:" id="M00-4Y-RLx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="w4X-Kk-RcU" secondAttribute="trailing" constant="10" id="1st-Fb-OmH"/>
+                            <constraint firstItem="966-wF-OSV" firstAttribute="top" secondItem="Mzi-VY-iL0" secondAttribute="topMargin" constant="10" id="4wT-9c-GWM"/>
+                            <constraint firstItem="Xh6-ad-hHl" firstAttribute="leading" secondItem="Mzi-VY-iL0" secondAttribute="leading" constant="10" id="OLs-Sa-aVn"/>
+                            <constraint firstAttribute="trailing" secondItem="Xh6-ad-hHl" secondAttribute="trailing" constant="10" id="Vdv-AE-ind"/>
+                            <constraint firstItem="ub1-NP-ISj" firstAttribute="top" secondItem="966-wF-OSV" secondAttribute="bottom" constant="10" id="WVj-Rg-Gft"/>
+                            <constraint firstAttribute="trailing" secondItem="966-wF-OSV" secondAttribute="trailing" constant="10" id="fvQ-Dd-TvO"/>
+                            <constraint firstItem="w4X-Kk-RcU" firstAttribute="top" secondItem="ub1-NP-ISj" secondAttribute="bottom" constant="10" id="h15-5U-oJc"/>
+                            <constraint firstItem="966-wF-OSV" firstAttribute="leading" secondItem="Mzi-VY-iL0" secondAttribute="leading" constant="10" id="i3y-qo-c5h"/>
+                            <constraint firstItem="w4X-Kk-RcU" firstAttribute="leading" secondItem="Mzi-VY-iL0" secondAttribute="leading" constant="10" id="jyh-UN-ncc"/>
+                            <constraint firstItem="Xh6-ad-hHl" firstAttribute="top" secondItem="w4X-Kk-RcU" secondAttribute="bottom" constant="10" id="lRh-6O-Jeo"/>
+                            <constraint firstItem="ub1-NP-ISj" firstAttribute="leading" secondItem="Mzi-VY-iL0" secondAttribute="leading" constant="10" id="ydB-yB-Thg"/>
+                            <constraint firstAttribute="trailing" secondItem="ub1-NP-ISj" secondAttribute="trailing" constant="10" id="zoV-bl-w3B"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kM5-FT-NLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="awR-gP-DV2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="2915.5"/>
+            <point key="canvasLocation" x="1687" y="3015"/>
         </scene>
     </scenes>
     <resources>
@@ -527,7 +573,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HfR-AU-9Dw"/>
+        <segue reference="wTf-m4-NaU"/>
         <segue reference="tii-wY-imG"/>
     </inferredMetricsTieBreakers>
 </document>

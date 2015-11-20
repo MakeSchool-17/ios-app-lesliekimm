@@ -23,6 +23,7 @@
 		81C23CD11BFE5716000E3838 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD01BFE5716000E3838 /* AddEventViewController.swift */; };
 		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
 		81C23CD61BFEEC67000E3838 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD51BFEEC67000E3838 /* Contact.swift */; };
+		81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		81C23CD01BFE5716000E3838 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		81C23CD31BFE580D000E3838 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		81C23CD51BFEEC67000E3838 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDisplayViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				81C23CCE1BFE563D000E3838 /* EventDisplayViewController.swift */,
 				81C23CD01BFE5716000E3838 /* AddEventViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
+				81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
 				81C23CD61BFEEC67000E3838 /* Contact.swift in Sources */,
 				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
 				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
@@ -396,7 +400,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/Frameworks",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
@@ -413,7 +416,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/ConvenienceKit/Frameworks",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;

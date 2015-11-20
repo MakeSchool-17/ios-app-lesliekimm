@@ -20,11 +20,36 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             contactsTableView?.reloadData()
         }
     }
+    
     var selectedContact: Contact?
     
     @IBAction func backtoContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
-            print("Identifier \(identifier)")
+            do {
+                let realm = try Realm()
+                
+                switch identifier {
+                case "contactSaveSegue":
+                    let source = segue.sourceViewController as! AddContactViewController
+                    try realm.write() {
+                        realm.add(source.currentContact!)
+                    }
+                case "trashContactSegue":   // not needed for case where adding new contact - causes error FIX
+                    try realm.write() {
+                        realm.delete(self.selectedContact!)
+                    }
+                    let source = segue.sourceViewController as! ContactDisplayViewController
+                    source.contact = nil
+                default:
+                    print("No one loves \(identifier)")
+                    
+                }
+                
+                contacts = realm.objects(Contact).sorted("name", ascending: true)
+            }
+            catch {
+                print("handle error")
+            }
         }
     }
 
@@ -33,7 +58,14 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         print("Contacts View Controller")
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
-        // Do any additional setup after loading the view.
+        
+        do {
+            let realm = try Realm()
+            contacts = realm.objects(Contact).sorted("name", ascending: true)
+        }
+        catch {
+            print("ERROR")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +87,8 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
         let row = indexPath.row
+        let contact = contacts[row] as Contact
+        cell.contact = contact
         return cell
     }
     
