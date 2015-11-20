@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class UpcomingViewController: UIViewController {
+class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
@@ -77,9 +77,8 @@ class UpcomingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-extension UpcomingViewController: UITableViewDataSource {
+    
+    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingCell") as! EventTableViewCell
         let row = indexPath.row
@@ -91,9 +90,8 @@ extension UpcomingViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events?.count ?? 0
     }
-}
-
-extension UpcomingViewController: UITableViewDelegate {
+    
+    // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedEvent = events[indexPath.row]
         self.performSegueWithIdentifier("showExistingEventSegue", sender: self)
@@ -112,7 +110,7 @@ extension UpcomingViewController: UITableViewDelegate {
                 try realm.write() {
                     realm.delete(event)
                 }
-            events = realm.objects(Event).sorted("location", ascending: true)
+                events = realm.objects(Event).sorted("location", ascending: true)
             }
             catch {
                 print("ERROR")

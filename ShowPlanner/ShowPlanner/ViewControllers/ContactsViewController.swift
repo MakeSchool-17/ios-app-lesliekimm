@@ -26,7 +26,6 @@ class ContactsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -36,5 +35,4 @@ class ContactsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class AddContactViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Add Contact View Controller")
@@ -20,7 +19,6 @@ class AddContactViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -31,5 +29,4 @@ class AddContactViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
