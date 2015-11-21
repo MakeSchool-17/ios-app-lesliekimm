@@ -29,5 +29,8 @@ class AddEventViewController: UIViewController {
         currentEvent!.name = "All Star Comedy"
         currentEvent!.lineup = "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen"
         currentEvent!.location = "The Comedy Store"
+        currentEvent!.date = "Nov, 26, 2015"
+        currentEvent!.time = "10:00PM"
+        currentEvent!.confirmed = "All Confirmed"
     }
 }

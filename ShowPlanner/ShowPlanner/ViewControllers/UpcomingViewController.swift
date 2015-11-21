@@ -37,7 +37,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 events = realm.objects(Event).sorted("location", ascending: true)
             }
             catch {
-                print("handle error")
+                print("ERROR: backToUpcomingVC")
             }
         }
     }
@@ -59,7 +59,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             events = realm.objects(Event).sorted("location", ascending: true)
         }
         catch {
-            print("ERROR")
+            print("ERROR: UpcomingVC viewDidLoad")
         }
     }
 
@@ -113,7 +113,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 events = realm.objects(Event).sorted("location", ascending: true)
             }
             catch {
-                print("ERROR")
+                print("ERROR: UpcomingVC UITableViewDelegate")
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81561DA61BFFCD10009D4AD2 /* LineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81561DA51BFFCD10009D4AD2 /* LineupTableViewCell.swift */; };
 		818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98701BF661FF00D8157F /* AppDelegate.swift */; };
 		818E98761BF661FF00D8157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98741BF661FF00D8157F /* Main.storyboard */; };
 		818E98781BF661FF00D8157F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818E98771BF661FF00D8157F /* Assets.xcassets */; };
@@ -30,7 +31,8 @@
 /* Begin PBXFileReference section */
 		63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		818E986D1BF661FE00D8157F /* ShowPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81561DA51BFFCD10009D4AD2 /* LineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupTableViewCell.swift; sourceTree = "<group>"; };
+		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818E98751BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		818E98771BF661FF00D8157F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		818E986E1BF661FE00D8157F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				818E986D1BF661FE00D8157F /* ShowPlanner.app */,
+				818E986D1BF661FE00D8157F /* Show Planner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 				81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */,
 				81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */,
 				81C23CCA1BFE4FC3000E3838 /* EventTableViewCell.swift */,
+				81561DA51BFFCD10009D4AD2 /* LineupTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,9 +154,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		818E986C1BF661FE00D8157F /* ShowPlanner */ = {
+		818E986C1BF661FE00D8157F /* Show Planner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 818E987F1BF661FF00D8157F /* Build configuration list for PBXNativeTarget "ShowPlanner" */;
+			buildConfigurationList = 818E987F1BF661FF00D8157F /* Build configuration list for PBXNativeTarget "Show Planner" */;
 			buildPhases = (
 				E1231B7901744CBB5D33CDB2 /* Check Pods Manifest.lock */,
 				818E98691BF661FE00D8157F /* Sources */,
@@ -166,9 +169,9 @@
 			);
 			dependencies = (
 			);
-			name = ShowPlanner;
+			name = "Show Planner";
 			productName = ShowPlanner;
-			productReference = 818E986D1BF661FE00D8157F /* ShowPlanner.app */;
+			productReference = 818E986D1BF661FE00D8157F /* Show Planner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 818E98681BF661FE00D8157F /* Build configuration list for PBXProject "ShowPlanner" */;
+			buildConfigurationList = 818E98681BF661FE00D8157F /* Build configuration list for PBXProject "Show Planner" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -200,7 +203,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				818E986C1BF661FE00D8157F /* ShowPlanner */,
+				818E986C1BF661FE00D8157F /* Show Planner */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +281,7 @@
 				81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */,
 				81C23CCB1BFE4FC3000E3838 /* EventTableViewCell.swift in Sources */,
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
+				81561DA61BFFCD10009D4AD2 /* LineupTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81C23CCF1BFE563D000E3838 /* EventDisplayViewController.swift in Sources */,
 				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
@@ -405,7 +409,7 @@
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Show Planner";
 			};
 			name = Debug;
 		};
@@ -421,14 +425,14 @@
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Show Planner";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		818E98681BF661FE00D8157F /* Build configuration list for PBXProject "ShowPlanner" */ = {
+		818E98681BF661FE00D8157F /* Build configuration list for PBXProject "Show Planner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				818E987D1BF661FF00D8157F /* Debug */,
@@ -437,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		818E987F1BF661FF00D8157F /* Build configuration list for PBXNativeTarget "ShowPlanner" */ = {
+		818E987F1BF661FF00D8157F /* Build configuration list for PBXNativeTarget "Show Planner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				818E98801BF661FF00D8157F /* Debug */,

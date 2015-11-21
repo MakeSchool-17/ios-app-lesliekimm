@@ -13,4 +13,7 @@ class Event: Object {
     dynamic var name: String = ""
     dynamic var lineup: String = ""
     dynamic var location: String = ""
+    dynamic var date: String = ""
+    dynamic var time: String = ""
+    dynamic var confirmed: String = ""
 }
