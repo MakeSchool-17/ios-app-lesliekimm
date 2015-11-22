@@ -25,10 +25,16 @@ class AddEventViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController
         // Pass the selected object to the new view controller
+        if (segue.identifier == "showNewEvent") {
+            currentEvent = Event()
+            let eventViewController = segue.destinationViewController as! EventDisplayViewController
+            eventViewController.event = currentEvent
+        }
+        
         currentEvent = Event()
-        currentEvent!.name = "All Star Comedy"
+//        currentEvent!.name = "All Star Comedy"
         currentEvent!.lineup = "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen"
-        currentEvent!.location = "The Comedy Store"
+//        currentEvent!.location = "The Comedy Store"
         currentEvent!.date = "Nov, 26, 2015"
         currentEvent!.time = "10:00PM"
         currentEvent!.confirmed = "All Confirmed"

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import RealmSwift
 
@@ -25,10 +26,12 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         lineupTableView.dataSource = self
         lineupTableView.delegate = self
+        
+        displayEvent(event)
     }
     
     func displayEvent(event: Event?) {
-        if let event = event, eventNameLabel = eventNameLabel, datePicker = datePicker, locationLabel = locationLabel, lineupTableView = lineupTableView {
+        if let event = event, eventNameLabel = eventNameLabel, datePicker = datePicker, locationLabel = locationLabel {
             eventNameLabel.text = event.name
             locationLabel.text = event.location
         }
