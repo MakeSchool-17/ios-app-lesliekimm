@@ -215,10 +215,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="gJS-kj-gtR" id="4mm-0q-NuW"/>
-                                    <outlet property="delegate" destination="gJS-kj-gtR" id="BfK-a6-icV"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -233,12 +229,12 @@
                     <navigationItem key="navigationItem" title="Upcoming Events" id="9cB-5P-1U2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KmO-hl-NWT">
                             <connections>
-                                <segue destination="MUh-b5-xeb" kind="show" identifier="addEventSegue" id="Q4X-7i-HAh"/>
+                                <segue destination="MUh-b5-xeb" kind="show" identifier="addEventSegue" id="Bji-tJ-yp2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="Uk5-nw-gUB" id="liV-Og-sSD"/>
+                        <outlet property="tableView" destination="Uk5-nw-gUB" id="gdp-kC-4DT"/>
                         <segue destination="4FR-ju-nyd" kind="show" identifier="showExistingEventSegue" id="tii-wY-imG"/>
                     </connections>
                 </viewController>
@@ -262,7 +258,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="4FR-ju-nyd" kind="embed" identifier="showNewEvent" id="ZxT-03-0yo"/>
+                                    <segue destination="4FR-ju-nyd" kind="embed" identifier="showNewEventSegue" id="ZxT-03-0yo"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -278,12 +274,12 @@
                     <navigationItem key="navigationItem" title="Add Event" id="tcU-KA-afY">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uoy-Xl-hhk">
                             <connections>
-                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="cancelAddEventSegue" unwindAction="backToUpcomingVC:" id="5iK-4x-42f"/>
+                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="cancelAddEventSegue" unwindAction="backToUpcomingVC:" id="Bcs-WI-eiR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Fdh-FD-RHe">
                             <connections>
-                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="saveAddEventSegue" unwindAction="backToUpcomingVC:" id="tD4-64-vEO"/>
+                                <segue destination="gpV-Q8-gkG" kind="unwind" identifier="saveAddNewEventSegue" unwindAction="backToUpcomingVC:" id="2Xa-Ky-VQw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -454,12 +450,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
-                                <rect key="frame" x="10" y="10" width="580" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-4D-h84">
                                 <rect key="frame" x="0.0" y="50" width="600" height="216"/>
                                 <animations/>
@@ -489,7 +479,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f7H-GM-7PD" id="RbO-GQ-63F">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="38.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chris D'Elia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCE-j1-DQV">
@@ -524,11 +514,17 @@
                                 <items>
                                     <barButtonItem systemItem="trash" id="Maw-bt-2un">
                                         <connections>
-                                            <segue destination="Jwx-Oh-7ue" kind="unwind" identifier="trashShowSegue" unwindAction="backToUpcomingVC:" id="OGe-jv-0IM"/>
+                                            <segue destination="Jwx-Oh-7ue" kind="unwind" identifier="trashEventSegue" unwindAction="backToUpcomingVC:" id="IL9-oe-m5z"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-yX-pem">
+                                <rect key="frame" x="10" y="10" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,10 +551,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="g3Z-4D-h84" id="NNU-6c-Zw7"/>
-                        <outlet property="eventNameLabel" destination="iYX-yX-pem" id="ayt-B6-yia"/>
-                        <outlet property="lineupTableView" destination="YtZ-bV-pr0" id="rDO-77-ujb"/>
-                        <outlet property="locationLabel" destination="JR0-fk-nhO" id="4jQ-ca-nag"/>
+                        <outlet property="datePicker" destination="g3Z-4D-h84" id="2lM-sI-heu"/>
+                        <outlet property="eventNameLabel" destination="iYX-yX-pem" id="vhI-83-Mz4"/>
+                        <outlet property="lineupTableView" destination="YtZ-bV-pr0" id="fSh-6r-zDL"/>
+                        <outlet property="locationLabel" destination="JR0-fk-nhO" id="eoK-uU-pPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onk-DA-aGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

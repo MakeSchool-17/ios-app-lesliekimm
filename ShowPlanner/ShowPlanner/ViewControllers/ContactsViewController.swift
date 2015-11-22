@@ -55,7 +55,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Contacts View Controller")
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
 //        

@@ -11,8 +11,6 @@ import UIKit
 class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Account View Controller")
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
