@@ -25,6 +25,7 @@
 		81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47691C0282E800705324 /* AddEventViewController.swift */; };
 		81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */; };
 		81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476D1C0290E900705324 /* LineupTableViewCell.swift */; };
+		81FB47701C03BD6300705324 /* Performer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476F1C03BD6300705324 /* Performer.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		81FB47691C0282E800705324 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
 		81FB476D1C0290E900705324 /* LineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupTableViewCell.swift; sourceTree = "<group>"; };
+		81FB476F1C03BD6300705324 /* Performer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				81C23CCC1BFE5001000E3838 /* Event.swift */,
 				81C23CD51BFEEC67000E3838 /* Contact.swift */,
+				81FB476F1C03BD6300705324 /* Performer.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */,
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
 				81C23CD61BFEEC67000E3838 /* Contact.swift in Sources */,
+				81FB47701C03BD6300705324 /* Performer.swift in Sources */,
 				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
 				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
 				81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */,

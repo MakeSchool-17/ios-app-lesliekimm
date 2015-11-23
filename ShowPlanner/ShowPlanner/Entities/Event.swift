@@ -15,4 +15,5 @@ class Event: Object {
     dynamic var location: String = ""
     dynamic var dateTime = NSDate()
     dynamic var confirmed: String = ""
+//    dynamic var confirmed: Bool = false
 }

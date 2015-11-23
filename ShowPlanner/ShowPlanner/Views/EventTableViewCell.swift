@@ -36,7 +36,13 @@ class EventTableViewCell: UITableViewCell {
                 locationLabel.text = event.location
                 dateLabel.text = EventTableViewCell.dateFormatter.stringFromDate(event.dateTime)
                 timeLabel.text = EventTableViewCell.timeFormatter.stringFromDate(event.dateTime)
-                confirmedLabel.text = event.confirmed
+                confirmedLabel.text = "Not confirmed"
+//                if event.confirmed {
+//                    confirmedLabel.text = "All Confirmed"
+//                }
+//                else {
+//                    confirmedLabel.text = "Not Confirmed"
+//                }
             }
         }
     }
