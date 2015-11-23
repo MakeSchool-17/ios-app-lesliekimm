@@ -107,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="faM-Vn-ES9" id="sMZ-34-tjH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gE3-iY-MQX">
@@ -132,21 +132,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Day, Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omo-dX-zyC">
-                                                    <rect key="frame" x="457" y="5" width="128" height="21"/>
+                                                    <rect key="frame" x="457" y="5" width="128" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour:Min PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWA-IQ-VRl">
-                                                    <rect key="frame" x="457" y="30" width="128" height="21"/>
+                                                    <rect key="frame" x="457" y="30" width="128" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyd-8b-lPv">
-                                                    <rect key="frame" x="457" y="56" width="128" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZh-Xl-XYv">
+                                                    <rect key="frame" x="457" y="55.5" width="120" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -156,28 +156,28 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="ZuO-fM-tby" firstAttribute="leading" secondItem="sMZ-34-tjH" secondAttribute="leading" constant="15" id="AWy-AM-zt1"/>
-                                                <constraint firstItem="fyd-8b-lPv" firstAttribute="top" secondItem="oWA-IQ-VRl" secondAttribute="bottom" constant="5" id="DjU-DN-YP4"/>
+                                                <constraint firstItem="HZh-Xl-XYv" firstAttribute="leading" secondItem="YGU-up-mrY" secondAttribute="trailing" constant="15" id="Cnz-pS-Xh0"/>
                                                 <constraint firstItem="gE3-iY-MQX" firstAttribute="leading" secondItem="sMZ-34-tjH" secondAttribute="leading" constant="15" id="Fv8-4X-0dF"/>
                                                 <constraint firstItem="ZuO-fM-tby" firstAttribute="top" secondItem="gE3-iY-MQX" secondAttribute="bottom" constant="5" id="IvE-mm-Ve0"/>
                                                 <constraint firstAttribute="trailing" secondItem="Omo-dX-zyC" secondAttribute="trailing" constant="15" id="Kc4-n9-cra"/>
                                                 <constraint firstItem="oWA-IQ-VRl" firstAttribute="top" secondItem="Omo-dX-zyC" secondAttribute="bottom" constant="5" id="MB0-Ub-7jM"/>
                                                 <constraint firstItem="Omo-dX-zyC" firstAttribute="leading" secondItem="gE3-iY-MQX" secondAttribute="trailing" constant="15" id="OLQ-LH-egf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZuO-fM-tby" secondAttribute="trailing" constant="150" id="Rnf-Vy-1Vs"/>
-                                                <constraint firstAttribute="trailing" secondItem="fyd-8b-lPv" secondAttribute="trailing" constant="15" id="Wg4-np-WBa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="YGU-up-mrY" secondAttribute="trailing" constant="150" id="X92-zn-7o5"/>
                                                 <constraint firstItem="Omo-dX-zyC" firstAttribute="top" secondItem="sMZ-34-tjH" secondAttribute="top" constant="5" id="bze-TM-P1v"/>
                                                 <constraint firstItem="YGU-up-mrY" firstAttribute="leading" secondItem="sMZ-34-tjH" secondAttribute="leading" constant="15" id="c4N-Fa-AFI"/>
-                                                <constraint firstItem="fyd-8b-lPv" firstAttribute="leading" secondItem="YGU-up-mrY" secondAttribute="trailing" constant="15" id="i0H-QD-JXm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HZh-Xl-XYv" secondAttribute="trailing" constant="15" id="dha-or-xeI"/>
                                                 <constraint firstItem="YGU-up-mrY" firstAttribute="top" secondItem="ZuO-fM-tby" secondAttribute="bottom" constant="5" id="iBc-6k-oQE"/>
                                                 <constraint firstAttribute="trailing" secondItem="oWA-IQ-VRl" secondAttribute="trailing" constant="15" id="lOF-9H-Jtg"/>
                                                 <constraint firstItem="gE3-iY-MQX" firstAttribute="top" secondItem="sMZ-34-tjH" secondAttribute="top" constant="8" id="nbq-B0-M25"/>
+                                                <constraint firstItem="HZh-Xl-XYv" firstAttribute="top" secondItem="oWA-IQ-VRl" secondAttribute="bottom" constant="5" id="rbI-yo-3Yb"/>
                                                 <constraint firstItem="oWA-IQ-VRl" firstAttribute="leading" secondItem="ZuO-fM-tby" secondAttribute="trailing" constant="15" id="ya9-du-zXL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gE3-iY-MQX" secondAttribute="trailing" constant="150" id="zQX-oy-70J"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="confirmedLabel" destination="fyd-8b-lPv" id="Pvj-J6-U7d"/>
+                                            <outlet property="confirmedLabel" destination="HZh-Xl-XYv" id="zrW-Eb-uDM"/>
                                             <outlet property="dateLabel" destination="Omo-dX-zyC" id="vg4-Cr-Rbl"/>
                                             <outlet property="eventNameLabel" destination="gE3-iY-MQX" id="TkN-Kq-H99"/>
                                             <outlet property="lineupLabel" destination="ZuO-fM-tby" id="dqB-Gr-oON"/>

@@ -53,6 +53,7 @@ class EventDisplayViewController: UIViewController {
                         event.dateTime = self.datePicker.date
                         event.location = self.locationTextField.text!
                         event.lineup = "Kevin Nealon, Iliza Shlesinger, Moshe Kasher, Jerrod Carmichael, Bill Burr, Sarah Silverman"
+                        event.confirmed = "Not Confirmed"
                     }
                 }
             }
