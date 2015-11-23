@@ -1,8 +1,8 @@
 //
 //  EventTableViewCell.swift
-//  ShowPlanner
+//  Show Planner
 //
-//  Created by Leslie Kim on 11/19/15.
+//  Created by Leslie Kim on 11/22/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
@@ -18,13 +18,13 @@ class EventTableViewCell: UITableViewCell {
     
     static var dateFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateStyle = .MediumStyle
         return formatter
     }()
     
     static var timeFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
-        formatter.dateFormat = "HH:ss"
+        formatter.timeStyle = .ShortStyle
         return formatter
     }()
     
@@ -39,15 +39,5 @@ class EventTableViewCell: UITableViewCell {
                 confirmedLabel.text = event.confirmed
             }
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 }

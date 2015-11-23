@@ -1,64 +1,45 @@
 //
 //  AddEventViewController.swift
-//  ShowPlanner
+//  Show Planner
 //
-//  Created by Leslie Kim on 11/19/15.
+//  Created by Leslie Kim on 11/22/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
 import UIKit
-
-//class AddEventViewController: UIViewController {
-//    static var dateFormatter: NSDateFormatter = {
-//        var formatter = NSDateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        return formatter
-//    }()
-//    
-//    var currentEvent: Event?
-//    
-//    // MARK: Navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController
-//        // Pass the selected object to the new view controller
-//        
-//        if (segue.identifier == "showNewEventSegue") {
-//            currentEvent = Event()
-//            let eventViewController = segue.destinationViewController as! EventDisplayViewController
-//            eventViewController.event = currentEvent
-//        }
-//    }
-//}
 
 class AddEventViewController: UIViewController {
     var currentEvent: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Navigation
+
+    // MARK: Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController
-        // Pass the selected object to the new view controller
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
         if (segue.identifier == "showNewEvent") {
             currentEvent = Event()
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = currentEvent
         }
         
-        currentEvent = Event()
-//        currentEvent!.name = "All Star Comedy"
-        currentEvent!.lineup = "Dom Irrera, Mike Marino, Tony Rock, Bob Saget, Godfrey, Kat Williams, Dane Cook, Tim Allen"
-//        currentEvent!.location = "The Comedy Store"
-//        currentEvent!.date = "Nov, 26, 2015"
-//        currentEvent!.time = "10:00PM"
-        currentEvent!.confirmed = "All Confirmed"
+//        currentEvent = Event()
+//        currentEvent!.name = "KN Show"
+//        currentEvent!.lineup = "Kevin Nealon, Iliza Shlesinger, Moshe Kasher, Jerrod Carmichael, Bill Burr, Sarah Silverman, Bobby Lee"
+//        currentEvent!.location = "The Laugh Factory"
+//        currentEvent!.dateTime = NSDate()
+//        currentEvent!.confirmed = "Not Confirmed"
     }
 }

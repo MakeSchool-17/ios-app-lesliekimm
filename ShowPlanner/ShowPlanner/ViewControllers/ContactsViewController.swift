@@ -20,7 +20,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             contactsTableView?.reloadData()
         }
     }
-    
     var selectedContact: Contact?
     
     @IBAction func backtoContactsVC(segue: UIStoryboardSegue) {
@@ -42,13 +41,12 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                     source.contact = nil
                 default:
                     print("No one loves \(identifier)")
-                    
                 }
                 
                 contacts = realm.objects(Contact).sorted("name", ascending: true)
             }
             catch {
-                print("handle error")
+                print("Error in backToContactsVC")
             }
         }
     }
@@ -57,14 +55,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
-//        
-//        do {
-//            let realm = try Realm()
-//            contacts = realm.objects(Contact).sorted("name", ascending: true)
-//        }
-//        catch {
-//            print("ERROR")
-//        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,13 +65,8 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             contacts = realm.objects(Contact).sorted("name", ascending: true)
         }
         catch {
-            print("ERROR")
+            print("Error in Contacts viewDidLoad")
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Navigation
