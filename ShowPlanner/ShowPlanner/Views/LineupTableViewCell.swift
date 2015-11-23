@@ -9,6 +9,9 @@
 import UIKit
 
 class LineupTableViewCell: UITableViewCell {
+    @IBOutlet weak var lineupNameLabel: UILabel!
+    @IBOutlet weak var hostLabel: UILabel!
+    @IBOutlet weak var confirmedLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
