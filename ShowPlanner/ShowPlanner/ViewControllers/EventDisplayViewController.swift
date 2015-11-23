@@ -35,8 +35,9 @@ class EventDisplayViewController: UIViewController {
     }
     
     func displayEvent(event: Event?) {
-        if let event = event, nameTextField = nameTextField, locationTextField = locationTextField {
+        if let event = event, nameTextField = nameTextField, datePicker = datePicker, locationTextField = locationTextField {
             nameTextField.text = event.name
+            datePicker.date = event.dateTime
             locationTextField.text = event.location
         }
     }
@@ -47,8 +48,9 @@ class EventDisplayViewController: UIViewController {
                 let realm = try Realm()
                 
                 try realm.write {
-                    if (event.name != self.nameTextField.text || event.location != self.locationTextField.text) {
+                    if (event.name != self.nameTextField.text || event.dateTime != self.datePicker.date || event.location != self.locationTextField.text) {
                         event.name = self.nameTextField.text!
+                        event.dateTime = self.datePicker.date
                         event.location = self.locationTextField.text!
                         event.lineup = "Kevin Nealon, Iliza Shlesinger, Moshe Kasher, Jerrod Carmichael, Bill Burr, Sarah Silverman"
                     }

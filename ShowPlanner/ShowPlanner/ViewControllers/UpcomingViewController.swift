@@ -40,7 +40,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                     print("No one loves \(identifier)")
                 }
                 
-                events = realm.objects(Event).sorted("dateTime", ascending: false)
+                events = realm.objects(Event).sorted("dateTime", ascending: true)
             }
             catch {
                 print("Error in backToUpcomingVC")
@@ -59,7 +59,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         
         do {
             let realm = try Realm()
-            events = realm.objects(Event).sorted("dateTime", ascending: false)
+            events = realm.objects(Event).sorted("dateTime", ascending: true)
         }
         catch {
             print("Error in Upcoming viewDidLoad")
@@ -110,7 +110,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 try realm.write() {
                     realm.delete(event)
                 }
-                events = realm.objects(Event).sorted("dateTime", ascending: false)
+                events = realm.objects(Event).sorted("dateTime", ascending: true)
             }
             catch {
                 print("Error in commitEditingStyle")
