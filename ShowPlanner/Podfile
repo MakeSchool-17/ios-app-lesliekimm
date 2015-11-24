@@ -4,8 +4,11 @@
 # use_frameworks!
 use_frameworks!
 
+xcodeproj 'ShowPlanner'
+
 target 'ShowPlanner' do
 
 pod 'RealmSwift'
+pod 'ConvenienceKit'
 
 end

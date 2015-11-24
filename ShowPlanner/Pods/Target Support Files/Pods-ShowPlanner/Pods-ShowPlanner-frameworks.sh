@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-ShowPlanner/ConvenienceKit.framework"
   install_framework "Pods-ShowPlanner/Realm.framework"
   install_framework "Pods-ShowPlanner/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-ShowPlanner/ConvenienceKit.framework"
   install_framework "Pods-ShowPlanner/Realm.framework"
   install_framework "Pods-ShowPlanner/RealmSwift.framework"
 fi
