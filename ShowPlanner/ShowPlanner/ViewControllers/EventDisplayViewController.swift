@@ -31,22 +31,6 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         lineupTableView.dataSource = self
-        
-        let myPerformer = Performer()
-        myPerformer.name = "bill burr"
-        myPerformer.host = false
-        myPerformer.confirmed = false
-        
-        do {
-            let realm = try Realm()
-            try realm.write() {
-                realm.add(myPerformer)
-            }
-            // 1
-            lineup = realm.objects(Performer)
-        } catch {
-            print("handle error")
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,11 +39,11 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         displayEvent(event)
     }
 
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        saveEvent()
-//    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        saveEvent()
+    }
     
     func displayEvent(event: Event?) {
         if let event = event, nameTextField = nameTextField, datePicker = datePicker, locationTextField = locationTextField {
@@ -93,17 +77,18 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
-//        cell.lineupNameLabel.text = "aries spears"
-//        cell.hostLabel.text = ""
-//        cell.confirmedLabel.text = "x"
-        let row = indexPath.row
-        let performer = lineup[row] as Performer
-        cell.performer = performer
+        cell.lineupNameLabel.text = "aries spears"
+        cell.hostLabel.text = ""
+        cell.confirmedLabel.text = "x"
+//        let row = indexPath.row
+//        let performer = lineup[row] as Performer
+//        cell.performer = performer
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lineup?.count ?? 0
+        return 5
+//        return lineup?.count ?? 0
     }
 }

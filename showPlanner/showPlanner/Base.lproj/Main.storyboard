@@ -580,14 +580,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-2D-oP9">
-                                <rect key="frame" x="15" y="365" width="570" height="14.5"/>
+                                <rect key="frame" x="15" y="370" width="100" height="14.5"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Un1-jA-oO8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idr-OL-Hwv">
-                                <rect key="frame" x="0.0" y="384" width="600" height="122.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idr-OL-Hwv">
+                                <rect key="frame" x="0.0" y="384" width="600" height="122"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -652,17 +655,23 @@
                                     <barButtonItem systemItem="trash" id="AdI-PW-eAC"/>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-v9-0pb">
+                                <rect key="frame" x="519" y="370" width="66" height="27"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <state key="normal" title="Edit Lineup"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ImI-v9-0pb" firstAttribute="top" secondItem="QuK-2D-oP9" secondAttribute="top" id="0Aa-2G-UeL"/>
                             <constraint firstItem="YWE-8S-Rqw" firstAttribute="top" secondItem="idr-OL-Hwv" secondAttribute="bottom" id="3C2-kP-x5Y"/>
                             <constraint firstItem="AMr-Wz-EhO" firstAttribute="top" secondItem="jmS-Io-rzm" secondAttribute="bottom" constant="5" id="3cB-gL-Rcz"/>
                             <constraint firstItem="AMr-Wz-EhO" firstAttribute="leading" secondItem="Pmu-JO-osC" secondAttribute="leading" id="B3H-4l-9t0"/>
                             <constraint firstItem="don-gz-KBL" firstAttribute="leading" secondItem="Pmu-JO-osC" secondAttribute="leading" constant="15" id="Epv-4T-YdB"/>
                             <constraint firstItem="YWE-8S-Rqw" firstAttribute="leading" secondItem="Pmu-JO-osC" secondAttribute="leading" id="Ezy-xj-GNZ"/>
                             <constraint firstAttribute="trailing" secondItem="don-gz-KBL" secondAttribute="trailing" constant="15" id="JxP-uD-VFF"/>
-                            <constraint firstAttribute="trailing" secondItem="QuK-2D-oP9" secondAttribute="trailing" constant="15" id="LR8-gM-OIh"/>
                             <constraint firstAttribute="trailing" secondItem="idr-OL-Hwv" secondAttribute="trailing" id="SgF-lF-yE3"/>
                             <constraint firstItem="QuK-2D-oP9" firstAttribute="leading" secondItem="Pmu-JO-osC" secondAttribute="leading" constant="15" id="WEk-iW-ZtC"/>
                             <constraint firstAttribute="trailing" secondItem="YWE-8S-Rqw" secondAttribute="trailing" id="WIZ-0L-7H9"/>
@@ -672,9 +681,10 @@
                             <constraint firstItem="jmS-Io-rzm" firstAttribute="top" secondItem="Uba-Xl-W4T" secondAttribute="bottom" constant="10" id="fQP-n3-PVk"/>
                             <constraint firstAttribute="trailing" secondItem="jmS-Io-rzm" secondAttribute="trailing" constant="15" id="glz-iv-xk8"/>
                             <constraint firstItem="Eep-8a-r4P" firstAttribute="top" secondItem="YWE-8S-Rqw" secondAttribute="bottom" id="iM9-ES-urW"/>
-                            <constraint firstItem="QuK-2D-oP9" firstAttribute="top" secondItem="don-gz-KBL" secondAttribute="bottom" constant="5" id="o8u-Kb-eQo"/>
+                            <constraint firstAttribute="trailing" secondItem="ImI-v9-0pb" secondAttribute="trailing" constant="15" id="lnA-0q-HJr"/>
+                            <constraint firstItem="QuK-2D-oP9" firstAttribute="top" secondItem="don-gz-KBL" secondAttribute="bottom" constant="10" id="o8u-Kb-eQo"/>
                             <constraint firstItem="don-gz-KBL" firstAttribute="top" secondItem="AMr-Wz-EhO" secondAttribute="bottom" constant="5" id="qXT-Yi-csb"/>
-                            <constraint firstItem="idr-OL-Hwv" firstAttribute="top" secondItem="QuK-2D-oP9" secondAttribute="bottom" constant="5" id="unW-fC-x8I"/>
+                            <constraint firstItem="idr-OL-Hwv" firstAttribute="top" secondItem="QuK-2D-oP9" secondAttribute="bottom" id="unW-fC-x8I"/>
                         </constraints>
                     </view>
                     <connections>
