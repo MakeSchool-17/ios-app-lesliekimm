@@ -2,11 +2,11 @@
 Author: Leslie Kim
 
 ##Objective
-To provide a software that makes scheduling/booking comedy shows easier.
-Eventually could expand into other industries/event booking.
+To provide an app that will help in organizing confirmed/unconfirmed
+performers, speakers, musicians for events.
 
 ##Audience
-Comedy clubs and comedy show bookers
+Event planners
 
 ##Experience
 The current method of scheduling a comedy show (small/one booker vs comedy
@@ -14,100 +14,112 @@ club) is that a booker emails/calls/texts comedians and booker usually uses
 excel or some other software to save information. Sometimes this is simply
 done in Notes app on iOS or equivalent app on other devices. Other times, it
 may be done from memory or just jotted down on paper/notebook. This app would
-load contacts from a booker's cell phone into the app (booker can one time
-import only selected contacts, does not have to import all contacts) for a
-contact list. Then booker creates shows and adds comedians to the event. Emails
-are sent out to comedians with a link to a very simple web app where comedian
-hits confirm or cancel. This updates the backend and event is updated in
-booker's app.
+allow the planner to import contacts from their cell phone, create/edit
+events and select contacts for the event, send out confirmation requests, and
+have the RSVPs be handled by text messages which updates the app.
 
 ##Technical
-Flask backend customized server.
-Simple web app for comedians to confirm spots.
+Realm for local storage
+Twilio for texting framework
 
 ####External Services
 ???
 
 ####Screens
-See /Wireframe/AllVCs.jpg
+See /Wireframe/JPGs/8_AllVCs.jpg
 
 ####Views / View Controllers/ Classes
 
+VIEW CONTROLLERS:
 Tab Bar View Controller: 4 tabs
-1) Upcoming: Displays all upcoming shows in order from earliest scheduled to
+1) Upcoming: Displays all upcoming events in order from earliest scheduled to
    latest
-2) Past: List of all past shows in order from the most recent show to oldest
-3) Comedians: Contact list of all comedians
+2) History: List of all past events in order from the most recent to oldest
+3) Contacts: Contact list of all contacts
 4) Settings: Account info
 
-UpcomingViewController (initial VC): VC w/ TableView of
-ComedyShowTableViewCells. TableViewCells has 3 labels (name, comedians,
-location) left aligned and 3 labels right aligned (date, time and All
-Confirmed label that is displayed once lineup is set). Nav bar button to add 
-shows. The add button will bring up AddShowVC that allows user to enter a name
-for the show and edit the date and time. Any time a ComedyShowTVC is clicked,
-EditLineupVC will popup. From EditLineupVC, show info and lineup can be edited.
-Shows will not be able to be deleted with swipe left functionality. Show can
-only be deleted once the specific show is selected from it's EditLineupVC.
-Until shows are all confirmed, the right side of ComedyShowTVC will be red.
+UpcomingViewController (initial VC): VC w/ TableView of EventTableViewCells.
+TVCs have 3 labels (name, lineup, location) left aligned and 3 labels right
+aligned (date, time and confirmed label). Nav bar button to add events. The add
+button will segues to AddEventVC which allows user to create new events. Click
+on an existing event via it's EventTVC to edit an event which will segue to
+EventDispalyVC. Left swipe delete will not be activated (can only be done while
+editing event - should not be so easy to delete an event). EventTVCs will be red
+until entire lineup is confirmed and the confirmed label is hidden. When all
+confirmed, the cell will no longer be red and confirmed label will display "All
+Confirmed".
 
-EditLineupVC: VC will display show info up top, lineup in the middle and two
-buttons. Tapping the right arrow on any show info will bring up a EditShowVC
-where all show info can be edited at once. Tapping on any date/time fields will
-present a dropdown so user can edit date/time from the same screen. For the
-lineup, user seelcts Edit Lineup button and it goes to SelectComediansVC. Once
-lineup is selected, the PerformersTableViewCells will display the comedian's
-name, autocreated time based on show start time, displays an H for host and C
-if comedian is confirmed. Performance time can be edited by tapping the time.
-If a comedian is not confirmed, PerformersTVC is red. PerformersTVC is drag and
-droppable. Send confirmation request will send an email/text (haven't decided
-yet) asking comedian to confirm via very simple web app or 'Type C to confirm'
-text message. This updates the info on the app. Button only sends requests to
-those who have not been sent requests. (THIS IS THE MAIN PART OF THE APP AND
-NEEDS TO BE FLESHED OUT MORE. Still thinking of how to deal with changing times,
-send out requests, replace comedians, etc.)
+AddEventViewController: Has a container view that embeds the EventDispalyVC.
+Save nav bar button will save an event. Cancel nav bar button will cancel
+creating an event.
 
-SelectComediansVC: Will look very much like ComediansVC (contact list). Search
-bar at top and Table View with SelectComedianTVC. Each TVC has comedian name,
-greyed out H and greyed out check mark. If H is selected, indicates a host.
-When check mark selected, indicated that comedian should be added to lineup.
-Can add/remove as many as needed at once. Add all button will update the lineup
-with all checked off comedians. Right alphabet scroll available to jump to a
-letter.
+EventDisplayViewController: VC to add/edit an event. Text field to insert name,
+Date picker to select date and time, textfield to insert location, Edit Lineup
+button to segue to EditLineupVC to edit lineup and table view to display
+lineup of LineupTableViewCells. LineupTVC will display contact's name, whether
+someone is a host (if your event needs a host), and whether or not someone is
+confirmed. If a contact is not yet confirmed, cell is red and "x" in confirmed
+location. Once contact is confirmed, "C" in confirmed location and cell is no
+longer red. Bottom toolbar with trash icon will only appear when EventDisplayVC
+is accessed through selected a EventTVC from UpcomingVC.
 
-PastShowsVC: TableView that shows all PastComedyShowTVCs in order from most
-recent to oldest. Nothing is editable here.
+SelectLineupViewController: VC to edit lineup. Will have a search bar at the
+top to conveniently search through contacts. Table view will contain two
+sections. Top section will have LineupTableViewCells of contacts that are
+already in the lineup. Bottom section will be contacts that are not currently
+selected. Select the check mark to move a contact to top section, select Host
+label to mark as host. Click "Send confirmation request" to send text message
+only to contacts that were most recently added. (Need to figure out how to send
+text to individuals that were already sent requests for those that may need a
+reminder.)
 
-ComediansVC: Contacts list of ComedianTVCs that lists just the name. Alphabet
+HistoryViewController: Table view that shows all past events in order from most
+recent to oldest. Nothing is editable here. Just for show
+
+ContactsViewController: Table view of contacts that display name. Add nav bar
+button will segue to AddContactVC to create a new contact. Click on existing
+contact to edit existing contact. Contacts can be deleted via left swipe. import
+nav bar button will allow user to import contacts from their Contacts app.
+(Should be able to use Twilio to do this.)
+
+AddContactViewController: Has a container view that embeds the ContactDisplayVC.
+Save nav bar will save a new contact. Cancel nav bar button will cancel creating
+a new contact.
+
+ContactDisplayViewController: VC to add/edit new contact. Text field for name,
+cell and email address. When accessed via touch from ContactsVC, toolbar appears
+at bottom with trash icon to delete a contact.
+
+AccountViewController: Contains user information. This can be expanded on after
+MVP is done.
+
+Contacts list of ComedianTVCs that lists just the name. Alphabet
 scroll on right to jump to a letter. Add nav button will allow user to add a
 comedian on the AddComedianVC. Selecting existing comedian will take you to
 EditComedianVC. A one time import of contacts list will be available at the
 beginning to import from cell phone contacts. Could add import nav button in
 case bulk import needs to happen after initial import.
 
-AddComedianVC: Enter name, cell and email to add a comedian.
+CLASSES:
+Event class: Contains string for name, lineup, location, and confirmed. NSDate
+             object for date and time.
 
-EditComedianVC: Name, cell and email are in each text field and editable by
-selecting a text field.
+Contact class: Contains string for name, email and cell.
 
-SettingsVC: This VC needs to be fleshed out a bit more as well. Might just hold
-info about user/booker. Name, cell and email.
-
-Class Show: Show object has name, comedians, location, Date and Time properties.
-
-Class Comedian: Comedian object has name, email and phone number properties.
+Performer class: Contains string for name and bool for host and confirmed.
 
 ####Data Models
-Shows: Name (String), Date/Time (String)
-Comedian: Name(String), Email (String), Phone number (String)
+NA
 
 ##MVP Milestones
-Milestone 1: Complete wireframe
-Milestone 2: Create UI in XCode
-Milestone 3: Implement EditLineupVC - this includes UpcomingVC, AddShowVC,
-             EditShowVC, SelectComediansVC as well.
-Milestone 4: Implement Realm to store locally (not necessarily an app that
-             needs to store data on server yet.)
-Milestone 5: Implement other VCs
+Milestone 1: Complete wireframe - DONE (continual updates in progress)
+Milestone 2: Create UI in XCode - DONE (continual updates in progress)
+Milestone 3: Implement EditLineupVC - this includes UpcomingVC, AddEventVC and
+             EditLineupVC - need to work on EditLineupVC, implement Selecting
+             lineup
+Milestone 4: Implement Realm to store locally - DONE
+Milestone 5: Implement import for ContactsVC
+Milestone 6: Implement other VCs
 
-MVP: Show organizer with data stored locally.
+Post MVP Milestones
+Milestone 7: Work on UI/UX
