@@ -15,6 +15,17 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var lineupTableView: UITableView!
+    
+    @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "saveLineup":
+                print("save lineup")
+            default:
+                print("No one loves \(identifier)")
+            }
+        }
+    }
 
     var event: Event? {
         didSet {

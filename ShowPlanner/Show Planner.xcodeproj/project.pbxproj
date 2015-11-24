@@ -26,6 +26,7 @@
 		81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */; };
 		81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476D1C0290E900705324 /* LineupTableViewCell.swift */; };
 		81FB47701C03BD6300705324 /* Performer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476F1C03BD6300705324 /* Performer.swift */; };
+		81FB47721C03E2C900705324 /* SelectLineupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47711C03E2C900705324 /* SelectLineupViewController.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
 		81FB476D1C0290E900705324 /* LineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupTableViewCell.swift; sourceTree = "<group>"; };
 		81FB476F1C03BD6300705324 /* Performer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performer.swift; sourceTree = "<group>"; };
+		81FB47711C03E2C900705324 /* SelectLineupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				81FB47651C027A3E00705324 /* UpcomingViewController.swift */,
 				81FB47691C0282E800705324 /* AddEventViewController.swift */,
 				81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */,
+				81FB47711C03E2C900705324 /* SelectLineupViewController.swift */,
 				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
 				81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
@@ -289,6 +292,7 @@
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
 				81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
+				81FB47721C03E2C900705324 /* SelectLineupViewController.swift in Sources */,
 				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
 				81C23CCD1BFE5001000E3838 /* Event.swift in Sources */,
 				81FB47661C027A3E00705324 /* UpcomingViewController.swift in Sources */,

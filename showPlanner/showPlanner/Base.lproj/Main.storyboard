@@ -589,8 +589,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idr-OL-Hwv">
-                                <rect key="frame" x="0.0" y="384" width="600" height="122"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idr-OL-Hwv">
+                                <rect key="frame" x="0.0" y="384" width="600" height="123"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -660,6 +660,9 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <state key="normal" title="Edit Lineup"/>
+                                <connections>
+                                    <segue destination="yte-I4-Hcs" kind="show" id="Px8-1s-U8C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -697,6 +700,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXQ-T6-bIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687" y="1590"/>
+        </scene>
+        <!--Select Lineup-->
+        <scene sceneID="3xo-FD-GfH">
+            <objects>
+                <viewController id="yte-I4-Hcs" customClass="SelectLineupViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XaK-5s-2Yf"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Q1-UX-CV2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0nt-kA-23J">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Lineup" id="AMg-WX-rfr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IaA-9G-vHJ">
+                            <connections>
+                                <segue destination="bM9-lY-wMZ" kind="unwind" identifier="cancelLineup" unwindAction="backToEventDisplayVC:" id="gsj-Wy-ipr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fy9-X7-9p3">
+                            <connections>
+                                <segue destination="bM9-lY-wMZ" kind="unwind" identifier="saveLineup" unwindAction="backToEventDisplayVC:" id="gim-rn-wOs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qj-q2-QZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bM9-lY-wMZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="1590"/>
         </scene>
     </scenes>
     <resources>
