@@ -301,34 +301,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5u3-6d-6di">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5u3-6d-6di">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="71" id="wVF-lN-aqz" customClass="ContactTableViewCell" customModule="Show_Planner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="36" id="wVF-lN-aqz" customClass="ContactTableViewCell" customModule="Show_Planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wVF-lN-aqz" id="vL0-w6-2fx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@domain.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efb-Ee-0cg">
-                                                    <rect key="frame" x="15" y="26" width="570" height="17"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(555) 555-5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H80-5Q-eVk">
-                                                    <rect key="frame" x="15" y="46" width="570" height="16"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-FB-UMk">
-                                                    <rect key="frame" x="15" y="3" width="570" height="21"/>
+                                                    <rect key="frame" x="15" y="8" width="570" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,21 +323,13 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="efb-Ee-0cg" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="GrF-KA-iy1"/>
-                                                <constraint firstItem="efb-Ee-0cg" firstAttribute="top" secondItem="VyI-FB-UMk" secondAttribute="bottom" constant="3" id="QPK-yn-gcC"/>
-                                                <constraint firstItem="VyI-FB-UMk" firstAttribute="top" secondItem="vL0-w6-2fx" secondAttribute="top" constant="3" id="SH7-ky-ert"/>
-                                                <constraint firstAttribute="trailing" secondItem="H80-5Q-eVk" secondAttribute="trailing" constant="15" id="XIq-zC-PN9"/>
-                                                <constraint firstAttribute="trailing" secondItem="efb-Ee-0cg" secondAttribute="trailing" constant="15" id="gZB-0K-3ne"/>
-                                                <constraint firstItem="H80-5Q-eVk" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="n1h-gc-Zyh"/>
+                                                <constraint firstItem="VyI-FB-UMk" firstAttribute="centerY" secondItem="vL0-w6-2fx" secondAttribute="centerY" id="a5A-rF-Mga"/>
                                                 <constraint firstAttribute="trailing" secondItem="VyI-FB-UMk" secondAttribute="trailing" constant="15" id="rdO-9x-0m8"/>
-                                                <constraint firstItem="H80-5Q-eVk" firstAttribute="top" secondItem="efb-Ee-0cg" secondAttribute="bottom" constant="3" id="sxg-Pw-zm2"/>
                                                 <constraint firstItem="VyI-FB-UMk" firstAttribute="leading" secondItem="vL0-w6-2fx" secondAttribute="leading" constant="15" id="xAM-gY-flb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="contactCellLabel" destination="H80-5Q-eVk" id="iaC-Ns-VCw"/>
-                                            <outlet property="contactEmailLabel" destination="efb-Ee-0cg" id="I7A-Zd-DMj"/>
                                             <outlet property="contactNameLabel" destination="VyI-FB-UMk" id="g5y-y7-90E"/>
                                         </connections>
                                     </tableViewCell>
