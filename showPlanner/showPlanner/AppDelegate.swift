@@ -45,47 +45,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func getAppDelegate() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
-    
-    func showMessage(message: String) {
-        // create an alert controller for ContactsViewController
-        let alertController = UIAlertController(title: "Contacts", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        // create action for OK button
-        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
-        }
-        
-        alertController.addAction(dismissAction)            // add action for OK buton to alert controller
-        
-        // get stack of view controllers
-        let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
-        // get view controller at top of stack
-        let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
-        
-        // present alert controller in top view controller
-        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func requestForAcces(completionHandler: (accessGranted: Bool) -> Void) {
-        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
-        
-        switch authorizationStatus {
-        case .Authorized:
-            completionHandler(accessGranted: true)
-        case .Denied, .NotDetermined:
-            self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
-                if access {
-                    completionHandler(accessGranted: access)
-                }
-                else {
-                    if authorizationStatus == CNAuthorizationStatus.Denied {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through Account."
-                            self.showMessage(message)
-                        })
-                    }
-                }
-            })
-        default:
-            completionHandler(accessGranted: false)
-        }
-    }
 }
