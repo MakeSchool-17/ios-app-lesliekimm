@@ -1,5 +1,5 @@
 //
-//  Performer.swift
+//  Lineup.swift
 //  Show Planner
 //
 //  Created by Leslie Kim on 11/23/15.
@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Performer: Object {
+class Lineup: Object {
     dynamic var name: String = ""
     dynamic var host: Bool = false
     dynamic var confirmed: Bool = false

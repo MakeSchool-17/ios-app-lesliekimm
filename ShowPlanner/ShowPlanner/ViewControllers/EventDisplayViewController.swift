@@ -32,12 +32,12 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
             displayEvent(event)
         }
     }
-    var lineup: Results<Performer>! {
+    var lineup: Results<Lineup>! {
         didSet {
             lineupTableView?.reloadData()
         }
     }
-    var selectedPerformer: Performer?
+    var selectedLineup: Lineup?
     
     override func viewDidLoad() {
         super.viewDidLoad()

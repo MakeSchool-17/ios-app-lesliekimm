@@ -13,17 +13,17 @@ class LineupTableViewCell: UITableViewCell {
     @IBOutlet weak var hostLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
 
-    var performer: Performer? {
+    var lineup: Lineup? {
         didSet {
-            if let performer = performer, lineupNameLabel = lineupNameLabel, hostLabel = hostLabel, confirmedLabel = confirmedLabel {
-                lineupNameLabel.text = performer.name
-                if performer.host == true {
+            if let lineup = lineup, lineupNameLabel = lineupNameLabel, hostLabel = hostLabel, confirmedLabel = confirmedLabel {
+                lineupNameLabel.text = lineup.name
+                if lineup.host == true {
                     hostLabel.text = "Host"
                 }
                 else {
                     hostLabel.text = ""
                 }
-                if performer.confirmed == true {
+                if lineup.confirmed == true {
                     confirmedLabel.text = "C"
                 }
                 else {
