@@ -42,6 +42,8 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         lineupTableView.dataSource = self
+        
+        self.tabBarController?.tabBar.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +56,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         super.viewWillDisappear(animated)
         
         saveEvent()
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func displayEvent(event: Event?) {
