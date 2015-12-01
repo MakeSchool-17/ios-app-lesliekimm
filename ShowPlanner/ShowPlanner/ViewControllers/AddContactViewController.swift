@@ -22,11 +22,6 @@ class AddContactViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController
         // Pass the selected object to the new view controller
-
-//        currentContact = Contact()
-//        currentContact!.name = "Name"
-//        currentContact!.cell = "555-555-5555"
-//        currentContact!.email = "first@firstlast.com"
         
         if (segue.identifier == "showNewContact") {
             /// create a new Contact and hold onto it, to be able to save it later
