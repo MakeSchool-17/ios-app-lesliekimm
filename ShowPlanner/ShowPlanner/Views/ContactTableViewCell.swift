@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var contactNameLabel: UILabel!
 
-    var contact: Contact? {
+    var contact: CNContact? {
         didSet {
             if let contact = contact, contactNameLabel = contactNameLabel {
-                contactNameLabel.text = contact.name
+                contactNameLabel.text = "\(contact.givenName) \(contact.familyName)"
             }
         }
     }

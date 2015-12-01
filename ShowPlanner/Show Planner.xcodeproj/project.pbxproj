@@ -19,7 +19,6 @@
 		81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */; };
 		81C23CCD1BFE5001000E3838 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCC1BFE5001000E3838 /* Event.swift */; };
 		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
-		81C23CD61BFEEC67000E3838 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD51BFEEC67000E3838 /* Contact.swift */; };
 		81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */; };
 		81FB47661C027A3E00705324 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47651C027A3E00705324 /* UpcomingViewController.swift */; };
 		81FB47681C027A6600705324 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47671C027A6600705324 /* EventTableViewCell.swift */; };
@@ -48,7 +47,6 @@
 		81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		81C23CCC1BFE5001000E3838 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		81C23CD31BFE580D000E3838 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
-		81C23CD51BFEEC67000E3838 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDisplayViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		81FB47651C027A3E00705324 /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				81C23CCC1BFE5001000E3838 /* Event.swift */,
-				81C23CD51BFEEC67000E3838 /* Contact.swift */,
 				81FB476F1C03BD6300705324 /* Lineup.swift */,
 			);
 			path = Entities;
@@ -286,7 +283,6 @@
 				81FB47681C027A6600705324 /* EventTableViewCell.swift in Sources */,
 				81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */,
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
-				81C23CD61BFEEC67000E3838 /* Contact.swift in Sources */,
 				81FB47701C03BD6300705324 /* Lineup.swift in Sources */,
 				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
 				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
