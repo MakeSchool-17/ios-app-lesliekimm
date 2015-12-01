@@ -129,8 +129,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: ImportContactViewControllerDelegate
     func didFetchContacts(contactsToAppend: [Contact]) {
         for contact in contactsToAppend {
-//            self.contacts.append(contact)
-            
             do {
                 let realm = try Realm()
                 try realm.write() {
@@ -145,82 +143,4 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         contactsTableView.reloadData()
     }
-    
-//
-//
-//    @IBAction func backtoContactsVC(segue: UIStoryboardSegue) {
-//        if let identifier = segue.identifier {
-//            print("No one loves \(identifier)")
-//        }
-//    }
-//
-//    var contacts = [CNContact]()
-//    var selectedContact: CNContact?
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        contactsTableView.dataSource = self
-//        contactsTableView.delegate = self
-//    }
-//    
-//    // MARK: Navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let identifier = segue.identifier {
-//            if identifier == "importSegue" {
-//                let importViewController = segue.destinationViewController as! ImportViewController
-//                importViewController.delegate = self
-//            }
-//        }
-//    }
-//    
-//    // MARK: UITableViewDataSource
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
-//        let currentContact = contacts[indexPath.row] as CNContact
-//        
-//        cell.contactNameLabel.text = "\(currentContact.givenName) \(currentContact.familyName)"
-//        
-//        return cell
-//    }
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return contacts.count
-//    }
-//    
-//    // MARK: UITableViewDelegate
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("Here")
-//        selectedContact = contacts[indexPath.row]
-//        self.performSegueWithIdentifier("showExistingContactSegue", sender: self)
-//    }
-//    
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    // MARK: ImportContactViewControllerDelegate
-//    func didFetchContacts(contacts: [CNContact]) {
-//        for contact in contacts {
-//            self.contacts.append(contact)
-//        }
-//        
-//        contactsTableView.reloadData()
-//    }
-//    
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            let contact = contacts[indexPath.row] as Object
-//    
-//            do {
-//                let realm = try Realm()
-//                try realm.write() {
-//                    realm.delete(contact)
-//                }
-//                contacts = realm.objects(Contact).sorted("name", ascending: true)
-//            }
-//            catch {
-//                print("ERROR")
-//            }
-//        }
-//    }
 }
