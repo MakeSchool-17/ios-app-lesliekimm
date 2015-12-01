@@ -114,12 +114,12 @@ NA
 ##MVP Milestones
 Milestone 1: Complete wireframe - DONE (continual updates in progress)
 Milestone 2: Create UI in XCode - DONE (continual updates in progress)
-Milestone 3: Implement EditLineupVC - this includes UpcomingVC, AddEventVC and
+Milestone 3: Implement Realm to store locally - DONE
+Milestone 4: Implement import for ContactsVC
+Milestone 5: Implement EditLineupVC - this includes UpcomingVC, AddEventVC and
              EditLineupVC - need to work on EditLineupVC, implement Selecting
              lineup
-Milestone 4: Implement Realm to store locally - DONE
-Milestone 5: Implement import for ContactsVC
-Milestone 6: Implement other VCs
 
 Post MVP Milestones
+Milestone 6: Implement other VCs - History & Account VC
 Milestone 7: Work on UI/UX
