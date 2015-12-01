@@ -65,11 +65,11 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
                     })
                 }
                 else {
-                    for x in contacts {
+                    for contact in contacts {
                         let newContact = Contact()
-                        newContact.name = x.givenName
-                        newContact.cell = x.phoneNumbers[0].label
-                        newContact.email = x.emailAddresses[0].label
+                        newContact.name = contact.givenName
+                        newContact.cell = contact.phoneNumbers[0].label
+                        newContact.email = contact.emailAddresses[0].label
                         self.contactsToAppend.append(newContact)
                     }
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
