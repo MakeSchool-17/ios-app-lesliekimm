@@ -31,12 +31,15 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         nameLabel.delegate = self
         emailLabel.returnKeyType = .Next
         emailLabel.delegate = self
+        
+        self.tabBarController?.tabBar.hidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         saveContact()
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func displayContact(contact: Contact?) {
