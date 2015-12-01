@@ -23,10 +23,6 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     }
     var edit: Bool = false
     
-    //    override func viewDidLoad() {
-    //        super.viewDidLoad()
-    //    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -69,7 +65,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             catch {
-                print("ERROR")
+                print("Error in saveContact")
             }
         }
     }
@@ -86,88 +82,4 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
-    
-//    var contact: CNContact? {
-//        didSet {
-//            displayContact(contact)
-//        }
-//    }
-//    var edit: Bool = false
-//
-//    //    override func viewDidLoad() {
-//    //        super.viewDidLoad()
-//    //    }
-//    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        displayContact(self.contact)
-//        nameLabel.returnKeyType = .Next
-//        nameLabel.delegate = self
-//        emailLabel.returnKeyType = .Next
-//        emailLabel.delegate = self
-//    }
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-////        saveContact()
-//    }
-//    
-//    func displayContact(contact: CNContact?) {
-//        if let contact = contact, nameLabel = nameLabel, emailLabel = emailLabel, cellLabel = cellLabel {
-////            nameLabel.text = "\(contact.givenName) \(contact.familyName)"
-//            nameLabel.text = "Yes"
-//            
-//            for emailAddresses in contact.emailAddresses {
-//                if emailAddresses.label == CNLabelHome {
-//                    emailLabel.text = emailAddresses.value as? String
-//                    break
-//                }
-//            }
-//            
-//            for phoneNumbers in contact.phoneNumbers {
-//                if phoneNumbers.label == CNLabelHome {
-//                    cellLabel.text = phoneNumbers.value as? String
-//                    break
-//                }
-//            }
-//            
-//            if nameLabel.text!.characters.count == 0 && emailLabel.text!.characters.count == 0 && cellLabel.text!.characters.count == 0 {
-//                nameLabel.becomeFirstResponder()
-//            }
-//        }
-//    }
-//    
-////    func saveContact() {
-////        if let contact = contact {
-////            do {
-////                let realm = try Realm()
-////                
-////                try realm.write {
-////                    if (contact.name != self.nameLabel.text || contact.email != self.emailLabel.text || contact.cell != self.cellLabel.text) {
-////                        contact.name = self.nameLabel.text!
-////                        contact.email = self.emailLabel.text!
-////                        contact.cell = self.cellLabel.text!
-////                    }
-////                }
-////            }
-////            catch {
-////                print("ERROR")
-////            }
-////        }
-////    }
-//    
-//    // MARK: UITextFieldDelegate
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        if (textField == nameLabel) {  //1
-//            emailLabel.returnKeyType = .Done
-//            emailLabel.becomeFirstResponder()
-//        }
-//        else if (textField == emailLabel) {
-//            cellLabel.returnKeyType = .Done
-//            cellLabel.becomeFirstResponder()
-//        }
-//        return false
-//    }
 }
