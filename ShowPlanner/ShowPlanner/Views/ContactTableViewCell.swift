@@ -12,10 +12,10 @@ import Contacts
 class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var contactNameLabel: UILabel!
 
-    var contact: CNContact? {
+    var contact: Contact? {
         didSet {
             if let contact = contact, contactNameLabel = contactNameLabel {
-                contactNameLabel.text = "\(contact.givenName) \(contact.familyName)"
+                contactNameLabel.text = contact.name
             }
         }
     }

@@ -10,13 +10,14 @@ import UIKit
 import Contacts
 
 protocol ImportContactViewControllerDelegate {
-    func didFetchContacts(contacts: [CNContact])
+    func didFetchContacts(contactsToAppend: [Contact])
 }
 
 class ImportViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     
     var delegate: ImportContactViewControllerDelegate!
+    var contactsToAppend = [Contact]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +65,15 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
                     })
                 }
                 else {
+                    for x in contacts {
+                        let newContact = Contact()
+                        newContact.name = x.givenName
+                        newContact.cell = x.phoneNumbers[0].label
+                        newContact.email = x.emailAddresses[0].label
+                        self.contactsToAppend.append(newContact)
+                    }
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.delegate.didFetchContacts(contacts)
+                        self.delegate.didFetchContacts(self.contactsToAppend)
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
