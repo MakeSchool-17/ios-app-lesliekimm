@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740DF1C0D14B6002A3679 /* ImportViewController.swift */; };
 		818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98701BF661FF00D8157F /* AppDelegate.swift */; };
 		818E98761BF661FF00D8157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98741BF661FF00D8157F /* Main.storyboard */; };
 		818E98781BF661FF00D8157F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818E98771BF661FF00D8157F /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		816740DF1C0D14B6002A3679 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818E98751BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
 				81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
+				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
 				81C23CC51BFE4D90000E3838 /* ContactsViewController.swift in Sources */,
 				81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */,
+				816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */,
 				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
 				81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,

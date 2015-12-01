@@ -350,7 +350,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="an3-42-pMe">
-                        <barButtonItem key="leftBarButtonItem" title="Import" id="6IG-qf-afi"/>
+                        <barButtonItem key="leftBarButtonItem" title="Import" id="6IG-qf-afi">
+                            <connections>
+                                <segue destination="TuQ-xD-ryP" kind="show" identifier="importSegue" id="LQ5-39-7Q9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8EZ-k8-5WC">
                             <connections>
                                 <segue destination="VBz-aM-KG1" kind="show" identifier="addContactSegue" id="8AK-Po-BvT"/>
@@ -435,6 +439,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eF-9P-gee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="350" y="2292"/>
+        </scene>
+        <!--Import Contacts-->
+        <scene sceneID="hLZ-rw-TgV">
+            <objects>
+                <viewController id="TuQ-xD-ryP" customClass="ImportViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lmt-8Q-hhJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zaS-a7-7Mw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tzq-aU-LlJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XO4-SN-Pzv">
+                                <rect key="frame" x="88" y="84" width="492" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-aT-xB1">
+                                <rect key="frame" x="20" y="84" width="54" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XO4-SN-Pzv" firstAttribute="top" secondItem="lmt-8Q-hhJ" secondAttribute="bottom" constant="20" id="6aY-qO-Fwg"/>
+                            <constraint firstItem="D1a-aT-xB1" firstAttribute="leading" secondItem="Tzq-aU-LlJ" secondAttribute="leading" constant="20" id="EGa-cQ-KWM"/>
+                            <constraint firstItem="XO4-SN-Pzv" firstAttribute="leading" secondItem="D1a-aT-xB1" secondAttribute="trailing" constant="15" id="FZZ-mN-EIX"/>
+                            <constraint firstAttribute="trailing" secondItem="XO4-SN-Pzv" secondAttribute="trailing" constant="20" id="Sx8-dR-bfw"/>
+                            <constraint firstItem="D1a-aT-xB1" firstAttribute="top" secondItem="lmt-8Q-hhJ" secondAttribute="bottom" constant="20" id="h5r-uE-3QM"/>
+                            <constraint firstItem="D1a-aT-xB1" firstAttribute="bottom" secondItem="XO4-SN-Pzv" secondAttribute="bottom" id="lFz-mB-so0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Import Contacts" id="DrQ-LR-rdl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tAn-8H-WLI">
+                            <connections>
+                                <segue destination="GuT-vx-YXv" kind="unwind" unwindAction="backtoContactsVC:" id="Are-CP-9rg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchTextField" destination="XO4-SN-Pzv" id="ENP-GI-99a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pp-hk-1zq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GuT-vx-YXv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="3015"/>
         </scene>
         <!--Contact Display View Controller-->
         <scene sceneID="PdU-hy-EMP">
@@ -719,7 +776,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S1M-ee-dX7"/>
         <segue reference="cHR-uu-eWk"/>
+        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>

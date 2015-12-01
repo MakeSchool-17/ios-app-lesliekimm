@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Contacts
 
 class AddContactViewController: UIViewController {
     @IBOutlet weak var addContactContainer: UIView!
     
-    var currentContact: Contact?
+    var currentContact: CNContact?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class AddContactViewController: UIViewController {
         
         if (segue.identifier == "showNewContact") {
             /// create a new Contact and hold onto it, to be able to save it later
-            currentContact = Contact()
+            currentContact = CNContact()
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = currentContact
         }
