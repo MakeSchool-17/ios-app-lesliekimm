@@ -67,9 +67,24 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
                 else {
                     for contact in contacts {
                         let newContact = Contact()
-                        newContact.name = contact.givenName
-                        newContact.cell = contact.phoneNumbers[0].label
-                        newContact.email = contact.emailAddresses[0].label
+                        
+                        if contact.givenName != "" && contact.familyName != "" {
+                            newContact.name = "\(contact.givenName) \(contact.familyName)"
+                        }
+                        else if contact.givenName != "" {
+                            newContact.name = "\(contact.givenName)"
+                        }
+                        else {
+                            newContact.name = "\(contact.familyName)"
+                        }
+                        
+                        if !contact.phoneNumbers.isEmpty {
+                            newContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+                        }
+                        if !contact.emailAddresses.isEmpty {
+                            newContact.email = contact.emailAddresses[0].value as! String
+                        }
+            
                         self.contactsToAppend.append(newContact)
                     }
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in

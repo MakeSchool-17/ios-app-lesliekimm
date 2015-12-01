@@ -123,10 +123,10 @@
 				81FB47711C03E2C900705324 /* SelectLineupViewController.swift */,
 				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
 				81C23CC41BFE4D90000E3838 /* ContactsViewController.swift */,
+				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
 				81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
-				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
