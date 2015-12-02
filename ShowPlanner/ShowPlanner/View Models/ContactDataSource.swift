@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class ContactsDataSource: NSObject, UITableViewDataSource {
+class ContactsDataSource: NSObject {
     static var sharedContactsDataSource = ContactsDataSource()
     var contacts: Results<Contact>!
 //    var currentContact: Contact?
@@ -56,19 +56,5 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
         catch {
             print("Error in trashContact")
         }
-    }
-
-    
-    // MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
-        let row = indexPath.row
-        let contact = contacts[row] as Contact
-        cell.contact = contact
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts?.count ?? 0
     }
 }

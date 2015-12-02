@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsV2ViewController: UIViewController, UITableViewDelegate {
+class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var contactsTableView: UITableView!
     
     var dataSource = ContactsDataSource()
@@ -29,7 +29,7 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactsTableView.dataSource = dataSource
+        contactsTableView.dataSource = self
         contactsTableView.delegate = self
         contactsTableView.reloadData()
     }
@@ -38,12 +38,6 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
         super.viewDidAppear(animated)
         contactsTableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     // MARK: Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,6 +52,19 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
 //            let importViewController = segue.destinationViewController as! ImportViewController
 //            importViewController.delegate = self
 //        }
+    }
+    
+    // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
+        let row = indexPath.row
+        let contact = dataSource.contacts[row] as Contact
+        cell.contact = contact
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.contacts?.count ?? 0
     }
     
     // MARK: UITableViewDelegate
