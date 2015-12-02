@@ -12,29 +12,43 @@ import Foundation
 import RealmSwift
 
 class ContactsDataSource: NSObject, UITableViewDataSource {
+    static var sharedContactsDataSource = ContactsDataSource()
+    var contacts: Results<Contact>!
+    var currentContact: Contact?
     
-    static var sharedContactsDataSource = ContactsDataSource();
     override init(){
         super.init()
-    }
-    
-    var sharedContactsDataSource: Results<Contact>! {
-        didSet {
-            //            self.sharedContactsDataSource.reloadData()
+        
+        currentContact = Contact()
+        currentContact?.name = "Leslie"
+        currentContact?.cell = "703-989-3759"
+        currentContact?.email = "leslie.kimm@gmail.com"
+        
+        do {
+            let realm = try Realm()
+            
+            try realm.write() {
+                realm.add(self.currentContact!)
+            }
+            contacts = realm.objects(Contact).sorted("name", ascending: true)
+        }
+        catch {
+            print("ERROR")
         }
     }
-    var selectedContact: Contact?
+    
+
     
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
         let row = indexPath.row
-        let contact = sharedContactsDataSource[row] as Contact
+        let contact = contacts[row] as Contact
         cell.contact = contact
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sharedContactsDataSource?.count ?? 0
+        return contacts?.count ?? 0
     }
 }

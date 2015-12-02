@@ -292,7 +292,7 @@
         <!--Contacts-->
         <scene sceneID="jE6-sG-StU">
             <objects>
-                <viewController id="fb5-vq-Sve" customClass="ContactsViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fb5-vq-Sve" customClass="ContactsV2ViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aIF-Ba-kPO"/>
                         <viewControllerLayoutGuide type="bottom" id="chv-Cv-NEM"/>
@@ -334,10 +334,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="LSf-Qn-7Rh" id="TtU-3u-ns7"/>
-                                    <outlet property="delegate" destination="LSf-Qn-7Rh" id="THl-6i-P7G"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -362,7 +358,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contactsTableView" destination="5u3-6d-6di" id="jYZ-7u-AU8"/>
+                        <outlet property="contactsTableView" destination="5u3-6d-6di" id="IMT-t7-Qwq"/>
                         <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="S1M-ee-dX7"/>
                     </connections>
                 </viewController>
