@@ -19,9 +19,8 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
             switch identifier {
             case "contactSaveSegue":
                 dataSource.addContact(segue)
-                print("save")
             case "trashContactSegue":
-                print("trash")
+                dataSource.trashContact(segue, selectedContact: selectedContact!)
             default:
                 print("No one loves \(identifier)")
             }
@@ -33,8 +32,6 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
         contactsTableView.dataSource = dataSource
         contactsTableView.delegate = self
         contactsTableView.reloadData()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -633,21 +633,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineup Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGZ-kk-mrz">
-                                                    <rect key="frame" x="15" y="12" width="427" height="21"/>
+                                                    <rect key="frame" x="15" y="12.5" width="435" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0n-T8-ksh">
-                                                    <rect key="frame" x="565" y="12" width="12" height="21"/>
+                                                    <rect key="frame" x="573" y="12.5" width="12" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-tw-9Ux">
-                                                    <rect key="frame" x="498" y="12" width="37" height="21"/>
+                                                    <rect key="frame" x="506.5" y="12.5" width="36.5" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -656,8 +656,8 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="V0n-T8-ksh" secondAttribute="trailing" constant="15" id="JTj-YA-N3A"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="tGZ-kk-mrz" secondAttribute="trailing" constant="150" id="TLa-F7-DyJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="V0n-T8-ksh" secondAttribute="trailing" constant="15" id="JTj-YA-N3A"/>
+                                                <constraint firstAttribute="trailing" secondItem="tGZ-kk-mrz" secondAttribute="trailing" constant="150" id="TLa-F7-DyJ"/>
                                                 <constraint firstItem="V0n-T8-ksh" firstAttribute="leading" secondItem="r1b-tw-9Ux" secondAttribute="trailing" constant="30" id="XFf-1Y-T14"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -749,15 +749,58 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelecteLineupCell" id="GVN-GE-hLJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelecteLineupCell" id="GVN-GE-hLJ" customClass="SelecteLineupTableViewCell" customModule="Show_Planner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVN-GE-hLJ" id="QYo-Lu-WlG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ8-Vk-cQr">
+                                                    <rect key="frame" x="15" y="11" width="435" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-4y-dGC">
+                                                    <rect key="frame" x="543" y="1" width="42" height="42"/>
+                                                    <animations/>
+                                                    <state key="normal" image="unselected checkmark"/>
+                                                    <state key="selected" image="selected checkmark"/>
+                                                    <connections>
+                                                        <action selector="pushCheckMark:" destination="GVN-GE-hLJ" eventType="touchUpInside" id="RuG-Kn-gf8"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-Oj-qL7">
+                                                    <rect key="frame" x="458" y="7" width="46" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Host">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pushHostButton:" destination="GVN-GE-hLJ" eventType="touchUpInside" id="vWm-Vo-998"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gmx-4y-dGC" secondAttribute="trailing" constant="15" id="2ho-Xd-Cec"/>
+                                                <constraint firstAttribute="trailing" secondItem="bZ8-Vk-cQr" secondAttribute="trailing" constant="150" id="Suc-AW-f7B"/>
+                                                <constraint firstItem="bZ8-Vk-cQr" firstAttribute="leading" secondItem="QYo-Lu-WlG" secondAttribute="leading" constant="15" id="YEL-6f-2Mw"/>
+                                                <constraint firstItem="gmx-4y-dGC" firstAttribute="centerY" secondItem="QYo-Lu-WlG" secondAttribute="centerY" id="aZj-OV-n0g"/>
+                                                <constraint firstItem="bZ8-Vk-cQr" firstAttribute="centerY" secondItem="QYo-Lu-WlG" secondAttribute="centerY" id="nfK-7m-d3Z"/>
+                                                <constraint firstItem="gmx-4y-dGC" firstAttribute="centerY" secondItem="QYo-Lu-WlG" secondAttribute="centerY" id="rBI-mg-rrj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="hostButton" destination="2tg-Oj-qL7" id="Jq0-dl-vVH"/>
+                                            <outlet property="nameLabel" destination="QYo-Lu-WlG" id="hgd-DZ-yoE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -783,6 +826,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="selectLineupTableView" destination="h91-hk-unV" id="B4h-lC-1iB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qj-q2-QZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bM9-lY-wMZ" userLabel="Exit" sceneMemberID="exit"/>
@@ -794,6 +840,8 @@
         <image name="account" width="42" height="42"/>
         <image name="contacts" width="42" height="42"/>
         <image name="history" width="42" height="42"/>
+        <image name="selected checkmark" width="42" height="42"/>
+        <image name="unselected checkmark" width="42" height="42"/>
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>

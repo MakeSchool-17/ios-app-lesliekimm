@@ -11,6 +11,7 @@
 		816740E21C0D5DD6002A3679 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740E11C0D5DD6002A3679 /* Contact.swift */; };
 		816741091C0F42FB002A3679 /* ContactDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816741081C0F42FB002A3679 /* ContactDataSource.swift */; };
 		8167410B1C0F43C1002A3679 /* ContactsV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167410A1C0F43C1002A3679 /* ContactsV2ViewController.swift */; };
+		8167410D1C0F7F0D002A3679 /* SelecteLineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167410C1C0F7F0D002A3679 /* SelecteLineupTableViewCell.swift */; };
 		818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98701BF661FF00D8157F /* AppDelegate.swift */; };
 		818E98761BF661FF00D8157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98741BF661FF00D8157F /* Main.storyboard */; };
 		818E98781BF661FF00D8157F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818E98771BF661FF00D8157F /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		816741081C0F42FB002A3679 /* ContactDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDataSource.swift; sourceTree = "<group>"; };
 		8167410A1C0F43C1002A3679 /* ContactsV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsV2ViewController.swift; sourceTree = "<group>"; };
+		8167410C1C0F7F0D002A3679 /* SelecteLineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecteLineupTableViewCell.swift; sourceTree = "<group>"; };
 		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818E98751BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */,
 				81FB47671C027A6600705324 /* EventTableViewCell.swift */,
 				81FB476D1C0290E900705324 /* LineupTableViewCell.swift */,
+				8167410C1C0F7F0D002A3679 /* SelecteLineupTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				816740E21C0D5DD6002A3679 /* Contact.swift in Sources */,
+				8167410D1C0F7F0D002A3679 /* SelecteLineupTableViewCell.swift in Sources */,
 				81FB47681C027A6600705324 /* EventTableViewCell.swift in Sources */,
 				81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */,
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
