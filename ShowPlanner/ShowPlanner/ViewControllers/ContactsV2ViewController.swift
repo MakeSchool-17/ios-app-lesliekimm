@@ -12,6 +12,12 @@ class ContactsV2ViewController: UIViewController {
     @IBOutlet weak var contactsTableView: UITableView!
     
     var dataSource = ContactsDataSource()
+    
+    @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            print("No one loves \(identifier)")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -398,12 +398,12 @@
                     <navigationItem key="navigationItem" title="Add Contact" id="j9S-nV-OY6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jOX-2N-YFX">
                             <connections>
-                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactCancelSegue" unwindAction="backtoContactsVC:" id="NRM-1P-13V"/>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactCancelSegue" unwindAction="backToContactsVC:" id="c5o-v2-2zL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="djy-nj-FrB">
                             <connections>
-                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactSaveSegue" unwindAction="backtoContactsVC:" id="JF4-lV-eSC"/>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="saveContactSegue" unwindAction="backToContactsVC:" id="UiF-tC-5rp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -476,7 +476,7 @@
                     <navigationItem key="navigationItem" title="Import Contacts" id="DrQ-LR-rdl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tAn-8H-WLI">
                             <connections>
-                                <segue destination="GuT-vx-YXv" kind="unwind" unwindAction="backtoContactsVC:" id="Are-CP-9rg"/>
+                                <segue destination="GuT-vx-YXv" kind="unwind" identifier="cancelImportSegue" unwindAction="backToContactsVC:" id="KJN-rE-mUf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -498,22 +498,22 @@
                         <viewControllerLayoutGuide type="bottom" id="8kT-GL-e9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
                                 <rect key="frame" x="10" y="74" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
                                 <rect key="frame" x="10" y="114" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <animations/>
                                 <items>
@@ -524,7 +524,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
                                 <rect key="frame" x="10" y="154" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -798,6 +798,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cHR-uu-eWk"/>
-        <segue reference="S1M-ee-dX7"/>
+        <segue reference="HfR-AU-9Dw"/>
     </inferredMetricsTieBreakers>
 </document>

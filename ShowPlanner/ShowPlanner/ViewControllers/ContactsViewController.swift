@@ -23,7 +23,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     var selectedContact: Contact?
     
-    @IBAction func backtoContactsVC(segue: UIStoryboardSegue) {
+    @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             do {
                 let realm = try Realm()
