@@ -18,6 +18,7 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
         if let identifier = segue.identifier {
             switch identifier {
             case "contactSaveSegue":
+                dataSource.addContact(segue)
                 print("save")
             case "trashContactSegue":
                 print("trash")
@@ -34,6 +35,11 @@ class ContactsV2ViewController: UIViewController, UITableViewDelegate {
         contactsTableView.reloadData()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        contactsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

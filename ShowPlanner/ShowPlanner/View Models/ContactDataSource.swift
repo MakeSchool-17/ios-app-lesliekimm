@@ -19,24 +19,28 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
     override init(){
         super.init()
         
-        currentContact = Contact()
-        currentContact?.name = "Julie"
-        currentContact?.cell = "703-989-3759"
-        currentContact?.email = "leslie.kimm@gmail.com"
-        
         do {
             let realm = try Realm()
-            
-            try realm.write() {
-                realm.add(self.currentContact!)
-            }
             contacts = realm.objects(Contact).sorted("name", ascending: true)
         }
         catch {
-            print("ERROR")
+            print("Error in init")
         }
     }
     
+    func addContact(segue: UIStoryboardSegue) {
+        do {
+            let realm = try Realm()
+            let source = segue.sourceViewController as! AddContactViewController
+            
+            try realm.write() {
+                realm.add(source.currentContact!)
+            }
+        }
+        catch {
+            print("Error in addContact")
+        }
+    }
 
     
     // MARK: UITableViewDataSource
