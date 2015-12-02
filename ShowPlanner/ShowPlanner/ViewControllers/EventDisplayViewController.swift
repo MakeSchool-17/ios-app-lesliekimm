@@ -38,6 +38,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         }
     }
     var selectedLineup: Lineup?
+    var stringLineup: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,12 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
                         event.name = self.nameTextField.text!
                         event.dateTime = self.datePicker.date
                         event.location = self.locationTextField.text!
-                        event.lineup = "Kevin Nealon, Iliza Shlesinger, Moshe Kasher, Jerrod Carmichael, Bill Burr, Sarah Silverman"
+                        var lineupText = ""
+                        for x in self.stringLineup {
+                            lineupText = lineupText + x + " "
+                        }
+                        event.lineup = lineupText
+
                         event.confirmed = "Not confirmed"
                     }
                 }
@@ -94,6 +100,8 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         cell.lineupNameLabel.text = "aries spears"
         cell.hostLabel.text = ""
         cell.confirmedLabel.text = "x"
+        
+        stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
 //        let row = indexPath.row
 //        let performer = lineup[row] as Performer
 //        cell.performer = performer
