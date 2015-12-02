@@ -22,12 +22,6 @@ class SelectLineupViewController: UIViewController {
         self.tabBarController?.tabBar.hidden = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
