@@ -20,7 +20,7 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
         super.init()
         
         currentContact = Contact()
-        currentContact?.name = "Leslie"
+        currentContact?.name = "Julie"
         currentContact?.cell = "703-989-3759"
         currentContact?.email = "leslie.kimm@gmail.com"
         
