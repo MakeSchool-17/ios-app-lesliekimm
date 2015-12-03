@@ -166,4 +166,33 @@ class ImportViewController: UIViewController, UITextFieldDelegate, CNContactPick
         delegate.didFetchContacts([pickedContact])
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+        var pickedContacts = [Contact]()
+        
+        for contact in contacts {
+            let pickedContact = Contact()
+            if contact.givenName != "" && contact.familyName != "" {
+                pickedContact.name = "\(contact.givenName) \(contact.familyName)"
+            }
+            else if contact.givenName != "" {
+                pickedContact.name = "\(contact.givenName)"
+            }
+            else {
+                pickedContact.name = "\(contact.familyName)"
+            }
+        
+            if !contact.phoneNumbers.isEmpty {
+                pickedContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            }
+            if !contact.emailAddresses.isEmpty {
+                pickedContact.email = contact.emailAddresses[0].value as! String
+            }
+            pickedContacts.append(pickedContact)
+        }
+        
+        delegate.didFetchCNContacts(contacts)
+        delegate.didFetchContacts(pickedContacts)
+        navigationController?.popViewControllerAnimated(true)
+    }
 }
