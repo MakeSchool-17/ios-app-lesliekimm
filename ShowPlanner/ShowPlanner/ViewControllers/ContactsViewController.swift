@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
     @IBOutlet weak var contactsTableView: UITableView!
     
     var dataSource = ContactsDataSource()
     var selectedContact: Contact?
+    var contacts = [CNContact]()
     
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
@@ -101,5 +103,13 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         contactsTableView.reloadData()
+    }
+    
+    func didFetchCNContacts(contacts: [CNContact]) {
+        for contact in contacts {
+            self.contacts.append(contact)
+        }
+        
+//        tblContacts.reloadData()
     }
 }

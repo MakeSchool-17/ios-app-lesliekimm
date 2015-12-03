@@ -461,18 +461,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaL-cW-ooA">
+                                <rect key="frame" x="216" y="214" width="169" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Select Contact to Import"/>
+                                <connections>
+                                    <action selector="showContacts:" destination="TuQ-xD-ryP" eventType="touchUpInside" id="Iae-AJ-qZO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XO4-SN-Pzv" firstAttribute="top" secondItem="lmt-8Q-hhJ" secondAttribute="bottom" constant="20" id="6aY-qO-Fwg"/>
+                            <constraint firstItem="vaL-cW-ooA" firstAttribute="centerX" secondItem="Tzq-aU-LlJ" secondAttribute="centerX" id="BeJ-Ro-wxI"/>
                             <constraint firstItem="D1a-aT-xB1" firstAttribute="leading" secondItem="Tzq-aU-LlJ" secondAttribute="leading" constant="20" id="EGa-cQ-KWM"/>
                             <constraint firstItem="XO4-SN-Pzv" firstAttribute="leading" secondItem="D1a-aT-xB1" secondAttribute="trailing" constant="15" id="FZZ-mN-EIX"/>
                             <constraint firstAttribute="trailing" secondItem="XO4-SN-Pzv" secondAttribute="trailing" constant="20" id="Sx8-dR-bfw"/>
                             <constraint firstItem="D1a-aT-xB1" firstAttribute="top" secondItem="lmt-8Q-hhJ" secondAttribute="bottom" constant="20" id="h5r-uE-3QM"/>
+                            <constraint firstItem="vaL-cW-ooA" firstAttribute="top" secondItem="XO4-SN-Pzv" secondAttribute="bottom" constant="100" id="kbW-4w-d82"/>
                             <constraint firstItem="D1a-aT-xB1" firstAttribute="bottom" secondItem="XO4-SN-Pzv" secondAttribute="bottom" id="lFz-mB-so0"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="KOs-aK-dJc"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Import Contacts" id="DrQ-LR-rdl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tAn-8H-WLI">
                             <connections>
@@ -480,6 +493,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchTextField" destination="XO4-SN-Pzv" id="ENP-GI-99a"/>
                     </connections>

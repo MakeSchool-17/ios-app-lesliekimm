@@ -8,16 +8,26 @@
 
 import UIKit
 import Contacts
+import ContactsUI
 
 protocol ImportContactViewControllerDelegate {
     func didFetchContacts(contactsToAppend: [Contact])
+    func didFetchCNContacts(contacts: [CNContact])
 }
 
-class ImportViewController: UIViewController, UITextFieldDelegate {
+class ImportViewController: UIViewController, UITextFieldDelegate, CNContactPickerDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     
     var delegate: ImportContactViewControllerDelegate!
     var contactsToAppend = [Contact]()
+    
+    @IBAction func showContacts(sender: UIButton) {
+        let contactPickerViewController = CNContactPickerViewController()
+        
+        contactPickerViewController.predicateForEnablingContact = NSPredicate(format: "birthday != nil")
+        contactPickerViewController.delegate = self
+        presentViewController(contactPickerViewController, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +44,34 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
         super.viewWillDisappear(animated)
         
         self.tabBarController?.tabBar.hidden = false
+    }
+    
+    func performDoneItemTap() {
+        AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
+            if accessGranted {
+                var contacts = [CNContact]()
+                
+                let keys = [CNContactFormatter.descriptorForRequiredKeysForStyle(CNContactFormatterStyle.FullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey]
+                
+                do {
+                    let contactStore = AppDelegate.getAppDelegate().contactStore
+                    try contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: keys)) { (contact, pointer) -> Void in
+                        
+//                        if contact.birthday != nil && contact.birthday!.month == self.currentlySelectedMonthIndex {
+                            contacts.append(contact)
+//                        }
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.delegate.didFetchCNContacts(contacts)
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+                catch let error as NSError {
+                    print(error.description, separator: "", terminator: "\n")
+                }
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -94,11 +132,18 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
                     }
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.delegate.didFetchContacts(self.contactsToAppend)
+                        self.delegate.didFetchCNContacts(contacts)
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
             }
         }
         return true
+    }
+    
+    // MARK: CNContactPickerDelegate
+    func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
+        delegate.didFetchCNContacts([contact])
+        navigationController?.popViewControllerAnimated(true)
     }
 }
