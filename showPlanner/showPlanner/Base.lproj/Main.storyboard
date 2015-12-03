@@ -292,7 +292,7 @@
         <!--Contacts-->
         <scene sceneID="jE6-sG-StU">
             <objects>
-                <viewController id="fb5-vq-Sve" customClass="ContactsV2ViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fb5-vq-Sve" customClass="ContactsViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aIF-Ba-kPO"/>
                         <viewControllerLayoutGuide type="bottom" id="chv-Cv-NEM"/>
@@ -358,7 +358,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contactsTableView" destination="5u3-6d-6di" id="IMT-t7-Qwq"/>
+                        <outlet property="contactsTableView" destination="5u3-6d-6di" id="WLf-Zp-Ow4"/>
                         <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="S1M-ee-dX7"/>
                     </connections>
                 </viewController>
@@ -498,28 +498,28 @@
                         <viewControllerLayoutGuide type="bottom" id="8kT-GL-e9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
                                 <rect key="frame" x="10" y="10" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
                                 <rect key="frame" x="10" y="50" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
                                 <rect key="frame" x="10" y="90" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
                                 <rect key="frame" x="0.0" y="443" width="600" height="44"/>
                                 <animations/>
                                 <items>
@@ -841,6 +841,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cHR-uu-eWk"/>
-        <segue reference="HfR-AU-9Dw"/>
+        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>
