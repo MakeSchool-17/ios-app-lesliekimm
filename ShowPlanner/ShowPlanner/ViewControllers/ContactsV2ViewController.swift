@@ -18,9 +18,13 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
         if let identifier = segue.identifier {
             switch identifier {
             case "contactSaveSegue":
-                dataSource.addContact(segue)
+                let source = segue.sourceViewController as! AddContactViewController
+                let contactToAdd = source.currentContact!
+                dataSource.addContact(contactToAdd)
             case "trashContactSegue":
-                dataSource.trashContact(segue, selectedContact: selectedContact!)
+                let source = segue.sourceViewController as! ContactDisplayViewController
+                dataSource.trashContact(selectedContact!)
+                source.contact = nil
             default:
                 print("No one loves \(identifier)")
             }

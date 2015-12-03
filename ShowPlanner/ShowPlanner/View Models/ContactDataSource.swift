@@ -28,13 +28,13 @@ class ContactsDataSource: NSObject {
         }
     }
     
-    func addContact(segue: UIStoryboardSegue) {
+    func addContact(contact: Contact) {
         do {
             let realm = try Realm()
-            let source = segue.sourceViewController as! AddContactViewController
+//            let source = segue.sourceViewController as! AddContactViewController
             
             try realm.write() {
-                realm.add(source.currentContact!)
+                realm.add(contact)
             }
             contacts = realm.objects(Contact).sorted("name", ascending: true)
         }
@@ -43,14 +43,14 @@ class ContactsDataSource: NSObject {
         }
     }
     
-    func trashContact(segue: UIStoryboardSegue, selectedContact: Contact) {
+    func trashContact(contact: Contact) {
         do {
             let realm = try Realm()
             try realm.write() {
-                realm.delete(selectedContact)
+                realm.delete(contact)
             }
-            let source = segue.sourceViewController as! ContactDisplayViewController
-            source.contact = nil
+//            let source = segue.sourceViewController as! ContactDisplayViewController
+//            source.contact = nil
             contacts = realm.objects(Contact).sorted("name", ascending: true)
         }
         catch {
