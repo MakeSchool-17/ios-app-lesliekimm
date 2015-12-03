@@ -25,10 +25,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 dataSource.trashContact(selectedContact!)
                 source.contact = nil
-            case "saveContactChanges":
-                print("nope")
-                let source = segue.sourceViewController as! ContactDisplayViewController
-                dataSource.addContact(source.contact!)
+//            case "saveContactChanges":
+//                print("nope")
+//                let source = segue.sourceViewController as! ContactDisplayViewController
+//                dataSource.addContact(source.contact!)
             default:
                 print("No one loves \(identifier)")
             }

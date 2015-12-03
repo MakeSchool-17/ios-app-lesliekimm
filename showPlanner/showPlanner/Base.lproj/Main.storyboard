@@ -549,14 +549,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contact Name" id="3a6-S5-bSZ">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Contacts" id="6xW-2R-srm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="Bzb-MS-m1x">
                             <connections>
-                                <segue destination="awR-gP-DV2" kind="unwind" identifier="goBackToContacts" unwindAction="backToContactsVC:" id="cTN-3B-6rR"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nlK-Hs-aa5">
-                            <connections>
-                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveContactChanges" unwindAction="backToContactsVC:" id="aZg-AR-Gzs"/>
+                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveContact" unwindAction="backToContactsVC:" id="ECz-Aw-WWR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

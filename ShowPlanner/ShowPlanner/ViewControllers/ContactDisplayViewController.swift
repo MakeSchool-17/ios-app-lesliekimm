@@ -42,6 +42,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        saveContact()
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -57,20 +58,24 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    // MARK: Navigation
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        if (segue.identifier == "saveContactChanges") {
-//            let contactViewController = segue.destinationViewController as! ContactDisplayViewController
-//            contactViewController.contact = selectedContact
-//        }
-//        if (segue.identifier == "importSegue") {
-//            let importViewController = segue.destinationViewController as! ImportViewController
-//            importViewController.delegate = self
-//        }
-//    }
+    func saveContact() {
+        if let contact = contact {
+            do {
+                let realm = try Realm()
+                
+                try realm.write {
+                    if (contact.name != self.nameLabel.text || contact.email != self.emailLabel.text || contact.cell != self.cellLabel.text) {
+                        contact.name = self.nameLabel.text!
+                        contact.email = self.emailLabel.text!
+                        contact.cell = self.cellLabel.text!
+                    }
+                }
+            }
+            catch {
+                print("Error in saveContact")
+            }
+        }
+    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
