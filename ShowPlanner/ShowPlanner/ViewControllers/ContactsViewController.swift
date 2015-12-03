@@ -21,15 +21,18 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.currentContact!
                 dataSource.addContact(contactToAdd)
-                contactsTableView.reloadData()
             case "trashContactSegue":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 dataSource.trashContact(selectedContact!)
                 source.contact = nil
-                contactsTableView.reloadData()
+            case "saveContactChanges":
+                print("nope")
+                let source = segue.sourceViewController as! ContactDisplayViewController
+                dataSource.addContact(source.contact!)
             default:
                 print("No one loves \(identifier)")
             }
+            contactsTableView.reloadData()
         }
     }
     

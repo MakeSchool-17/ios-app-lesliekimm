@@ -15,6 +15,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var cellLabel: UITextField!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     var contact: Contact? {
         didSet {
@@ -26,7 +27,10 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navItem.title = contact!.name
+        
         displayContact(self.contact)
+        
         nameLabel.returnKeyType = .Next
         nameLabel.delegate = self
         emailLabel.returnKeyType = .Next
@@ -38,7 +42,6 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        saveContact()
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -54,24 +57,20 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func saveContact() {
-        if let contact = contact {
-            do {
-                let realm = try Realm()
-                
-                try realm.write {
-                    if (contact.name != self.nameLabel.text || contact.email != self.emailLabel.text || contact.cell != self.cellLabel.text) {
-                        contact.name = self.nameLabel.text!
-                        contact.email = self.emailLabel.text!
-                        contact.cell = self.cellLabel.text!
-                    }
-                }
-            }
-            catch {
-                print("Error in saveContact")
-            }
-        }
-    }
+//    // MARK: Navigation
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if (segue.identifier == "saveContactChanges") {
+//            let contactViewController = segue.destinationViewController as! ContactDisplayViewController
+//            contactViewController.contact = selectedContact
+//        }
+//        if (segue.identifier == "importSegue") {
+//            let importViewController = segue.destinationViewController as! ImportViewController
+//            importViewController.delegate = self
+//        }
+//    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {

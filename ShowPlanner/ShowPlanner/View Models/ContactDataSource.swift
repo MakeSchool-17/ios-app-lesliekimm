@@ -52,4 +52,28 @@ class ContactsDataSource: NSObject {
             print("Error in trashContact")
         }
     }
+    
+    func saveContact(contact: Contact) {
+
+    }
 }
+
+
+//    func saveContact() {
+//        if let contact = contact {
+//            do {
+//                let realm = try Realm()
+//
+//                try realm.write {
+//                    if (contact.name != self.nameLabel.text || contact.email != self.emailLabel.text || contact.cell != self.cellLabel.text) {
+//                        contact.name = self.nameLabel.text!
+//                        contact.email = self.emailLabel.text!
+//                        contact.cell = self.cellLabel.text!
+//                    }
+//                }
+//            }
+//            catch {
+//                print("Error in saveContact")
+//            }
+//        }
+//    }
