@@ -21,10 +21,12 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.currentContact!
                 dataSource.addContact(contactToAdd)
+                contactsTableView.reloadData()
             case "trashContactSegue":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 dataSource.trashContact(selectedContact!)
                 source.contact = nil
+                contactsTableView.reloadData()
             default:
                 print("No one loves \(identifier)")
             }
@@ -71,6 +73,25 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
         return dataSource.contacts?.count ?? 0
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let contact = dataSource.contacts[indexPath.row] as Contact
+            dataSource.trashContact(contact)
+            tableView.reloadData()
+            
+            //            do {
+            //                let realm = try Realm()
+            //                try realm.write() {
+            //                    realm.delete(contact)
+            //                }
+            //                contacts = realm.objects(Contact).sorted("name", ascending: true)
+            //            }
+            //            catch {
+            //                print("ERROR")
+            //            }
+        }
+    }
+    
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = dataSource.contacts[indexPath.row]
@@ -79,22 +100,5 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let contact = dataSource.contacts[indexPath.row] as NSObject
-            
-//            do {
-//                let realm = try Realm()
-//                try realm.write() {
-//                    realm.delete(contact)
-//                }
-//                contacts = realm.objects(Contact).sorted("name", ascending: true)
-//            }
-//            catch {
-//                print("ERROR")
-//            }
-        }
     }
 }
