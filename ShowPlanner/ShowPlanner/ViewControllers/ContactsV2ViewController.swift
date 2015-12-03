@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
     @IBOutlet weak var contactsTableView: UITableView!
     
     var dataSource = ContactsDataSource()
@@ -54,10 +54,10 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = selectedContact
         }
-//        if (segue.identifier == "importSegue") {
-//            let importViewController = segue.destinationViewController as! ImportViewController
-//            importViewController.delegate = self
-//        }
+        if (segue.identifier == "importSegue") {
+            let importViewController = segue.destinationViewController as! ImportViewController
+            importViewController.delegate = self
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -78,17 +78,6 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
             let contact = dataSource.contacts[indexPath.row] as Contact
             dataSource.trashContact(contact)
             tableView.reloadData()
-            
-            //            do {
-            //                let realm = try Realm()
-            //                try realm.write() {
-            //                    realm.delete(contact)
-            //                }
-            //                contacts = realm.objects(Contact).sorted("name", ascending: true)
-            //            }
-            //            catch {
-            //                print("ERROR")
-            //            }
         }
     }
     
@@ -100,5 +89,14 @@ class ContactsV2ViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+    // MARK: ImportContactViewControllerDelegate
+    func didFetchContacts(contactsToAppend: [Contact]) {
+        for contact in contactsToAppend {
+            dataSource.addContact(contact)
+        }
+        
+        contactsTableView.reloadData()
     }
 }
