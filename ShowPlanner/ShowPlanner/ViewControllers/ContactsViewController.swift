@@ -22,8 +22,8 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             switch identifier {
             case "contactSaveSegue":
                 let source = segue.sourceViewController as! AddContactViewController
-                let contactToAdd = source.currentContact!
-                dataSource.addContact(contactToAdd)
+                let contactToAdd = source.contactToAdd
+                dataSource.addContact(contactToAdd!)
             case "trashContactSegue":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 dataSource.trashContact(selectedContact!)
@@ -47,8 +47,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                         print("Error in saveContact")
                     }
                 }
-                
-                print("Contact", source.contact)
                 dataSource.saveContact(source.contact!)
             default:
                 print("No one loves \(identifier)")

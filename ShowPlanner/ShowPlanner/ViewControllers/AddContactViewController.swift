@@ -10,13 +10,14 @@ import UIKit
 import Contacts
 
 class AddContactViewController: UIViewController {
-    @IBOutlet weak var addContactContainer: UIView!
-    
+    var contactToAdd: Contact?
     var currentContact: Contact?
+    var contactDisplay: ContactDisplayViewController?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
+        self.contactDisplay = self.childViewControllers[0] as? ContactDisplayViewController
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -34,6 +35,12 @@ class AddContactViewController: UIViewController {
             currentContact = Contact()
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = currentContact
+        }
+        if (segue.identifier == "contactSaveSegue") {
+            contactToAdd = Contact()
+            contactToAdd!.name = self.contactDisplay!.nameLabel.text!
+            contactToAdd!.email = self.contactDisplay!.emailLabel.text!
+            contactToAdd!.cell = self.contactDisplay!.cellLabel.text!
         }
     }
 }

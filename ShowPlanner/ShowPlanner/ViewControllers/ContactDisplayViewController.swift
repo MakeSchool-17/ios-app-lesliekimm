@@ -55,6 +55,17 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController
+        // Pass the selected object to the new view controller
+//        if (segue.identifier == "saveContact") {
+//            contact!.name = nameLabel.text!
+//            contact!.email = emailLabel.text!
+//            contact!.cell = cellLabel.text!
+//        }
+    }
+    
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (textField == nameLabel) {  //1

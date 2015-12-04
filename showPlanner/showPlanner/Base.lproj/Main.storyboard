@@ -396,9 +396,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="addContactContainer" destination="22g-Pb-sSB" id="0Nu-D5-J5f"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrQ-H6-wRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gtK-4V-vaC" userLabel="Exit" sceneMemberID="exit"/>
