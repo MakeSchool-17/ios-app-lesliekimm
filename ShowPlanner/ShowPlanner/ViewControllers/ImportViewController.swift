@@ -52,7 +52,7 @@ class ImportViewController: UIViewController, UITextFieldDelegate, CNContactPick
                 var contacts = [CNContact]()
                 
                 let keys = [CNContactFormatter.descriptorForRequiredKeysForStyle(CNContactFormatterStyle.FullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey]
-                
+               
                 do {
                     let contactStore = AppDelegate.getAppDelegate().contactStore
                     try contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: keys)) { (contact, pointer) -> Void in
