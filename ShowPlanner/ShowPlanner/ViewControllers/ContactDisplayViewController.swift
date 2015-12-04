@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
-import Contacts
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameLabel: UITextField!
@@ -27,21 +25,22 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
-        
+
         navItem.title = contact!.name
-        nameLabel.returnKeyType = .Next
-        nameLabel.delegate = self
-        emailLabel.returnKeyType = .Next
-        emailLabel.delegate = self
-        
+        setUpTextFieldDelegates()
         displayContact(self.contact)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false
-        
-//        saveContact()
+    }
+    
+    func setUpTextFieldDelegates() {
+        nameLabel.returnKeyType = .Next
+        nameLabel.delegate = self
+        emailLabel.returnKeyType = .Next
+        emailLabel.delegate = self
     }
     
     func displayContact(contact: Contact?) {
