@@ -56,25 +56,6 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func saveContact() {
-        if let contact = contact {
-            do {
-                let realm = try Realm()
-                
-                try realm.write {
-                    if (contact.name != self.nameLabel.text || contact.email != self.emailLabel.text || contact.cell != self.cellLabel.text) {
-                        contact.name = self.nameLabel.text!
-                        contact.email = self.emailLabel.text!
-                        contact.cell = self.cellLabel.text!
-                    }
-                }
-            }
-            catch {
-                print("Error in saveContact")
-            }
-        }
-    }
-    
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (textField == nameLabel) {  //1

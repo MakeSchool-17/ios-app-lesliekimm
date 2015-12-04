@@ -28,7 +28,6 @@ class ContactsDataSource: NSObject {
     }
     
     func addContact(contact: Contact) {
-        print(contact)
         do {
             let realm = try Realm()
             try realm.write() {
@@ -52,5 +51,10 @@ class ContactsDataSource: NSObject {
         catch {
             print("Error in trashContact")
         }
+    }
+    
+    func saveContact(contact: Contact) {
+        print("in save")
+        print(contact)
     }
 }

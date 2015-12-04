@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import Contacts
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
@@ -28,14 +29,27 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 dataSource.trashContact(selectedContact!)
                 source.contact = nil
             case "saveContact":
-                print("nope")
                 let source = segue.sourceViewController as! ContactDisplayViewController
+                let contact = source.contact
+                if let contact = contact {
+                    do {
+                        let realm = try Realm()
+                        
+                        try realm.write {
+                            if (contact.name != source.nameLabel.text || contact.email != source.emailLabel.text || contact.cell != source.cellLabel.text) {
+                                contact.name = source.nameLabel.text!
+                                contact.email = source.emailLabel.text!
+                                contact.cell = source.cellLabel.text!
+                            }
+                        }
+                    }
+                    catch {
+                        print("Error in saveContact")
+                    }
+                }
+                
                 print("Contact", source.contact)
-                dataSource.addContact(source.contact!)
-//            case "cancelEditContact":
-//                print("No changes made")
-//                let source = segue.sourceViewController as! ContactDisplayViewController
-//                print(source.contact)
+                dataSource.saveContact(source.contact!)
             default:
                 print("No one loves \(identifier)")
             }
