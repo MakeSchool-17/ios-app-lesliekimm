@@ -23,9 +23,13 @@ class ImportViewController: UIViewController, UITextFieldDelegate, CNContactPick
     var contactsToAppend = [Contact]()
     
     @IBAction func showContacts(sender: UIButton) {
-        let contactPickerViewController = CNContactPickerViewController()
-        contactPickerViewController.delegate = self
-        presentViewController(contactPickerViewController, animated: true, completion: nil)
+        AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
+            if accessGranted {
+                let contactPickerViewController = CNContactPickerViewController()
+                contactPickerViewController.delegate = self
+                self.presentViewController(contactPickerViewController, animated: true, completion: nil)
+            }
+        }
     }
 
     override func viewDidLoad() {

@@ -47,7 +47,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                         print("Error in saveContact")
                     }
                 }
-                dataSource.saveContact(source.contact!)
             default:
                 print("No one loves \(identifier)")
             }
@@ -126,7 +125,5 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         for contact in contacts {
             self.contacts.append(contact)
         }
-        
-//        tblContacts.reloadData()
     }
 }

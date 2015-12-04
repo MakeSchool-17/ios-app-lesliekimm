@@ -63,7 +63,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let contact = dataSource.contacts[indexPath.row] as NSObject
+//            let contact = dataSource.contacts[indexPath.row] as NSObject
             
             //            do {
             //                let realm = try Realm()

@@ -52,9 +52,4 @@ class ContactsDataSource: NSObject {
             print("Error in trashContact")
         }
     }
-    
-    func saveContact(contact: Contact) {
-        print("in save")
-        print(contact)
-    }
 }
