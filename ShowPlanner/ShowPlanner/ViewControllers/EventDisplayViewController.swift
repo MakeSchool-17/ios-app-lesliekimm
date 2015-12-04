@@ -83,8 +83,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
                             lineupText = lineupText + x + " "
                         }
                         event.lineup = lineupText
-
-                        event.confirmed = "Not confirmed"
+//                        event.confirmed = false
                     }
                 }
             }
