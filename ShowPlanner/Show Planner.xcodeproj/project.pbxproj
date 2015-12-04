@@ -90,8 +90,8 @@
 		816741051C0F42AB002A3679 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				8124785B1C113D9600B17861 /* ContactsDataSource.swift */,
 				812478591C113D8800B17861 /* EventsDataSource.swift */,
+				8124785B1C113D9600B17861 /* ContactsDataSource.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";

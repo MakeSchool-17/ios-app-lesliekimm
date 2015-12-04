@@ -12,39 +12,31 @@ import RealmSwift
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    var events: Results<Event>! {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+//    var events: Results<Event>! {
+//        didSet {
+//            tableView?.reloadData()
+//        }
+//    }
+    var dataSource = EventsDataSource()
     var selectedEvent: Event?
     
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
-            do {
-                let realm = try Realm()
-                
                 switch identifier {
                 case "saveAddEvent":
                     let source = segue.sourceViewController as! AddEventViewController
-                    try realm.write() {
-                        realm.add(source.currentEvent!)
-                    }
+                    let eventToAdd = source.eventToAdd
+                    dataSource.addEvent(eventToAdd!)
                 case "deleteEvent":
-                    try realm.write() {
-                        realm.delete(self.selectedEvent!)
-                    }
                     let source = segue.sourceViewController as! EventDisplayViewController
+                    dataSource.trashEvent(selectedEvent!)
                     source.event = nil
+                case "saveEvent":
+                    print("here")
                 default:
                     print("No one loves \(identifier)")
                 }
-                
-                events = realm.objects(Event).sorted("dateTime", ascending: true)
-            }
-            catch {
-                print("Error in backToUpcomingVC")
-            }
+            tableView.reloadData()
         }
     }
     
@@ -52,18 +44,12 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        do {
-            let realm = try Realm()
-            events = realm.objects(Event).sorted("dateTime", ascending: true)
-        }
-        catch {
-            print("Error in Upcoming viewDidLoad")
-        }
+        tableView.reloadData()
     }
 
     // MARK: Navigation
@@ -81,40 +67,30 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
         let row = indexPath.row
-        let event = events[row] as Event
+        let event = dataSource.events[row] as Event
         cell.event = event
-        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events?.count ?? 0
+        return dataSource.events?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let event = dataSource.events[indexPath.row] as Event
+            dataSource.trashEvent(event)
+            tableView.reloadData()
+        }
     }
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedEvent = events[indexPath.row]
+        selectedEvent = dataSource.events[indexPath.row]
         self.performSegueWithIdentifier("showExistingEvent", sender: self)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let event = events[indexPath.row] as Object
-            
-            do {
-                let realm = try Realm()
-                try realm.write() {
-                    realm.delete(event)
-                }
-                events = realm.objects(Event).sorted("dateTime", ascending: true)
-            }
-            catch {
-                print("Error in commitEditingStyle")
-            }
-        }
     }
 }

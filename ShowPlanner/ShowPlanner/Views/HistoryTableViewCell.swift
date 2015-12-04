@@ -9,13 +9,31 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    static var dateFormatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        return formatter
+    }()
+    
+    static var timeFormatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        return formatter
+    }()
+    
+    var event: Event? {
+        didSet {
+            if let event = event, eventNameLabel = eventNameLabel, locationLabel = locationLabel, dateLabel = dateLabel, timeLabel = timeLabel {
+                eventNameLabel.text = event.name
+                locationLabel.text = event.location
+                dateLabel.text = EventTableViewCell.dateFormatter.stringFromDate(event.dateTime)
+                timeLabel.text = EventTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+            }
+        }
     }
 }

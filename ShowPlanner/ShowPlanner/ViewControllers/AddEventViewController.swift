@@ -9,17 +9,18 @@
 import UIKit
 
 class AddEventViewController: UIViewController {
+    var eventToAdd: Event?
     var currentEvent: Event?
+    var eventDisplay: EventDisplayViewController?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.tabBarController?.tabBar.hidden = true
+        self.eventDisplay = self.childViewControllers[0] as? EventDisplayViewController
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -32,6 +33,12 @@ class AddEventViewController: UIViewController {
             currentEvent = Event()
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = currentEvent
+        }
+        if (segue.identifier == "saveAddEvent") {
+            eventToAdd = Event()
+            eventToAdd!.name = self.eventDisplay!.nameTextField.text!
+            eventToAdd!.location = self.eventDisplay!.locationTextField.text!
+            eventToAdd!.dateTime = self.eventDisplay!.datePicker.date
         }
     }
 }

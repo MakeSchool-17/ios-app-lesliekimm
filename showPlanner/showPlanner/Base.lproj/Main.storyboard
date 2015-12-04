@@ -70,17 +70,92 @@
                                     <navigationItem title="History" id="LYd-Gu-7ys"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EX-qm-ddG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="60" id="Gw1-MB-7hV" customClass="HistoryTableViewCell" customModule="Show_Planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gw1-MB-7hV" id="pJe-4r-eEj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-S7-uWa">
+                                                    <rect key="frame" x="15" y="8" width="435" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abh-PX-EXL">
+                                                    <rect key="frame" x="15" y="33" width="435" height="17"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Day, Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO0-Sq-rmc">
+                                                    <rect key="frame" x="465" y="10" width="120" height="17"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour:Min PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORX-1i-Zxu">
+                                                    <rect key="frame" x="465" y="32" width="120" height="17"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="D0m-S7-uWa" firstAttribute="top" secondItem="pJe-4r-eEj" secondAttribute="top" constant="8" id="8Xv-aj-WEP"/>
+                                                <constraint firstItem="abh-PX-EXL" firstAttribute="leading" secondItem="pJe-4r-eEj" secondAttribute="leading" constant="15" id="9Kk-or-bHH"/>
+                                                <constraint firstItem="D0m-S7-uWa" firstAttribute="leading" secondItem="pJe-4r-eEj" secondAttribute="leading" constant="15" id="ASw-Mq-8VR"/>
+                                                <constraint firstItem="abh-PX-EXL" firstAttribute="top" secondItem="D0m-S7-uWa" secondAttribute="bottom" constant="5" id="GWU-ep-OZj"/>
+                                                <constraint firstAttribute="trailing" secondItem="FO0-Sq-rmc" secondAttribute="trailing" constant="15" id="I59-kz-AN3"/>
+                                                <constraint firstItem="ORX-1i-Zxu" firstAttribute="top" secondItem="FO0-Sq-rmc" secondAttribute="bottom" constant="5" id="VxN-kX-JUd"/>
+                                                <constraint firstAttribute="trailing" secondItem="ORX-1i-Zxu" secondAttribute="trailing" constant="15" id="Z1V-AY-ElH"/>
+                                                <constraint firstAttribute="trailing" secondItem="D0m-S7-uWa" secondAttribute="trailing" constant="150" id="dDP-XI-MGT"/>
+                                                <constraint firstItem="abh-PX-EXL" firstAttribute="top" secondItem="D0m-S7-uWa" secondAttribute="bottom" constant="5" id="fHv-hP-ZHh"/>
+                                                <constraint firstItem="FO0-Sq-rmc" firstAttribute="leading" secondItem="D0m-S7-uWa" secondAttribute="trailing" constant="15" id="ojg-FV-x0m"/>
+                                                <constraint firstItem="FO0-Sq-rmc" firstAttribute="top" secondItem="pJe-4r-eEj" secondAttribute="top" constant="10" id="r7c-Tm-e4s"/>
+                                                <constraint firstItem="ORX-1i-Zxu" firstAttribute="leading" secondItem="abh-PX-EXL" secondAttribute="trailing" constant="15" id="ygp-yK-5jy"/>
+                                                <constraint firstAttribute="trailing" secondItem="abh-PX-EXL" secondAttribute="trailing" constant="150" id="zRp-Ai-9tl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="FO0-Sq-rmc" id="MLt-o4-fh9"/>
+                                            <outlet property="eventNameLabel" destination="abh-PX-EXL" id="rIl-nJ-eSn"/>
+                                            <outlet property="locationLabel" destination="abh-PX-EXL" id="hE5-KM-3Yd"/>
+                                            <outlet property="timeLabel" destination="ORX-1i-Zxu" id="eOZ-rN-Bcd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fsv-qz-inc" firstAttribute="top" secondItem="0EX-qm-ddG" secondAttribute="bottom" id="C3z-Xe-Ul1"/>
+                            <constraint firstItem="0EX-qm-ddG" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="44" id="C8P-ws-Rkf"/>
                             <constraint firstAttribute="trailing" secondItem="ovx-Oa-Duy" secondAttribute="trailing" id="ESk-Da-KwS"/>
                             <constraint firstItem="ovx-Oa-Duy" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="NUu-YB-fKt"/>
+                            <constraint firstItem="0EX-qm-ddG" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="OZy-K8-c1d"/>
+                            <constraint firstAttribute="trailing" secondItem="0EX-qm-ddG" secondAttribute="trailing" id="Ohx-PK-SpB"/>
                             <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="-20" id="Tie-wp-5a8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history" id="tRa-rF-C9l"/>
                     <navigationItem key="navigationItem" title="Past Shows" id="Dfe-om-eIo"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="0EX-qm-ddG" id="qbf-c0-mrC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvP-5j-7gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -738,6 +813,13 @@
                             <constraint firstItem="idr-OL-Hwv" firstAttribute="top" secondItem="QuK-2D-oP9" secondAttribute="bottom" id="unW-fC-x8I"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Dkh-Lb-4B9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HlE-ln-KU2">
+                            <connections>
+                                <segue destination="ief-Gh-NXF" kind="unwind" identifier="saveEvent" unwindAction="backToEventDisplayVC:" id="rPg-EQ-r8W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="AMr-Wz-EhO" id="R6Y-zm-YjX"/>
                         <outlet property="lineupTableView" destination="idr-OL-Hwv" id="IPS-xj-NSe"/>
