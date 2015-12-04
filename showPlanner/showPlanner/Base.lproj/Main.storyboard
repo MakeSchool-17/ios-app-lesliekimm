@@ -814,9 +814,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dkh-Lb-4B9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j1M-Gb-7dG">
+                            <connections>
+                                <segue destination="ief-Gh-NXF" kind="unwind" identifier="cancelEditEvent" unwindAction="backToUpcomingVC:" id="dmi-iR-i3o"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="HlE-ln-KU2">
                             <connections>
-                                <segue destination="ief-Gh-NXF" kind="unwind" identifier="saveEvent" unwindAction="backToEventDisplayVC:" id="rPg-EQ-r8W"/>
+                                <segue destination="ief-Gh-NXF" kind="unwind" identifier="saveEvent" unwindAction="backToUpcomingVC:" id="AQt-zc-uE4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -825,6 +830,7 @@
                         <outlet property="lineupTableView" destination="idr-OL-Hwv" id="IPS-xj-NSe"/>
                         <outlet property="locationTextField" destination="don-gz-KBL" id="2Qd-ed-4zk"/>
                         <outlet property="nameTextField" destination="jmS-Io-rzm" id="N3P-r9-SXj"/>
+                        <outlet property="navItem" destination="Dkh-Lb-4B9" id="Pdf-up-KCb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXQ-T6-bIw" userLabel="First Responder" sceneMemberID="firstResponder"/>

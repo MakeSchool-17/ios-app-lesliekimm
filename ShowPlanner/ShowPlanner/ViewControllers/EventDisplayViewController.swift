@@ -11,6 +11,7 @@ import UIKit
 import RealmSwift
 
 class EventDisplayViewController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var locationTextField: UITextField!
@@ -42,9 +43,9 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lineupTableView.dataSource = self
-        
         self.tabBarController?.tabBar.hidden = true
+        navItem.title = event!.name
+        lineupTableView.dataSource = self
     }
     
     override func viewWillAppear(animated: Bool) {

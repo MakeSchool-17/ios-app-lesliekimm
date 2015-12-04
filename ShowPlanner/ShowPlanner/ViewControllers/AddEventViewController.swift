@@ -38,6 +38,11 @@ class AddEventViewController: UIViewController {
             eventToAdd = Event()
             eventToAdd!.name = self.eventDisplay!.nameTextField.text!
             eventToAdd!.location = self.eventDisplay!.locationTextField.text!
+            var lineupText = ""
+            for x in self.eventDisplay!.stringLineup {
+                lineupText = lineupText + x + " "
+            }
+            eventToAdd!.lineup = lineupText
             eventToAdd!.dateTime = self.eventDisplay!.datePicker.date
         }
     }
