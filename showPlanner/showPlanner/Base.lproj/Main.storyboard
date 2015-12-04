@@ -131,8 +131,8 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="dateLabel" destination="FO0-Sq-rmc" id="MLt-o4-fh9"/>
-                                            <outlet property="eventNameLabel" destination="abh-PX-EXL" id="rIl-nJ-eSn"/>
                                             <outlet property="locationLabel" destination="abh-PX-EXL" id="hE5-KM-3Yd"/>
+                                            <outlet property="nameLabel" destination="D0m-S7-uWa" id="iPu-xK-sEh"/>
                                             <outlet property="timeLabel" destination="ORX-1i-Zxu" id="eOZ-rN-Bcd"/>
                                         </connections>
                                     </tableViewCell>

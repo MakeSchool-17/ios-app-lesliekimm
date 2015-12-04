@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -28,8 +28,8 @@ class HistoryTableViewCell: UITableViewCell {
     
     var event: Event? {
         didSet {
-            if let event = event, eventNameLabel = eventNameLabel, locationLabel = locationLabel, dateLabel = dateLabel, timeLabel = timeLabel {
-                eventNameLabel.text = event.name
+            if let event = event, nameLabel = nameLabel, locationLabel = locationLabel, dateLabel = dateLabel, timeLabel = timeLabel {
+                nameLabel.text = event.name
                 locationLabel.text = event.location
                 dateLabel.text = EventTableViewCell.dateFormatter.stringFromDate(event.dateTime)
                 timeLabel.text = EventTableViewCell.timeFormatter.stringFromDate(event.dateTime)

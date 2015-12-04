@@ -18,7 +18,7 @@ class EventsDataSource: NSObject {
         
         do {
             let realm = try Realm()
-            events = realm.objects(Event).sorted("dateTime", ascending: false)
+            events = realm.objects(Event).sorted("dateTime", ascending: true)
         }
         catch {
             print("Error in events init")
@@ -31,7 +31,7 @@ class EventsDataSource: NSObject {
             try realm.write() {
                 realm.add(event)
             }
-            events = realm.objects(Event).sorted("dateTime", ascending: false)
+            events = realm.objects(Event).sorted("dateTime", ascending: true)
         }
         catch {
             print("Error in addEvent")
@@ -44,7 +44,7 @@ class EventsDataSource: NSObject {
             try realm.write() {
                 realm.delete(event)
             }
-            events = realm.objects(Event).sorted("dateTime", ascending: false)
+            events = realm.objects(Event).sorted("dateTime", ascending: true)
         }
         catch {
             print("Error in trashEvent")
