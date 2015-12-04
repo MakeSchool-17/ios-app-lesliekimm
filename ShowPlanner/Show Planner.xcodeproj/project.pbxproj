@@ -436,7 +436,7 @@
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlannerv2;
 				PRODUCT_NAME = "Show Planner";
 			};
 			name = Debug;
@@ -452,7 +452,7 @@
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlannerv2;
 				PRODUCT_NAME = "Show Planner";
 			};
 			name = Release;
