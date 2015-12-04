@@ -6,6 +6,10 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+// SOURCES:
+// 1) red x image: http://cod.esportspedia.com/w/images/archive/8/89/20150313002728!RedX.png
+// 2) green check image: http://www.clipartbest.com/cliparts/4T9/Ejp/4T9Ejpy8c.png
+
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
