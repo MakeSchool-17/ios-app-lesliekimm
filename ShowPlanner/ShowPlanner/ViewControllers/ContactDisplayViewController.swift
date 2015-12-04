@@ -26,24 +26,22 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = true
         
         navItem.title = contact!.name
-        
-        displayContact(self.contact)
-        
         nameLabel.returnKeyType = .Next
         nameLabel.delegate = self
         emailLabel.returnKeyType = .Next
         emailLabel.delegate = self
         
-        self.tabBarController?.tabBar.hidden = true
+        displayContact(self.contact)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        saveContact()
         self.tabBarController?.tabBar.hidden = false
+        
+//        saveContact()
     }
     
     func displayContact(contact: Contact?) {

@@ -12,6 +12,7 @@ import Contacts
 class AddContactViewController: UIViewController {
     @IBOutlet weak var addContactContainer: UIView!
     
+    var contact = Contact()
     var currentContact: Contact?
     
     override func viewWillAppear(animated: Bool) {

@@ -28,6 +28,7 @@ class ContactsDataSource: NSObject {
     }
     
     func addContact(contact: Contact) {
+        print(contact)
         do {
             let realm = try Realm()
             try realm.write() {
