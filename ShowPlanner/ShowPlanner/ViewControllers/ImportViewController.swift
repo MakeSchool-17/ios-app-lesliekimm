@@ -23,8 +23,6 @@ class ImportViewController: UIViewController, UITextFieldDelegate, CNContactPick
     
     @IBAction func showContacts(sender: UIButton) {
         let contactPickerViewController = CNContactPickerViewController()
-        
-        contactPickerViewController.predicateForEnablingContact = NSPredicate(format: "birthday != nil")
         contactPickerViewController.delegate = self
         presentViewController(contactPickerViewController, animated: true, completion: nil)
     }
