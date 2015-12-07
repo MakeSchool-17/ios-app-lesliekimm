@@ -21,6 +21,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         selectLineupTableView.dataSource = self
         selectLineupTableView.delegate = self
+        selectLineupTableView.allowsMultipleSelection = true;
         selectLineupTableView.reloadData()
     }
 
@@ -54,6 +55,9 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = dataSource.contacts[indexPath.row]
+        // add contact to an array of selected contacts
+        // display green check mark
+        // update view
         print("didSelectRowAtIndexPath in SelectLineup")
     }
     

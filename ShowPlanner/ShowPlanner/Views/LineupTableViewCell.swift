@@ -10,7 +10,6 @@ import UIKit
 
 class LineupTableViewCell: UITableViewCell {
     @IBOutlet weak var lineupNameLabel: UILabel!
-    @IBOutlet weak var hostLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
     var lineup: Lineup? {
         didSet {
