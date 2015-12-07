@@ -41,24 +41,19 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     var selectedLineup: Lineup?
     var stringLineup: [String] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tabBarController?.tabBar.hidden = true
-        navItem.title = event!.name
-        lineupTableView.dataSource = self
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = true
         
-        displayEvent(event)
+        navItem.title = event!.name
+        lineupTableView.dataSource = self
+        displayEvent(self.event)
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        saveEvent()
         self.tabBarController?.tabBar.hidden = false
+//        saveEvent()
     }
     
     func displayEvent(event: Event?) {
@@ -69,36 +64,11 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func saveEvent() {
-        if let event = event {
-            do {
-                let realm = try Realm()
-                
-                try realm.write {
-                    if (event.name != self.nameTextField.text || event.dateTime != self.datePicker.date || event.location != self.locationTextField.text) {
-                        event.name = self.nameTextField.text!
-                        event.dateTime = self.datePicker.date
-                        event.location = self.locationTextField.text!
-                        var lineupText = ""
-                        for x in self.stringLineup {
-                            lineupText = lineupText + x + " "
-                        }
-                        event.lineup = lineupText
-//                        event.confirmed = false
-                    }
-                }
-            }
-            catch {
-                print("ERROR")
-            }
-        }
-    }
-    
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
         cell.lineupNameLabel.text = "aries spears"
-        cell.hostLabel.text = ""
+        cell.hostLabel.text = "Host"
         cell.confirmedLabel.text = "x"
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)

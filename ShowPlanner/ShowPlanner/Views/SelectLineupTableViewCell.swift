@@ -11,7 +11,11 @@ import Contacts
 
 class SelectLineupTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBAction func hostButton(sender: UIButton) {
+        
+    }
+    @IBAction func selectedButton(sender: UIButton) {
+    }
     var contact: Contact? {
         didSet {
             if let contact = contact, nameLabel = nameLabel {

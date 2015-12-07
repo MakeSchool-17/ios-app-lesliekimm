@@ -12,23 +12,10 @@ class LineupTableViewCell: UITableViewCell {
     @IBOutlet weak var lineupNameLabel: UILabel!
     @IBOutlet weak var hostLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
-
     var lineup: Lineup? {
         didSet {
-            if let lineup = lineup, lineupNameLabel = lineupNameLabel, hostLabel = hostLabel, confirmedLabel = confirmedLabel {
+            if let lineup = lineup, lineupNameLabel = lineupNameLabel {
                 lineupNameLabel.text = lineup.name
-                if lineup.host == true {
-                    hostLabel.text = "Host"
-                }
-                else {
-                    hostLabel.text = ""
-                }
-                if lineup.confirmed == true {
-                    confirmedLabel.text = "C"
-                }
-                else {
-                    confirmedLabel.text = "x"
-                }
             }
         }
     }

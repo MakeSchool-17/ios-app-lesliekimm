@@ -33,6 +33,29 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                     source.event = nil
                 case "saveEvent":
                     print("here")
+                    let source = segue.sourceViewController as! EventDisplayViewController
+                    let event = source.event
+                    if let event = event {
+                            do {
+                                let realm = try Realm()
+                                
+                                try realm.write {
+                                    if (event.name != source.nameTextField.text || event.dateTime != source.datePicker.date || event.location != source.locationTextField.text) {
+                                        event.name = source.nameTextField.text!
+                                        event.dateTime = source.datePicker.date
+                                        event.location = source.locationTextField.text!
+                                        var lineupText = ""
+                                        for x in source.stringLineup {
+                                            lineupText = lineupText + x + " "
+                                        }
+                                        event.lineup = lineupText
+                                    }
+                                }
+                            }
+                            catch {
+                                print("ERROR")
+                            }
+                    }
                 default:
                     print("No one loves \(identifier)")
                 }
