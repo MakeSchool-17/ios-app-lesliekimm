@@ -68,7 +68,6 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
         cell.lineupNameLabel.text = "aries spears"
-        cell.hostLabel.text = "Host"
         cell.confirmedLabel.text = "x"
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
