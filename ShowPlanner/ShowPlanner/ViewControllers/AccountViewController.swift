@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AccountViewController: UIViewController {
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var cellTextField: UITextField!
+    
+    @IBAction func saveAccountInfo(sender: UIBarButtonItem) {
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
