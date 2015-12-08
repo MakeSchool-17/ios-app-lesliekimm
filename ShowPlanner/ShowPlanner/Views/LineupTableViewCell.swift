@@ -11,10 +11,14 @@ import UIKit
 class LineupTableViewCell: UITableViewCell {
     @IBOutlet weak var lineupNameLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
-    var contact: Contact? {
+    var lineup: Lineup? {
         didSet {
-            if let contact = contact, lineupNameLabel = lineupNameLabel {
-                lineupNameLabel.text = contact.name
+            if let lineup = lineup, lineupNameLabel = lineupNameLabel {
+                lineupNameLabel.text = lineup.name
+                if lineup.confirmed {
+                    confirmedLabel.text = "Y"
+                    confirmedLabel.textColor = UIColor.greenColor()
+                }
             }
         }
     }
