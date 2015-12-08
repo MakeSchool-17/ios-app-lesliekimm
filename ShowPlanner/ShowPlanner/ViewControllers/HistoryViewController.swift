@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var historyTableView: UITableView!
     
     var dataSource = EventsDataSource()
@@ -18,8 +18,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.dataSource = self
-        historyTableView.delegate = self
         historyTableView.reloadData()
+        historyTableView.allowsSelection = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,13 +34,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         historyTableView.reloadData()
     }
     
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as! HistoryTableViewCell
@@ -52,16 +45,5 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsToBeDisplayed?.count ?? 0
-    }
-    
-    // MARK: UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
 }
