@@ -17,15 +17,6 @@ class AccountViewController: UIViewController {
     var userAccount: Account?
     
     @IBAction func saveAccountInfo(sender: UIBarButtonItem) {
-
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        userAccount = Account()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
         if let userAccount = userAccount {
             do {
                 let realm = try Realm()
@@ -43,10 +34,13 @@ class AccountViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        displayAccount(userAccount)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     func displayAccount(account: Account?) {
@@ -56,14 +50,4 @@ class AccountViewController: UIViewController {
             cellTextField.text = userAccount.cell
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
