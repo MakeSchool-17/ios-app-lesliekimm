@@ -13,6 +13,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var dataSource = EventsDataSource()
     var selectedEvent: Event?
+    var eventsToBeDisplayed: [Event]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        eventsToBeDisplayed = [Event]()
+        let currentTime = NSDate()
+        for event in dataSource.events {
+            if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
+                eventsToBeDisplayed?.insert(event, atIndex: 0)
+            }
+        }
         historyTableView.reloadData()
     }
     
@@ -37,13 +45,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as! HistoryTableViewCell
         let row = indexPath.row
-        let event = dataSource.events[row] as Event
+        let event = (eventsToBeDisplayed?[row])! as Event
         cell.event = event
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.events?.count ?? 0
+        return eventsToBeDisplayed?.count ?? 0
     }
     
     // MARK: UITableViewDelegate

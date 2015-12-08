@@ -10,12 +10,14 @@
 // 1) check mark artwork: https://commons.wikimedia.org/wiki/File:Check_mark_23x20_02.svg
 
 import UIKit
+import RealmSwift
 
 class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var selectLineupTableView: UITableView!
     
     var dataSource = ContactsDataSource()
     var selectedContact: Contact?
+    var lineup: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

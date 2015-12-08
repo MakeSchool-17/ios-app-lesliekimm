@@ -17,11 +17,14 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var lineupTableView: UITableView!
     
+    var lineupArray: [String]?
+    
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
             case "saveLineup":
-                print("save lineup")
+                let source = segue.sourceViewController as! SelectLineupViewController
+                lineupArray = source.lineup
             default:
                 print("No one loves \(identifier)")
             }
@@ -48,6 +51,8 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         navItem.title = event!.name
         lineupTableView.dataSource = self
         displayEvent(self.event)
+        
+        print(lineupArray)
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -67,7 +72,8 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
-        cell.lineupNameLabel.text = "aries spears"
+        let row = indexPath.row
+        cell.lineupNameLabel.text = self.lineupArray![row]
         cell.confirmedLabel.text = "x"
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
@@ -79,7 +85,6 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-//        return lineup?.count ?? 0
+        return lineupArray?.count ?? 0
     }
 }

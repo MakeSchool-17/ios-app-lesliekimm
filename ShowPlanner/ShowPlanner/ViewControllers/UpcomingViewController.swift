@@ -12,13 +12,9 @@ import RealmSwift
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-//    var events: Results<Event>! {
-//        didSet {
-//            tableView?.reloadData()
-//        }
-//    }
     var dataSource = EventsDataSource()
     var selectedEvent: Event?
+    var eventsToBeDisplayed: [Event]?
     
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
@@ -72,6 +68,13 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
+        eventsToBeDisplayed = [Event]()
+        let currentTime = NSDate()
+        for event in dataSource.events {
+            if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
+                eventsToBeDisplayed?.append(event)
+            }
+        }
         tableView.reloadData()
     }
 
@@ -90,18 +93,18 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
         let row = indexPath.row
-        let event = dataSource.events[row] as Event
+        let event = (eventsToBeDisplayed?[row])! as Event
         cell.event = event
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.events?.count ?? 0
+        return eventsToBeDisplayed?.count ?? 0
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let event = dataSource.events[indexPath.row] as Event
+            let event = (eventsToBeDisplayed?[indexPath.row])! as Event
             dataSource.trashEvent(event)
             tableView.reloadData()
         }
@@ -109,7 +112,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedEvent = dataSource.events[indexPath.row]
+        selectedEvent = eventsToBeDisplayed?[indexPath.row]
         self.performSegueWithIdentifier("showExistingEvent", sender: self)
     }
     

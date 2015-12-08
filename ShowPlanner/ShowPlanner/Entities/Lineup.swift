@@ -11,6 +11,5 @@ import RealmSwift
 
 class Lineup: Object {
     dynamic var name: String = ""
-    dynamic var host: Bool = false
     dynamic var confirmed: Bool = false
 }
