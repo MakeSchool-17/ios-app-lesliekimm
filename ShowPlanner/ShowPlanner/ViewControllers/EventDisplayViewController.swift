@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class EventDisplayViewController: UIViewController, UITableViewDataSource {
+class EventDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -21,9 +21,16 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         if let identifier = segue.identifier {
             switch identifier {
             case "saveLineup":
-                print("Save lineup")
                 let source = segue.sourceViewController as! SelectLineupViewController
-                lineup.append(source.selectedContact!)
+                do {
+                    let realm = try Realm()
+                    try realm.write() {
+                        realm.add(source.selectedLineup!)
+                    }
+                }
+                catch {
+                    print("Error in saveLineup")
+                }
             default:
                 print("No one loves \(identifier)")
             }
@@ -35,7 +42,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
             displayEvent(event)
         }
     }
-    var lineup = [Contact]() {
+    var lineupArray: Results<Lineup>! {
         didSet {
             lineupTableView?.reloadData()
         }
@@ -49,7 +56,16 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         
         navItem.title = event!.name
         lineupTableView.dataSource = self
+        lineupTableView.delegate = self
         displayEvent(event)
+        
+        do {
+            let realm = try Realm()
+            lineupArray = realm.objects(Lineup)
+        }
+        catch {
+            print("Error in events init")                                       // print error message
+        }
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -70,8 +86,8 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
         let row = indexPath.row
-        let contact = lineup[row] as Contact
-        cell.contact = contact
+        let lineup = lineupArray[row] as Lineup
+        cell.lineup = lineup
 
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
@@ -80,6 +96,32 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lineup.count ?? 0
+        return lineupArray?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let lineup = lineupArray[indexPath.row]
+            do {
+                let realm = try Realm()
+                try realm.write() {
+                    realm.delete(lineup)
+                }
+            }
+            catch {
+                print("Error in commitEditingStyle EventDisplayVC")
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedLineup = lineupArray[indexPath.row]
+        selectedLineup!.confirmed = true
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
 }
