@@ -154,15 +154,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-S7-uWa">
-                                                    <rect key="frame" x="15" y="8" width="402" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-S7-uWa">
+                                                    <rect key="frame" x="15" y="8" width="435" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abh-PX-EXL">
-                                                    <rect key="frame" x="15" y="33" width="402" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abh-PX-EXL">
+                                                    <rect key="frame" x="15" y="34" width="435" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -203,8 +203,8 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="dateLabel" destination="FO0-Sq-rmc" id="MLt-o4-fh9"/>
+                                            <outlet property="eventNameLabel" destination="D0m-S7-uWa" id="o7V-eZ-jjQ"/>
                                             <outlet property="locationLabel" destination="abh-PX-EXL" id="hE5-KM-3Yd"/>
-                                            <outlet property="nameLabel" destination="D0m-S7-uWa" id="iPu-xK-sEh"/>
                                             <outlet property="timeLabel" destination="ORX-1i-Zxu" id="eOZ-rN-Bcd"/>
                                         </connections>
                                     </tableViewCell>
