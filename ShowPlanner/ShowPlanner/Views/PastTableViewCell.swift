@@ -1,5 +1,5 @@
 //
-//  HistoryTableViewCell.swift
+//  PastTableViewCell.swift
 //  ShowPlanner
 //
 //  Created by Leslie Kim on 11/19/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryTableViewCell: UITableViewCell {
+class PastTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

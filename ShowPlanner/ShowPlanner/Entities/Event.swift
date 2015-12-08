@@ -16,4 +16,5 @@ class Event: Object {
     dynamic var dateTime = NSDate()
 //    dynamic var confirmed: String = ""
     dynamic var confirmed: Bool = false
+    dynamic var notes: String = ""
 }

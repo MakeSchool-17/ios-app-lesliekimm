@@ -11,6 +11,8 @@
 		8124785A1C113D8800B17861 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812478591C113D8800B17861 /* EventsDataSource.swift */; };
 		8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124785B1C113D9600B17861 /* ContactsDataSource.swift */; };
 		8142C5DA1C166CA200FE915C /* SelectedLineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5D91C166CA200FE915C /* SelectedLineup.swift */; };
+		8142C5DE1C16968000FE915C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5DD1C16968000FE915C /* Account.swift */; };
+		8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5E11C1734E000FE915C /* PastViewController.swift */; };
 		816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740DF1C0D14B6002A3679 /* ImportViewController.swift */; };
 		816740E21C0D5DD6002A3679 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740E11C0D5DD6002A3679 /* Contact.swift */; };
 		8167410F1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */; };
@@ -18,10 +20,9 @@
 		818E98761BF661FF00D8157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98741BF661FF00D8157F /* Main.storyboard */; };
 		818E98781BF661FF00D8157F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818E98771BF661FF00D8157F /* Assets.xcassets */; };
 		818E987B1BF661FF00D8157F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98791BF661FF00D8157F /* LaunchScreen.storyboard */; };
-		818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98851BF6A43000D8157F /* HistoryViewController.swift */; };
 		818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98891BF6A44800D8157F /* AccountViewController.swift */; };
 		81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */; };
-		81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */; };
+		81C23CC91BFE4FB0000E3838 /* PastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CC81BFE4FB0000E3838 /* PastTableViewCell.swift */; };
 		81C23CCD1BFE5001000E3838 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCC1BFE5001000E3838 /* Event.swift */; };
 		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
 		81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */; };
@@ -42,6 +43,8 @@
 		812478591C113D8800B17861 /* EventsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
 		8124785B1C113D9600B17861 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
 		8142C5D91C166CA200FE915C /* SelectedLineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLineup.swift; sourceTree = "<group>"; };
+		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
 		816740DF1C0D14B6002A3679 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,10 +54,9 @@
 		818E98771BF661FF00D8157F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		818E987A1BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		818E987C1BF661FF00D8157F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		818E98851BF6A43000D8157F /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		818E98891BF6A44800D8157F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
-		81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		81C23CC81BFE4FB0000E3838 /* PastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastTableViewCell.swift; sourceTree = "<group>"; };
 		81C23CCC1BFE5001000E3838 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		81C23CD31BFE580D000E3838 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDisplayViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +142,7 @@
 				81FB47691C0282E800705324 /* AddEventViewController.swift */,
 				81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */,
 				81FB47711C03E2C900705324 /* SelectLineupViewController.swift */,
-				818E98851BF6A43000D8157F /* HistoryViewController.swift */,
+				8142C5E11C1734E000FE915C /* PastViewController.swift */,
 				811313021C1004D8003775E3 /* ContactsViewController.swift */,
 				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
@@ -156,7 +158,7 @@
 				81FB47671C027A6600705324 /* EventTableViewCell.swift */,
 				81FB476D1C0290E900705324 /* LineupTableViewCell.swift */,
 				8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */,
-				81C23CC81BFE4FB0000E3838 /* HistoryTableViewCell.swift */,
+				81C23CC81BFE4FB0000E3838 /* PastTableViewCell.swift */,
 				81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */,
 			);
 			path = Views;
@@ -168,6 +170,7 @@
 				81C23CCC1BFE5001000E3838 /* Event.swift */,
 				81FB476F1C03BD6300705324 /* Lineup.swift */,
 				816740E11C0D5DD6002A3679 /* Contact.swift */,
+				8142C5DD1C16968000FE915C /* Account.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -309,12 +312,13 @@
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
 				81FB47701C03BD6300705324 /* Lineup.swift in Sources */,
 				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
-				81C23CC91BFE4FB0000E3838 /* HistoryTableViewCell.swift in Sources */,
+				81C23CC91BFE4FB0000E3838 /* PastTableViewCell.swift in Sources */,
 				8124785A1C113D8800B17861 /* EventsDataSource.swift in Sources */,
+				8142C5DE1C16968000FE915C /* Account.swift in Sources */,
+				8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */,
 				811313031C1004D8003775E3 /* ContactsViewController.swift in Sources */,
 				81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */,
 				816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */,
-				818E98861BF6A43000D8157F /* HistoryViewController.swift in Sources */,
 				81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81FB47721C03E2C900705324 /* SelectLineupViewController.swift in Sources */,

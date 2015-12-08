@@ -13,4 +13,6 @@ class Contact: Object {
     dynamic var name: String = ""
     dynamic var email: String = ""
     dynamic var cell: String = ""
+    dynamic var confirmed: Bool = false
+//    dynamic var host: Bool = false
 }

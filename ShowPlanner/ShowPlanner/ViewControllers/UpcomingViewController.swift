@@ -10,8 +10,7 @@ import UIKit
 import RealmSwift
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!          // code connection to Upcoming TV
     var dataSource = EventsDataSource()
     var selectedEvent: Event?
     var eventsToBeDisplayed: [Event]?

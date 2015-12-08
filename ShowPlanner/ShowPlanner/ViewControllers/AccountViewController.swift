@@ -14,16 +14,47 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var cellTextField: UITextField!
     
+    var userAccount: Account?
+    
     @IBAction func saveAccountInfo(sender: UIBarButtonItem) {
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        userAccount = Account()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let userAccount = userAccount {
+            do {
+                let realm = try Realm()
+                
+                try realm.write {
+                    if (userAccount.name != self.nameTextField.text || userAccount.email != self.emailTextField.text || userAccount.cell != self.cellTextField.text) {
+                        userAccount.name = self.nameTextField.text!
+                        userAccount.email = self.emailTextField.text!
+                        userAccount.cell = self.cellTextField.text!
+                    }
+                }
+            }
+            catch {
+                print("ERROR")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func displayAccount(account: Account?) {
+        if let userAccount = userAccount, nameTextField = nameTextField, emailTextField = emailTextField, cellTextField = cellTextField {
+            nameTextField.text = userAccount.name
+            emailTextField.text = userAccount.email
+            cellTextField.text = userAccount.cell
+        }
     }
     
     /*

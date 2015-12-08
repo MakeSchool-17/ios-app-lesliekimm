@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Account: Object {
+    dynamic var name: String = ""
+    dynamic var email: String = ""
+    dynamic var cell: String = ""
+}

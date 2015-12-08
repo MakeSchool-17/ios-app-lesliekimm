@@ -62,8 +62,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Nc-FdS">
-                                <rect key="frame" x="150" y="170" width="25" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Nc-FdS">
+                                <rect key="frame" x="150" y="170" width="45" height="17"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="9Le-0M-ozp"/>
@@ -133,7 +133,7 @@
         <!--Past Shows-->
         <scene sceneID="bCW-87-Dgl">
             <objects>
-                <viewController id="v93-yh-i8F" customClass="HistoryViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="v93-yh-i8F" customClass="PastViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4cb-f3-JSz"/>
                         <viewControllerLayoutGuide type="bottom" id="fsv-qz-inc"/>
@@ -142,51 +142,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Oa-Duy">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="WnV-s7-ot5"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Past Events" id="LYd-Gu-7ys"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0EX-qm-ddG">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="60" id="Gw1-MB-7hV" customClass="HistoryTableViewCell" customModule="Show_Planner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PastEventCell" rowHeight="60" id="Gw1-MB-7hV" customClass="PastTableViewCell" customModule="Show_Planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gw1-MB-7hV" id="pJe-4r-eEj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0m-S7-uWa">
-                                                    <rect key="frame" x="15" y="8" width="435" height="21"/>
+                                                    <rect key="frame" x="15" y="8" width="402" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abh-PX-EXL">
-                                                    <rect key="frame" x="15" y="33" width="435" height="17"/>
+                                                    <rect key="frame" x="15" y="33" width="402" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Day, Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO0-Sq-rmc">
-                                                    <rect key="frame" x="465" y="10" width="120" height="17"/>
+                                                    <rect key="frame" x="432" y="10" width="120" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour:Min PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORX-1i-Zxu">
-                                                    <rect key="frame" x="465" y="32" width="120" height="17"/>
+                                                    <rect key="frame" x="432" y="32" width="120" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -225,23 +215,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fsv-qz-inc" firstAttribute="top" secondItem="0EX-qm-ddG" secondAttribute="bottom" id="C3z-Xe-Ul1"/>
-                            <constraint firstItem="0EX-qm-ddG" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="44" id="C8P-ws-Rkf"/>
-                            <constraint firstAttribute="trailing" secondItem="ovx-Oa-Duy" secondAttribute="trailing" id="ESk-Da-KwS"/>
-                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="NUu-YB-fKt"/>
                             <constraint firstItem="0EX-qm-ddG" firstAttribute="leading" secondItem="WDH-1N-I0j" secondAttribute="leading" id="OZy-K8-c1d"/>
                             <constraint firstAttribute="trailing" secondItem="0EX-qm-ddG" secondAttribute="trailing" id="Ohx-PK-SpB"/>
-                            <constraint firstItem="ovx-Oa-Duy" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="-20" id="Tie-wp-5a8"/>
+                            <constraint firstItem="0EX-qm-ddG" firstAttribute="top" secondItem="4cb-f3-JSz" secondAttribute="bottom" constant="-64" id="tyW-za-VID"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Past Events" image="history" id="tRa-rF-C9l"/>
                     <navigationItem key="navigationItem" title="Past Shows" id="Dfe-om-eIo"/>
                     <connections>
-                        <outlet property="historyTableView" destination="0EX-qm-ddG" id="qbf-c0-mrC"/>
+                        <outlet property="pastTableView" destination="0EX-qm-ddG" id="CoV-HI-IW8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvP-5j-7gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="1585"/>
+            <point key="canvasLocation" x="1021" y="1585"/>
         </scene>
         <!--Upcoming Events-->
         <scene sceneID="04X-Ij-KfM">
@@ -426,7 +412,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="KDq-tw-cv9" kind="relationship" relationship="viewControllers" id="QBe-es-tcc"/>
-                        <segue destination="v93-yh-i8F" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
+                        <segue destination="xs8-YC-FcT" kind="relationship" relationship="viewControllers" id="Yf6-63-WwY"/>
                         <segue destination="VuD-at-mcS" kind="relationship" relationship="viewControllers" id="SjN-Sc-xtR"/>
                         <segue destination="Nvy-h7-F84" kind="relationship" relationship="viewControllers" id="ail-3e-UAp"/>
                     </connections>
@@ -655,29 +641,29 @@
                         <viewControllerLayoutGuide type="bottom" id="8kT-GL-e9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
-                                <rect key="frame" x="10" y="10" width="580" height="30"/>
+                                <rect key="frame" x="10" y="74" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
-                                <rect key="frame" x="10" y="50" width="580" height="30"/>
+                                <rect key="frame" x="10" y="114" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
-                                <rect key="frame" x="10" y="90" width="580" height="30"/>
+                                <rect key="frame" x="10" y="154" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
-                                <rect key="frame" x="0.0" y="443" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="8sU-8g-UzE">
@@ -934,7 +920,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXQ-T6-bIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ief-Gh-NXF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="1585"/>
+            <point key="canvasLocation" x="1687" y="195"/>
         </scene>
         <!--Select Lineup-->
         <scene sceneID="3xo-FD-GfH">
@@ -1024,7 +1010,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qj-q2-QZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bM9-lY-wMZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="1585"/>
+            <point key="canvasLocation" x="2390" y="195"/>
+        </scene>
+        <!--Past Events-->
+        <scene sceneID="FD7-OA-IT7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xs8-YC-FcT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Past Events" image="history" id="tRa-rF-C9l"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uW1-hf-F2b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="v93-yh-i8F" kind="relationship" relationship="rootViewController" id="VLm-aQ-zId"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u21-bB-d3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="1585"/>
         </scene>
     </scenes>
     <resources>
@@ -1037,6 +1043,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cHR-uu-eWk"/>
-        <segue reference="HfR-AU-9Dw"/>
+        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>
