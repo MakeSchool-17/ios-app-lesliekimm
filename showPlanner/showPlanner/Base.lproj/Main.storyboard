@@ -377,12 +377,12 @@
                     <navigationItem key="navigationItem" title="Add Event" id="7R4-CB-bXD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="R6D-WH-0RU">
                             <connections>
-                                <segue destination="FBf-iY-65Y" kind="unwind" identifier="cancelAddEvent" unwindAction="backToUpcomingVC:" id="YV9-Jr-nKa"/>
+                                <segue destination="FBf-iY-65Y" kind="unwind" identifier="cancelNewEvent" unwindAction="backToUpcomingVC:" id="YV9-Jr-nKa"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vnh-yV-f4K">
                             <connections>
-                                <segue destination="FBf-iY-65Y" kind="unwind" identifier="saveAddEvent" unwindAction="backToUpcomingVC:" id="1HJ-8U-hfL"/>
+                                <segue destination="FBf-iY-65Y" kind="unwind" identifier="addNewEvent" unwindAction="backToUpcomingVC:" id="1HJ-8U-hfL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -862,7 +862,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <state key="normal" title="Edit Lineup"/>
                                 <connections>
-                                    <segue destination="yte-I4-Hcs" kind="show" id="Ybx-FD-mAF"/>
+                                    <segue destination="yte-I4-Hcs" kind="show" identifier="editLineup" id="Ybx-FD-mAF"/>
                                 </connections>
                             </button>
                         </subviews>
