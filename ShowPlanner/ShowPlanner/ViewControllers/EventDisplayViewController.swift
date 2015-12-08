@@ -17,14 +17,13 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var lineupTableView: UITableView!
     
-    var lineupArray: [String]?
+    var sharedSelectedLineup = SelectedLineupDataSource()
     
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
             case "saveLineup":
-                let source = segue.sourceViewController as! SelectLineupViewController
-                lineupArray = source.lineup
+                print("Save lineup")
             default:
                 print("No one loves \(identifier)")
             }
@@ -51,8 +50,6 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         navItem.title = event!.name
         lineupTableView.dataSource = self
         displayEvent(self.event)
-        
-        print(lineupArray)
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -73,8 +70,9 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
         let row = indexPath.row
-        cell.lineupNameLabel.text = self.lineupArray![row]
-        cell.confirmedLabel.text = "x"
+        cell.lineup = sharedSelectedLineup.lineup[row] 
+//        cell.lineupNameLabel.text = sharedSelectedLineup.lineup[row] as! String
+//        cell.confirmedLabel.text = "x"
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
 //        let row = indexPath.row
@@ -85,6 +83,6 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lineupArray?.count ?? 0
+        return sharedSelectedLineup.lineup.count ?? 0
     }
 }

@@ -10,14 +10,13 @@
 // 1) check mark artwork: https://commons.wikimedia.org/wiki/File:Check_mark_23x20_02.svg
 
 import UIKit
-import RealmSwift
 
 class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var selectLineupTableView: UITableView!
     
     var dataSource = ContactsDataSource()
+    var sharedSelectedLineup = SelectedLineupDataSource()
     var selectedContact: Contact?
-    var lineup: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,6 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         self.tabBarController?.tabBar.hidden = true
         selectLineupTableView.reloadData()
     }
@@ -57,11 +55,20 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = dataSource.contacts[indexPath.row]
+        let selectedLineup = Lineup()
+        selectedLineup.name = (selectedContact?.name)!
+        selectedLineup.confirmed = false
+        sharedSelectedLineup.addSelectedLineup(selectedLineup)
         // add contact to an array of selected contacts
         // display green check mark
         // update view
         print("didSelectRowAtIndexPath in SelectLineup")
     }
+    
+//    func tableView(tableView: UITableView, didDeSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        selectedContact = dataSource.contacts[indexPath.row]
+//        sharedSelectedLineup.removeSelectedLineup(selectedContact!)
+//    }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true

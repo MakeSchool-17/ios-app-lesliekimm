@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Contacts
 
 class SelectLineupTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
