@@ -17,6 +17,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     var dataSource = ContactsDataSource()
     var sharedSelectedLineup = SelectedLineupDataSource()
     var selectedContact: Contact?
+    var selectedLineup: Lineup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,37 +55,13 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = dataSource.contacts[indexPath.row]
-        print("here", selectedContact)
+        selectedLineup = Lineup()
+        selectedLineup!.name = (selectedContact?.name)!
         self.performSegueWithIdentifier("saveLineup", sender: self)
-//        let selectedLineup = Lineup()
-//        selectedLineup.name = (selectedContact?.name)!
-//        selectedLineup.confirmed = false
-//        sharedSelectedLineup.addSelectedLineup(selectedLineup)
-        // add contact to an array of selected contacts
-        // display green check mark
-        // update view
         print("didSelectRowAtIndexPath in SelectLineup")
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-//            let contact = dataSource.contacts[indexPath.row] as NSObject
-            
-            //            do {
-            //                let realm = try Realm()
-            //                try realm.write() {
-            //                    realm.delete(contact)
-            //                }
-            //                contacts = realm.objects(Contact).sorted("name", ascending: true)
-            //            }
-            //            catch {
-            //                print("ERROR")
-            //            }
-        }
-    }
-
 }
