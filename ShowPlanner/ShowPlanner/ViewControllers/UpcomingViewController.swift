@@ -90,7 +90,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingEventCell", forIndexPath: indexPath) as! UpcomingTableViewCell
         let row = indexPath.row
         let event = (eventsToBeDisplayed?[row])! as Event
         cell.event = event

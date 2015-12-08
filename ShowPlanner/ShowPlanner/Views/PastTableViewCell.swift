@@ -35,8 +35,8 @@ class PastTableViewCell: UITableViewCell {
                 eventNameLabel.text = event.name            // set eventNameLabel to event name
                 locationLabel.text = event.location         // set locationLabel to event location
                 // Set dateLabel and timeLabel to event date and time formatted using declared styles
-                dateLabel.text = EventTableViewCell.dateFormatter.stringFromDate(event.dateTime)
-                timeLabel.text = EventTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+                dateLabel.text = UpcomingTableViewCell.dateFormatter.stringFromDate(event.dateTime)
+                timeLabel.text = UpcomingTableViewCell.timeFormatter.stringFromDate(event.dateTime)
             }
         }
     }

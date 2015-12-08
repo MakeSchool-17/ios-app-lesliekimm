@@ -27,7 +27,7 @@
 		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
 		81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */; };
 		81FB47661C027A3E00705324 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47651C027A3E00705324 /* UpcomingViewController.swift */; };
-		81FB47681C027A6600705324 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47671C027A6600705324 /* EventTableViewCell.swift */; };
+		81FB47681C027A6600705324 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47671C027A6600705324 /* UpcomingTableViewCell.swift */; };
 		81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB47691C0282E800705324 /* AddEventViewController.swift */; };
 		81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */; };
 		81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476D1C0290E900705324 /* LineupTableViewCell.swift */; };
@@ -62,7 +62,7 @@
 		81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDisplayViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		81FB47651C027A3E00705324 /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
-		81FB47671C027A6600705324 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		81FB47671C027A6600705324 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		81FB47691C0282E800705324 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
 		81FB476D1C0290E900705324 /* LineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		818E988B1BF6AAA700D8157F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				81FB47671C027A6600705324 /* EventTableViewCell.swift */,
+				81FB47671C027A6600705324 /* UpcomingTableViewCell.swift */,
 				81FB476D1C0290E900705324 /* LineupTableViewCell.swift */,
 				8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */,
 				81C23CC81BFE4FB0000E3838 /* PastTableViewCell.swift */,
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				816740E21C0D5DD6002A3679 /* Contact.swift in Sources */,
-				81FB47681C027A6600705324 /* EventTableViewCell.swift in Sources */,
+				81FB47681C027A6600705324 /* UpcomingTableViewCell.swift in Sources */,
 				81FB476A1C0282E800705324 /* AddEventViewController.swift in Sources */,
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
 				81FB47701C03BD6300705324 /* Lineup.swift in Sources */,

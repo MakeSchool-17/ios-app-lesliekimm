@@ -1,5 +1,5 @@
 //
-//  EventTableViewCell.swift
+//  UpcomingTableViewCell.swift
 //  Show Planner
 //
 //  Created by Leslie Kim on 11/22/15.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class UpcomingTableViewCell: UITableViewCell {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var lineupLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -37,8 +37,8 @@ class EventTableViewCell: UITableViewCell {
                 eventNameLabel.text = event.name
                 lineupLabel.text = event.lineup
                 locationLabel.text = event.location
-                dateLabel.text = EventTableViewCell.dateFormatter.stringFromDate(event.dateTime)
-                timeLabel.text = EventTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+                dateLabel.text = UpcomingTableViewCell.dateFormatter.stringFromDate(event.dateTime)
+                timeLabel.text = UpcomingTableViewCell.timeFormatter.stringFromDate(event.dateTime)
 //                if event.confirmed {
 //                    confirmedImage.image = UIImage(named: "green check")
 //                }
