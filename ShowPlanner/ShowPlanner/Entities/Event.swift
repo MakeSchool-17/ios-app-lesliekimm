@@ -10,11 +10,10 @@ import Foundation
 import RealmSwift
 
 class Event: Object {
-    dynamic var name: String = ""
-    dynamic var lineup: String = ""
-    dynamic var location: String = ""
-    dynamic var dateTime = NSDate()
-//    dynamic var confirmed: String = ""
-    dynamic var confirmed: Bool = false
-    dynamic var notes: String = ""
+    dynamic var name: String = ""                   // name string
+    dynamic var lineup: String = ""                 // lineup string
+    dynamic var location: String = ""               // location string
+    dynamic var dateTime = NSDate()                 // date object
+    dynamic var confirmed: Bool = false             // indicates if all lineup is confirmed
+    dynamic var notes: String = ""                  // notes string to make notes on past events (not currently implemented)
 }
