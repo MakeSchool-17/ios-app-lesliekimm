@@ -33,7 +33,7 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // For each event in EventsDataSource, compare to current time and if event has passed, insert
         // into the beginnig of the array so table view gets populated from most recent event to oldest
-        for event in dataSource.events {
+        for event in dataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
                 eventsToBeDisplayed?.insert(event, atIndex: 0)
             }

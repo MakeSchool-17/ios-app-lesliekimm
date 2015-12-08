@@ -34,7 +34,7 @@ class AddEventViewController: UIViewController {
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = currentEvent
         }
-        if (segue.identifier == "saveAddEvent") {
+        if (segue.identifier == "addNewEvent") {
             eventToAdd = Event()
             eventToAdd!.name = self.eventDisplay!.nameTextField.text!
             eventToAdd!.location = self.eventDisplay!.locationTextField.text!

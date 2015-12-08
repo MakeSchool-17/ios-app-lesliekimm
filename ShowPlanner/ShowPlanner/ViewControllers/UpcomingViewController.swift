@@ -69,7 +69,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillDisappear(animated)
         eventsToBeDisplayed = [Event]()
         let currentTime = NSDate()
-        for event in dataSource.events {
+        for event in dataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
                 eventsToBeDisplayed?.append(event)
             }
