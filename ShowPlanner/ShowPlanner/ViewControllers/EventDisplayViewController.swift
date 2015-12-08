@@ -13,17 +13,17 @@ import RealmSwift
 class EventDisplayViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var lineupTableView: UITableView!
-    
-    var sharedSelectedLineup = SelectedLineupDataSource()
-    
+
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
             case "saveLineup":
                 print("Save lineup")
+                let source = segue.sourceViewController as! SelectLineupViewController
+                lineup.append(source.selectedContact!)
             default:
                 print("No one loves \(identifier)")
             }
@@ -35,7 +35,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
             displayEvent(event)
         }
     }
-    var lineup: Results<Lineup>! {
+    var lineup = [Contact]() {
         didSet {
             lineupTableView?.reloadData()
         }
@@ -49,7 +49,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
         
         navItem.title = event!.name
         lineupTableView.dataSource = self
-        displayEvent(self.event)
+        displayEvent(event)
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -70,19 +70,16 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell", forIndexPath: indexPath) as! LineupTableViewCell
         let row = indexPath.row
-        cell.lineup = sharedSelectedLineup.lineup[row] 
-//        cell.lineupNameLabel.text = sharedSelectedLineup.lineup[row] as! String
-//        cell.confirmedLabel.text = "x"
+        let contact = lineup[row] as Contact
+        cell.contact = contact
+
         
         stringLineup.insert(cell.lineupNameLabel.text!, atIndex: indexPath.row)
-//        let row = indexPath.row
-//        let performer = lineup[row] as Performer
-//        cell.performer = performer
-        
+
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sharedSelectedLineup.lineup.count ?? 0
+        return lineup.count ?? 0
     }
 }

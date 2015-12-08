@@ -22,7 +22,6 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         selectLineupTableView.dataSource = self
         selectLineupTableView.delegate = self
-        selectLineupTableView.allowsMultipleSelection = true;
         selectLineupTableView.reloadData()
     }
 
@@ -32,7 +31,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         selectLineupTableView.reloadData()
     }
     
-    // MARK: - Navigation
+    // MARK: Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -55,20 +54,17 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = dataSource.contacts[indexPath.row]
-        let selectedLineup = Lineup()
-        selectedLineup.name = (selectedContact?.name)!
-        selectedLineup.confirmed = false
-        sharedSelectedLineup.addSelectedLineup(selectedLineup)
+        print("here", selectedContact)
+        self.performSegueWithIdentifier("saveLineup", sender: self)
+//        let selectedLineup = Lineup()
+//        selectedLineup.name = (selectedContact?.name)!
+//        selectedLineup.confirmed = false
+//        sharedSelectedLineup.addSelectedLineup(selectedLineup)
         // add contact to an array of selected contacts
         // display green check mark
         // update view
         print("didSelectRowAtIndexPath in SelectLineup")
     }
-    
-//    func tableView(tableView: UITableView, didDeSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        selectedContact = dataSource.contacts[indexPath.row]
-//        sharedSelectedLineup.removeSelectedLineup(selectedContact!)
-//    }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
