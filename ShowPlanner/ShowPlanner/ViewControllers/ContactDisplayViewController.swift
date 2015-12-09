@@ -57,7 +57,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField == nameLabel) {  //1
+        if (textField == nameLabel) {
             emailLabel.returnKeyType = .Done
             emailLabel.becomeFirstResponder()
         }
