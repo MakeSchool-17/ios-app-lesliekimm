@@ -28,7 +28,7 @@
                                     <navigationItem title="Account" id="3uk-6R-hk7">
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="DnE-QW-fR4">
                                             <connections>
-                                                <action selector="saveAccountInfo:" destination="Nvy-h7-F84" id="KdY-mZ-PHW"/>
+                                                <action selector="saveAccountInfo:" destination="Nvy-h7-F84" id="7nh-qc-jFz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -121,9 +121,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="a0O-cS-wfW"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cellTextField" destination="vEX-vY-3Wi" id="Ii5-dB-kae"/>
-                        <outlet property="emailTextField" destination="LFZ-Dv-yIc" id="CNg-Ze-DoE"/>
-                        <outlet property="nameTextField" destination="wgD-Nj-iAT" id="Eh5-c3-nxI"/>
+                        <outlet property="cellTextField" destination="vEX-vY-3Wi" id="wfm-gY-ggn"/>
+                        <outlet property="emailTextField" destination="LFZ-Dv-yIc" id="AQ5-kC-AgA"/>
+                        <outlet property="nameTextField" destination="wgD-Nj-iAT" id="PlL-FX-n5f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6J-dX-b7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
