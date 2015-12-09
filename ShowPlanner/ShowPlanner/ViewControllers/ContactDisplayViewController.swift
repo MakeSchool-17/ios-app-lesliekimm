@@ -22,6 +22,14 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     }
     var edit: Bool = false
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initialize UITapGestureRecognizer
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)                      // add tap gesture to view
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
@@ -34,6 +42,11 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false
+    }
+    
+    // View will resign first responder status
+    func dismissKeyboard() {
+        view.endEditing(true)                               // dismiss keyboard
     }
     
     func setUpTextFieldDelegates() {
