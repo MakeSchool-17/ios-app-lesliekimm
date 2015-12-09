@@ -5,6 +5,8 @@
 //  Created by Leslie Kim on 11/19/15.
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
+// SOURCES:
+// 1) Dismiss keyboard with UITapGestureRecognizer: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
 
 import Foundation
 import UIKit
