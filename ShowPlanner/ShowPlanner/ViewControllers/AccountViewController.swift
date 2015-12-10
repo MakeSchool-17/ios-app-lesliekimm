@@ -9,6 +9,7 @@
 // Sources:
 // 1) Dismiss keyboard with UITapGestureRecognizer: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
 
+import Foundation
 import UIKit
 import RealmSwift
 
@@ -45,25 +46,27 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)                      // add tap gesture to view
+        view.addGestureRecognizer(tap)                          // add tap gesture to view
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        setUpTextFieldDelegates()                           // set up textfield delegates
+        setUpTextFieldDelegates()                               // set up textfield delegates
+        cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellTextField to display phone number keyboard
+        cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
         
         do {
-            let realm = try Realm()                         // grab default Realm
-            let accounts = realm.objects(Account)           // grab reference to accounts stored in Realm
-            if accounts.count > 0 {                         // if there is an Account object stored
-                userAccount = realm.objects(Account)[0]     // assign first Account to userAccount
+            let realm = try Realm()                             // grab default Realm
+            let accounts = realm.objects(Account)               // grab reference to accounts stored in Realm
+            if accounts.count > 0 {                             // if there is an Account object stored
+                userAccount = realm.objects(Account)[0]         // assign first Account to userAccount
                 displayAccount(userAccount)
             }
-            else {                                          // if no Account objects
-                userAccount = Account()                     // initialize new Account object
-                try realm.write() {                         // write to Realm
-                    realm.add(self.userAccount!)            // add userAccount to Realm
+            else {                                              // if no Account objects
+                userAccount = Account()                         // initialize new Account object
+                try realm.write() {                             // write to Realm
+                    realm.add(self.userAccount!)                // add userAccount to Realm
                 }
             }
         }

@@ -37,6 +37,8 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.hidden = true
 
         navItem.title = contact!.name
+        cellLabel.keyboardType = UIKeyboardType.PhonePad    // set cellLabel to display phone number keyboard
+        cellLabel.returnKeyType = UIReturnKeyType.Done      // set cellLabel return type
         setUpTextFieldDelegates()
         displayContact(self.contact)
     }
