@@ -39,9 +39,9 @@ class AddContactViewController: UIViewController {
         }
         if (segue.identifier == "contactSaveSegue") {
             contactToAdd = Contact()
-            contactToAdd!.name = self.contactDisplay!.nameLabel.text!
-            contactToAdd!.email = self.contactDisplay!.emailLabel.text!
-            contactToAdd!.cell = self.contactDisplay!.cellLabel.text!
+            contactToAdd!.name = self.contactDisplay!.nameTextField.text!
+            contactToAdd!.email = self.contactDisplay!.emailTextField.text!
+            contactToAdd!.cell = self.contactDisplay!.cellTextField.text!
         }
     }
 }

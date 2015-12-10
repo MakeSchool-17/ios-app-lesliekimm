@@ -36,10 +36,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                         let realm = try Realm()
                         
                         try realm.write {
-                            if (contact.name != source.nameLabel.text || contact.email != source.emailLabel.text || contact.cell != source.cellLabel.text) {
-                                contact.name = source.nameLabel.text!
-                                contact.email = source.emailLabel.text!
-                                contact.cell = source.cellLabel.text!
+                            if (contact.name != source.nameTextField.text || contact.email != source.emailTextField.text || contact.cell != source.cellTextField.text) {
+                                contact.name = source.nameTextField.text!
+                                contact.email = source.emailTextField.text!
+                                contact.cell = source.cellTextField.text!
                             }
                         }
                     }

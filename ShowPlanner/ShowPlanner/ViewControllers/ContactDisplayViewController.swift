@@ -12,9 +12,11 @@ import Foundation
 import UIKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var emailLabel: UITextField!
-    @IBOutlet weak var cellLabel: UITextField!
+
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var cellTextField: UITextField!
+    
     @IBOutlet weak var navItem: UINavigationItem!
     
     var contact: Contact? {
@@ -37,8 +39,8 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.hidden = true
 
         navItem.title = contact!.name
-        cellLabel.keyboardType = UIKeyboardType.PhonePad    // set cellLabel to display phone number keyboard
-        cellLabel.returnKeyType = UIReturnKeyType.Done      // set cellLabel return type
+        cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellLabel to display phone number keyboard
+        cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellLabel return type
         setUpTextFieldDelegates()
         displayContact(self.contact)
     }
@@ -54,33 +56,33 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setUpTextFieldDelegates() {
-        nameLabel.returnKeyType = .Next
-        nameLabel.delegate = self
-        emailLabel.returnKeyType = .Next
-        emailLabel.delegate = self
+        nameTextField.returnKeyType = .Next
+        nameTextField.delegate = self
+        emailTextField.returnKeyType = .Next
+        emailTextField.delegate = self
     }
     
     func displayContact(contact: Contact?) {
-        if let contact = contact, nameLabel = nameLabel, emailLabel = emailLabel, cellLabel = cellLabel {
-            nameLabel.text = contact.name
-            emailLabel.text = contact.email
-            cellLabel.text = contact.cell
+        if let contact = contact, nameTextField = nameTextField, emailTextField = emailTextField, cellTextField = cellTextField {
+            nameTextField.text = contact.name
+            emailTextField.text = contact.email
+            cellTextField.text = contact.cell
             
             if contact.name.characters.count == 0 && contact.email.characters.count == 0 && contact.cell.characters.count == 0 {
-                nameLabel.becomeFirstResponder()
+                nameTextField.becomeFirstResponder()
             }
         }
     }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField == nameLabel) {
-            emailLabel.returnKeyType = .Done
-            emailLabel.becomeFirstResponder()
+        if (textField == nameTextField) {
+            emailTextField.returnKeyType = .Done
+            emailTextField.becomeFirstResponder()
         }
-        else if (textField == emailLabel) {
-            cellLabel.returnKeyType = .Done
-            cellLabel.becomeFirstResponder()
+        else if (textField == emailTextField) {
+            cellTextField.returnKeyType = .Done
+            cellTextField.becomeFirstResponder()
         }
         return false
     }
