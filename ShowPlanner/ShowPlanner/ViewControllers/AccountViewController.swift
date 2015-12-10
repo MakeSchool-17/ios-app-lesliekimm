@@ -39,6 +39,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
                 print("Error in saveAccountInfo")
             }
         }
+        dismissKeyboard()                                       // dismiss keyboard when save button hit
     }
     
     override func viewDidLoad() {
