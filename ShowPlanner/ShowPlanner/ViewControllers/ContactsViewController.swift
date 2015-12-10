@@ -20,7 +20,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "contactSaveSegue":
+            case "newContactSave":
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.contactToAdd
                 dataSource.addContact(contactToAdd!)

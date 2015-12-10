@@ -45,7 +45,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false            // unhide tab bar controller when leaving this VC
+        self.tabBarController?.tabBar.hidden = false        // unhide tab bar controller when leaving this VC
     }
     
     // View will resign first responder status

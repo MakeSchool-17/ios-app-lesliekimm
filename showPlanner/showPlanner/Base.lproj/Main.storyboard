@@ -535,7 +535,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="djy-nj-FrB">
                             <connections>
-                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactSaveSegue" unwindAction="backToContactsVC:" id="UiF-tC-5rp"/>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="newContactSave" unwindAction="backToContactsVC:" id="UiF-tC-5rp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
