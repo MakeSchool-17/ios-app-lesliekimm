@@ -9,7 +9,6 @@
 // Sources:
 // 1) Dismiss keyboard with UITapGestureRecognizer: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
 
-import Foundation
 import UIKit
 import RealmSwift
 
