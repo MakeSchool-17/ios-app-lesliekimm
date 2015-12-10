@@ -480,7 +480,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="an3-42-pMe">
                         <barButtonItem key="leftBarButtonItem" title="Import" id="6IG-qf-afi">
                             <connections>
-                                <segue destination="TuQ-xD-ryP" kind="show" identifier="importSegue" id="LQ5-39-7Q9"/>
+                                <segue destination="TuQ-xD-ryP" kind="show" identifier="showImportVC" id="LQ5-39-7Q9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8EZ-k8-5WC">
@@ -491,7 +491,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contactsTableView" destination="5u3-6d-6di" id="WLf-Zp-Ow4"/>
-                        <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContactSegue" id="S1M-ee-dX7"/>
+                        <segue destination="WrD-oQ-lTK" kind="show" identifier="showExistingContact" id="S1M-ee-dX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCx-Pj-vYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -530,7 +530,7 @@
                     <navigationItem key="navigationItem" title="Add Contact" id="j9S-nV-OY6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jOX-2N-YFX">
                             <connections>
-                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="contactCancelSegue" unwindAction="backToContactsVC:" id="c5o-v2-2zL"/>
+                                <segue destination="gtK-4V-vaC" kind="unwind" identifier="cancelNewContact" unwindAction="backToContactsVC:" id="c5o-v2-2zL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="djy-nj-FrB">
@@ -618,7 +618,7 @@
                     <navigationItem key="navigationItem" title="Import Contacts" id="DrQ-LR-rdl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tAn-8H-WLI">
                             <connections>
-                                <segue destination="GuT-vx-YXv" kind="unwind" identifier="cancelImportSegue" unwindAction="backToContactsVC:" id="KJN-rE-mUf"/>
+                                <segue destination="GuT-vx-YXv" kind="unwind" identifier="cancelImport" unwindAction="backToContactsVC:" id="KJN-rE-mUf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -641,39 +641,39 @@
                         <viewControllerLayoutGuide type="bottom" id="8kT-GL-e9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mzi-VY-iL0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="966-wF-OSV">
                                 <rect key="frame" x="70" y="79" width="515" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-Kk-RcU">
                                 <rect key="frame" x="70" y="119" width="515" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-ad-hHl">
                                 <rect key="frame" x="70" y="159" width="515" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-Im-gqf">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="8sU-8g-UzE">
                                         <connections>
-                                            <segue destination="awR-gP-DV2" kind="unwind" identifier="trashContactSegue" unwindAction="backToContactsVC:" id="OQE-Va-3EV"/>
+                                            <segue destination="awR-gP-DV2" kind="unwind" identifier="deleteContact" unwindAction="backToContactsVC:" id="OQE-Va-3EV"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNx-dv-3yi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNx-dv-3yi">
                                 <rect key="frame" x="15" y="85" width="45" height="17"/>
                                 <animations/>
                                 <constraints>
@@ -684,7 +684,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKv-44-AfE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKv-44-AfE">
                                 <rect key="frame" x="15" y="126" width="45" height="17"/>
                                 <animations/>
                                 <constraints>
@@ -695,7 +695,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJi-sD-oF1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJi-sD-oF1">
                                 <rect key="frame" x="15" y="166" width="45" height="17"/>
                                 <animations/>
                                 <constraints>
@@ -738,7 +738,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OuK-TE-b06">
                             <connections>
-                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveContact" unwindAction="backToContactsVC:" id="ig6-AS-DoB"/>
+                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveEditContact" unwindAction="backToContactsVC:" id="ig6-AS-DoB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1081,7 +1081,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HfR-AU-9Dw"/>
         <segue reference="cHR-uu-eWk"/>
-        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>

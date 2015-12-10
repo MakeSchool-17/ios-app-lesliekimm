@@ -11,24 +11,23 @@ import RealmSwift
 import Contacts
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
-    @IBOutlet weak var contactsTableView: UITableView!
-    
-    var dataSource = ContactsDataSource()
-    var selectedContact: Contact?
+    @IBOutlet weak var contactsTableView: UITableView!      // code connection to table view
+    var contactsDataSource = ContactsDataSource()           // grab contacts data source
+    var selectedContact: Contact?                           // optional selectedContact var used in deleteContact and showExistingContact
     var contacts = [CNContact]()
     
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "newContactSave":
+            case "saveNewContact":
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.contactToAdd
-                dataSource.addContact(contactToAdd!)
-            case "trashContactSegue":
+                contactsDataSource.addContact(contactToAdd!)
+            case "deleteContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
-                dataSource.trashContact(selectedContact!)
+                contactsDataSource.deleteContact(selectedContact!)
                 source.contact = nil
-            case "saveContact":
+            case "saveEditContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 let contact = source.contact
                 if let contact = contact {
@@ -71,11 +70,11 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "showExistingContactSegue") {
+        if (segue.identifier == "showExistingContact") {
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = selectedContact
         }
-        if (segue.identifier == "importSegue") {
+        if (segue.identifier == "showImportVC") {
             let importViewController = segue.destinationViewController as! ImportViewController
             importViewController.delegate = self
         }
@@ -85,27 +84,27 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
         let row = indexPath.row
-        let contact = dataSource.contacts[row] as Contact
+        let contact = contactsDataSource.contacts[row] as Contact
         cell.contact = contact
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.contacts?.count ?? 0
+        return contactsDataSource.contacts?.count ?? 0
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let contact = dataSource.contacts[indexPath.row] as Contact
-            dataSource.trashContact(contact)
+            let contact = contactsDataSource.contacts[indexPath.row] as Contact
+            contactsDataSource.deleteContact(contact)
             tableView.reloadData()
         }
     }
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedContact = dataSource.contacts[indexPath.row]
-        self.performSegueWithIdentifier("showExistingContactSegue", sender: self)
+        selectedContact = contactsDataSource.contacts[indexPath.row]
+        self.performSegueWithIdentifier("showExistingContact", sender: self)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -115,7 +114,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: ImportContactViewControllerDelegate
     func didFetchContacts(contactsToAppend: [Contact]) {
         for contact in contactsToAppend {
-            dataSource.addContact(contact)
+            contactsDataSource.addContact(contact)
         }
         
         contactsTableView.reloadData()
