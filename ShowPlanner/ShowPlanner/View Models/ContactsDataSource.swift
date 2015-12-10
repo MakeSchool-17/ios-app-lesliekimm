@@ -39,7 +39,7 @@ class ContactsDataSource: NSObject {
         }
     }
     
-    func trashContact(contact: Contact) {
+    func deleteContact(contact: Contact) {
         do {
             let realm = try Realm()
             try realm.write() {
@@ -48,7 +48,7 @@ class ContactsDataSource: NSObject {
             contacts = realm.objects(Contact).sorted("name", ascending: true)
         }
         catch {
-            print("Error in trashContact")
+            print("Error in deleteContact")
         }
     }
 }
