@@ -724,6 +724,8 @@
                         <outlet property="emailTextField" destination="w4X-Kk-RcU" id="863-1V-hJb"/>
                         <outlet property="nameTextField" destination="966-wF-OSV" id="AUx-m0-TbO"/>
                         <outlet property="navItem" destination="3a6-S5-bSZ" id="rWc-4Z-uVh"/>
+                        <outlet property="toolbarBottomSpace" destination="QMe-oS-Nsv" id="YeF-82-i82"/>
+                        <outlet property="trashButton" destination="8sU-8g-UzE" id="1qu-Q7-xoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kM5-FT-NLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -931,6 +933,7 @@
                         <outlet property="locationTextField" destination="don-gz-KBL" id="t3P-6c-Ded"/>
                         <outlet property="nameTextField" destination="qCB-pa-GqW" id="ioF-nj-qKG"/>
                         <outlet property="navItem" destination="Dkh-Lb-4B9" id="Pdf-up-KCb"/>
+                        <outlet property="trashButton" destination="AdI-PW-eAC" id="MiL-ER-7AB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXQ-T6-bIw" userLabel="First Responder" sceneMemberID="firstResponder"/>

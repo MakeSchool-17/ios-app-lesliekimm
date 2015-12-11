@@ -10,18 +10,23 @@
 
 import Foundation
 import UIKit
+import ConvenienceKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!          // code connection for name text field
     @IBOutlet weak var emailTextField: UITextField!         // code connection for email text field
     @IBOutlet weak var cellTextField: UITextField!          // code connection for cell text field
     @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
+    @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak var toolbarBottomSpace: NSLayoutConstraint!
     
     var contact: Contact? {                                 // optional Contact var
         didSet {
             displayContact(contact)                         // display contact everytime changes are made
         }
     }
+    var edit: Bool = false
+    var keyboardNotificationHandler: KeyboardNotificationHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +46,26 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         
         setUpTextFieldDelegates()                               // set up text field delegates
         displayContact(self.contact)                            // display contact
+        
+        keyboardNotificationHandler = KeyboardNotificationHandler()
+        
+        keyboardNotificationHandler!.keyboardWillBeHiddenHandler = { (height: CGFloat) in
+            UIView.animateWithDuration(0.3){
+                self.toolbarBottomSpace.constant = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        keyboardNotificationHandler!.keyboardWillBeShownHandler = { (height: CGFloat) in
+            UIView.animateWithDuration(0.3) {
+                self.toolbarBottomSpace.constant = -height
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        if edit {
+            trashButton.enabled = false
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -33,6 +33,7 @@ class AddEventViewController: UIViewController {
             currentEvent = Event()
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = currentEvent
+            eventViewController.edit = true
         }
         if (segue.identifier == "addNewEvent") {
             eventToAdd = Event()

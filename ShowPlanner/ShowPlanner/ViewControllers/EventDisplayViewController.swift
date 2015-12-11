@@ -18,6 +18,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var lineupTableView: UITableView!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
 
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
@@ -51,6 +52,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
     }
     var selectedLineup: Lineup?
     var stringLineup: [String] = []
+    var edit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +77,10 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
         }
         catch {
             print("Error in events init")                                       // print error message
+        }
+        
+        if edit {
+            trashButton.enabled = false
         }
     }
 
