@@ -25,7 +25,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
             displayContact(contact)                         // display contact everytime changes are made
         }
     }
-    var edit: Bool = false
+    var addNew: Bool = false
     var keyboardNotificationHandler: KeyboardNotificationHandler?
     
     override func viewDidLoad() {
@@ -63,7 +63,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        if edit {
+        if addNew {
             trashButton.enabled = false
         }
     }

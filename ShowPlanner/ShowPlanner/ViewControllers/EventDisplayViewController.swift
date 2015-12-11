@@ -52,7 +52,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
     }
     var selectedLineup: Lineup?
     var stringLineup: [String] = []
-    var edit: Bool = false
+    var addNew: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
             print("Error in events init")                                       // print error message
         }
         
-        if edit {
+        if addNew {
             trashButton.enabled = false
         }
     }
