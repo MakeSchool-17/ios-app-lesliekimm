@@ -12,6 +12,7 @@ import RealmSwift
 class Event: Object {
     dynamic var name: String = ""                   // name string
     dynamic var lineup: String = ""                 // lineup string
+    dynamic var lineupArray: Lineup?
 //    dynamic var lineupArray: RLMArray<String>?             // store lineups on Realm
     dynamic var location: String = ""               // location string
     dynamic var dateTime = NSDate()                 // date object

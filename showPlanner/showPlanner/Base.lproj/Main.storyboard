@@ -338,12 +338,12 @@
                     <navigationItem key="navigationItem" title="Past Event Name" id="Rig-Ql-RIL">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="obD-S3-gYH">
                             <connections>
-                                <segue destination="c0t-lz-wrd" kind="unwind" identifier="cancelPast" unwindAction="backToPastVC:" id="vYk-8E-sbY"/>
+                                <segue destination="c0t-lz-wrd" kind="unwind" identifier="cancelPastEvent" unwindAction="backToPastVC:" id="vYk-8E-sbY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FXy-Fl-azp">
                             <connections>
-                                <segue destination="c0t-lz-wrd" kind="unwind" identifier="savePast" unwindAction="backToPastVC:" id="alP-1v-DKc"/>
+                                <segue destination="c0t-lz-wrd" kind="unwind" identifier="savePastEvent" unwindAction="backToPastVC:" id="alP-1v-DKc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

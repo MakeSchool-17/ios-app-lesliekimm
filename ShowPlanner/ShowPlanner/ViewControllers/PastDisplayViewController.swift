@@ -38,8 +38,6 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
 
         notesTextView.delegate = self
-        notesTextView.text = "Notes"
-        notesTextView.textColor = UIColor.lightGrayColor()
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -62,6 +60,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     // View will resign first responder status
     func dismissKeyboard() {
         view.endEditing(true)                               // dismiss keyboard
+        view.resignFirstResponder()
     }
     
     func displayEvent(event: Event?) {
@@ -85,8 +84,8 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
 //                lineupTextField.text = ""
 //            }
             
-            notesTextView.text = event.notes
-            if event.notes != "" {
+            if event.notes != "Notes" {
+                notesTextView.text = event.notes
                 notesTextView.textColor = UIColor.blackColor()
             }
             else {
@@ -107,6 +106,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Notes"
+//            event!.notes = ""
             textView.textColor = UIColor.lightGrayColor()
         }
     }

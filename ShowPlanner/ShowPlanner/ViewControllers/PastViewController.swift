@@ -18,7 +18,7 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func backToPastVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "savePast":
+            case "savePastEvent":
                 let source = segue.sourceViewController as! PastDisplayViewController
                 let event = source.event
                 if let event = event {
