@@ -601,7 +601,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8EZ-k8-5WC">
                             <connections>
-                                <segue destination="VBz-aM-KG1" kind="show" identifier="addContactSegue" id="8AK-Po-BvT"/>
+                                <segue destination="VBz-aM-KG1" kind="show" identifier="addNewContact" id="8AK-Po-BvT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -752,7 +752,7 @@
                                 <items>
                                     <barButtonItem systemItem="trash" id="8sU-8g-UzE">
                                         <connections>
-                                            <segue destination="awR-gP-DV2" kind="unwind" identifier="deleteContact" unwindAction="backToContactsVC:" id="OQE-Va-3EV"/>
+                                            <segue destination="awR-gP-DV2" kind="unwind" identifier="deleteExistingContact" unwindAction="backToContactsVC:" id="OQE-Va-3EV"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -813,12 +813,12 @@
                     <navigationItem key="navigationItem" title="Contact Name" id="3a6-S5-bSZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bzb-MS-m1x">
                             <connections>
-                                <segue destination="awR-gP-DV2" kind="unwind" identifier="cancelEditContact" unwindAction="backToContactsVC:" id="ECz-Aw-WWR"/>
+                                <segue destination="awR-gP-DV2" kind="unwind" identifier="cancelExistingContact" unwindAction="backToContactsVC:" id="ECz-Aw-WWR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OuK-TE-b06">
                             <connections>
-                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveEditContact" unwindAction="backToContactsVC:" id="ig6-AS-DoB"/>
+                                <segue destination="awR-gP-DV2" kind="unwind" identifier="saveExistingContact" unwindAction="backToContactsVC:" id="ig6-AS-DoB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1143,7 +1143,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S1M-ee-dX7"/>
         <segue reference="cHR-uu-eWk"/>
+        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>

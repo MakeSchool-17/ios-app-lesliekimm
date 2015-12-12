@@ -13,8 +13,8 @@ import Contacts
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
     @IBOutlet weak var contactsTableView: UITableView!      // code connection to table view
     var contactsDataSource = ContactsDataSource()           // grab contacts data source
-    var selectedContact: Contact?                           // optional selectedContact var used in deleteContact and showExistingContact
-    var contacts = [CNContact]()
+    var selectedContact: Contact?                           // grab reference to selected contact from contactTV
+    var contacts = [CNContact]()                            // array of CNContact objects to hold CNContact objects
     
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
@@ -23,11 +23,11 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.contactToAdd
                 contactsDataSource.addContact(contactToAdd!)
-            case "deleteContact":
+            case "deleteExistingContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 contactsDataSource.deleteContact(selectedContact!)
                 source.contact = nil
-            case "saveEditContact":
+            case "saveExistingContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 let contact = source.contact
                 if let contact = contact {
