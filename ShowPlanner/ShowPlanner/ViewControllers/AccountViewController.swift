@@ -35,7 +35,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             catch {
-                print("Error in saveAccountInfo")
+                print("Error in saveAccountInfo")                       // print error message
             }
         }
         dismissKeyboard()                                       // dismiss keyboard when save button hit
