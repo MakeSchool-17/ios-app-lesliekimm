@@ -15,7 +15,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var contactsTableView: UITableView!      // code connection to table view
     var contactsDataSource = ContactsDataSource()           // grab contacts data source
     var selectedContact: Contact?                           // grab reference to selected contact from contactTV
-    var contacts = [CNContact]()                            // array of CNContact objects to hold CNContact objects
     
     // Depending on segue identifier, perform an action
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
@@ -69,11 +68,14 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // When import button selected, allow user to select contacts to import from Contacts
     @IBAction func showContacts(sender: UIBarButtonItem) {
         AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
-            if accessGranted {
+            if accessGranted {                                          // if access granted
+                // Initialize a new CNContactPickerViewController
                 let contactPickerViewController = CNContactPickerViewController()
-                contactPickerViewController.delegate = self
+                contactPickerViewController.delegate = self             // set contactPickerVC delegate
+                // Display contactPickerVC
                 self.presentViewController(contactPickerViewController, animated: true, completion: nil)
             }
         }
@@ -94,6 +96,16 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         contactsTableView.reloadData()                      // reload data
     }
     
+    // MARK: Custom functions
+    // Add contacts to contactsDS
+    func didFetchContacts(contactsToAppend: [Contact]) {
+        for contact in contactsToAppend {               // for each Contact in contactsToAppend
+            contactsDataSource.addContact(contact)      // add contact to contactsDS
+        }
+        
+        contactsTableView.reloadData()                  // reload contactsTV data
+    }
+    
     // MARK: Navigation
     // Prepare for respective segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -103,13 +115,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = selectedContact             // set contact in ContactDisplayVC to selectedContact
         }
-//        // If performing showImportVC, get destinationVC and set delegate
-//        if (segue.identifier == "showImportVC") {
-//            // Grab a reference to ImportVC
-//            let importViewController = segue.destinationViewController as! ImportViewController
-//            importViewController.delegate = self                        // set ImportVC delegate to self
-//            
-//        }
     }
     
     // MARK: UITableViewDataSource
@@ -145,41 +150,39 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: CNContactPickerDelegate
+    // Takes all CNContacts selected from CNContactPickerVC and appends to a Contact array and adds to contactsDS
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
-        var selectedContacts = [Contact]()
+        var selectedContacts = [Contact]()                      // initialize Contact array
         
-        for contact in contacts {
-            let selectedContact = Contact()
+        for contact in contacts {                               // for each contact in contacts array
+            let selectedContact = Contact()                     // initialize new Contact object
+            // If contact has first and last name, set selectedContact name prop to full name
             if contact.givenName != "" && contact.familyName != "" {
                 selectedContact.name = "\(contact.givenName) \(contact.familyName)"
             }
+            // If contact only has first name, set selectedContact name prop to first name
             else if contact.givenName != "" {
                 selectedContact.name = "\(contact.givenName)"
             }
+            // Otherwise, set selectedContact name prop to last name
             else {
                 selectedContact.name = "\(contact.familyName)"
             }
             
-            if !contact.phoneNumbers.isEmpty {
-                selectedContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
-            }
+            // If contact has an email, set to selectedContact email prop
             if !contact.emailAddresses.isEmpty {
                 selectedContact.email = contact.emailAddresses[0].value as! String
             }
-            selectedContacts.append(selectedContact)
+            
+            // If contact has a phone number, set to selectedContact cell prop
+            if !contact.phoneNumbers.isEmpty {
+                selectedContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            }
+            
+            selectedContacts.append(selectedContact)            // add selectedContact to selectedContacts array
         }
         
-        didFetchContacts(selectedContacts)
-        navigationController?.popViewControllerAnimated(true)
-    }
-    
-    // MARK: ImportContactViewControllerDelegate
-    // Add contacts to contactsDS
-    func didFetchContacts(contactsToAppend: [Contact]) {
-        for contact in contactsToAppend {               // for each Contact in contactsToAppend
-            contactsDataSource.addContact(contact)      // add contact to contactsDS
-        }
-        
-        contactsTableView.reloadData()                  // reload contactsTV data
+        didFetchContacts(selectedContacts)                      // add contacts in selectedContacts array to contactsDS
+        navigationController?.popViewControllerAnimated(true)   // pop top VC from nav stack & updates display
     }
 }
