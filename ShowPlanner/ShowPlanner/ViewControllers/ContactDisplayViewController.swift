@@ -10,7 +10,6 @@
 
 import Foundation
 import UIKit
-import ConvenienceKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!          // code connection for name text field
@@ -26,7 +25,6 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     var addNew: Bool = false
-    var keyboardNotificationHandler: KeyboardNotificationHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,22 +44,6 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         
         setUpTextFieldDelegates()                               // set up text field delegates
         displayContact(self.contact)                            // display contact
-        
-        keyboardNotificationHandler = KeyboardNotificationHandler()
-        
-        keyboardNotificationHandler!.keyboardWillBeHiddenHandler = { (height: CGFloat) in
-            UIView.animateWithDuration(0.3){
-                self.toolbarBottomSpace.constant = 0
-                self.view.layoutIfNeeded()
-            }
-        }
-        
-        keyboardNotificationHandler!.keyboardWillBeShownHandler = { (height: CGFloat) in
-            UIView.animateWithDuration(0.3) {
-                self.toolbarBottomSpace.constant = -height
-                self.view.layoutIfNeeded()
-            }
-        }
         
         if addNew {
             trashButton.enabled = false
