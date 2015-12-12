@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!          // code connection to Upcoming TV
+    @IBOutlet weak var upcomingTableView: UITableView!
     var dataSource = EventsDataSource()
     var selectedEvent: Event?
     var eventsToBeDisplayed: [Event]?
@@ -54,15 +54,15 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 default:
                     print("No one loves \(identifier)")
                 }
-            tableView.reloadData()
+            upcomingTableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
+        upcomingTableView.dataSource = self
+        upcomingTableView.delegate = self
+        upcomingTableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -74,7 +74,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 eventsToBeDisplayed?.append(event)
             }
         }
-        tableView.reloadData()
+        upcomingTableView.reloadData()
     }
 
     // MARK: Navigation
@@ -90,7 +90,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingEventCell", forIndexPath: indexPath) as! UpcomingTableViewCell
+        let cell = upcomingTableView.dequeueReusableCellWithIdentifier("UpcomingEventCell", forIndexPath: indexPath) as! UpcomingTableViewCell
         let row = indexPath.row
         let event = (eventsToBeDisplayed?[row])! as Event
         cell.event = event
@@ -105,7 +105,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         if editingStyle == .Delete {
             let event = (eventsToBeDisplayed?[indexPath.row])! as Event
             dataSource.trashEvent(event)
-            tableView.reloadData()
+            upcomingTableView.reloadData()
         }
     }
     

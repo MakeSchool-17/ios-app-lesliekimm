@@ -311,7 +311,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="VIV-ti-SWG" id="ope-ps-lMt"/>
+                        <outlet property="upcomingTableView" destination="VIV-ti-SWG" id="hVp-T0-sIx"/>
                         <segue destination="ZDC-Tf-3dR" kind="show" identifier="showExistingEvent" id="cHR-uu-eWk"/>
                     </connections>
                 </viewController>
