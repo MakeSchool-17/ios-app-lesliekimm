@@ -14,6 +14,7 @@ class AddContactViewController: UIViewController {
     var currentContact: Contact?                        // optional currentContact var (used in showNewContact
     var contactDisplay: ContactDisplayViewController?   // optional VC to access ContactDisplayVC
     
+    // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true     // hide tab bar controller in this VC
@@ -22,6 +23,7 @@ class AddContactViewController: UIViewController {
         self.contactDisplay = self.childViewControllers[0] as? ContactDisplayViewController
     }
     
+    // Set the view every time it disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false    // unhide tab bar controller when leaving this VC

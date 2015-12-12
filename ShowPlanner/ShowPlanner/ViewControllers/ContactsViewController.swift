@@ -23,10 +23,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 let source = segue.sourceViewController as! AddContactViewController
                 let contactToAdd = source.contactToAdd
                 contactsDataSource.addContact(contactToAdd!)
-            case "deleteExistingContact":
-                let source = segue.sourceViewController as! ContactDisplayViewController
-                contactsDataSource.deleteContact(selectedContact!)
-                source.contact = nil
             case "saveExistingContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 let contact = source.contact
@@ -46,6 +42,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                         print("Error in saveContact")
                     }
                 }
+            case "deleteExistingContact":
+                let source = segue.sourceViewController as! ContactDisplayViewController
+                contactsDataSource.deleteContact(selectedContact!)
+                source.contact = nil
             default:
                 print("No one loves \(identifier)")
             }
@@ -55,14 +55,16 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactsTableView.dataSource = self
-        contactsTableView.delegate = self
-        contactsTableView.reloadData()
+        
+        contactsTableView.dataSource = self                 // declare dataSource for contactsTV
+        contactsTableView.delegate = self                   // declare delegate for contactsTV
+        contactsTableView.reloadData()                      // reload data
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        contactsTableView.reloadData()
+        
+        contactsTableView.reloadData()                      // reload data
     }
     
     // MARK: Navigation

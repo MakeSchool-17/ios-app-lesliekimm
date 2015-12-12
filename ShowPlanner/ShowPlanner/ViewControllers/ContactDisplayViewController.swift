@@ -26,6 +26,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     }
     var addNew: Bool = false
     
+    // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +35,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)                          // add tap gesture to view
     }
     
+    // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true             // hide tab bar controller in this VC
@@ -50,11 +52,13 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Set the view everytime it disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false        // unhide tab bar controller when leaving this VC
     }
     
+    // MARK: Custom functions
     // View will resign first responder status
     func dismissKeyboard() {
         view.endEditing(true)                               // dismiss keyboard
