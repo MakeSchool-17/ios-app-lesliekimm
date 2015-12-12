@@ -18,46 +18,53 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Depending on segue identifier, perform an action
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {                  // grab reference to segue identifier
+        if let identifier = segue.identifier {                          // grab reference to segue identifier
             switch identifier {
-            case "saveNewContact":                              // if saveNewContact segue
+            case "saveNewContact":                                      // if saveNewContact segue
                 // Grab reference to source VC
                 let source = segue.sourceViewController as! AddContactViewController
-                contactsDataSource.addContact(source.contact!)  // add contact
-            case "saveExistingContact":                         // if saveExistingContact segue
+                contactsDataSource.addContact(source.contact!)          // add contact
+            case "saveExistingContact":                                 // if saveExistingContact segue
                 // Grab reference to source VC
                 let source = segue.sourceViewController as! ContactDisplayViewController
-                let contact = source.contact
-                let editedContact = Contact()
+                let contact = source.contact                            // set contact to contact from ContactDisplayVC
+                let editedContact = Contact()                           // initialize new Contact objbect
+                
+                // If nameTextField from ContactDisplayVC is not placeholder text, set editedContact name prop
                 if source.nameTextField.text != "Full Name" {
-                    editedContact.name = source.nameTextField.text!
+                    editedContact.name = source.nameTextField.text!     // set to namteTextField text
                 }
                 else {
-                    editedContact.name = ""
-                }
-                if source.emailTextField.text != "Email" {
-                    editedContact.email = source.emailTextField.text!
-                }
-                else {
-                    editedContact.email = ""
-                }
-                if source.cellTextField.text != "Cell Phone" {
-                    editedContact.cell = source.cellTextField.text!
-                }
-                else {
-                    editedContact.cell = ""
+                    editedContact.name = ""                             // set to empty string
                 }
                 
+                // If emailTextField from ContactDisplayVC is not placeholder text, set editedContact email prop
+                if source.emailTextField.text != "Email" {
+                    editedContact.email = source.emailTextField.text!   // set to emailTextField text
+                }
+                else {
+                    editedContact.email = ""                            // set to empty string
+                }
+                
+                // If cellTextField from ContactDisplayVC is not placeholder text, set editedContact cell prop
+                if source.cellTextField.text != "Cell Phone" {
+                    editedContact.cell = source.cellTextField.text!     // set to cellTextField text
+                }
+                else {
+                    editedContact.cell = ""                             // set to empty string
+                }
+                
+                // Save edits made to Contact object
                 contactsDataSource.editContact(contact!, editedContact: editedContact)
-
-            case "deleteExistingContact":
+            case "deleteExistingContact":                               // if deleteExistingContact segue
+                // Grab reference to sourceVC
                 let source = segue.sourceViewController as! ContactDisplayViewController
-                contactsDataSource.deleteContact(selectedContact!)
-                source.contact = nil
+                contactsDataSource.deleteContact(source.contact!)       // delete contact
+                source.contact = nil                                    // set contact in ContactDisplayVC to nil
             default:
                 print("No one loves \(identifier)")
             }
-            contactsTableView.reloadData()
+            contactsTableView.reloadData()                              // reload contactsTV data
         }
     }
     
@@ -73,68 +80,72 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     // Set the view every time it appears
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
         contactsTableView.reloadData()                      // reload data
     }
     
     // MARK: Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Prepare for respective segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // If performing showExistingContact, get destination VC and set contact to selectedContact
         if (segue.identifier == "showExistingContact") {
+            // Grab a reference to ContactDisplayVC
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
-            contactViewController.contact = selectedContact
+            contactViewController.contact = selectedContact             // set contact in ContactDisplayVC to selectedContact
         }
+        // If performing showImportVC, get destinationVC and set delegate
         if (segue.identifier == "showImportVC") {
+            // Grab a reference to ImportVC
             let importViewController = segue.destinationViewController as! ImportViewController
-            importViewController.delegate = self
+            importViewController.delegate = self                        // set ImportVC delegate to self
         }
     }
     
     // MARK: UITableViewDataSource
+    // Set Contact object to be displayed in teach ContactTableViewCell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get a reusable TVC object for ContactCell and add to contactsTV
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell
-        let row = indexPath.row
-        let contact = contactsDataSource.contacts[row] as Contact
-        cell.contact = contact
-        return cell
+        let row = indexPath.row                                         // get row
+        let contact = contactsDataSource.contacts[row] as Contact       // get Contact object from contactsDS at row index
+        cell.contact = contact                                          // set contact prop for cell to contact
+        return cell                                                     // return cell
     }
     
+    // Get the number of rows in contactsTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactsDataSource.contacts?.count ?? 0
+        return contactsDataSource.contacts?.count ?? 0      // return total number of contacts in contactsDS or 0 if empty
     }
     
+    // Delete Contact object at specified row
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let contact = contactsDataSource.contacts[indexPath.row] as Contact
-            contactsDataSource.deleteContact(contact)
-            tableView.reloadData()
+        if editingStyle == .Delete {                                                // if editingStyle is Delete
+            let contact = contactsDataSource.contacts[indexPath.row] as Contact     // get Contact object at row index from contactsDS
+            contactsDataSource.deleteContact(contact)                               // delete contact
+            tableView.reloadData()                                                  // reload contactsTV
         }
     }
     
     // MARK: UITableViewDelegate
+    // Set selectedContact when a TVC is selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedContact = contactsDataSource.contacts[indexPath.row]
-        self.performSegueWithIdentifier("showExistingContact", sender: self)
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        selectedContact = contactsDataSource.contacts[indexPath.row]            // set selectedContact to Contact at row index from contactsDS
+        self.performSegueWithIdentifier("showExistingContact", sender: self)    // perform showExistingContact segue
     }
     
     // MARK: ImportContactViewControllerDelegate
+    // Add contacts to contactsDS
     func didFetchContacts(contactsToAppend: [Contact]) {
-        for contact in contactsToAppend {
-            contactsDataSource.addContact(contact)
+        for contact in contactsToAppend {               // for each Contact in contactsToAppend
+            contactsDataSource.addContact(contact)      // add contact to contactsDS
         }
         
-        contactsTableView.reloadData()
+        contactsTableView.reloadData()                  // reload contactsTV data
     }
     
+    // Add contacts as CNContact objects to contacts array
     func didFetchCNContacts(contacts: [CNContact]) {
-        for contact in contacts {
-            self.contacts.append(contact)
+        for contact in contacts {                       // for each CNContact in contacts
+            self.contacts.append(contact)               // add to contacts
         }
     }
 }

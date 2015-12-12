@@ -37,7 +37,7 @@ class AddContactViewController: UIViewController {
             // Grab a reference to ContactDisplayVC
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = contact      // set contact in ContactDisplayVC to initialized contact
-            contactViewController.addNew = true          // set addNew in ContactDisplayVC to true
+            contactViewController.addNew = true          // set addNew in ContactDisplayVC to trueP
         }
         // If performing saveNewContact, initialize Contact object and set props to corresponding TextField inputs
         // from ContactDisplayVC
