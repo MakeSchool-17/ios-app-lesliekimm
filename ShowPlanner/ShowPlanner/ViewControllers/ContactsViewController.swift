@@ -16,32 +16,40 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedContact: Contact?                           // grab reference to selected contact from contactTV
     var contacts = [CNContact]()                            // array of CNContact objects to hold CNContact objects
     
+    // Depending on segue identifier, perform an action
     @IBAction func backToContactsVC(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
+        if let identifier = segue.identifier {                  // grab reference to segue identifier
             switch identifier {
-            case "saveNewContact":
+            case "saveNewContact":                              // if saveNewContact segue
+                // Grab reference to source VC
                 let source = segue.sourceViewController as! AddContactViewController
-                let contactToAdd = source.contact
-                contactsDataSource.addContact(contactToAdd!)
-            case "saveExistingContact":
+                contactsDataSource.addContact(source.contact!)  // add contact
+            case "saveExistingContact":                         // if saveExistingContact segue
+                // Grab reference to source VC
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 let contact = source.contact
-                if let contact = contact {
-                    do {
-                        let realm = try Realm()
-                        
-                        try realm.write {
-                            if (contact.name != source.nameTextField.text || contact.email != source.emailTextField.text || contact.cell != source.cellTextField.text) {
-                                contact.name = source.nameTextField.text!
-                                contact.email = source.emailTextField.text!
-                                contact.cell = source.cellTextField.text!
-                            }
-                        }
-                    }
-                    catch {
-                        print("Error in saveContact")
-                    }
+                let editedContact = Contact()
+                if source.nameTextField.text != "Full Name" {
+                    editedContact.name = source.nameTextField.text!
                 }
+                else {
+                    editedContact.name = ""
+                }
+                if source.emailTextField.text != "Email" {
+                    editedContact.email = source.emailTextField.text!
+                }
+                else {
+                    editedContact.email = ""
+                }
+                if source.cellTextField.text != "Cell Phone" {
+                    editedContact.cell = source.cellTextField.text!
+                }
+                else {
+                    editedContact.cell = ""
+                }
+                
+                contactsDataSource.editContact(contact!, editedContact: editedContact)
+
             case "deleteExistingContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 contactsDataSource.deleteContact(selectedContact!)

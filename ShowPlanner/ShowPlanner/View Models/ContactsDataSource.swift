@@ -39,6 +39,23 @@ class ContactsDataSource: NSObject {
         }
     }
     
+    func editContact(contact: Contact, editedContact: Contact) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                if (contact.name != editedContact.name || contact.email != editedContact.email || contact.cell != editedContact.cell) {
+                    contact.name = editedContact.name
+                    contact.email = editedContact.email
+                    contact.cell = editedContact.cell
+                }
+            }
+        }
+        catch {
+            print("Error in saveContact")
+        }
+    }
+    
     func deleteContact(contact: Contact) {
         do {
             let realm = try Realm()
