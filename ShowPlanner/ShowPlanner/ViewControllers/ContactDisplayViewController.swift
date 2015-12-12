@@ -45,7 +45,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
         
         setUpTextFieldDelegates()                               // set up text field delegates
-        displayContact(self.contact)                            // display contact
+        displayContact(contact)                                 // display contact
         
         if addNew {                                             // if adding new Contact
             trashButton.enabled = false                         // disable trash button

@@ -21,7 +21,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             switch identifier {
             case "saveNewContact":
                 let source = segue.sourceViewController as! AddContactViewController
-                let contactToAdd = source.contactToAdd
+                let contactToAdd = source.contact
                 contactsDataSource.addContact(contactToAdd!)
             case "saveExistingContact":
                 let source = segue.sourceViewController as! ContactDisplayViewController
@@ -53,6 +53,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +62,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         contactsTableView.reloadData()                      // reload data
     }
     
+    // Set the view every time it appears
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

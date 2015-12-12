@@ -10,8 +10,7 @@ import UIKit
 import Contacts
 
 class AddContactViewController: UIViewController {
-    var contactToAdd: Contact?                          // optional contactToAdd var (used in ContactsVC)
-    var currentContact: Contact?                        // optional currentContact var (used in showNewContact
+    var contact: Contact?                               // optional contact var set in prepareForSegue
     var contactDisplay: ContactDisplayViewController?   // optional VC to access ContactDisplayVC
     
     // Set the view every time it appears
@@ -20,7 +19,7 @@ class AddContactViewController: UIViewController {
         self.tabBarController?.tabBar.hidden = true     // hide tab bar controller in this VC
         
         // Get the first child VC and assign to contactDisplay to gain access to props in ContactDisplayVC
-        self.contactDisplay = self.childViewControllers[0] as? ContactDisplayViewController
+        contactDisplay = self.childViewControllers[0] as? ContactDisplayViewController
     }
     
     // Set the view every time it disappears
@@ -30,25 +29,24 @@ class AddContactViewController: UIViewController {
     }
 
     // MARK: - Navigation
-    // Set currentContact if displaying ContactDisplayVC for new Contact object
-    // Set contactToAdd if saving new Contact object
+    // Set contact to respective Contact object depending on segue being performed
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // If performing showNewContact, create new Contact object and pass object to ContactDisplayVC
+        // If performing showNewContact, initialize Contact object and pass object to ContactDisplayVC
         if (segue.identifier == "showNewContact") {
-            currentContact = Contact()                          // initialize currentContact
+            contact = Contact()                          // initialize contact
             // Grab a reference to ContactDisplayVC
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
-            contactViewController.contact = currentContact      // set contact in ContactDisplayVC to currentContact
-            contactViewController.addNew = true
+            contactViewController.contact = contact      // set contact in ContactDisplayVC to initialized contact
+            contactViewController.addNew = true          // set addNew in ContactDisplayVC to true
         }
-        // If performing saveNewContact, create new Contact object and set contact props to text field inputs in
-        // ContactDisplayVC
+        // If performing saveNewContact, initialize Contact object and set props to corresponding TextField inputs
+        // from ContactDisplayVC
         if (segue.identifier == "saveNewContact") {
-            let contactViewController = self.contactDisplay!    // grab a reference to ContactDisplayVC
-            contactToAdd = Contact()                            // initialize contactToAdd
-            contactToAdd!.name = contactViewController.nameTextField.text!      // set name prop of contactToAdd
-            contactToAdd!.email = contactViewController.emailTextField.text!    // set email prop of contactToAdd
-            contactToAdd!.cell = contactViewController.cellTextField.text!      // set cell prop of contactToAdd
+            let contactViewController = contactDisplay!                     // grab a reference to ContactDisplayVC
+            contact = Contact()                                             // initialize contact
+            contact!.name = contactViewController.nameTextField.text!       // set name prop of contactToAdd
+            contact!.email = contactViewController.emailTextField.text!     // set email prop of contactToAdd
+            contact!.cell = contactViewController.cellTextField.text!       // set cell prop of contactToAdd
         }
     }
 }
