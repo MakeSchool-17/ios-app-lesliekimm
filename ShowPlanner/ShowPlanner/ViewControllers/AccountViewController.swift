@@ -40,7 +40,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         }
         dismissKeyboard()                                       // dismiss keyboard when save button hit
     }
-    
+
+    // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +50,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)                          // add tap gesture to view
     }
     
+    // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -74,6 +76,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: Custom functions
     // View will resign first responder status
     func dismissKeyboard() {
         view.endEditing(true)                               // dismiss keyboard
