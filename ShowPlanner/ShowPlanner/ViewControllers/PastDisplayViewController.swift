@@ -65,13 +65,25 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     }
     
     func displayEvent(event: Event?) {
-        if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField, lineupTextField = lineupTextField, notesTextView = notesTextView {
+        // add lineupTextField = lineupTextField into if let after fixing lineupArray
+        if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField,  notesTextView = notesTextView {
             nameTextField.text = event.name
             locationTextField.text = event.location
             
             let date = PastDisplayViewController.dateFormatter.stringFromDate(event.dateTime)
             let time = PastDisplayViewController.timeFormatter.stringFromDate(event.dateTime)
             dateTimeTextField.text = date + " " + time
+            
+//            if event.lineupArray!.count > 0 {
+//                var lineupString = ""
+//                for contact in event.lineupArray! {
+//                    lineupString = lineupString + contact.name + " "
+//                }
+//                lineupTextField.text = lineupString
+//            }
+//            else {
+//                lineupTextField.text = ""
+//            }
             
             notesTextView.text = event.notes
             if event.notes != "" {
@@ -83,16 +95,6 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: UITextViewDelegate
     func textViewDidBeginEditing(textView: UITextView) {
