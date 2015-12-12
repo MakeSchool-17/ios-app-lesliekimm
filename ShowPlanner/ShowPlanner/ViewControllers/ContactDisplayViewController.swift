@@ -24,7 +24,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
             displayContact(contact)                         // display contact everytime changes are made
         }
     }
-    var addNew: Bool = false
+    var addNew: Bool = false                                // Bool to inidicate if we are adding new Contact or not
     
     // Set the view when loaded for the first time
     override func viewDidLoad() {
@@ -47,8 +47,8 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         setUpTextFieldDelegates()                               // set up text field delegates
         displayContact(self.contact)                            // display contact
         
-        if addNew {
-            trashButton.enabled = false
+        if addNew {                                             // if adding new Contact
+            trashButton.enabled = false                         // disable trash button
         }
     }
     
