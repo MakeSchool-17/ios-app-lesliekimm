@@ -18,15 +18,11 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
                 switch identifier {
-                case "addNewEvent":
+                case "saveNewEvent":
                     let source = segue.sourceViewController as! AddEventViewController
                     let eventToAdd = source.eventToAdd
                     dataSource.addEvent(eventToAdd!)
-                case "deleteEvent":
-                    let source = segue.sourceViewController as! EventDisplayViewController
-                    dataSource.trashEvent(selectedEvent!)
-                    source.event = nil
-                case "saveEvent":
+                case "saveExistingEvent":
                     print("here")
                     let source = segue.sourceViewController as! EventDisplayViewController
                     let event = source.event
@@ -51,6 +47,10 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                                 print("ERROR")
                             }
                     }
+                case "deleteExistingEvent":
+                    let source = segue.sourceViewController as! EventDisplayViewController
+                    dataSource.trashEvent(selectedEvent!)
+                    source.event = nil
                 default:
                     print("No one loves \(identifier)")
                 }

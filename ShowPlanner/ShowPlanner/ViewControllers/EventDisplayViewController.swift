@@ -17,6 +17,7 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var selectLineupButton: UIButton!
     @IBOutlet weak var lineupTableView: UITableView!
     @IBOutlet weak var trashButton: UIBarButtonItem!
 
@@ -70,6 +71,13 @@ class EventDisplayViewController: UIViewController, UITableViewDataSource, UITab
         lineupTableView.dataSource = self
         lineupTableView.delegate = self
         displayEvent(event)
+        
+        if lineupArray?.count > 0 {
+            selectLineupButton.setTitle("Edit Lineup", forState: UIControlState.Normal)
+        }
+        else {
+            selectLineupButton.setTitle("Select Lineup", forState: UIControlState.Normal)
+        }
         
         do {
             let realm = try Realm()
