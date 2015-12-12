@@ -37,8 +37,13 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        notesTextView.delegate = self
         notesTextView.text = "Notes"
         notesTextView.textColor = UIColor.lightGrayColor()
+        
+        // Initialize UITapGestureRecognizer
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)                          // add tap gesture to view
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,10 +59,20 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
         self.tabBarController?.tabBar.hidden = false
     }
     
+    // View will resign first responder status
+    func dismissKeyboard() {
+        view.endEditing(true)                               // dismiss keyboard
+    }
+    
     func displayEvent(event: Event?) {
         if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField, lineupTextField = lineupTextField, notesTextView = notesTextView {
             nameTextField.text = event.name
             locationTextField.text = event.location
+            
+            let date = PastDisplayViewController.dateFormatter.stringFromDate(event.dateTime)
+            let time = PastDisplayViewController.timeFormatter.stringFromDate(event.dateTime)
+            dateTimeTextField.text = date + " " + time
+            
             notesTextView.text = event.notes
             if event.notes != "" {
                 notesTextView.textColor = UIColor.blackColor()
@@ -93,5 +108,4 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.lightGrayColor()
         }
     }
-
 }
