@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PastViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var pastTableView: UITableView!              // code connection to PastShows TV
@@ -14,13 +15,40 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on PastVC
     
+    @IBAction func backToPastVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "savePast":
+                let source = segue.sourceViewController as! PastDisplayViewController
+                let event = source.event
+                if let event = event {
+                    do {
+                        let realm = try Realm()
+                        
+                        try realm.write {
+                            if (event.notes != source.notesTextView.text) {
+                                event.notes = source.notesTextView.text
+                            }
+                        }
+                    }
+                    catch {
+                        print("ERROR")
+                    }
+                }
+            default:
+                print("No one loves \(identifier)")
+            }
+            pastTableView.reloadData()
+        }
+    }
+    
     // Set dataSource and delegate to self, reload data and don't allow cells to be selected
     override func viewDidLoad() {
         super.viewDidLoad()
         pastTableView.dataSource = self
         pastTableView.delegate = self
         pastTableView.reloadData()
-        pastTableView.allowsSelection = false
+//        pastTableView.allowsSelection = false
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -41,26 +69,37 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pastTableView.reloadData()                              // reload data
     }
     
+    // MARK: Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "showPastEvent") {
+            let eventViewController = segue.destinationViewController as! PastDisplayViewController
+            eventViewController.event = selectedEvent
+        }
+    }
+    
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Get each cell of pastTableView and populate with events in eventsToBeDisplayed array
-        let cell = tableView.dequeueReusableCellWithIdentifier("PastEventCell") as! PastTableViewCell
-        let event = (eventsToBeDisplayed?[indexPath.row])! as Event
+        let cell = pastTableView.dequeueReusableCellWithIdentifier("PastEventCell", forIndexPath: indexPath) as! PastTableViewCell
+        let row = indexPath.row
+        let event = (eventsToBeDisplayed?[row])! as Event
         cell.event = event
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsToBeDisplayed?.count ?? 0                  // TV rows equals eventsToBeDisplayed count
+        return eventsToBeDisplayed?.count ?? 0
     }
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedEvent = eventsToBeDisplayed![indexPath.row]             // set selectedEvent
-        self.performSegueWithIdentifier("showPastEvent", sender: self)  // show PastNotesVC for selectedEvent
+        selectedEvent = eventsToBeDisplayed?[indexPath.row]
+        self.performSegueWithIdentifier("showPastEvent", sender: self)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true                                             // rows can be edited
+        return true
     }
 }

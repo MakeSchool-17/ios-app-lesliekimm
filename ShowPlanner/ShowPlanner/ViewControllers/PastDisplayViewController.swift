@@ -8,19 +8,66 @@
 
 import UIKit
 
-class PastDisplayViewController: UIViewController {
+class PastDisplayViewController: UIViewController, UITextViewDelegate {
+    @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var dateTimeTextField: UITextField!
+    @IBOutlet weak var lineupTextField: UITextField!
+    @IBOutlet weak var notesTextView: UITextView!
 
+    static var dateFormatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        return formatter
+    }()
+    
+    static var timeFormatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        return formatter
+    }()
+    
+    var event: Event? {
+        didSet {
+            displayEvent(event)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        notesTextView.text = "Notes"
+        notesTextView.textColor = UIColor.lightGrayColor()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = true
+        
+        navItem.title = event!.name
+        displayEvent(event)
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
+    func displayEvent(event: Event?) {
+        if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField, lineupTextField = lineupTextField, notesTextView = notesTextView {
+            nameTextField.text = event.name
+            locationTextField.text = event.location
+            notesTextView.text = event.notes
+            if event.notes != "" {
+                notesTextView.textColor = UIColor.blackColor()
+            }
+            else {
+                notesTextView.text = "Notes"
+                notesTextView.textColor = UIColor.lightGrayColor()
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -31,5 +78,20 @@ class PastDisplayViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: UITextViewDelegate
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Notes"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
 
 }

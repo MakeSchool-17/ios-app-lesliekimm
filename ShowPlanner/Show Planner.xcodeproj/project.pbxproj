@@ -10,6 +10,7 @@
 		811313031C1004D8003775E3 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811313021C1004D8003775E3 /* ContactsViewController.swift */; };
 		8124785A1C113D8800B17861 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812478591C113D8800B17861 /* EventsDataSource.swift */; };
 		8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124785B1C113D9600B17861 /* ContactsDataSource.swift */; };
+		813306F31C1CAF2400895769 /* PastDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813306F21C1CAF2400895769 /* PastDisplayViewController.swift */; };
 		8142C5DA1C166CA200FE915C /* SelectedLineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5D91C166CA200FE915C /* SelectedLineup.swift */; };
 		8142C5DE1C16968000FE915C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5DD1C16968000FE915C /* Account.swift */; };
 		8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5E11C1734E000FE915C /* PastViewController.swift */; };
@@ -42,6 +43,7 @@
 		811313021C1004D8003775E3 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		812478591C113D8800B17861 /* EventsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
 		8124785B1C113D9600B17861 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
+		813306F21C1CAF2400895769 /* PastDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastDisplayViewController.swift; sourceTree = "<group>"; };
 		8142C5D91C166CA200FE915C /* SelectedLineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLineup.swift; sourceTree = "<group>"; };
 		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				81FB476B1C028C2F00705324 /* EventDisplayViewController.swift */,
 				81FB47711C03E2C900705324 /* SelectLineupViewController.swift */,
 				8142C5E11C1734E000FE915C /* PastViewController.swift */,
+				813306F21C1CAF2400895769 /* PastDisplayViewController.swift */,
 				811313021C1004D8003775E3 /* ContactsViewController.swift */,
 				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
@@ -329,6 +332,7 @@
 				81FB47661C027A3E00705324 /* UpcomingViewController.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
 				8167410F1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift in Sources */,
+				813306F31C1CAF2400895769 /* PastDisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
