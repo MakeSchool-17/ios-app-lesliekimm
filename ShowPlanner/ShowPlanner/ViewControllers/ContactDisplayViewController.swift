@@ -104,11 +104,11 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     // Sets first responder to next textfield when Next (Return) key hit
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (textField == nameTextField) {                   // if current textfield is nameTextField
-            emailTextField.returnKeyType = .Done            // set emailTextField returnKeyType to DOne
+            emailTextField.returnKeyType = .Next            // set emailTextField returnKeyType to Next
             emailTextField.becomeFirstResponder()           // set first responder to emailTextField
         }
         else if (textField == emailTextField) {             // if current textfield is emailTextField
-            cellTextField.returnKeyType = .Done             // set cellTextField returnKeyType to DOne
+            cellTextField.returnKeyType = .Done             // set cellTextField returnKeyType to Done
             cellTextField.becomeFirstResponder()            // set first responder to cellTextField
         }
         return false                                        // otherwise, return false
