@@ -53,8 +53,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         
         setUpTextFieldDelegates()                               // set up textfield delegates
-        cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellTextField to display phone number keyboard
-        cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
+        setUpCellTextField()                                    // set up cellTextField
         
         do {
             let realm = try Realm()                             // grab default Realm
@@ -88,6 +87,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self                      // set email textfield delegate to self
     }
     
+    // Set up cellTextField keyboard type
+    func setUpCellTextField() {
+        cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellTextField to display phone number keyboard
+        cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
+    }
+    
     // Display account information
     func displayAccount(account: Account?) {
         if let account = account, nameTextField = nameTextField, emailTextField = emailTextField, cellTextField = cellTextField {
@@ -106,11 +111,11 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     // Sets first responder to next textfield when Next (Return) key hit
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (textField == nameTextField) {                   // if current textfield is nameTextField
-            emailTextField.returnKeyType = .Done            // set emailTextField returnKeyType to DOne
+            emailTextField.returnKeyType = .Next            // set emailTextField returnKeyType to Next
             emailTextField.becomeFirstResponder()           // set first responder to emailTextField
         }
         else if (textField == emailTextField) {             // if current textfield is emailTextField
-            cellTextField.returnKeyType = .Done             // set cellTextField returnKeyType to DOne
+            cellTextField.returnKeyType = .Done             // set cellTextField returnKeyType to Done
             cellTextField.becomeFirstResponder()            // set first responder to cellTextField
         }
         return false                                        // otherwise, return false
