@@ -678,48 +678,6 @@
             </objects>
             <point key="canvasLocation" x="350" y="2292"/>
         </scene>
-        <!--Import Contacts-->
-        <scene sceneID="hLZ-rw-TgV">
-            <objects>
-                <viewController id="TuQ-xD-ryP" customClass="ImportViewController" customModule="Show_Planner" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lmt-8Q-hhJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="zaS-a7-7Mw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tzq-aU-LlJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaL-cW-ooA">
-                                <rect key="frame" x="206" y="284" width="188" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Select Contact to Import"/>
-                                <connections>
-                                    <action selector="showContacts:" destination="TuQ-xD-ryP" eventType="touchUpInside" id="Iae-AJ-qZO"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vaL-cW-ooA" firstAttribute="centerX" secondItem="Tzq-aU-LlJ" secondAttribute="centerX" id="BeJ-Ro-wxI"/>
-                            <constraint firstItem="vaL-cW-ooA" firstAttribute="centerY" secondItem="Tzq-aU-LlJ" secondAttribute="centerY" id="zxz-LS-9cW"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Import Contacts" id="DrQ-LR-rdl">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tAn-8H-WLI">
-                            <connections>
-                                <segue destination="GuT-vx-YXv" kind="unwind" identifier="cancelImport" unwindAction="backToContactsVC:" id="KJN-rE-mUf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pp-hk-1zq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="GuT-vx-YXv" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1021" y="3015"/>
-        </scene>
         <!--Contact Name-->
         <scene sceneID="PdU-hy-EMP">
             <objects>
