@@ -9,8 +9,9 @@
 import UIKit
 import RealmSwift
 import Contacts
+import ContactsUI
 
-class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImportContactViewControllerDelegate {
+class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CNContactPickerDelegate {
     @IBOutlet weak var contactsTableView: UITableView!      // code connection to table view
     var contactsDataSource = ContactsDataSource()           // grab contacts data source
     var selectedContact: Contact?                           // grab reference to selected contact from contactTV
@@ -68,6 +69,16 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    @IBAction func showContacts(sender: UIBarButtonItem) {
+        AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
+            if accessGranted {
+                let contactPickerViewController = CNContactPickerViewController()
+                contactPickerViewController.delegate = self
+                self.presentViewController(contactPickerViewController, animated: true, completion: nil)
+            }
+        }
+    }
+    
     // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,12 +103,13 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
             contactViewController.contact = selectedContact             // set contact in ContactDisplayVC to selectedContact
         }
-        // If performing showImportVC, get destinationVC and set delegate
-        if (segue.identifier == "showImportVC") {
-            // Grab a reference to ImportVC
-            let importViewController = segue.destinationViewController as! ImportViewController
-            importViewController.delegate = self                        // set ImportVC delegate to self
-        }
+//        // If performing showImportVC, get destinationVC and set delegate
+//        if (segue.identifier == "showImportVC") {
+//            // Grab a reference to ImportVC
+//            let importViewController = segue.destinationViewController as! ImportViewController
+//            importViewController.delegate = self                        // set ImportVC delegate to self
+//            
+//        }
     }
     
     // MARK: UITableViewDataSource
@@ -132,6 +144,35 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.performSegueWithIdentifier("showExistingContact", sender: self)    // perform showExistingContact segue
     }
     
+    // MARK: CNContactPickerDelegate
+    func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+        var selectedContacts = [Contact]()
+        
+        for contact in contacts {
+            let selectedContact = Contact()
+            if contact.givenName != "" && contact.familyName != "" {
+                selectedContact.name = "\(contact.givenName) \(contact.familyName)"
+            }
+            else if contact.givenName != "" {
+                selectedContact.name = "\(contact.givenName)"
+            }
+            else {
+                selectedContact.name = "\(contact.familyName)"
+            }
+            
+            if !contact.phoneNumbers.isEmpty {
+                selectedContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            }
+            if !contact.emailAddresses.isEmpty {
+                selectedContact.email = contact.emailAddresses[0].value as! String
+            }
+            selectedContacts.append(selectedContact)
+        }
+        
+        didFetchContacts(selectedContacts)
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     // MARK: ImportContactViewControllerDelegate
     // Add contacts to contactsDS
     func didFetchContacts(contactsToAppend: [Contact]) {
@@ -140,12 +181,5 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         contactsTableView.reloadData()                  // reload contactsTV data
-    }
-    
-    // Add contacts as CNContact objects to contacts array
-    func didFetchCNContacts(contacts: [CNContact]) {
-        for contact in contacts {                       // for each CNContact in contacts
-            self.contacts.append(contact)               // add to contacts
-        }
     }
 }

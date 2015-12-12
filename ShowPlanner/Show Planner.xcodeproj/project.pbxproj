@@ -14,7 +14,6 @@
 		8142C5DA1C166CA200FE915C /* SelectedLineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5D91C166CA200FE915C /* SelectedLineup.swift */; };
 		8142C5DE1C16968000FE915C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5DD1C16968000FE915C /* Account.swift */; };
 		8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5E11C1734E000FE915C /* PastViewController.swift */; };
-		816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740DF1C0D14B6002A3679 /* ImportViewController.swift */; };
 		816740E21C0D5DD6002A3679 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740E11C0D5DD6002A3679 /* Contact.swift */; };
 		8167410F1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */; };
 		818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98701BF661FF00D8157F /* AppDelegate.swift */; };
@@ -47,7 +46,6 @@
 		8142C5D91C166CA200FE915C /* SelectedLineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLineup.swift; sourceTree = "<group>"; };
 		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
-		816740DF1C0D14B6002A3679 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8167410E1C0FB1D9002A3679 /* SelectLineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupTableViewCell.swift; sourceTree = "<group>"; };
 		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +145,6 @@
 				8142C5E11C1734E000FE915C /* PastViewController.swift */,
 				813306F21C1CAF2400895769 /* PastDisplayViewController.swift */,
 				811313021C1004D8003775E3 /* ContactsViewController.swift */,
-				816740DF1C0D14B6002A3679 /* ImportViewController.swift */,
 				81C23CD31BFE580D000E3838 /* AddContactViewController.swift */,
 				81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */,
 				818E98891BF6A44800D8157F /* AccountViewController.swift */,
@@ -321,7 +318,6 @@
 				8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */,
 				811313031C1004D8003775E3 /* ContactsViewController.swift in Sources */,
 				81FB476E1C0290E900705324 /* LineupTableViewCell.swift in Sources */,
-				816740E01C0D14B6002A3679 /* ImportViewController.swift in Sources */,
 				81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81FB47721C03E2C900705324 /* SelectLineupViewController.swift in Sources */,

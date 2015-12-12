@@ -26,8 +26,11 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let realm = try Realm()
                         
                         try realm.write {
-                            if (event.notes != source.notesTextView.text) {
+                            if (event.notes != source.notesTextView.text && source.notesTextView.text != "Notes") {
                                 event.notes = source.notesTextView.text
+                            }
+                            if (source.notesTextView.text == "Notes") {
+                                event.notes = ""
                             }
                         }
                     }

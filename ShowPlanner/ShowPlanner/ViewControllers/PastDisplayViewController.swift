@@ -84,7 +84,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
 //                lineupTextField.text = ""
 //            }
             
-            if event.notes != "Notes" {
+            if event.notes != "" {
                 notesTextView.text = event.notes
                 notesTextView.textColor = UIColor.blackColor()
             }
@@ -106,7 +106,6 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Notes"
-//            event!.notes = ""
             textView.textColor = UIColor.lightGrayColor()
         }
     }
