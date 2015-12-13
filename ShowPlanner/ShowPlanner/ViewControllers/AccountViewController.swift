@@ -16,6 +16,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!          // code connection to name textfield
     @IBOutlet weak var emailTextField: UITextField!         // code connection to email textfield
     @IBOutlet weak var cellTextField: UITextField!          // code connection to cell textfield
+    @IBOutlet weak var changesSavedLabel: UILabel!          // code connection to changes saved label
     var userAccount: Account?                               // declare userAccount var
     
     // Save account info
@@ -39,6 +40,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             }
         }
         dismissKeyboard()                                       // dismiss keyboard when save button hit
+        changesSavedLabel.text = "Changes Saved!"               // set changesSaved label to indicate save has completed
     }
 
     // Set the view when loaded for the first time
@@ -56,6 +58,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         
         setUpTextFieldDelegates()                               // set up textfield delegates
         setUpCellTextField()                                    // set up cellTextField
+        changesSavedLabel.text = ""                             // set changesSavedLabel to empty string
         
         do {
             let realm = try Realm()                             // grab default Realm
