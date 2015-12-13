@@ -62,7 +62,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 contactsDataSource.deleteContact(source.contact!)       // delete contact
                 source.contact = nil                                    // set contact in ContactDisplayVC to nil
             default:
-                print("No one loves \(identifier)")
+                print("No one loves \(identifier)")                     // print log message
             }
             contactsTableView.reloadData()                              // reload contactsTV data
         }

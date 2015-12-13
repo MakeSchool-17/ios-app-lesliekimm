@@ -25,10 +25,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             do {
                 let realm = try Realm()                                 // grab default Realm
                 try realm.write {                                       // write to Realm
-                    print(self.nameTextField.text!)
                     // if any textfield text properties have been changed, update on Realm
                     if (userAccount.name != self.nameTextField.text || userAccount.email != self.emailTextField.text || userAccount.cell != self.cellTextField.text) {
-                        print("HERE")
                         userAccount.name = self.nameTextField.text!     // set name to nameTextField
                         userAccount.email = self.emailTextField.text!   // set email to emailTextField
                         userAccount.cell = self.cellTextField.text!     // set cell to cellTextField
