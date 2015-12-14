@@ -14,6 +14,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on upcomingTV
     
+    // Depending on segue identifier, perform an action
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
