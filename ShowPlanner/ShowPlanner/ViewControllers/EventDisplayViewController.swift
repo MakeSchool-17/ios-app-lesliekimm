@@ -9,28 +9,29 @@
 import UIKit
 
 class EventDisplayViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var navItem: UINavigationItem!
-    @IBOutlet weak var eventNameTextField: UITextField!
-    @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var selectLineupButton: UIButton!
-    @IBOutlet weak var lineupTableView: UITableView!
-    @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak var navItem: UINavigationItem!               // code connection for navigation item
+    @IBOutlet weak var eventNameTextField: UITextField!         // code connection for event name textfield
+    @IBOutlet weak var locationTextField: UITextField!          // code connection for location textfield
+    @IBOutlet weak var datePicker: UIDatePicker!                // code connection for datePicker date
+    @IBOutlet weak var selectLineupButton: UIButton!            // code connection for select lineup button
+    @IBOutlet weak var lineupTableView: UITableView!            // code connection for lineupTV
+    @IBOutlet weak var trashButton: UIBarButtonItem!            // code connection for trash button
     
-    var event: Event? {
+    var event: Event? {                                         // optional Event var
         didSet {
-            displayEvent(event)
+            displayEvent(event)                                 // display event everytime changes are made
         }
     }
-    var addNew: Bool = false
+    var addNew: Bool = false                                    // Bool to indicate if we are adding new Event or not
     
+    // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "saveLineup":
+            case "saveLineup":                                  // if saveLineup segue
                 print("saveLineup")
             default:
-                print("No one loves \(identifier)")
+                print("No one loves \(identifier)")             // print log message
             }
         }
     }
@@ -50,7 +51,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.hidden = true             // hide tab bar controller in this VC
         
         navItem.title = event!.name                             // use event's name as title
-        setUpTextFieldDelegates()                               // set up text field delegates
+        setUpTextFieldDelegates()                               // set up textfield delegates
         displayEvent(event)                                     // display event
         
         if addNew {                                             // if adding new Contact
@@ -70,7 +71,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)                               // dismiss keyboard
     }
     
-    // Set up text field delegates
+    // Set up textfield delegates
     func setUpTextFieldDelegates() {
         eventNameTextField.returnKeyType = .Next            // change Return to Next
         eventNameTextField.delegate = self                  // set event name textfield delegate to self

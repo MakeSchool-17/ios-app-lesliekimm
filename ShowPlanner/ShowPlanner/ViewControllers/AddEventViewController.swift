@@ -38,14 +38,14 @@ class AddEventViewController: UIViewController {
             eventViewController.event = event           // set event in EventDisplayVC to initialized event
             eventViewController.addNew = true           // set addNew in EventDisplayVC to true
         }
-        // If performing saveNewEvent, initialize Event object and set props to corresponding TextField inputs
+        // If performing saveNewEvent, initialize Event object and set props to corresponding textfield inputs
         // from EventDisplayVC
         if (segue.identifier == "saveNewEvent") {
-            let eventViewController = eventDisplay!                     // grab a reference to EventDisplayVC
-            event = Event()                                             // initialize event
-            event!.name = eventViewController.eventNameTextField.text!       // set name prop of contactToAdd
-            event!.location = eventViewController.locationTextField.text!     // set email prop of contactToAdd
-            event!.dateTime = eventViewController.datePicker.date       // set cell prop of contactToAdd
+            let eventViewController = eventDisplay!                         // grab a reference to EventDisplayVC
+            event = Event()                                                 // initialize event
+            event!.name = eventViewController.eventNameTextField.text!      // set name prop of event
+            event!.location = eventViewController.locationTextField.text!   // set location prop of event
+            event!.dateTime = eventViewController.datePicker.date           // set dateTime prop of event
         }
     }
 

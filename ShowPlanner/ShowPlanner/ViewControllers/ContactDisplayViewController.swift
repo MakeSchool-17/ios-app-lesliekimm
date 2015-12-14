@@ -13,9 +13,9 @@ import UIKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
-    @IBOutlet weak var nameTextField: UITextField!          // code connection for name text field
-    @IBOutlet weak var emailTextField: UITextField!         // code connection for email text field
-    @IBOutlet weak var cellTextField: UITextField!          // code connection for cell text field
+    @IBOutlet weak var nameTextField: UITextField!          // code connection for name textfield
+    @IBOutlet weak var emailTextField: UITextField!         // code connection for email textfield
+    @IBOutlet weak var cellTextField: UITextField!          // code connection for cell textfield
     @IBOutlet weak var trashButton: UIBarButtonItem!        // code connection for trash button
     
     var contact: Contact? {                                 // optional Contact var
@@ -43,7 +43,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellTextField to display phone number keyboard
         cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
         
-        setUpTextFieldDelegates()                               // set up text field delegates
+        setUpTextFieldDelegates()                               // set up textfield delegates
         displayContact(contact)                                 // display contact
         
         if addNew {                                             // if adding new Contact
@@ -63,7 +63,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)                               // dismiss keyboard
     }
     
-    // Set up text field delegates
+    // Set up textfield delegates
     func setUpTextFieldDelegates() {
         nameTextField.returnKeyType = .Next                 // change Return to Next
         nameTextField.delegate = self                       // set name textfield delegate to self

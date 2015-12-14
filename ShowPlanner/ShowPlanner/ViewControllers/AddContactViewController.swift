@@ -39,14 +39,14 @@ class AddContactViewController: UIViewController {
             contactViewController.contact = contact      // set contact in ContactDisplayVC to initialized contact
             contactViewController.addNew = true          // set addNew in ContactDisplayVC to true
         }
-        // If performing saveNewContact, initialize Contact object and set props to corresponding TextField inputs
+        // If performing saveNewContact, initialize Contact object and set props to corresponding textfield inputs
         // from ContactDisplayVC
         if (segue.identifier == "saveNewContact") {
             let contactViewController = contactDisplay!                     // grab a reference to ContactDisplayVC
             contact = Contact()                                             // initialize contact
-            contact!.name = contactViewController.nameTextField.text!       // set name prop of contactToAdd
-            contact!.email = contactViewController.emailTextField.text!     // set email prop of contactToAdd
-            contact!.cell = contactViewController.cellTextField.text!       // set cell prop of contactToAdd
+            contact!.name = contactViewController.nameTextField.text!       // set name prop of contact
+            contact!.email = contactViewController.emailTextField.text!     // set email prop of contact
+            contact!.cell = contactViewController.cellTextField.text!       // set cell prop of contact
         }
     }
 }
