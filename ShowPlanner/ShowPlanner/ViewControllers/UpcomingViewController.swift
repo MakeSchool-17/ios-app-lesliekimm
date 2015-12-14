@@ -9,19 +9,19 @@
 import UIKit
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var upcomingTableView: UITableView!          // code connection to upcomingTV
-    var eventsDataSource = EventsDataSource()                   // reference to EventsDataSource
-    var selectedEvent: Event?                                   // selected event
-    var eventsToBeDisplayed: [Event]?                           // array of events to display on upcomingTV
+    @IBOutlet weak var upcomingTableView: UITableView!                      // code connection to upcomingTV
+    var eventsDataSource = EventsDataSource()                               // reference to EventsDataSource
+    var selectedEvent: Event?                                               // selected event
+    var eventsToBeDisplayed: [Event]?                                       // array of events to display on upcomingTV
     
     // Depending on segue identifier, perform an action
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "saveNewEvent":                                // if saveNewEvent segue
+            case "saveNewEvent":                                            // if saveNewEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! AddEventViewController
-                eventsDataSource.addEvent(source.event!)        // add event
+                eventsDataSource.addEvent(source.event!)                    // add event
             case "saveExistingEvent":                                       // if saveExistingEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
@@ -53,8 +53,8 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             case "deleteExistingEvent":
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
-                eventsDataSource.deleteEvent(source.event!)     // delete event
-                source.event = nil                              // set event in EventDisplayVC to nil
+                eventsDataSource.deleteEvent(source.event!)                 // delete event
+                source.event = nil                                          // set event in EventDisplayVC to nil
             default:
                 print("No one loves \(identifier)")
             }
@@ -66,9 +66,9 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        upcomingTableView.dataSource = self                     // declare dataSource for upcomingTV
-        upcomingTableView.delegate = self                       // declare delegate for upcomingTV
-        upcomingTableView.reloadData()                          // reload data
+        upcomingTableView.dataSource = self                                 // declare dataSource for upcomingTV
+        upcomingTableView.delegate = self                                   // declare delegate for upcomingTV
+        upcomingTableView.reloadData()                                      // reload data
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -76,17 +76,17 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        eventsToBeDisplayed = [Event]()                         // initialize array
-        let currentTime = NSDate()                              // get current time
+        eventsToBeDisplayed = [Event]()                                     // initialize array
+        let currentTime = NSDate()                                          // get current time
         
         // For each event in eventsDS, compare to current time and if event has not passed, append into
         // the array so table view gets populated from most recent event to latest
         for event in eventsDataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
-                eventsToBeDisplayed?.append(event)              // append to end of array
+                eventsToBeDisplayed?.append(event)                          // append to end of array
             }
         }
-        upcomingTableView.reloadData()                          // reload upcomingTV data
+        upcomingTableView.reloadData()                                      // reload upcomingTV data
     }
     
     // MARK: Navigation
@@ -96,7 +96,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         if (segue.identifier == "showExistingEvent") {
             // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
-            eventViewController.event = selectedEvent           // set event in EventDisplayVC to selectedEvent
+            eventViewController.event = selectedEvent                       // set event in EventDisplayVC to selectedEvent
         }
     }
     
@@ -105,23 +105,23 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get a reusable TVC object for UpcomingEventCell and add to upcomingTV
         let cell = upcomingTableView.dequeueReusableCellWithIdentifier("UpcomingEventCell", forIndexPath: indexPath) as! UpcomingTableViewCell
-        let row = indexPath.row                                 // get row
-        let event = (eventsToBeDisplayed?[row])! as Event       // get Event object from eventsToBeDisplayed at row index
-        cell.event = event                                      // set event prop for cell to event
-        return cell                                             // return cell
+        let row = indexPath.row                                             // get row
+        let event = (eventsToBeDisplayed?[row])! as Event                   // get Event object from eventsToBeDisplayed at row index
+        cell.event = event                                                  // set event prop for cell to event
+        return cell                                                         // return cell
     }
     
     // Get the number of rows in upcomingTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsToBeDisplayed?.count ?? 0                  // return total number of events in eventsToBeDisplayed or 0 if empty
+        return eventsToBeDisplayed?.count ?? 0                              // return total number of events in eventsToBeDisplayed or 0 if empty
     }
     
 //    // Delete Event object at specified row
 //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {                                                // if editingStyle is Delete
-//            let event = (eventsToBeDisplayed?[indexPath.row])! as Event             // get Event object at row index from eventsToBeDisplayed
-//            dataSource.deleteEvent(event)                                           // delete event
-//            tableView.reloadData()                                                  // reload eventTV
+//        if editingStyle == .Delete {                                        // if editingStyle is Delete
+//            let event = (eventsToBeDisplayed?[indexPath.row])! as Event     // get Event object at row index from eventsToBeDisplayed
+//            dataSource.deleteEvent(event)                                   // delete event
+//            tableView.reloadData()                                          // reload eventTV
 //        }
 //    }
     

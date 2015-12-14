@@ -39,7 +39,7 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true             // hide tab bar controller in this VC
 
-        navItem.title = contact!.name                           // use contact's name as title
+        navItem.title = contact!.name                           // use contact name as title
         cellTextField.keyboardType = UIKeyboardType.PhonePad    // set cellTextField to display phone number keyboard
         cellTextField.returnKeyType = UIReturnKeyType.Done      // set cellTextField return type
         
@@ -74,9 +74,9 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     // Display contact info for optional Contact object
     func displayContact(contact: Contact?) {
         if let contact = contact, nameTextField = nameTextField, emailTextField = emailTextField, cellTextField = cellTextField {
-            nameTextField.text = contact.name               // set nameTextField text to contact's name
-            emailTextField.text = contact.email             // set emailTextField text to contat'c email
-            cellTextField.text = contact.cell               // set cellTextField text to contact's cell
+            nameTextField.text = contact.name               // set nameTextField text to contact name
+            emailTextField.text = contact.email             // set emailTextField text to contat email
+            cellTextField.text = contact.cell               // set cellTextField text to contact cell
             
             // If there is no text displayed, set nameTextField to first responder
             if contact.name.characters.count == 0 && contact.email.characters.count == 0 && contact.cell.characters.count == 0 {

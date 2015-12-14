@@ -9,13 +9,13 @@
 import UIKit
 
 class AddEventViewController: UIViewController {
-    var event: Event?                                   // optional contact var set in prepareForSegue
-    var eventDisplay: EventDisplayViewController?       // optional VC to access ContactDisplayVC
+    var event: Event?                                                       // optional contact var set in prepareForSegue
+    var eventDisplay: EventDisplayViewController?                           // optional VC to access ContactDisplayVC
     
     // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = true     // hide tab bar controller in this VC
+        self.tabBarController?.tabBar.hidden = true                         // hide tab bar controller in this VC
         
         // Get the first child VC and assign to eventDisplay to gain access to props in EventDisplayVC
         eventDisplay = self.childViewControllers[0] as? EventDisplayViewController
@@ -24,7 +24,7 @@ class AddEventViewController: UIViewController {
     // Set the view every time it disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false    // unhide tab bar controller when leaving this VC
+        self.tabBarController?.tabBar.hidden = false                        // unhide tab bar controller when leaving this VC
     }
     
     // MARK: - Navigation
@@ -32,11 +32,11 @@ class AddEventViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // If performing showNewEvent, initialize Event object and pass object to EventDisplayVC
         if (segue.identifier == "showNewEvent") {
-            event = Event()                             // initialize event
+            event = Event()                                                 // initialize event
             // Grab a reference to ContactDisplayVC
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
-            eventViewController.event = event           // set event in EventDisplayVC to initialized event
-            eventViewController.addNew = true           // set addNew in EventDisplayVC to true
+            eventViewController.event = event                               // set event in EventDisplayVC to initialized event
+            eventViewController.addNew = true                               // set addNew in EventDisplayVC to true
         }
         // If performing saveNewEvent, initialize Event object and set props to corresponding textfield inputs
         // from EventDisplayVC

@@ -25,14 +25,14 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     
     // Formate appearance of timeLabel
     static var timeFormatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()                   // declare NSDateFormatter object
-        formatter.timeStyle = .ShortStyle                   // use ShortStyle for time
-        return formatter                                    // return NSDateFormatter object
+        var formatter = NSDateFormatter()                           // declare NSDateFormatter object
+        formatter.timeStyle = .ShortStyle                           // use ShortStyle for time
+        return formatter                                            // return NSDateFormatter object
     }()
     
-    var event: Event? {                                     // optional Event var
+    var event: Event? {                                             // optional Event var
         didSet {
-            displayEvent(event)                             // display event everytime changes are made
+            displayEvent(event)                                     // display event everytime changes are made
         }
     }
     
@@ -40,20 +40,20 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        notesTextView.delegate = self                       // set notesTextView delegate to itself
+        notesTextView.delegate = self                               // set notesTextView delegate to itself
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)                      // add tap gesture to view
+        view.addGestureRecognizer(tap)                              // add tap gesture to view
     }
     
     // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = true         // hide tab bar controller in this VC
+        self.tabBarController?.tabBar.hidden = true                 // hide tab bar controller in this VC
         
-        navItem.title = event!.name                         // use event's name as title
-        displayEvent(event)                                 // display event
+        navItem.title = event!.name                                 // use event's name as title
+        displayEvent(event)                                         // display event
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -63,21 +63,21 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     
     // View will resign first responder status
     func dismissKeyboard() {
-        view.endEditing(true)                               // dismiss keyboard
-        view.resignFirstResponder()                         // resign first responder
+        view.endEditing(true)                                       // dismiss keyboard
+        view.resignFirstResponder()                                 // resign first responder
     }
     
     // Set the view everytime it disappears
     func displayEvent(event: Event?) {
         // add lineupTextField = lineupTextField into if let after fixing lineupArray
         if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField,  notesTextView = notesTextView {
-            nameTextField.text = event.name                 // set nameTextField text to event's name
-            locationTextField.text = event.location         // set locationTextField text to event's location
+            nameTextField.text = event.name                         // set nameTextField text to event's name
+            locationTextField.text = event.location                 // set locationTextField text to event's location
             
             // Get date and time formatted properly
             let date = PastDisplayViewController.dateFormatter.stringFromDate(event.dateTime)
             let time = PastDisplayViewController.timeFormatter.stringFromDate(event.dateTime)
-            dateTimeTextField.text = date + " " + time      // set dateTimeTextField text to event's date and time
+            dateTimeTextField.text = date + " " + time              // set dateTimeTextField text to event's date and time
             
 //            if event.lineupArray!.count > 0 {
 //                var lineupString = ""
