@@ -11,7 +11,6 @@
 		8124785A1C113D8800B17861 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812478591C113D8800B17861 /* EventsDataSource.swift */; };
 		8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124785B1C113D9600B17861 /* ContactsDataSource.swift */; };
 		813306F31C1CAF2400895769 /* PastDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813306F21C1CAF2400895769 /* PastDisplayViewController.swift */; };
-		8142C5DA1C166CA200FE915C /* SelectedLineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5D91C166CA200FE915C /* SelectedLineup.swift */; };
 		8142C5DE1C16968000FE915C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5DD1C16968000FE915C /* Account.swift */; };
 		8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5E11C1734E000FE915C /* PastViewController.swift */; };
 		816740E21C0D5DD6002A3679 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740E11C0D5DD6002A3679 /* Contact.swift */; };
@@ -43,7 +42,6 @@
 		812478591C113D8800B17861 /* EventsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
 		8124785B1C113D9600B17861 /* ContactsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
 		813306F21C1CAF2400895769 /* PastDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastDisplayViewController.swift; sourceTree = "<group>"; };
-		8142C5D91C166CA200FE915C /* SelectedLineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLineup.swift; sourceTree = "<group>"; };
 		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			children = (
 				812478591C113D8800B17861 /* EventsDataSource.swift */,
 				8124785B1C113D9600B17861 /* ContactsDataSource.swift */,
-				8142C5D91C166CA200FE915C /* SelectedLineup.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				81FB476C1C028C2F00705324 /* EventDisplayViewController.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81FB47721C03E2C900705324 /* SelectLineupViewController.swift in Sources */,
-				8142C5DA1C166CA200FE915C /* SelectedLineup.swift in Sources */,
 				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
 				8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */,
 				81C23CCD1BFE5001000E3838 /* Event.swift in Sources */,
