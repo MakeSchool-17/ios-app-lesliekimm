@@ -33,15 +33,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-                do {
-                    let realm = try Realm()                                 // grab default Realm
-                    try realm.write() {                                     // write to Realm
-                        self.event?.lineupList.append(self.lineupToAdd!)    // append lineupToAdd
-                    }
-                }
-                catch {
-                    print("error in savLineup")                             // print error message
-                }
+                event!.lineupList.append(lineupToAdd!)                      // add lineupToAdd to event lineupList
                 source.lineup = nil                                         // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")                         // print log message

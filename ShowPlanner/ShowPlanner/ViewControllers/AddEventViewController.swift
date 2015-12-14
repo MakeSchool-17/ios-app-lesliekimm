@@ -46,8 +46,9 @@ class AddEventViewController: UIViewController {
             event!.name = eventViewController.eventNameTextField.text!      // set name prop of event
             event!.location = eventViewController.locationTextField.text!   // set location prop of event
             event!.dateTime = eventViewController.datePicker.date           // set dateTime prop of event
-            for lineup in (eventViewController.event?.lineupList)! {
-                event!.lineupList.append(lineup)
+            
+            for lineup in (eventViewController.event?.lineupList)! {        // for each Lineup object in lineupList
+                event!.lineupList.append(lineup)                            // append to event lineupList
             }
         }
     }
