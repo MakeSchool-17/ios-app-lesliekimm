@@ -661,7 +661,6 @@
                         <outlet property="emailTextField" destination="w4X-Kk-RcU" id="863-1V-hJb"/>
                         <outlet property="nameTextField" destination="966-wF-OSV" id="AUx-m0-TbO"/>
                         <outlet property="navItem" destination="3a6-S5-bSZ" id="exU-00-31K"/>
-                        <outlet property="toolbarBottomSpace" destination="QMe-oS-Nsv" id="YeF-82-i82"/>
                         <outlet property="trashButton" destination="8sU-8g-UzE" id="1qu-Q7-xoM"/>
                     </connections>
                 </viewController>
@@ -1118,7 +1117,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gwb-Gd-vBQ"/>
         <segue reference="S1M-ee-dX7"/>
+        <segue reference="gwb-Gd-vBQ"/>
     </inferredMetricsTieBreakers>
 </document>

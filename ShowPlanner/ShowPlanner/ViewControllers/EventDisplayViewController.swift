@@ -81,7 +81,8 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
     
     // Display event info for optional Event object
     func displayEvent(event: Event?) {
-        if let event = event, eventNameTextField = eventNameTextField, locationTextField = locationTextField, datePicker = datePicker, selectLineupButton = selectLineupButton, lineupTableView = lineupTableView {
+        // TODO: edit selectLineupButton, linupTableView
+        if let event = event, eventNameTextField = eventNameTextField, locationTextField = locationTextField, datePicker = datePicker {
             eventNameTextField.text = event.name            // set eventNameTextField text to event's location
             locationTextField.text = event.location         // set locationTextField text to event's email
             datePicker.date = event.dateTime                // set datePicker date to event's dateTime
