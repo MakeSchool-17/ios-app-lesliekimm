@@ -12,18 +12,18 @@ import Foundation
 import UIKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
-    @IBOutlet weak var nameTextField: UITextField!          // code connection for name textfield
-    @IBOutlet weak var emailTextField: UITextField!         // code connection for email textfield
-    @IBOutlet weak var cellTextField: UITextField!          // code connection for cell textfield
-    @IBOutlet weak var trashButton: UIBarButtonItem!        // code connection for trash button
+    @IBOutlet weak var navItem: UINavigationItem!               // code connection for navigation item
+    @IBOutlet weak var nameTextField: UITextField!              // code connection for name textfield
+    @IBOutlet weak var emailTextField: UITextField!             // code connection for email textfield
+    @IBOutlet weak var cellTextField: UITextField!              // code connection for cell textfield
+    @IBOutlet weak var trashButton: UIBarButtonItem!            // code connection for trash button
     
-    var contact: Contact? {                                 // optional Contact var
+    var contact: Contact? {                                     // optional Contact var
         didSet {
-            displayContact(contact)                         // display contact everytime changes are made
+            displayContact(contact)                             // display contact everytime changes are made
         }
     }
-    var addNew: Bool = false                                // Bool to inidicate if we are adding new Contact or not
+    var addNew: Bool = false                                    // Bool to inidicate if we are adding new Contact or not
     
     // Set the view when loaded for the first time
     override func viewDidLoad() {
@@ -54,33 +54,33 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     // Set the view everytime it disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false        // unhide tab bar controller when leaving this VC
+        self.tabBarController?.tabBar.hidden = false            // unhide tab bar controller when leaving this VC
     }
     
     // MARK: Custom functions
     // View will resign first responder status
     func dismissKeyboard() {
-        view.endEditing(true)                               // dismiss keyboard
+        view.endEditing(true)                                   // dismiss keyboard
     }
     
     // Set up textfield delegates
     func setUpTextFieldDelegates() {
-        nameTextField.returnKeyType = .Next                 // change Return to Next
-        nameTextField.delegate = self                       // set name textfield delegate to self
-        emailTextField.returnKeyType = .Next                // change Return to Next
-        emailTextField.delegate = self                      // set email textfield delegate to self
+        nameTextField.returnKeyType = .Next                     // change Return to Next
+        nameTextField.delegate = self                           // set name textfield delegate to self
+        emailTextField.returnKeyType = .Next                    // change Return to Next
+        emailTextField.delegate = self                          // set email textfield delegate to self
     }
     
     // Display contact info for optional Contact object
     func displayContact(contact: Contact?) {
         if let contact = contact, nameTextField = nameTextField, emailTextField = emailTextField, cellTextField = cellTextField {
-            nameTextField.text = contact.name               // set nameTextField text to contact name
-            emailTextField.text = contact.email             // set emailTextField text to contat email
-            cellTextField.text = contact.cell               // set cellTextField text to contact cell
+            nameTextField.text = contact.name                   // set nameTextField text to contact name
+            emailTextField.text = contact.email                 // set emailTextField text to contat email
+            cellTextField.text = contact.cell                   // set cellTextField text to contact cell
             
             // If there is no text displayed, set nameTextField to first responder
             if contact.name.characters.count == 0 && contact.email.characters.count == 0 && contact.cell.characters.count == 0 {
-                nameTextField.becomeFirstResponder()        // set nameTextField to first responder
+                nameTextField.becomeFirstResponder()            // set nameTextField to first responder
             }
         }
     }
@@ -88,14 +88,14 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     // MARK: UITextFieldDelegate
     // Sets first responder to next textfield when Next (Return) key hit
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField == nameTextField) {                   // if current textfield is nameTextField
-            emailTextField.returnKeyType = .Next            // set emailTextField returnKeyType to Next
-            emailTextField.becomeFirstResponder()           // set first responder to emailTextField
+        if (textField == nameTextField) {                       // if current textfield is nameTextField
+            emailTextField.returnKeyType = .Next                // set emailTextField returnKeyType to Next
+            emailTextField.becomeFirstResponder()               // set first responder to emailTextField
         }
-        else if (textField == emailTextField) {             // if current textfield is emailTextField
-            cellTextField.returnKeyType = .Done             // set cellTextField returnKeyType to Done
-            cellTextField.becomeFirstResponder()            // set first responder to cellTextField
+        else if (textField == emailTextField) {                 // if current textfield is emailTextField
+            cellTextField.returnKeyType = .Done                 // set cellTextField returnKeyType to Done
+            cellTextField.becomeFirstResponder()                // set first responder to cellTextField
         }
-        return false                                        // otherwise, return false
+        return false                                            // otherwise, return false
     }
 }
