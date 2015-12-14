@@ -36,9 +36,25 @@ class UpcomingTableViewCell: UITableViewCell {
             if let event = event, eventNameLabel = eventNameLabel, locationLabel = locationLabel, dateLabel = dateLabel, timeLabel = timeLabel {
                 eventNameLabel.text = event.name            // set eventNameLabel to event name
                 locationLabel.text = event.location         // set locationLabel to event location
+                
+                lineupLabel.text = ""                       // set lineupLabetl text to emptry string
+                for lineup in event.lineupList {            // for each Lineup object in lineupList
+                    // Add lineup name to lineupLabel text
+                    lineupLabel.text = lineupLabel.text! + lineup.name + " "
+                }
+                
                 // Set dateLabel and timeLabel to event date and time formatted using declared styles
                 dateLabel.text = UpcomingTableViewCell.dateFormatter.stringFromDate(event.dateTime)
                 timeLabel.text = UpcomingTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+                
+                // If all lineup is confirmed, set confirmationImage to green check
+                if event.confirmed {
+                    confirmationImage.image = UIImage(named: "green check")
+                }
+                // Otherwise, set confirmationImage to red x
+                else {
+                    confirmationImage.image = UIImage(named: "red x")
+                }
             }
         }
     }
