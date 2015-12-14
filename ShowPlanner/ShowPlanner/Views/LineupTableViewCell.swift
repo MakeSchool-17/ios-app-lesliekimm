@@ -9,16 +9,23 @@
 import UIKit
 
 class LineupTableViewCell: UITableViewCell {
+    @IBOutlet weak var lineupNameLabel: UILabel!                // code connection for lineup name label
+    @IBOutlet weak var confirmationButton: UIButton!            // code connection for confirmation button
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // Create lineup var and use didSet method to keep lineup updated upon changes
+    var lineup: Lineup? {
+        didSet {
+            if let lineup = lineup {
+                lineupNameLabel.text = lineup.name              // set lineupNameLabel text
+                
+                // If lineup confirmed, display green check, otherwise, display red x
+                if lineup.confirmed {
+                    confirmationButton.setImage(UIImage(named: "green check"), forState: .Normal)
+                }
+                else {
+                    confirmationButton.setImage(UIImage(named: "red x"), forState: .Normal)
+                }
+            }
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

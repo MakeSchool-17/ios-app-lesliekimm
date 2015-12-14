@@ -8,28 +8,69 @@
 
 import UIKit
 
-class SelectLineupViewController: UIViewController {
+class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var selectLineupTableView: UITableView!
+    var contactsDataSource = ContactsDataSource()           // grab contactsDS
+    var selectedContact: Contact?                           // grab reference to selected contact from selectLineupTV
+    var lineup: Lineup?                                     // optional lineup var to convert selectedContact to Lineup object
 
+    // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        selectLineupTableView.dataSource = self             // declare dataSource for selectLineupTV
+        selectLineupTableView.delegate = self               // declare delegate for selectLineupTV
+        selectLineupTableView.reloadData()                  // reload data
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Set the view every time it appears
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBarController?.tabBar.hidden = true         // hide tab bar controller in this VC
+        
+        selectLineupTableView.reloadData()                  // reload data
     }
-    */
-
+    
+    // Set the view everytime it disappears
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false        // unhide tab bar controller when leaving this VC
+    }
+    
+    // MARK: Navigation
+    // Prepare for respective segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If performing saveLineup, get destinationVC and set lineupToAdd to lineup
+        if (segue.identifier == "saveLineup") {
+            // Grab a reference to ContactDisplayVC
+            let contactViewController = segue.destinationViewController as! EventDisplayViewController
+            contactViewController.lineupToAdd = lineup      // set lineup in EventDisplayVC to lineup
+        }
+    }
+    
+    // MARK: UITableViewDataSource
+    // Set Contact object to be displayed in each SelectLineupTVC
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get a reusable TVC object for SelectLineupCell and add to selectLineupTV
+        let cell = tableView.dequeueReusableCellWithIdentifier("SelectLineupCell") as! SelectLineupTableViewCell
+        let row = indexPath.row                                         // get row
+        let contact = contactsDataSource.contacts[row] as Contact       // get Contact object from contactsDS at row index
+        cell.contact = contact                                          // set contact prop for cell to contact
+        return cell                                                     // return cell
+    }
+    
+    // Get the number of rows in selectLineupTV
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactsDataSource.contacts?.count ?? 0      // return total number of contacts in contactsDS or 0 if empty
+    }
+    
+    // MARK: UITableViewDelegate
+    // Create Lineup object with the selectedContact name
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedContact = contactsDataSource.contacts[indexPath.row]    // set selectedContact to Contact object from contactsDS at row index
+        
+        lineup = Lineup()                                               // initialize Lineup object
+        lineup!.name = (selectedContact?.name)!                         // set lineup name prop
+        self.performSegueWithIdentifier("saveLineup", sender: self)     // perform saveLineup segue
+    }
 }

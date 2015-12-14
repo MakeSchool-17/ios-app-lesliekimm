@@ -13,7 +13,7 @@ import ContactsUI
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CNContactPickerDelegate {
     @IBOutlet weak var contactsTableView: UITableView!      // code connection to table view
-    var contactsDataSource = ContactsDataSource()           // grab contacts data source
+    var contactsDataSource = ContactsDataSource()           // grab contactsDS
     var selectedContact: Contact?                           // grab reference to selected contact from contactTV
     
     // Depending on segue identifier, perform an action

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class EventDisplayViewController: UIViewController, UITextFieldDelegate {
+class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var navItem: UINavigationItem!               // code connection for navigation item
     @IBOutlet weak var eventNameTextField: UITextField!         // code connection for event name textfield
     @IBOutlet weak var locationTextField: UITextField!          // code connection for location textfield
@@ -22,23 +23,40 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
             displayEvent(event)                                 // display event everytime changes are made
         }
     }
+    var selectedLineup: Lineup?                                 // optional Lineup var used to change whether lineup is confirmed or not
+    var lineupToAdd: Lineup?                                    // optional Lineup var used to add Lineup objects to event's LineupList
     var addNew: Bool = false                                    // Bool to indicate if we are adding new Event or not
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "saveLineup":                                  // if saveLineup segue
-                print("saveLineup")
+            case "saveLineup":                                              // if saveLineup segue
+                let source = segue.sourceViewController as! SelectLineupViewController
+                do {
+                    let realm = try Realm()                                 // grab default Realm
+                    try realm.write() {                                     // write to Realm
+                        self.event?.lineupList.append(self.lineupToAdd!)    // append lineupToAdd
+                    }
+                }
+                catch {
+                    print("error in savLineup")                             // print error message
+                }
+                source.lineup = nil                                         // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")             // print log message
             }
+            lineupTableView.reloadData()
         }
     }
     
     // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lineupTableView.dataSource = self                       // declare dataSource for lineupTV
+        lineupTableView.delegate = self                         // declare delegate for lineupTV
+        lineupTableView.reloadData()                            // reload data
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -81,7 +99,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
     
     // Display event info for optional Event object
     func displayEvent(event: Event?) {
-        // TODO: edit selectLineupButton, linupTableView
+        // TODO: edit selectLineupButton, lineupTableView
         if let event = event, eventNameTextField = eventNameTextField, locationTextField = locationTextField, datePicker = datePicker {
             eventNameTextField.text = event.name            // set eventNameTextField text to event's location
             locationTextField.text = event.location         // set locationTextField text to event's email
@@ -102,4 +120,45 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate {
         return false                                        // otherwise, return false
     }
 
+    // MARK: UITableViewDataSource
+    // Set Lineup object to be displayed in each lineupTVC
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get a reusable TVC object for LineupCell and add to lineupTV
+        let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
+        let row = indexPath.row                                         // get row
+        let lineup = (event?.lineupList[row])! as Lineup                // get Lineup object from lineupList at row index
+        cell.lineup = lineup                                            // set lineup prop for cell to lineup
+        return cell                                                     // return cell
+    }
+    
+    // Get the number of rows in lineupTV
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return event?.lineupList.count ?? 0                             // return total number of lineup in lineupList or 0 if empty
+    }
+    
+//    // Delete Lineup object at specified row
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {                                    // if editingStyle is Delete
+//            let lineup = (event?.lineupList[indexPath.row])! as Lineup  // get Lineup object at row index from lineupList
+//            event?.lineupList.delete(lineup)                            // delete lineup
+//            tableView.reloadData()                                      // reload lineupTV
+//        }
+//    }
+    
+    // MARK: UITableViewDelegate
+    // Get selectedLineup when a TVC is selected and edit confirmed prop
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedLineup = event?.lineupList[indexPath.row]               // set selectedLineup to Lineup at row index from lineupList
+        
+        if selectedLineup!.confirmed {                                  // if selectedLineup is confirmed
+            selectedLineup!.confirmed = false                           // set confirmed prop to false
+        }
+        else {                                                          // if selectedLineup is not confirmed
+            selectedLineup!.confirmed = true                            // set confirmed prop to true
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
 }

@@ -9,16 +9,14 @@
 import UIKit
 
 class SelectLineupTableViewCell: UITableViewCell {
+    @IBOutlet weak var selectLineupNameLabel: UILabel!              // code connection for contact name label
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // Create contact var and use didSet method to keep contact updated upon changes
+    var contact: Contact? {
+        didSet {
+            if let contact = contact {
+                selectLineupNameLabel.text = contact.name           // set lineupNameLabel text
+            }
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
