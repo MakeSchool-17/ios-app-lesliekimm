@@ -10,31 +10,31 @@ import UIKit
 
 class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var selectLineupTableView: UITableView!
-    var contactsDataSource = ContactsDataSource()           // grab contactsDS
-    var selectedContact: Contact?                           // grab reference to selected contact from selectLineupTV
-    var lineup: Lineup?                                     // optional lineup var to convert selectedContact to Lineup object
+    var contactsDataSource = ContactsDataSource()                       // grab contactsDS
+    var selectedContact: Contact?                                       // grab reference to selected contact from selectLineupTV
+    var lineup: Lineup?                                                 // optional lineup var to convert selectedContact to Lineup object
 
     // Set the view when loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectLineupTableView.dataSource = self             // declare dataSource for selectLineupTV
-        selectLineupTableView.delegate = self               // declare delegate for selectLineupTV
-        selectLineupTableView.reloadData()                  // reload data
+        selectLineupTableView.dataSource = self                         // declare dataSource for selectLineupTV
+        selectLineupTableView.delegate = self                           // declare delegate for selectLineupTV
+        selectLineupTableView.reloadData()                              // reload data
     }
     
     // Set the view every time it appears
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.tabBarController?.tabBar.hidden = true         // hide tab bar controller in this VC
+        self.tabBarController?.tabBar.hidden = true                     // hide tab bar controller in this VC
         
-        selectLineupTableView.reloadData()                  // reload data
+        selectLineupTableView.reloadData()                              // reload data
     }
     
     // Set the view everytime it disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false        // unhide tab bar controller when leaving this VC
+        self.tabBarController?.tabBar.hidden = false                    // unhide tab bar controller when leaving this VC
     }
     
     // MARK: Navigation
@@ -44,7 +44,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         if (segue.identifier == "saveLineup") {
             // Grab a reference to ContactDisplayVC
             let contactViewController = segue.destinationViewController as! EventDisplayViewController
-            contactViewController.lineupToAdd = lineup      // set lineup in EventDisplayVC to lineup
+            contactViewController.lineupToAdd = lineup                  // set lineup in EventDisplayVC to lineup
         }
     }
     
