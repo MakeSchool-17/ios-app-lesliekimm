@@ -10,7 +10,7 @@ import UIKit
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var upcomingTableView: UITableView!          // code connection to upcomingTV
-    var dataSource = EventsDataSource()                         // reference to EventsDataSource
+    var eventsDataSource = EventsDataSource()                   // reference to EventsDataSource
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on upcomingTV
     
@@ -20,7 +20,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             case "saveNewEvent":                                // if saveNewEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! AddEventViewController
-                dataSource.addEvent(source.event!)              // add event
+                eventsDataSource.addEvent(source.event!)        // add event
             case "saveExistingEvent":                                       // if saveExistingEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
@@ -48,11 +48,11 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 // TODO: save lineup info
                 
                 // Save edits made to Event object
-                dataSource.editEvent(event!, editedEvent: editedEvent)
+                eventsDataSource.editEvent(event!, editedEvent: editedEvent)
             case "deleteExistingEvent":
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
-                dataSource.deleteEvent(source.event!)           // delete event
+                eventsDataSource.deleteEvent(source.event!)     // delete event
                 source.event = nil                              // set event in EventDisplayVC to nil
             default:
                 print("No one loves \(identifier)")
@@ -78,9 +78,9 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         eventsToBeDisplayed = [Event]()                         // initialize array
         let currentTime = NSDate()                              // get current time
         
-        // For each event in EventsDataSource, compare to current time and if event has not passed, append
-        // into the array so table view gets populated from most recent event to latest
-        for event in dataSource.events! {
+        // For each event in eventsDS, compare to current time and if event has not passed, append into
+        // the array so table view gets populated from most recent event to latest
+        for event in eventsDataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
                 eventsToBeDisplayed?.append(event)              // append to end of array
             }

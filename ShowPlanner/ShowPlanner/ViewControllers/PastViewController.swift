@@ -11,7 +11,7 @@ import RealmSwift
 
 class PastViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var pastTableView: UITableView!              // code connection to PastShowsTV
-    var dataSource = EventsDataSource()                         // reference to EventsDataSource
+    var eventsDataSource = EventsDataSource()                   // reference to EventsDataSource
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on PastVC
     
@@ -65,9 +65,9 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         eventsToBeDisplayed = [Event]()                         // initialize array
         let currentTime = NSDate()                              // get current time
         
-        // For each event in EventsDataSource, compare to current time and if event has passed, insert
-        // into the beginnig of the array so table view gets populated from most recent event to oldest
-        for event in dataSource.events! {
+        // For each event in eventsDS, compare to current time and if event has passed, insert into the
+        // beginnig of the array so table view gets populated from most recent event to oldest
+        for event in eventsDataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
                 eventsToBeDisplayed?.insert(event, atIndex: 0)  // insert at the beginning of the array
             }
