@@ -10,9 +10,7 @@ import Foundation
 import RealmSwift
 
 class Contact: Object {
-    dynamic var name: String = ""
-    dynamic var email: String = ""
-    dynamic var cell: String = ""
-    dynamic var confirmed: Bool = false
-//    dynamic var host: Bool = false
+    dynamic var name: String = ""       // name string
+    dynamic var email: String = ""      // email string
+    dynamic var cell: String = ""       // cell string
 }
