@@ -50,7 +50,10 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 // Save edits made to Event object
                 dataSource.editEvent(event!, editedEvent: editedEvent)
             case "deleteExistingEvent":
-                print("deleteExistingEvent")
+                // Grab reference to sourceVC
+                let source = segue.sourceViewController as! EventDisplayViewController
+                dataSource.deleteEvent(source.event!)           // delete event
+                source.event = nil                              // set event in EventDisplayVC to nil
             default:
                 print("No one loves \(identifier)")
             }
@@ -62,9 +65,9 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        upcomingTableView.dataSource = self                         // declare dataSource for upcomingTV
-        upcomingTableView.delegate = self                           // declare delegate for upcomingTV
-        upcomingTableView.reloadData()                              // reload data
+        upcomingTableView.dataSource = self                     // declare dataSource for upcomingTV
+        upcomingTableView.delegate = self                       // declare delegate for upcomingTV
+        upcomingTableView.reloadData()                          // reload data
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -111,6 +114,15 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsToBeDisplayed?.count ?? 0                  // return total number of events in eventsToBeDisplayed or 0 if empty
     }
+    
+//    // Delete Event object at specified row
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {                                                // if editingStyle is Delete
+//            let event = (eventsToBeDisplayed?[indexPath.row])! as Event             // get Event object at row index from eventsToBeDisplayed
+//            dataSource.deleteEvent(event)                                           // delete event
+//            tableView.reloadData()                                                  // reload eventTV
+//        }
+//    }
     
     // MARK: UITableViewDelegate
     // Set selectedEvent when a TVC is selected

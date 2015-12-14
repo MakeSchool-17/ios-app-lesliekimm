@@ -59,7 +59,7 @@ class EventsDataSource: NSObject {
     }
     
     // Delete an event from events
-    func trashEvent(event: Event) {
+    func deleteEvent(event: Event) {
         do {
             let realm = try Realm()                                             // grab default Realm
             try realm.write() {                                                 // write to Realm
