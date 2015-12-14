@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class PastViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var pastTableView: UITableView!              // code connection to PastShows TV
+    @IBOutlet weak var pastTableView: UITableView!              // code connection to PastShowsTV
     var dataSource = EventsDataSource()                         // reference to EventsDataSource
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on PastVC
@@ -45,13 +45,13 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    // Set dataSource and delegate to self, reload data and don't allow cells to be selected
+    // Set dataSource and delegate to self and reload data
     override func viewDidLoad() {
         super.viewDidLoad()
-        pastTableView.dataSource = self
-        pastTableView.delegate = self
-        pastTableView.reloadData()
-//        pastTableView.allowsSelection = false
+        
+        pastTableView.dataSource = self                         // declare dataSource for pastTV
+        pastTableView.delegate = self                           // declare delegate for pastTV
+        pastTableView.reloadData()                              // reload data
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
