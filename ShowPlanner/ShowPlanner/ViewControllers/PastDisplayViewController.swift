@@ -108,13 +108,13 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
                 lineupTextView.textColor = UIColor.lightGrayColor() // set text color to gray
             }
             
-            // If event has notes, otherwise display "Notes" in gray to indicate placeholder
+            // If event has notes, otherwise display "Add Notes" in gray to indicate placeholder
             if event.notes != "" {
                 notesTextView.text = event.notes                    // set notesTextView text to event's notes
                 notesTextView.textColor = UIColor.blackColor()      // set text color to black
             }
             else {
-                notesTextView.text = "Notes"                        // set notesTextView text to "Notes"
+                notesTextView.text = "Add Notes"                    // set notesTextView text to "Add Notes"
                 notesTextView.textColor = UIColor.lightGrayColor()  // set text color to gray
             }
         }
@@ -134,7 +134,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         // If notesTextView is empty, put placeholder text back
         if textView.text.isEmpty {
-            textView.text = "Notes"                                 // set notesTextView text to "Notes"
+            textView.text = "Add Notes"                             // set notesTextView text to "Add Notes"
             textView.textColor = UIColor.lightGrayColor()           // set text color to gray
         }
     }
