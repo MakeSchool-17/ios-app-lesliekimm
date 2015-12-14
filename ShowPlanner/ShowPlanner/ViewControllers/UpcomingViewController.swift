@@ -17,7 +17,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "savePastEvent":
+            case "saveNewEvent":
                 print("saveNewEvent")
             case "saveExistingEvent":
                 print("saveExistingEvent")

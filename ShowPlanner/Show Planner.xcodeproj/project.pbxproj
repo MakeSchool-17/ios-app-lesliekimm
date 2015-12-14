@@ -27,6 +27,10 @@
 		81F7B7151C1E429D000C9E3D /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7141C1E429D000C9E3D /* UpcomingViewController.swift */; };
 		81F7B7171C1E42BD000C9E3D /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7161C1E42BD000C9E3D /* UpcomingTableViewCell.swift */; };
 		81F7B7191C1E487B000C9E3D /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7181C1E487B000C9E3D /* EventDisplayViewController.swift */; };
+		81F7B71B1C1E4939000C9E3D /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B71A1C1E4939000C9E3D /* AddEventViewController.swift */; };
+		81F7B71D1C1E505C000C9E3D /* LineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B71C1C1E505C000C9E3D /* LineupTableViewCell.swift */; };
+		81F7B71F1C1E51FD000C9E3D /* SelectLineupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B71E1C1E51FD000C9E3D /* SelectLineupTableViewCell.swift */; };
+		81F7B7211C1E5210000C9E3D /* SelectLineupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7201C1E5210000C9E3D /* SelectLineupViewController.swift */; };
 		81FB47701C03BD6300705324 /* Lineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB476F1C03BD6300705324 /* Lineup.swift */; };
 		CB88FCC66C9DE58E47959951 /* Pods_ShowPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8784B0FD0B460ED368D1FF /* Pods_ShowPlanner.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +61,10 @@
 		81F7B7141C1E429D000C9E3D /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		81F7B7161C1E42BD000C9E3D /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		81F7B7181C1E487B000C9E3D /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
+		81F7B71A1C1E4939000C9E3D /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		81F7B71C1C1E505C000C9E3D /* LineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupTableViewCell.swift; sourceTree = "<group>"; };
+		81F7B71E1C1E51FD000C9E3D /* SelectLineupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupTableViewCell.swift; sourceTree = "<group>"; };
+		81F7B7201C1E5210000C9E3D /* SelectLineupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupViewController.swift; sourceTree = "<group>"; };
 		81FB476F1C03BD6300705324 /* Lineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lineup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,7 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				81F7B7141C1E429D000C9E3D /* UpcomingViewController.swift */,
+				81F7B71A1C1E4939000C9E3D /* AddEventViewController.swift */,
 				81F7B7181C1E487B000C9E3D /* EventDisplayViewController.swift */,
+				81F7B7201C1E5210000C9E3D /* SelectLineupViewController.swift */,
 				8142C5E11C1734E000FE915C /* PastViewController.swift */,
 				813306F21C1CAF2400895769 /* PastDisplayViewController.swift */,
 				811313021C1004D8003775E3 /* ContactsViewController.swift */,
@@ -143,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				81F7B7161C1E42BD000C9E3D /* UpcomingTableViewCell.swift */,
+				81F7B71C1C1E505C000C9E3D /* LineupTableViewCell.swift */,
+				81F7B71E1C1E51FD000C9E3D /* SelectLineupTableViewCell.swift */,
 				81C23CC81BFE4FB0000E3838 /* PastTableViewCell.swift */,
 				81C23CC61BFE4F99000E3838 /* ContactTableViewCell.swift */,
 			);
@@ -293,6 +305,7 @@
 			files = (
 				816740E21C0D5DD6002A3679 /* Contact.swift in Sources */,
 				81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */,
+				81F7B7211C1E5210000C9E3D /* SelectLineupViewController.swift in Sources */,
 				81FB47701C03BD6300705324 /* Lineup.swift in Sources */,
 				81C23CC71BFE4F99000E3838 /* ContactTableViewCell.swift in Sources */,
 				81F7B7171C1E42BD000C9E3D /* UpcomingTableViewCell.swift in Sources */,
@@ -301,13 +314,16 @@
 				8142C5DE1C16968000FE915C /* Account.swift in Sources */,
 				8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */,
 				81F7B7151C1E429D000C9E3D /* UpcomingViewController.swift in Sources */,
+				81F7B71B1C1E4939000C9E3D /* AddEventViewController.swift in Sources */,
 				811313031C1004D8003775E3 /* ContactsViewController.swift in Sources */,
+				81F7B71D1C1E505C000C9E3D /* LineupTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81F7B7191C1E487B000C9E3D /* EventDisplayViewController.swift in Sources */,
 				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
 				8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */,
 				81C23CCD1BFE5001000E3838 /* Event.swift in Sources */,
 				818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */,
+				81F7B71F1C1E51FD000C9E3D /* SelectLineupTableViewCell.swift in Sources */,
 				813306F31C1CAF2400895769 /* PastDisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
