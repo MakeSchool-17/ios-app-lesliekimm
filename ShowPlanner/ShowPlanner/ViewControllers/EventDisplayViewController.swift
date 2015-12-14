@@ -24,7 +24,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         }
     }
     var selectedLineup: Lineup?                                 // optional Lineup var used to change whether lineup is confirmed or not
-    var lineupToAdd: Lineup?                                    // optional Lineup var used to add Lineup objects to event's LineupList
+    var lineupToAdd: Lineup?                                    // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                    // Bool to indicate if we are adding new Event or not
     
     // Depending on segue identifier, perform an action
@@ -68,7 +68,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true             // hide tab bar controller in this VC
         
-        navItem.title = event!.name                             // use event's name as title
+        navItem.title = event!.name                             // use event name as title
         setUpTextFieldDelegates()                               // set up textfield delegates
         displayEvent(event)                                     // display event
         
@@ -101,9 +101,9 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     func displayEvent(event: Event?) {
         // TODO: edit selectLineupButton, lineupTableView
         if let event = event, eventNameTextField = eventNameTextField, locationTextField = locationTextField, datePicker = datePicker {
-            eventNameTextField.text = event.name            // set eventNameTextField text to event's location
-            locationTextField.text = event.location         // set locationTextField text to event's email
-            datePicker.date = event.dateTime                // set datePicker date to event's dateTime
+            eventNameTextField.text = event.name            // set eventNameTextField text to event name
+            locationTextField.text = event.location         // set locationTextField text to event location
+            datePicker.date = event.dateTime                // set datePicker date to event dateTime
             
             // TODO: edit lineup button text if lineup exists
             // TODO: display lineupTV

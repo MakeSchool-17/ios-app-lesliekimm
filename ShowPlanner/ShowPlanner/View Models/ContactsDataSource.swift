@@ -11,8 +11,8 @@ import Foundation
 import RealmSwift
 
 class ContactsDataSource: NSObject {
-    static var sharedContactsDataSource = ContactsDataSource()      // use static var to creaet singleton
-    var contacts: Results<Contact>!                                 // declare contacts var
+    static var sharedContactsDataSource = ContactsDataSource()                  // use static var to creaet singleton
+    var contacts: Results<Contact>!                                             // declare contacts var
     
     // Access Realm and sort contacts by name
     override init(){
