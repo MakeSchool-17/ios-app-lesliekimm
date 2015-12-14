@@ -43,15 +43,17 @@ class EventsDataSource: NSObject {
     // Edit an event from events
     func editEvent(event: Event, editedEvent: Event) {
         do {
-            let realm = try Realm()
+            let realm = try Realm()                                             // grab default Realm
             
-            try realm.write {
+            // TODO: edit for lineup
+            try realm.write {                                                   // write to Realm
                 if (event.name != editedEvent.name || event.location != editedEvent.location || event.dateTime != editedEvent.dateTime) {
-                    event.name = editedEvent.name
-                    event.location = editedEvent.location
-                    event.dateTime = editedEvent.dateTime
+                    event.name = editedEvent.name                               // set event name
+                    event.location = editedEvent.location                       // set event location
+                    event.dateTime = editedEvent.dateTime                       // set event date and time
                 }
             }
+            events = realm.objects(Event).sorted("dateTime", ascending: true)   // sort by date and time
         }
         catch {
             print("Error in editEvent")
