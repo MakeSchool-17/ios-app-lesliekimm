@@ -9,18 +9,46 @@
 import UIKit
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var upcomingTableView: UITableView!              // code connection to UpcomingTV
+    @IBOutlet weak var upcomingTableView: UITableView!          // code connection to upcomingTV
     var dataSource = EventsDataSource()                         // reference to EventsDataSource
     var selectedEvent: Event?                                   // selected event
-    var eventsToBeDisplayed: [Event]?                           // array of events to display on UpcomingVC
+    var eventsToBeDisplayed: [Event]?                           // array of events to display on upcomingTV
     
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "saveNewEvent":
-                print("saveNewEvent")
-            case "saveExistingEvent":
-                print("saveExistingEvent")
+            case "saveNewEvent":                                // if saveNewEvent segue
+                // Grab reference to sourceVC
+                let source = segue.sourceViewController as! AddEventViewController
+                dataSource.addEvent(source.event!)              // add event
+            case "saveExistingEvent":                                       // if saveExistingEvent segue
+                // Grab reference to sourceVC
+                let source = segue.sourceViewController as! EventDisplayViewController
+                let event = source.event                                    // set event to contact from EventDisplayVC
+                let editedEvent = Event()                                   // initialize new Event objbect
+                
+                // If eventNameTextField from EventDisplayVC is not placeholder text, set editedEvent name prop
+                if source.eventNameTextField.text != "Event Name" {
+                    editedEvent.name = source.eventNameTextField.text!      // set to nameTextField text
+                }
+                else {
+                    editedEvent.name = ""                                   // set to empty string
+                }
+                
+                // If locationTextField from EventDisplayVC is not placeholder text, set editedEvent location prop
+                if source.locationTextField.text != "Location" {
+                    editedEvent.location = source.locationTextField.text!   // set to locationTextField text
+                }
+                else {
+                    editedEvent.location = ""                               // set to empty string
+                }
+                
+                editedEvent.dateTime = source.datePicker.date               // set dateTime
+
+                // TODO: save lineup info
+                
+                // Save edits made to Event object
+                dataSource.editEvent(event!, editedEvent: editedEvent)
             case "deleteExistingEvent":
                 print("deleteExistingEvent")
             default:
@@ -34,58 +62,60 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        upcomingTableView.dataSource = self                     // declare dataSource for upcomingTV
-        upcomingTableView.delegate = self                       // declare delegate for upcomingTV
-        upcomingTableView.reloadData()                          // reload data
+        upcomingTableView.dataSource = self                         // declare dataSource for upcomingTV
+        upcomingTableView.delegate = self                           // declare delegate for upcomingTV
+        upcomingTableView.reloadData()                              // reload data
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
-    // not yet happened
+    // yet to happened
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         eventsToBeDisplayed = [Event]()                         // initialize array
         let currentTime = NSDate()                              // get current time
         
-        // For each event in EventsDataSource, compare to current time and if event has not passed,
-        // insert into the array so table view gets populated from most recent event to latest
+        // For each event in EventsDataSource, compare to current time and if event has not passed, append
+        // into the array so table view gets populated from most recent event to latest
         for event in dataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
-                eventsToBeDisplayed?.append(event)
+                eventsToBeDisplayed?.append(event)              // append to end of array
             }
         }
-        upcomingTableView.reloadData()                              // reload data
+        upcomingTableView.reloadData()                          // reload upcomingTV data
     }
     
     // MARK: Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Prepare for respective segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If performing showExistingEvent, get destinationVC and set event to selectedEvent
         if (segue.identifier == "showExistingEvent") {
-//            let eventViewController = segue.destinationViewController as! EventDisplayViewController
-//            eventViewController.event = selectedEvent
+            // Grab a reference to PastDisplayVC
+            let eventViewController = segue.destinationViewController as! EventDisplayViewController
+            eventViewController.event = selectedEvent           // set event in EventDisplayVC to selectedEvent
         }
     }
     
     // MARK: UITableViewDataSource
+    // Set Event object to be displayed in each UpcomingVC
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get a reusable TVC object for UpcomingEventCell and add to upcomingTV
         let cell = upcomingTableView.dequeueReusableCellWithIdentifier("UpcomingEventCell", forIndexPath: indexPath) as! UpcomingTableViewCell
-        let row = indexPath.row
-        let event = (eventsToBeDisplayed?[row])! as Event
-        cell.event = event
-        return cell
+        let row = indexPath.row                                 // get row
+        let event = (eventsToBeDisplayed?[row])! as Event       // get Event object from eventsToBeDisplayed at row index
+        cell.event = event                                      // set event prop for cell to event
+        return cell                                             // return cell
     }
     
+    // Get the number of rows in upcomingTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsToBeDisplayed?.count ?? 0
+        return eventsToBeDisplayed?.count ?? 0                  // return total number of events in eventsToBeDisplayed or 0 if empty
     }
     
     // MARK: UITableViewDelegate
+    // Set selectedEvent when a TVC is selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedEvent = eventsToBeDisplayed?[indexPath.row]
-//        self.performSegueWithIdentifier("showExistingEvent", sender: self)
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        selectedEvent = eventsToBeDisplayed?[indexPath.row]                 // set selectedEvent to Event at row index from eventsToBeDsiplayed
+        self.performSegueWithIdentifier("showExistingEvent", sender: self)  // perform showExistingEvent segue
     }
 }

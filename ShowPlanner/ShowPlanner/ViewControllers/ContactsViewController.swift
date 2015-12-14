@@ -21,18 +21,18 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         if let identifier = segue.identifier {                          // grab reference to segue identifier
             switch identifier {
             case "saveNewContact":                                      // if saveNewContact segue
-                // Grab reference to source VC
+                // Grab reference to sourceVC
                 let source = segue.sourceViewController as! AddContactViewController
                 contactsDataSource.addContact(source.contact!)          // add contact
             case "saveExistingContact":                                 // if saveExistingContact segue
-                // Grab reference to source VC
+                // Grab reference to sourceVC
                 let source = segue.sourceViewController as! ContactDisplayViewController
                 let contact = source.contact                            // set contact to contact from ContactDisplayVC
                 let editedContact = Contact()                           // initialize new Contact objbect
                 
                 // If nameTextField from ContactDisplayVC is not placeholder text, set editedContact name prop
                 if source.nameTextField.text != "Full Name" {
-                    editedContact.name = source.nameTextField.text!     // set to namteTextField text
+                    editedContact.name = source.nameTextField.text!     // set to nameTextField text
                 }
                 else {
                     editedContact.name = ""                             // set to empty string
@@ -109,7 +109,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Navigation
     // Prepare for respective segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // If performing showExistingContact, get destination VC and set contact to selectedContact
+        // If performing showExistingContact, get destinationVC and set contact to selectedContact
         if (segue.identifier == "showExistingContact") {
             // Grab a reference to ContactDisplayVC
             let contactViewController = segue.destinationViewController as! ContactDisplayViewController
@@ -118,7 +118,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: UITableViewDataSource
-    // Set Contact object to be displayed in teach ContactTableViewCell
+    // Set Contact object to be displayed in each ContactTVC
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get a reusable TVC object for ContactCell and add to contactsTV
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! ContactTableViewCell

@@ -12,12 +12,11 @@ import Foundation
 import UIKit
 
 class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
     @IBOutlet weak var nameTextField: UITextField!          // code connection for name text field
     @IBOutlet weak var emailTextField: UITextField!         // code connection for email text field
     @IBOutlet weak var cellTextField: UITextField!          // code connection for cell text field
-    @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
-    @IBOutlet weak var trashButton: UIBarButtonItem!
-    @IBOutlet weak var toolbarBottomSpace: NSLayoutConstraint!
+    @IBOutlet weak var trashButton: UIBarButtonItem!        // code connection for trash button
     
     var contact: Contact? {                                 // optional Contact var
         didSet {

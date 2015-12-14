@@ -52,7 +52,7 @@ class ContactsDataSource: NSObject {
             }
         }
         catch {
-            print("Error in saveContact")
+            print("Error in editContact")
         }
     }
     

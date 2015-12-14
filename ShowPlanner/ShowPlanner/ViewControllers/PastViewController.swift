@@ -15,12 +15,15 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedEvent: Event?                                   // selected event
     var eventsToBeDisplayed: [Event]?                           // array of events to display on PastVC
     
+    // Depending on segue identifier, perform an action
     @IBAction func backToPastVC(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
+        if let identifier = segue.identifier {                  // grab reference to segue identifier
             switch identifier {
-            case "savePastEvent":
+            case "savePastEvent":                               // if savePastEvent segue
+                // Grab reference to sourceVC
                 let source = segue.sourceViewController as! PastDisplayViewController
-                let event = source.event
+                let event = source.event                        // set event to event from PastDisplayVC
+                // TODO: Rewrite this to do all saving logic in EventsDataSource
                 if let event = event {
                     do {
                         let realm = try Realm()
@@ -39,9 +42,9 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                 }
             default:
-                print("No one loves \(identifier)")
+                print("No one loves \(identifier)")             // print log message
             }
-            pastTableView.reloadData()
+            pastTableView.reloadData()                          // reload pastTV data
         }
     }
     
@@ -66,43 +69,43 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // into the beginnig of the array so table view gets populated from most recent event to oldest
         for event in dataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
-                eventsToBeDisplayed?.insert(event, atIndex: 0)
+                eventsToBeDisplayed?.insert(event, atIndex: 0)  // insert at the beginning of the array
             }
         }
-        pastTableView.reloadData()                              // reload data
+        pastTableView.reloadData()                              // reload pastTV data
     }
     
     // MARK: Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Prepare for respective segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // If performing showPastEvent, get destinationVC and set event to selectedEvent
         if (segue.identifier == "showPastEvent") {
+            // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! PastDisplayViewController
-            eventViewController.event = selectedEvent
+            eventViewController.event = selectedEvent           // set event in PastDisplayVC to selectedEvent
         }
     }
     
     // MARK: UITableViewDataSource
+    // Set Event object to be displayed in each PastTVC
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get a reusable TVC object for PastEventCell and add to pastTV
         let cell = pastTableView.dequeueReusableCellWithIdentifier("PastEventCell", forIndexPath: indexPath) as! PastTableViewCell
-        let row = indexPath.row
-        let event = (eventsToBeDisplayed?[row])! as Event
-        cell.event = event
-        return cell
+        let row = indexPath.row                                 // get row
+        let event = (eventsToBeDisplayed?[row])! as Event       // get Event object from eventsToBeDisplayed at row index
+        cell.event = event                                      // set event prop for cell to event
+        return cell                                             // return cell
     }
     
+    // Get the number of rows in pastTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsToBeDisplayed?.count ?? 0
+        return eventsToBeDisplayed?.count ?? 0                  // return total number of events in eventsToBeDisplayed or 0 if empty
     }
     
     // MARK: UITableViewDelegate
+    // Set selectedEvent when a TVC is selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedEvent = eventsToBeDisplayed?[indexPath.row]
-        self.performSegueWithIdentifier("showPastEvent", sender: self)
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        selectedEvent = eventsToBeDisplayed?[indexPath.row]             // set selectedEvent to Event at row index from eventsToBeDsiplayed
+        self.performSegueWithIdentifier("showPastEvent", sender: self)  // perform showPastEvent segue
     }
 }

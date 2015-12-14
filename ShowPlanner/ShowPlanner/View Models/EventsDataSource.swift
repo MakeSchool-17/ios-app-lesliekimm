@@ -40,6 +40,24 @@ class EventsDataSource: NSObject {
         }
     }
     
+    // Edit an event from events
+    func editEvent(event: Event, editedEvent: Event) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                if (event.name != editedEvent.name || event.location != editedEvent.location || event.dateTime != editedEvent.dateTime) {
+                    event.name = editedEvent.name
+                    event.location = editedEvent.location
+                    event.dateTime = editedEvent.dateTime
+                }
+            }
+        }
+        catch {
+            print("Error in editEvent")
+        }
+    }
+    
     // Delete an event from events
     func trashEvent(event: Event) {
         do {
