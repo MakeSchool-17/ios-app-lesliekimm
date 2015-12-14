@@ -102,6 +102,22 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         }
     }
     
+    // MARK: Navigation
+    // Prepare for respective segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If performing showExistingEvent, get destinationVC and set event to selectedEvent
+        if (segue.identifier == "selectLineup") {
+            // Grab a reference to PastDisplayVC
+            let eventViewController = segue.destinationViewController as! SelectLineupViewController
+            
+            event!.name = eventNameTextField.text!
+            event!.location = locationTextField.text!
+            event!.dateTime = datePicker.date
+            
+            eventViewController.event = event                               // set event in EventDisplayVC to selectedEvent
+        }
+    }
+    
     // MARK: UITextFieldDelegate
     // Sets first responder to next textfield when Next (Return) key hit
     func textFieldShouldReturn(textField: UITextField) -> Bool {

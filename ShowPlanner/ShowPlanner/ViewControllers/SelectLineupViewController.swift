@@ -13,6 +13,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     var contactsDataSource = ContactsDataSource()                       // grab contactsDS
     var selectedContact: Contact?                                       // grab reference to selected contact from selectLineupTV
     var lineup: Lineup?                                                 // optional lineup var to convert selectedContact to Lineup object
+    var event: Event?
 
     // Set the view when loaded for the first time
     override func viewDidLoad() {
