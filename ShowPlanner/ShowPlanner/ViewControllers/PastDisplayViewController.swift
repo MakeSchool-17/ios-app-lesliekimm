@@ -9,18 +9,18 @@
 import UIKit
 
 class PastDisplayViewController: UIViewController, UITextViewDelegate {
-    @IBOutlet weak var navItem: UINavigationItem!           // code connection for navigation item
-    @IBOutlet weak var nameTextField: UITextField!          // code connection for name textfield
-    @IBOutlet weak var locationTextField: UITextField!      // code connection for location textfield
-    @IBOutlet weak var dateTimeTextField: UITextField!      // code connection for datePicker date
-    @IBOutlet weak var lineupTextField: UITextField!        // code connection for lineup textfield
-    @IBOutlet weak var notesTextView: UITextView!           // code connection for notes textview
+    @IBOutlet weak var navItem: UINavigationItem!                   // code connection for navigation item
+    @IBOutlet weak var nameTextView: UITextView!                    // code connection for name textview
+    @IBOutlet weak var locationTextView: UITextView!                // code connection for location textview
+    @IBOutlet weak var dateTimeTextView: UITextView!                // code connection for date and time textview
+    @IBOutlet weak var lineupTextView: UITextView!                  // code connection for lineup textview
+    @IBOutlet weak var notesTextView: UITextView!                   // code connection for notes textview
 
     // Format appearance of dateLabel
     static var dateFormatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()                   // declare NSDateFormatter object
-        formatter.dateStyle = .MediumStyle                  // use MediumStyle for date
-        return formatter                                    // return NSDateFormatter object
+        var formatter = NSDateFormatter()                           // declare NSDateFormatter object
+        formatter.dateStyle = .MediumStyle                          // use MediumStyle for date
+        return formatter                                            // return NSDateFormatter object
     }()
     
     // Formate appearance of timeLabel
@@ -70,27 +70,45 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     // Set the view everytime it disappears
     func displayEvent(event: Event?) {
         // add lineupTextField = lineupTextField into if let after fixing lineupArray
-        if let event = event, nameTextField = nameTextField, locationTextField = locationTextField, dateTimeTextField = dateTimeTextField,  notesTextView = notesTextView {
-            nameTextField.text = event.name                         // set nameTextField text to event's name
-            locationTextField.text = event.location                 // set locationTextField text to event's location
+        if let event = event, nameTextView = nameTextView, locationTextView = locationTextView, dateTimeTextView = dateTimeTextView,  notesTextView = notesTextView {
+            
+            // If event has name, otherwise display "Event Name" in gray to indicate placeholder
+            if event.name != "" {
+                nameTextView.text = event.name                      // set nameTextView text to event name
+            }
+            else {
+                nameTextView.text = "Event Name"                    // set nameTextView text to "Event Name"
+                nameTextView.textColor = UIColor.lightGrayColor()   // set text color to gray
+            }
+            
+            // If event has location, otherwise display "Location" in gray to indicate placeholder
+            if event.location != "" {
+                locationTextView.text = event.location              // set locationTextView text to event location
+            }
+            else {
+                locationTextView.text = "Location"                   // set locationTextView text to "Location"
+                locationTextView.textColor = UIColor.lightGrayColor()// set text color to gray
+            }
             
             // Get date and time formatted properly
             let date = PastDisplayViewController.dateFormatter.stringFromDate(event.dateTime)
             let time = PastDisplayViewController.timeFormatter.stringFromDate(event.dateTime)
-            dateTimeTextField.text = date + " " + time              // set dateTimeTextField text to event's date and time
+            dateTimeTextView.text = date + " " + time               // set dateTimeTextView text to event date and time
             
-//            if event.lineupArray!.count > 0 {
-//                var lineupString = ""
-//                for contact in event.lineupArray! {
-//                    lineupString = lineupString + contact.name + " "
-//                }
-//                lineupTextField.text = lineupString
-//            }
-//            else {
-//                lineupTextField.text = ""
-//            }
+            // If event has lineup, otherwise display "Lineup" in gray to indicate placeholder
+            if event.lineupList.count > 0 {
+                var lineupString = ""                               // set lineupString to empty string
+                for lineup in event.lineupList {                    // for each lineup in lineupList
+                    lineupString = lineupString + lineup.name + " " // add lineup name to lineupString
+                }
+                lineupTextView.text = lineupString                  // set lineupTextView text to lineupString
+            }
+            else {
+                lineupTextView.text = "Lineup"                      // set lineupTextView text to "Lineup"
+                lineupTextView.textColor = UIColor.lightGrayColor() // set text color to gray
+            }
             
-            // If event has notes, display them in black, otherwise display "Notes" in gray to indicate placeholder
+            // If event has notes, otherwise display "Notes" in gray to indicate placeholder
             if event.notes != "" {
                 notesTextView.text = event.notes                    // set notesTextView text to event's notes
                 notesTextView.textColor = UIColor.blackColor()      // set text color to black
