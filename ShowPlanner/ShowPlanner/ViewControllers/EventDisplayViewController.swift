@@ -85,7 +85,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     func setUpTextFieldDelegates() {
         eventNameTextField.returnKeyType = .Next                            // change Return to Next
         eventNameTextField.delegate = self                                  // set event name textfield delegate to self
-        locationTextField.returnKeyType = .Next                             // change Return to Next
+        locationTextField.returnKeyType = .Done                             // change Return to Next
         locationTextField.delegate = self                                   // set location textfield delegate to self
     }
     
@@ -124,6 +124,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         if (textField == eventNameTextField) {                              // if current textfield is eventNameTextField
             locationTextField.returnKeyType = .Next                         // set locationTextField returnKeyType to Next
             locationTextField.becomeFirstResponder()                        // set first responder to locationTextField
+        }
+        if (textField == locationTextField) {
+            locationTextField.returnKeyType = .Done                         // change Return to Next
+            locationTextField.resignFirstResponder()
         }
         return false                                                        // otherwise, return false
     }
