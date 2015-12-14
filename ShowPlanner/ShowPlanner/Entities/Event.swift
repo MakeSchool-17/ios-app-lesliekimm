@@ -12,8 +12,7 @@ import RealmSwift
 class Event: Object {
     dynamic var name: String = ""                   // name string
     dynamic var lineup: String = ""                 // lineup string
-    dynamic var lineupArray: Lineup?
-//    dynamic var lineupArray: RLMArray<String>?             // store lineups on Realm
+    let lineupList = List<Lineup>()                 // array of Lineup objects
     dynamic var location: String = ""               // location string
     dynamic var dateTime = NSDate()                 // date object
     dynamic var confirmed: Bool = false             // indicates if all lineup is confirmed

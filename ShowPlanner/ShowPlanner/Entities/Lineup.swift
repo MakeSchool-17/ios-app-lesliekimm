@@ -10,6 +10,6 @@ import Foundation
 import RealmSwift
 
 class Lineup: Object {
-    dynamic var name: String = ""
-    dynamic var confirmed: Bool = false
+    dynamic var name: String = ""           // name string
+    dynamic var confirmed: Bool = false     // indicates if contact is confirmed or not
 }
