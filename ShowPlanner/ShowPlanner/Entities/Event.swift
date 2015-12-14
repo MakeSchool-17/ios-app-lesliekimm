@@ -12,7 +12,7 @@ import RealmSwift
 class Event: Object {
     dynamic var name: String = ""                   // name string
     dynamic var lineup: String = ""                 // lineup string
-    let lineupList = List<Lineup>()                 // array of Lineup objects
+    var lineupList = List<Lineup>()                 // array of Lineup objects
     dynamic var location: String = ""               // location string
     dynamic var dateTime = NSDate()                 // date object
     dynamic var confirmed: Bool = false             // indicates if all lineup is confirmed
