@@ -18,14 +18,21 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     @IBOutlet weak var lineupTableView: UITableView!                        // code connection for lineupTV
     @IBOutlet weak var trashButton: UIBarButtonItem!                        // code connection for trash button
     
+    var eventsDataSource = EventsDataSource()
     var event: Event? {                                                     // optional Event var
         didSet {
             displayEvent(event)                                             // display event everytime changes are made
         }
     }
+    var editedEvent: Event? {
+        didSet {
+            displayEvent(editedEvent)
+        }
+    }
     var selectedLineup: Lineup?                                             // optional Lineup var used to change whether lineup is confirmed or not
     var lineupToAdd: Lineup?                                                // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
+    var editedLineupList: List<Lineup>?
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
@@ -33,7 +40,18 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-                event!.lineupList.append(lineupToAdd!)                      // add lineupToAdd to event lineupList
+
+                if addNew {
+                    event!.lineupList.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
+                }
+                else {
+                    print("Here")
+                    editedLineupList!.append(lineupToAdd!)
+                    
+                    // add selectedLineup to editedEvent
+                    // display editedEvent
+//                    editedEvent!.lineupList.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
+                }
                 source.lineup = nil                                         // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")                         // print log message
@@ -49,6 +67,8 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         lineupTableView.dataSource = self                                   // declare dataSource for lineupTV
         lineupTableView.delegate = self                                     // declare delegate for lineupTV
         lineupTableView.reloadData()                                        // reload data
+        
+        editedLineupList = event?.lineupList
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -97,7 +117,12 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             locationTextField.text = event.location                         // set locationTextField text to event location
             datePicker.date = event.dateTime                                // set datePicker date to event dateTime
             
-            // TODO: edit lineup button text if lineup exists
+            if event.lineupList.count > 0 {
+                selectLineupButton.setTitle("Edit Lineup", forState: .Normal)
+            }
+            else {
+                selectLineupButton.setTitle("Select Lineup", forState: .Normal)
+            }
             // TODO: display lineupTV
         }
     }
@@ -109,12 +134,24 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         if (segue.identifier == "selectLineup") {
             // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! SelectLineupViewController
+            if addNew {
+                event!.name = eventNameTextField.text!
+                event!.location = locationTextField.text!
+                event!.dateTime = datePicker.date
+                eventViewController.event = event                               // set event in EventDisplayVC to selectedEvent
+            }
+            else {
+                print("Now here")
+                // Create editedEvent with all changes, & send editedEvent to SelectLineupVC
+                editedEvent = Event()
+                editedEvent!.name = eventNameTextField.text!
+                editedEvent!.location = locationTextField.text!
+                editedEvent!.dateTime = datePicker.date
+                editedEvent!.lineupList = event!.lineupList
+                eventViewController.event = editedEvent                               // set event in EventDisplayVC to selectedEvent
+            }
             
-            event!.name = eventNameTextField.text!
-            event!.location = locationTextField.text!
-            event!.dateTime = datePicker.date
             
-            eventViewController.event = event                               // set event in EventDisplayVC to selectedEvent
         }
     }
     
