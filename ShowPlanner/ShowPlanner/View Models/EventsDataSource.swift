@@ -53,9 +53,9 @@ class EventsDataSource: NSObject {
                     event.dateTime = editedEvent.dateTime                       // set event date and time
                 }
                 
-                event.lineupList.removeAll()
-                for lineup in lineupToUse {
-                    event.lineupList.append(lineup)
+                event.lineupList.removeAll()                                    // clear any lineup objects
+                for lineup in lineupToUse {                                     // for each lineup in lineupToUse
+                    event.lineupList.append(lineup)                             // append to event lineupList
                 }
             }
             events = realm.objects(Event).sorted("dateTime", ascending: true)   // sort by date and time

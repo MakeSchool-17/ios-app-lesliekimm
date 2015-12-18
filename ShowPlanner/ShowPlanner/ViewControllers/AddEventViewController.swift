@@ -37,7 +37,7 @@ class AddEventViewController: UIViewController {
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = event                               // set event in EventDisplayVC to initialized event
             eventViewController.addNew = true                               // set addNew in EventDisplayVC to true
-            eventViewController.editedLineupArray = Array<Lineup>()
+            eventViewController.editedLineupArray = Array<Lineup>()         // initialize editedLineupArray in EventDisplayVC
         }
         // If performing saveNewEvent, initialize Event object and set props to corresponding textfield inputs
         // from EventDisplayVC
@@ -48,7 +48,7 @@ class AddEventViewController: UIViewController {
             event!.location = eventViewController.locationTextField.text!   // set location prop of event
             event!.dateTime = eventViewController.datePicker.date           // set dateTime prop of event
             
-            for lineup in eventViewController.editedLineupArray! {        // for each Lineup object in lineupList
+            for lineup in eventViewController.editedLineupArray! {          // for each Lineup object in editedLineupArray
                 event!.lineupList.append(lineup)                            // append to event lineupList
             }
         }

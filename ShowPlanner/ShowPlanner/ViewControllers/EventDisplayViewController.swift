@@ -24,15 +24,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             displayEvent(event)                                             // display event everytime changes are made
         }
     }
-//    var editedEvent: Event? {
-//        didSet {
-//            displayEvent(editedEvent)
-//        }
-//    }
     var selectedLineup: Lineup?                                             // optional Lineup var used to change whether lineup is confirmed or not
     var lineupToAdd: Lineup?                                                // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
-    var editedLineupArray: Array<Lineup>?
+    var editedLineupArray: Array<Lineup>?                                   // optional Lineup Array var
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
@@ -40,18 +35,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-
-                if addNew {
-                    editedLineupArray!.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
-                }
-                else {
-                    print("Here")
-                    editedLineupArray!.append(lineupToAdd!)
-                    
-                    // add selectedLineup to editedEvent
-                    // display editedEvent
-//                    editedEvent!.lineupList.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
-                }
+                editedLineupArray!.append(lineupToAdd!)                     // add lineupToAdd to event lineupList
                 source.lineup = nil                                         // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")                         // print log message
@@ -119,6 +103,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             locationTextField.text = event.location                         // set locationTextField text to event location
             datePicker.date = event.dateTime                                // set datePicker date to event dateTime
             
+            // If lineupTV is empty, show "Select Lineup" on button, otherwise show "Edit Lineup"
             if event.lineupList.count > 0 {
                 selectLineupButton.setTitle("Edit Lineup", forState: .Normal)
             }
@@ -177,21 +162,21 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         // Get a reusable TVC object for LineupCell and add to lineupTV
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
         let row = indexPath.row                                             // get row
-        let lineup = editedLineupArray![row] as Lineup                    // get Lineup object from lineupList at row index
+        let lineup = editedLineupArray![row] as Lineup                      // get Lineup object from editedLineupArray at row index
         cell.lineup = lineup                                                // set lineup prop for cell to lineup
         return cell                                                         // return cell
     }
     
     // Get the number of rows in lineupTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return editedLineupArray!.count ?? 0                                 // return total number of lineup in lineupList or 0 if empty
+        return editedLineupArray!.count ?? 0                                 // return total number of lineup in editedLineupArray or 0 if empty
     }
     
 //    // Delete Lineup object at specified row
 //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        if editingStyle == .Delete {                                        // if editingStyle is Delete
-//            let lineup = (event?.lineupList[indexPath.row])! as Lineup      // get Lineup object at row index from lineupList
-//            event?.lineupList.delete(lineup)                                // delete lineup
+//            let lineup = (event?.lineupList[indexPath.row])! as Lineup      // get Lineup object at row index from editedLineupArray
+//            editedLineupArray!.delete(lineup)                               // delete lineup
 //            tableView.reloadData()                                          // reload lineupTV
 //        }
 //    }
@@ -199,7 +184,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     // MARK: UITableViewDelegate
     // Get selectedLineup when a TVC is selected and edit confirmed prop
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedLineup = editedLineupArray![indexPath.row]                   // set selectedLineup to Lineup at row index from lineupList
+        selectedLineup = editedLineupArray![indexPath.row]                  // set selectedLineup to Lineup at row index from editedLineupArray
         
         if selectedLineup!.confirmed {                                      // if selectedLineup is confirmed
             selectedLineup!.confirmed = false                               // set confirmed prop to false
