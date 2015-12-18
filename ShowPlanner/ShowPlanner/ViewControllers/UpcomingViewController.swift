@@ -45,11 +45,9 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
                 
                 editedEvent.dateTime = source.datePicker.date               // set dateTime
-
-                // TODO: save lineup info
-                
+                print("YESSSSS")
                 // Save edits made to Event object
-                eventsDataSource.editEvent(event!, editedEvent: editedEvent)
+                eventsDataSource.editEvent(event!, editedEvent: editedEvent, lineupToUse: source.editedLineupArray!)
             case "deleteExistingEvent":
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
@@ -97,6 +95,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = selectedEvent                       // set event in EventDisplayVC to selectedEvent
+            eventViewController.editedLineupArray = Array<Lineup>()
         }
     }
     

@@ -24,15 +24,15 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             displayEvent(event)                                             // display event everytime changes are made
         }
     }
-    var editedEvent: Event? {
-        didSet {
-            displayEvent(editedEvent)
-        }
-    }
+//    var editedEvent: Event? {
+//        didSet {
+//            displayEvent(editedEvent)
+//        }
+//    }
     var selectedLineup: Lineup?                                             // optional Lineup var used to change whether lineup is confirmed or not
     var lineupToAdd: Lineup?                                                // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
-    var editedLineupList: List<Lineup>?
+    var editedLineupArray: Array<Lineup>?
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
@@ -42,11 +42,11 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
                 let source = segue.sourceViewController as! SelectLineupViewController
 
                 if addNew {
-                    event!.lineupList.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
+                    editedLineupArray!.append(lineupToAdd!)                  // add lineupToAdd to event lineupList
                 }
                 else {
                     print("Here")
-                    editedLineupList!.append(lineupToAdd!)
+                    editedLineupArray!.append(lineupToAdd!)
                     
                     // add selectedLineup to editedEvent
                     // display editedEvent
@@ -68,7 +68,9 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         lineupTableView.delegate = self                                     // declare delegate for lineupTV
         lineupTableView.reloadData()                                        // reload data
         
-        editedLineupList = event?.lineupList
+        for lineup in event!.lineupList {
+            editedLineupArray!.append(lineup)
+        }
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -141,14 +143,14 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
                 eventViewController.event = event                               // set event in EventDisplayVC to selectedEvent
             }
             else {
-                print("Now here")
-                // Create editedEvent with all changes, & send editedEvent to SelectLineupVC
-                editedEvent = Event()
-                editedEvent!.name = eventNameTextField.text!
-                editedEvent!.location = locationTextField.text!
-                editedEvent!.dateTime = datePicker.date
-                editedEvent!.lineupList = event!.lineupList
-                eventViewController.event = editedEvent                               // set event in EventDisplayVC to selectedEvent
+//                print("Now here")
+//                // Create editedEvent with all changes, & send editedEvent to SelectLineupVC
+//                editedEvent = Event()
+//                editedEvent!.name = eventNameTextField.text!
+//                editedEvent!.location = locationTextField.text!
+//                editedEvent!.dateTime = datePicker.date
+//                editedEvent!.lineupList = event!.lineupList
+//                eventViewController.event = editedEvent                               // set event in EventDisplayVC to selectedEvent
             }
             
             
@@ -175,14 +177,14 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         // Get a reusable TVC object for LineupCell and add to lineupTV
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
         let row = indexPath.row                                             // get row
-        let lineup = (event?.lineupList[row])! as Lineup                    // get Lineup object from lineupList at row index
+        let lineup = editedLineupArray![row] as Lineup                    // get Lineup object from lineupList at row index
         cell.lineup = lineup                                                // set lineup prop for cell to lineup
         return cell                                                         // return cell
     }
     
     // Get the number of rows in lineupTV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return event?.lineupList.count ?? 0                                 // return total number of lineup in lineupList or 0 if empty
+        return editedLineupArray!.count ?? 0                                 // return total number of lineup in lineupList or 0 if empty
     }
     
 //    // Delete Lineup object at specified row
@@ -197,7 +199,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     // MARK: UITableViewDelegate
     // Get selectedLineup when a TVC is selected and edit confirmed prop
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedLineup = event?.lineupList[indexPath.row]                   // set selectedLineup to Lineup at row index from lineupList
+        selectedLineup = editedLineupArray![indexPath.row]                   // set selectedLineup to Lineup at row index from lineupList
         
         if selectedLineup!.confirmed {                                      // if selectedLineup is confirmed
             selectedLineup!.confirmed = false                               // set confirmed prop to false

@@ -41,7 +41,7 @@ class EventsDataSource: NSObject {
     }
     
     // Edit an event from events
-    func editEvent(event: Event, editedEvent: Event) {
+    func editEvent(event: Event, editedEvent: Event, lineupToUse: Array<Lineup>) {
         do {
             let realm = try Realm()                                             // grab default Realm
             
@@ -51,6 +51,11 @@ class EventsDataSource: NSObject {
                     event.name = editedEvent.name                               // set event name
                     event.location = editedEvent.location                       // set event location
                     event.dateTime = editedEvent.dateTime                       // set event date and time
+                }
+                
+                event.lineupList.removeAll()
+                for lineup in lineupToUse {
+                    event.lineupList.append(lineup)
                 }
             }
             events = realm.objects(Event).sorted("dateTime", ascending: true)   // sort by date and time
