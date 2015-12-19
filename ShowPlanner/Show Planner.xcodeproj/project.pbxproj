@@ -24,6 +24,7 @@
 		81C23CCD1BFE5001000E3838 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CCC1BFE5001000E3838 /* Event.swift */; };
 		81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD31BFE580D000E3838 /* AddContactViewController.swift */; };
 		81C23CDA1BFEF29C000E3838 /* ContactDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */; };
+		81EE25871C2503A100EC3828 /* LineupNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE25861C2503A100EC3828 /* LineupNS.swift */; };
 		81F7B7151C1E429D000C9E3D /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7141C1E429D000C9E3D /* UpcomingViewController.swift */; };
 		81F7B7171C1E42BD000C9E3D /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7161C1E42BD000C9E3D /* UpcomingTableViewCell.swift */; };
 		81F7B7191C1E487B000C9E3D /* EventDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F7B7181C1E487B000C9E3D /* EventDisplayViewController.swift */; };
@@ -58,6 +59,7 @@
 		81C23CD31BFE580D000E3838 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		81C23CD91BFEF29C000E3838 /* ContactDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDisplayViewController.swift; sourceTree = "<group>"; };
 		81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowPlanner/Pods-ShowPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		81EE25861C2503A100EC3828 /* LineupNS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupNS.swift; sourceTree = "<group>"; };
 		81F7B7141C1E429D000C9E3D /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		81F7B7161C1E42BD000C9E3D /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		81F7B7181C1E487B000C9E3D /* EventDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDisplayViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				81C23CCC1BFE5001000E3838 /* Event.swift */,
 				81FB476F1C03BD6300705324 /* Lineup.swift */,
+				81EE25861C2503A100EC3828 /* LineupNS.swift */,
 				816740E11C0D5DD6002A3679 /* Contact.swift */,
 				8142C5DD1C16968000FE915C /* Account.swift */,
 			);
@@ -319,6 +322,7 @@
 				81F7B71D1C1E505C000C9E3D /* LineupTableViewCell.swift in Sources */,
 				818E988A1BF6A44800D8157F /* AccountViewController.swift in Sources */,
 				81F7B7191C1E487B000C9E3D /* EventDisplayViewController.swift in Sources */,
+				81EE25871C2503A100EC3828 /* LineupNS.swift in Sources */,
 				81C23CD41BFE580D000E3838 /* AddContactViewController.swift in Sources */,
 				8124785C1C113D9600B17861 /* ContactsDataSource.swift in Sources */,
 				81C23CCD1BFE5001000E3838 /* Event.swift in Sources */,

@@ -13,7 +13,7 @@ class LineupTableViewCell: UITableViewCell {
     @IBOutlet weak var confirmationButton: UIButton!            // code connection for confirmation button
 
     // Create lineup var and use didSet method to keep lineup updated upon changes
-    var lineup: Lineup? {
+    var lineup: LineupNS? {
         didSet {
             if let lineup = lineup {
                 lineupNameLabel.text = lineup.name              // set lineupNameLabel text

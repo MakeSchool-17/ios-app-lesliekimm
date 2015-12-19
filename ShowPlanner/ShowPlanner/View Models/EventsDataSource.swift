@@ -27,9 +27,30 @@ class EventsDataSource: NSObject {
     }
     
     // Add an event to events
-    func addEvent(event: Event) {
+    func addEvent(event: Event, lineupToUse: Array<LineupNS>) {
         do {
             let realm = try Realm()                                             // grab default Realm
+            
+            let lineupList = List<Lineup>()
+            var confirmed = true
+            
+            for lineupNS in lineupToUse {
+                let lineup = Lineup()
+                lineup.name = lineupNS.name
+                lineup.confirmed = lineupNS.confirmed
+                lineupList.append(lineup)
+            }
+            
+            for lineupNS in lineupToUse {
+                if !lineupNS.confirmed {
+                    confirmed = false
+                    break
+                }
+            }
+            
+            event.lineupList = lineupList
+            event.confirmed = confirmed
+            
             try realm.write() {                                                 // write to Realm
                 realm.add(event)                                                // add event to Realm
             }
@@ -41,7 +62,7 @@ class EventsDataSource: NSObject {
     }
     
     // Edit an event from events
-    func editEvent(event: Event, editedEvent: Event, lineupToUse: Array<Lineup>) {
+    func editEvent(event: Event, editedEvent: Event, lineupToUse: Array<LineupNS>) {
         do {
             let realm = try Realm()                                             // grab default Realm
             
@@ -53,10 +74,28 @@ class EventsDataSource: NSObject {
                     event.dateTime = editedEvent.dateTime                       // set event date and time
                 }
                 
+                var confirmed = true
+                
                 event.lineupList.removeAll()                                    // clear any lineup objects
-                for lineup in lineupToUse {                                     // for each lineup in lineupToUse
-                    event.lineupList.append(lineup)                             // append to event lineupList
+                for lineupNS in lineupToUse {
+                    let lineup = Lineup()
+                    lineup.name = lineupNS.name
+                    lineup.confirmed = lineupNS.confirmed
+                    event.lineupList.append(lineup)
                 }
+                
+                for lineupNS in lineupToUse {
+                    if !lineupNS.confirmed {
+                        confirmed = false
+                        break
+                    }
+                }
+                
+                if lineupToUse.count == 0 {
+                    confirmed = false
+                }
+                
+                event.confirmed = confirmed
             }
             events = realm.objects(Event).sorted("dateTime", ascending: true)   // sort by date and time
         }

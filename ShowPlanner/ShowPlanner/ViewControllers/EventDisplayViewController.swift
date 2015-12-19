@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
+class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var navItem: UINavigationItem!                           // code connection for navigation item
     @IBOutlet weak var eventNameTextField: UITextField!                     // code connection for event name textfield
     @IBOutlet weak var locationTextField: UITextField!                      // code connection for location textfield
@@ -24,10 +24,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             displayEvent(event)                                             // display event everytime changes are made
         }
     }
-    var selectedLineup: Lineup?                                             // optional Lineup var used to change whether lineup is confirmed or not
-    var lineupToAdd: Lineup?                                                // optional Lineup var used to add Lineup objects to event LineupList
+    var selectedLineupNS: LineupNS?                                           // optional Lineup var used to change whether lineup is confirmed or not
+    var lineupNSToAdd: LineupNS?                                              // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
-    var editedLineupArray: Array<Lineup>?                                   // optional Lineup Array var
+    var editedLineupArray: Array<LineupNS>?                                 // optional Lineup Array var
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
@@ -35,8 +35,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-                editedLineupArray!.append(lineupToAdd!)                     // add lineupToAdd to event lineupList
-                source.lineup = nil                                         // set lineup in SelectLineupVC to nil
+                if lineupNSToAdd != nil {                                     // save if lineupToAdd is not nil
+                    editedLineupArray!.append(lineupNSToAdd!)                 // add lineupToAdd to event lineupList
+                }
+                source.lineupNS = nil                                         // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")                         // print log message
             }
@@ -52,13 +54,18 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         lineupTableView.delegate = self                                     // declare delegate for lineupTV
         lineupTableView.reloadData()                                        // reload data
         
-        for lineup in event!.lineupList {
-            editedLineupArray!.append(lineup)
+        if addNew {
+            for lineup in event!.lineupList {
+                let lineupNS = LineupNS()
+                lineupNS.name = lineup.name
+                editedLineupArray!.append(lineupNS)
+            }
         }
         
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)                                      // add tap gesture to view
+        tap.delegate = self                                                 // declare tap delegate
     }
     
     // Set the view every time it appears
@@ -110,7 +117,6 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             else {
                 selectLineupButton.setTitle("Select Lineup", forState: .Normal)
             }
-            // TODO: display lineupTV
         }
     }
     
@@ -162,7 +168,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         // Get a reusable TVC object for LineupCell and add to lineupTV
         let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
         let row = indexPath.row                                             // get row
-        let lineup = editedLineupArray![row] as Lineup                      // get Lineup object from editedLineupArray at row index
+        let lineup = editedLineupArray![row] as LineupNS                      // get Lineup object from editedLineupArray at row index
         cell.lineup = lineup                                                // set lineup prop for cell to lineup
         return cell                                                         // return cell
     }
@@ -183,13 +189,24 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     // MARK: UITableViewDelegate
     // Get selectedLineup when a TVC is selected and edit confirmed prop
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedLineup = editedLineupArray![indexPath.row]                  // set selectedLineup to Lineup at row index from editedLineupArray
+        let row = indexPath.row
+        selectedLineupNS = editedLineupArray![row]                 // set selectedLineup to Lineup at row index from editedLineupArray
         
-        if selectedLineup!.confirmed {                                      // if selectedLineup is confirmed
-            selectedLineup!.confirmed = false                               // set confirmed prop to false
+        if selectedLineupNS!.confirmed {                                      // if selectedLineup is confirmed
+            editedLineupArray![row].confirmed = false             // set confirmed prop to false
         }
         else {                                                              // if selectedLineup is not confirmed
-            selectedLineup!.confirmed = true                                // set confirmed prop to true
+            editedLineupArray![row].confirmed = true
         }
+        tableView.reloadData()
+    }
+    
+    // MARK: UIGestureRecognizerDelegate
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if gestureRecognizer is UITapGestureRecognizer {
+            let location = touch.locationInView(lineupTableView)
+            return (lineupTableView.indexPathForRowAtPoint(location) == nil)
+        }
+        return true
     }
 }

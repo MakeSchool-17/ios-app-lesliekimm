@@ -21,7 +21,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             case "saveNewEvent":                                            // if saveNewEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! AddEventViewController
-                eventsDataSource.addEvent(source.event!)                    // add event
+                eventsDataSource.addEvent(source.event!, lineupToUse: source.lineupToUse!)  // add event
             case "saveExistingEvent":                                       // if saveExistingEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
@@ -97,7 +97,14 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = selectedEvent                       // set event in EventDisplayVC to selectedEvent
-            eventViewController.editedLineupArray = Array<Lineup>()         // initialize editedLineupArray in EventDisplayVC
+            var selectedEventEditedLineupArray = Array<LineupNS>()
+            for lineup in selectedEvent!.lineupList {
+                let lineupNS = LineupNS()
+                lineupNS.name = lineup.name
+                lineupNS.confirmed = lineup.confirmed
+                selectedEventEditedLineupArray.append(lineupNS)
+            }
+            eventViewController.editedLineupArray = selectedEventEditedLineupArray         // initialize editedLineupArray in EventDisplayVC
         }
     }
     
