@@ -172,14 +172,13 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         return editedLineupArray!.count ?? 0                                 // return total number of lineup in editedLineupArray or 0 if empty
     }
     
-//    // Delete Lineup object at specified row
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {                                        // if editingStyle is Delete
-//            let lineup = (event?.lineupList[indexPath.row])! as Lineup      // get Lineup object at row index from editedLineupArray
-//            editedLineupArray!.delete(lineup)                               // delete lineup
-//            tableView.reloadData()                                          // reload lineupTV
-//        }
-//    }
+    // Delete Lineup object at specified row
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {                                        // if editingStyle is Delete
+            editedLineupArray!.removeAtIndex(indexPath.row)                 // delete lineup
+            tableView.reloadData()                                          // reload lineupTV
+        }
+    }
     
     // MARK: UITableViewDelegate
     // Get selectedLineup when a TVC is selected and edit confirmed prop
