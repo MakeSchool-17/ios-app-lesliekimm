@@ -21,7 +21,8 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             case "saveNewEvent":                                            // if saveNewEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! AddEventViewController
-                eventsDataSource.addEvent(source.event!, lineupToUse: source.lineupToUse!)  // add event
+                // Add event to eventsDS
+                eventsDataSource.addEvent(source.event!, lineupToUse: source.lineupToUse!)
             case "saveExistingEvent":                                       // if saveExistingEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! EventDisplayViewController
@@ -56,9 +57,9 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
                 eventsDataSource.deleteEvent(source.event!)                 // delete event
                 source.event = nil                                          // set event in EventDisplayVC to nil
             default:
-                print("No one loves \(identifier)")
+                print("No one loves \(identifier)")                         // print log message
             }
-            upcomingTableView.reloadData()
+            upcomingTableView.reloadData()                                  // reload upcomingTV data
         }
     }
     
@@ -68,7 +69,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         
         upcomingTableView.dataSource = self                                 // declare dataSource for upcomingTV
         upcomingTableView.delegate = self                                   // declare delegate for upcomingTV
-        upcomingTableView.reloadData()                                      // reload data
+        upcomingTableView.reloadData()                                      // reload upcomingTV data
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -97,14 +98,17 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             // Grab a reference to PastDisplayVC
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = selectedEvent                       // set event in EventDisplayVC to selectedEvent
-            var selectedEventEditedLineupArray = Array<LineupNS>()
-            for lineup in selectedEvent!.lineupList {
-                let lineupNS = LineupNS()
-                lineupNS.name = lineup.name
-                lineupNS.confirmed = lineup.confirmed
-                selectedEventEditedLineupArray.append(lineupNS)
+            var selectedEventEditedLineupArray = Array<LineupNS>()          // init array of LineupNS objects
+            // For all lineup objects in the selectEvent lineupList, create LineupNS object w/ same props and
+            // append to selectedEventEditedLineupArray
+            for lineup in selectedEvent!.lineupList {                       // for each lineup in lineupList
+                let lineupNS = LineupNS()                                   // init lineupNS object
+                lineupNS.name = lineup.name                                 // set lineupNS name
+                lineupNS.confirmed = lineup.confirmed                       // set lineupNS confirmed
+                selectedEventEditedLineupArray.append(lineupNS)             // append to selectedEventEditedLineupArray
             }
-            eventViewController.editedLineupArray = selectedEventEditedLineupArray         // initialize editedLineupArray in EventDisplayVC
+            // Set the editedLineupArray in eventViewController to selectedEventEditedLineupArray
+            eventViewController.editedLineupArray = selectedEventEditedLineupArray
         }
     }
     
@@ -124,14 +128,15 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         return eventsToBeDisplayed?.count ?? 0                              // return total number of events in eventsToBeDisplayed or 0 if empty
     }
     
-//    // Delete Event object at specified row
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {                                        // if editingStyle is Delete
-//            let event = (eventsToBeDisplayed?[indexPath.row])! as Event     // get Event object at row index from eventsToBeDisplayed
-//            dataSource.deleteEvent(event)                                   // delete event
-//            tableView.reloadData()                                          // reload eventTV
-//        }
-//    }
+    // Delete Event object at specified row
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {                                        // if editingStyle is Delete
+            let event = (eventsToBeDisplayed?[indexPath.row])! as Event     // get Event object at row index from eventsToBeDisplayed
+            eventsDataSource.deleteEvent(event)                             // delete event
+            tableView.reloadData()                                          // reload eventTV
+            // TODO: modify eventsToBeDisplayed
+        }
+    }
     
     // MARK: UITableViewDelegate
     // Set selectedEvent when a TVC is selected
