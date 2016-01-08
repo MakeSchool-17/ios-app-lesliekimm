@@ -8,6 +8,7 @@
 
 // SOURCES: 1) Import contacts using Contacts framework
 //             http://www.appcoda.com/ios-contacts-framework/
+//          2) AppIcon: https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-512.png
 
 import UIKit
 import Contacts
