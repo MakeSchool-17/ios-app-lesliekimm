@@ -133,8 +133,18 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         if editingStyle == .Delete {                                        // if editingStyle is Delete
             let event = (eventsToBeDisplayed?[indexPath.row])! as Event     // get Event object at row index from eventsToBeDisplayed
             eventsDataSource.deleteEvent(event)                             // delete event
-            tableView.reloadData()                                          // reload eventTV
-            // TODO: modify eventsToBeDisplayed
+            
+            eventsToBeDisplayed = [Event]()                                 // initialize array
+            let currentTime = NSDate()                                      // get current time
+            
+            // For each event in eventsDS, compare to current time and if event has not passed, append into
+            // the array so table view gets populated from most recent event to latest
+            for event in eventsDataSource.events! {
+                if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
+                    eventsToBeDisplayed?.append(event)                       // append to end of array
+                }
+            }
+            upcomingTableView.reloadData()                                   // reload upcomingTV data
         }
     }
     
