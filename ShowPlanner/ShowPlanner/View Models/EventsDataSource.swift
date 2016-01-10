@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class EventsDataSource: NSObject {
-    static var sharedEventsDatsSource = EventsDataSource()                      // use static var to create singleton
+    static var sharedEventsDataSource = EventsDataSource()                      // use static var to create singleton
     var events: Results<Event>!                                                 // declare events var
     
     // Access Realm and sort events by date and time
