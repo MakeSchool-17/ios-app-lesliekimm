@@ -10,6 +10,8 @@
 //             http://www.appcoda.com/ios-contacts-framework/
 //          2) AppIcon: https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-512.png
 //          3) Nav Bar appearance: https://coderwall.com/p/dyqrfa/customize-navigation-bar-appearance-with-swift
+//          4) TableView apperanace: http://stackoverflow.com/questions/1408126/changing-border-color-in-iphone-uitableview-cells-non-grouped
+//          5) Hex colors: http://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
 
 import UIKit
 import Contacts
@@ -30,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
         tabBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        
+        let tableViewAppearance = UITableView.appearance()
+        tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 
