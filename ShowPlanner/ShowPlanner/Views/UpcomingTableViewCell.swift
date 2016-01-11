@@ -49,20 +49,25 @@ class UpcomingTableViewCell: UITableViewCell {
                 
                 confirmationImage.image = UIImage(named: "")
                 
-                locationLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-                lineupLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-                dateLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-                timeLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                
                 
                 // If all lineup is confirmed, set confirmationImage to green check
                 if event.confirmed {
 //                    confirmationImage.image = UIImage(named: "green check")
                     eventNameLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                    locationLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                    lineupLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                    dateLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                    timeLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
                 }
                 // Otherwise, set confirmationImage to red x
                 else {
 //                    confirmationImage.image = UIImage(named: "red x")
                     eventNameLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
+                    locationLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
+                    lineupLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
+                    dateLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
+                    timeLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
                 }
             }
         }

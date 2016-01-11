@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tableViewAppearance = UITableView.appearance()
         tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        
+        let labelAppearance = UILabel.appearance()
+        labelAppearance.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 
