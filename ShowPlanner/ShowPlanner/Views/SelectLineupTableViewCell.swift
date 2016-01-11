@@ -16,6 +16,7 @@ class SelectLineupTableViewCell: UITableViewCell {
         didSet {
             if let contact = contact {
                 selectLineupNameLabel.text = contact.name           // set lineupNameLabel text
+                selectLineupNameLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
             }
         }
     }

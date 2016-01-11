@@ -66,6 +66,13 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)                                      // add tap gesture to view
         tap.delegate = self                                                 // declare tap delegate
+        
+        eventNameTextField.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        locationTextField.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        datePicker.setValue(UIColor(red: 0x25, green: 0x3b, blue: 0x4b), forKeyPath: "textColor")
+        selectLineupButton.setTitleColor(UIColor(red: 0x00, green: 0xa3, blue: 0x88), forState: UIControlState.Normal)
+        selectLineupButton.setTitleColor(UIColor(red: 0x25, green: 0x3b, blue: 0x4b), forState: UIControlState.Highlighted)
+        trashButton.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
     }
     
     // Set the view every time it appears
@@ -109,6 +116,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             eventNameTextField.text = event.name                            // set eventNameTextField text to event name
             locationTextField.text = event.location                         // set locationTextField text to event location
             datePicker.date = event.dateTime                                // set datePicker date to event dateTime
+            datePicker.minuteInterval = 15
             
             // If lineupTV is empty, show "Select Lineup" on button, otherwise show "Edit Lineup"
             if event.lineupList.count > 0 {

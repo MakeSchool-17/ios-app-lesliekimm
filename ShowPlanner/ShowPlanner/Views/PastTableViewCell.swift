@@ -37,6 +37,11 @@ class PastTableViewCell: UITableViewCell {
                 // Set dateLabel and timeLabel to event date and time formatted using declared styles
                 dateLabel.text = PastTableViewCell.dateFormatter.stringFromDate(event.dateTime)
                 timeLabel.text = PastTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+                
+                eventNameLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                locationLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                dateLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+                timeLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
             }
         }
     }

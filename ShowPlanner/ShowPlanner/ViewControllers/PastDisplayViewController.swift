@@ -54,6 +54,10 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
         
         navItem.title = event!.name                                 // use event's name as title
         displayEvent(event)                                         // display event
+        nameTextView.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        locationTextView.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        dateTimeTextView.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        lineupTextView.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -111,7 +115,8 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             // If event has notes, otherwise display "Add Notes" in gray to indicate placeholder
             if event.notes != "" {
                 notesTextView.text = event.notes                    // set notesTextView text to event's notes
-                notesTextView.textColor = UIColor.blackColor()      // set text color to black
+//                notesTextView.textColor = UIColor.blackColor()      // set text color to black
+                notesTextView.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
             }
             else {
                 notesTextView.text = "Add Notes"                    // set notesTextView text to "Add Notes"
