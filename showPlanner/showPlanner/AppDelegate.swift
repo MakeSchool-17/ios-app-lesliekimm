@@ -9,6 +9,7 @@
 // SOURCES: 1) Import contacts using Contacts framework
 //             http://www.appcoda.com/ios-contacts-framework/
 //          2) AppIcon: https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-512.png
+//          3) Nav Bar appearance: https://coderwall.com/p/dyqrfa/customize-navigation-bar-appearance-with-swift
 
 import UIKit
 import Contacts
@@ -20,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
+        navigationBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
+        tabBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 
@@ -91,5 +101,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:
             completionHandler(accessGranted: false)
         }
+    }
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 }
