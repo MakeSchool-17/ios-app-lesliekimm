@@ -83,6 +83,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     // yet to happened
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = false                        // unhide tab bar controller
         
         eventsToBeDisplayed = [Event]()                                     // initialize array
         let currentTime = NSDate()                                          // get current time

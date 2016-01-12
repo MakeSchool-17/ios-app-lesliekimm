@@ -22,12 +22,6 @@ class AddEventViewController: UIViewController {
         eventDisplay = self.childViewControllers[0] as? EventDisplayViewController
     }
     
-    // Set the view every time it disappears
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false                        // unhide tab bar controller when leaving this VC
-    }
-    
     // MARK: - Navigation
     // Set contact to respective Event object depending on segue being performed
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -12,7 +12,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var selectLineupTableView: UITableView!
     var contactsDataSource = ContactsDataSource()                       // grab contactsDS
     var selectedContact: Contact?                                       // grab reference to selected contact from selectLineupTV
-    var lineupNS: LineupNS?                                                 // optional lineup var to convert selectedContact to Lineup object
+    var lineupNS: LineupNS?                                             // optional lineup var to convert selectedContact to Lineup object
     var event: Event?
 
     // Set the view when loaded for the first time
@@ -30,12 +30,6 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         self.tabBarController?.tabBar.hidden = true                     // hide tab bar controller in this VC
         
         selectLineupTableView.reloadData()                              // reload data
-    }
-    
-    // Set the view everytime it disappears
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false                    // unhide tab bar controller when leaving this VC
     }
     
     // MARK: Navigation

@@ -82,12 +82,6 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         }
     }
     
-    // Set the view everytime it disappears
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false                        // unhide tab bar controller when leaving this VC
-    }
-    
     // MARK: Custom functions
     // View will resign first responder status
     func dismissKeyboard() {
