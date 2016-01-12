@@ -14,6 +14,7 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var eventsDataSource = EventsDataSource()                           // reference to EventsDataSource
     var selectedEvent: Event?                                           // selected event
     var eventsToBeDisplayed: [Event]?                                   // array of events to display on PastVC
+    var refreshControl: UIRefreshControl!                               // refresh control var
     
     // Depending on segue identifier, perform an action
     @IBAction func backToPastVC(segue: UIStoryboardSegue) {
@@ -55,6 +56,10 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pastTableView.dataSource = self                                 // declare dataSource for pastTV
         pastTableView.delegate = self                                   // declare delegate for pastTV
         pastTableView.reloadData()                                      // reload data
+        
+        self.refreshControl = UIRefreshControl()                        // initialize refresh control
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.pastTableView.addSubview(refreshControl)
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -73,6 +78,22 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         pastTableView.reloadData()                                      // reload pastTV data
+    }
+    
+    // Refresh when user pulls down
+    func refresh(sender: AnyObject) {
+        eventsToBeDisplayed = [Event]()                                 // initialize array
+        let currentTime = NSDate()                                      // get current time
+        
+        // For each event in eventsDS, compare to current time and if event has not passed, append into
+        // the array so table view gets populated from most recent event to latest
+        for event in eventsDataSource.events! {
+            if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
+                eventsToBeDisplayed?.insert(event, atIndex: 0)          // append to end of array
+            }
+        }
+        pastTableView.reloadData()                                      // reload pastTv data
+        self.refreshControl.endRefreshing()
     }
     
     // MARK: Navigation
@@ -101,6 +122,27 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsToBeDisplayed?.count ?? 0                          // return total number of events in eventsToBeDisplayed or 0 if empty
     }
+    
+//    // Delete Event object at specified row
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {                                    // if editingStyle is Delete
+//            let event = (eventsToBeDisplayed?[indexPath.row])! as Event // get Event object at row index from eventsToBeDisplayed
+//            eventsDataSource.deleteEvent(event)                         // delete event
+//            
+//            // Update eventsToBeDisplayed array
+//            eventsToBeDisplayed = [Event]()                             // initialize array
+//            let currentTime = NSDate()                                  // get current time
+//            
+//            // For each event in eventsDS, compare to current time and if event has not passed, append into
+//            // the array so table view gets populated from most recent event to latest
+//            for event in eventsDataSource.events! {
+//                if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedAscending {
+//                    eventsToBeDisplayed?.insert(event, atIndex: 0)      // insert at beginning of array
+//                }
+//            }
+//            pastTableView.reloadData()                                  // reload pastTV data
+//        }
+//    }
     
     // MARK: UITableViewDelegate
     // Set selectedEvent when a TVC is selected

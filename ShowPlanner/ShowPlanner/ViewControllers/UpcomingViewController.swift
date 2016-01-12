@@ -6,6 +6,8 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+// SOURCES: 1) pull to refresh: http://stackoverflow.com/questions/24475792/how-to-use-pull-to-refresh-in-swift
+
 import UIKit
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -13,6 +15,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     var eventsDataSource = EventsDataSource()                               // reference to EventsDataSource
     var selectedEvent: Event?                                               // selected event
     var eventsToBeDisplayed: [Event]?                                       // array of events to display on upcomingTV
+    var refreshControl: UIRefreshControl!                                   // refresh control var
     
     // Depending on segue identifier, perform an action
     @IBAction func backToUpcomingVC(segue: UIStoryboardSegue) {
@@ -70,6 +73,10 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         upcomingTableView.dataSource = self                                 // declare dataSource for upcomingTV
         upcomingTableView.delegate = self                                   // declare delegate for upcomingTV
         upcomingTableView.reloadData()                                      // reload upcomingTV data
+        
+        self.refreshControl = UIRefreshControl()                            // initialize refresh control
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.upcomingTableView.addSubview(refreshControl)
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -110,6 +117,22 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
             // Set the editedLineupArray in eventViewController to selectedEventEditedLineupArray
             eventViewController.editedLineupArray = selectedEventEditedLineupArray
         }
+    }
+    
+    // Refresh when user pulls down
+    func refresh(sender: AnyObject) {
+        eventsToBeDisplayed = [Event]()                                 // initialize array
+        let currentTime = NSDate()                                      // get current time
+        
+        // For each event in eventsDS, compare to current time and if event has not passed, append into
+        // the array so table view gets populated from most recent event to latest
+        for event in eventsDataSource.events! {
+            if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
+                eventsToBeDisplayed?.append(event)                      // append to end of array
+            }
+        }
+        upcomingTableView.reloadData()                                  // reload upcomingTV data
+        self.refreshControl.endRefreshing()
     }
     
     // MARK: UITableViewDataSource
