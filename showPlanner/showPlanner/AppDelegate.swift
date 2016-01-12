@@ -9,6 +9,9 @@
 // SOURCES: 1) Import contacts using Contacts framework
 //             http://www.appcoda.com/ios-contacts-framework/
 //          2) AppIcon: https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-512.png
+//          3) Nav Bar appearance: https://coderwall.com/p/dyqrfa/customize-navigation-bar-appearance-with-swift
+//          4) TableView apperanace: http://stackoverflow.com/questions/1408126/changing-border-color-in-iphone-uitableview-cells-non-grouped
+//          5) Hex colors: http://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
 
 import UIKit
 import Contacts
@@ -19,7 +22,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var contactStore = CNContactStore()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Make navigation bar background app icon blue with white text and bar items
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.whiteColor()
+        navigationBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        // Make tab bar white bar background white with selected icons highlighted in app icon green
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.barTintColor = UIColor.whiteColor()
+        tabBarAppearance.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
+        
+        // Make table view separators app icon blue
+        let tableViewAppearance = UITableView.appearance()
+        tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        
+        // Make dfault label color app icon blue
+        let labelAppearance = UILabel.appearance()
+        labelAppearance.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 
@@ -91,5 +111,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:
             completionHandler(accessGranted: false)
         }
+    }
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 }
