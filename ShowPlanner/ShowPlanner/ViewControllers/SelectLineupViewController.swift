@@ -13,6 +13,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     var contactsDataSource = ContactsDataSource()                       // grab contactsDS
     var selectedContact: Contact?                                       // grab reference to selected contact from selectLineupTV
     var lineupNS: LineupNS?                                             // optional lineup var to convert selectedContact to Lineup object
+    var lineupNSArray: [LineupNS]?
     var event: Event?
 
     // Set the view when loaded for the first time
@@ -22,6 +23,8 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         selectLineupTableView.dataSource = self                         // declare dataSource for selectLineupTV
         selectLineupTableView.delegate = self                           // declare delegate for selectLineupTV
         selectLineupTableView.reloadData()                              // reload data
+        
+        lineupNSArray = [LineupNS]()
     }
     
     // Set the view every time it appears
@@ -39,7 +42,8 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         if (segue.identifier == "saveLineup") {
             // Grab a reference to ContactDisplayVC
             let eventDisplayViewController = segue.destinationViewController as! EventDisplayViewController
-            eventDisplayViewController.lineupNSToAdd = lineupNS                  // set lineup in EventDisplayVC to lineup
+//            eventDisplayViewController.lineupNSToAdd = lineupNS         // set lineup in EventDisplayVC to lineup
+            eventDisplayViewController.lineupNSToAddArray = lineupNSArray
         }
     }
     
@@ -64,8 +68,11 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedContact = contactsDataSource.contacts[indexPath.row]    // set selectedContact to Contact object from contactsDS at row index
         
-        lineupNS = LineupNS()                                               // initialize Lineup object
-        lineupNS!.name = (selectedContact?.name)!                         // set lineup name prop
-        self.performSegueWithIdentifier("saveLineup", sender: self)     // perform saveLineup segue
+        lineupNS = LineupNS()                                           // initialize Lineup object
+        lineupNS!.name = (selectedContact?.name)!                       // set lineup name prop
+        
+        lineupNSArray?.append(lineupNS!)
+        
+//        self.performSegueWithIdentifier("saveLineup", sender: self)     // perform saveLineup segue
     }
 }

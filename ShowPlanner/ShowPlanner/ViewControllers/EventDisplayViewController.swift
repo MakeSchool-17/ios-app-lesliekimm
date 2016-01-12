@@ -32,6 +32,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     }
     var selectedLineupNS: LineupNS?                                         // optional Lineup var used to change whether lineup is confirmed or not
     var lineupNSToAdd: LineupNS?                                            // optional Lineup var used to add Lineup objects to event LineupList
+    var lineupNSToAddArray: [LineupNS]?
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
     var editedLineupArray: Array<LineupNS>?                                 // optional Lineup Array var
     let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)             // app icon blue color var
@@ -44,8 +45,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-                if lineupNSToAdd != nil {                                   // save if lineupToAdd is not nil
-                    editedLineupArray!.append(lineupNSToAdd!)               // add lineupToAdd to event lineupList
+                if lineupNSToAddArray != nil {                                   // save if lineupToAdd is not nil
+                    for lineupNS in lineupNSToAddArray! {
+                        editedLineupArray!.append(lineupNS)               // add lineupToAdd to event lineupList
+                    }
                 }
                 source.lineupNS = nil                                       // set lineup in SelectLineupVC to nil
             default:
