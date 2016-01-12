@@ -6,6 +6,8 @@
 //  Copyright © 2015 Leslie Kim. All rights reserved.
 //
 
+// SOURCES: 1) date picker color: http://stackoverflow.com/questions/29220535/changing-text-color-of-datepicker
+
 import UIKit
 import RealmSwift
 
@@ -94,6 +96,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         eventNameTextField.delegate = self                                  // set event name textfield delegate to self
         locationTextField.returnKeyType = .Done                             // change Return to Next
         locationTextField.delegate = self                                   // set location textfield delegate to self
+        datePicker.setValue(blueColor, forKeyPath: "textColor")
     }
     
     func setColors() {
