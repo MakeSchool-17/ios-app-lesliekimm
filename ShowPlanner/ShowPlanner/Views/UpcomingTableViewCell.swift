@@ -16,8 +16,8 @@ class UpcomingTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!                              // code connection for time label
     @IBOutlet weak var confirmationImage: UIImageView!                  // code connection for confirmation image
     
-    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-    let redColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
+    let redColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)          // app icon red color var
     
     // Format appearance of dateLabel
     static var dateFormatter: NSDateFormatter = {
