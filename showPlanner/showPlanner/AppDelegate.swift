@@ -20,6 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.tintColor = UIColor.whiteColor()
+        navigationBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.barTintColor = UIColor.whiteColor()
+        tabBarAppearance.tintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        tabBarAppearance.layer.borderWidth = 0.50
+        tabBarAppearance.layer.borderColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b).CGColor
+        
+        let tableViewAppearance = UITableView.appearance()
+        tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        
+        let labelAppearance = UILabel.appearance()
+        labelAppearance.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 
