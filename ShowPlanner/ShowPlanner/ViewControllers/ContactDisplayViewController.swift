@@ -18,6 +18,11 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cellTextField: UITextField!              // code connection for cell textfield
     @IBOutlet weak var trashButton: UIBarButtonItem!            // code connection for trash button
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var cellLabel: UILabel!
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
+    let greenColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)         // app icon blue color var
     var contact: Contact? {                                     // optional Contact var
         didSet {
             displayContact(contact)                             // display contact everytime changes are made
@@ -49,6 +54,12 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
         if addNew {                                             // if adding new Contact
             trashButton.enabled = false                         // disable trash button
         }
+        
+        nameLabel.textColor = blueColor
+        emailLabel.textColor = blueColor
+        cellLabel.textColor = blueColor
+        
+        trashButton.tintColor = greenColor
     }
     
     // Set the view everytime it disappears
@@ -81,6 +92,16 @@ class ContactDisplayViewController: UIViewController, UITextFieldDelegate {
             // If there is no text displayed, set nameTextField to first responder
             if contact.name.characters.count == 0 && contact.email.characters.count == 0 && contact.cell.characters.count == 0 {
                 nameTextField.becomeFirstResponder()            // set nameTextField to first responder
+            }
+            
+            if contact.name != "" {
+                nameTextField.textColor = blueColor
+            }
+            if contact.email != "" {
+                emailTextField.textColor = blueColor
+            }
+            if contact.cell != "" {
+                cellTextField.textColor = blueColor
             }
         }
     }

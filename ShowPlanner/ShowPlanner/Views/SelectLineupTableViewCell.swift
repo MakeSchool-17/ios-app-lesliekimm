@@ -11,11 +11,14 @@ import UIKit
 class SelectLineupTableViewCell: UITableViewCell {
     @IBOutlet weak var selectLineupNameLabel: UILabel!              // code connection for contact name label
 
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
+    
     // Create contact var and use didSet method to keep contact updated upon changes
     var contact: Contact? {
         didSet {
             if let contact = contact {
                 selectLineupNameLabel.text = contact.name           // set lineupNameLabel text
+                selectLineupNameLabel.textColor = blueColor
             }
         }
     }

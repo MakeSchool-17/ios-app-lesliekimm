@@ -15,6 +15,15 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var dateTimeTextView: UITextView!                // code connection for date and time textview
     @IBOutlet weak var lineupTextView: UITextView!                  // code connection for lineup textview
     @IBOutlet weak var notesTextView: UITextView!                   // code connection for notes textview
+    
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var lineupLabel: UILabel!
+    @IBOutlet weak var notesLabel: UILabel!
+    
+    
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
 
     // Format appearance of dateLabel
     static var dateFormatter: NSDateFormatter = {
@@ -53,6 +62,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
         self.tabBarController?.tabBar.hidden = true                 // hide tab bar controller in this VC
         
         navItem.title = event!.name                                 // use event's name as title
+        setColors()
         displayEvent(event)                                         // display event
     }
 
@@ -75,6 +85,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             // If event has name, otherwise display "Event Name" in gray to indicate placeholder
             if event.name != "" {
                 nameTextView.text = event.name                      // set nameTextView text to event name
+                nameTextView.textColor = blueColor
             }
             else {
                 nameTextView.text = "Event Name"                    // set nameTextView text to "Event Name"
@@ -84,6 +95,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             // If event has location, otherwise display "Location" in gray to indicate placeholder
             if event.location != "" {
                 locationTextView.text = event.location              // set locationTextView text to event location
+                locationTextView.textColor = blueColor
             }
             else {
                 locationTextView.text = "Location"                   // set locationTextView text to "Location"
@@ -94,6 +106,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             let date = PastDisplayViewController.dateFormatter.stringFromDate(event.dateTime)
             let time = PastDisplayViewController.timeFormatter.stringFromDate(event.dateTime)
             dateTimeTextView.text = date + " " + time               // set dateTimeTextView text to event date and time
+            dateTimeTextView.textColor = blueColor
             
             // If event has lineup, otherwise display "Lineup" in gray to indicate placeholder
             if event.lineupList.count > 0 {
@@ -102,6 +115,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
                     lineupString = lineupString + lineup.name + " " // add lineup name to lineupString
                 }
                 lineupTextView.text = lineupString                  // set lineupTextView text to lineupString
+                lineupTextView.textColor = blueColor
             }
             else {
                 lineupTextView.text = "Lineup"                      // set lineupTextView text to "Lineup"
@@ -111,7 +125,7 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
             // If event has notes, otherwise display "Add Notes" in gray to indicate placeholder
             if event.notes != "" {
                 notesTextView.text = event.notes                    // set notesTextView text to event's notes
-                notesTextView.textColor = UIColor.blackColor()      // set text color to black
+                notesTextView.textColor = blueColor                 // set text color to app icon blue
             }
             else {
                 notesTextView.text = "Add Notes"                    // set notesTextView text to "Add Notes"
@@ -120,13 +134,21 @@ class PastDisplayViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func setColors() {
+        eventNameLabel.textColor = blueColor
+        locationLabel.textColor = blueColor
+        dateTimeLabel.textColor = blueColor
+        lineupLabel.textColor = blueColor
+        notesLabel.textColor = blueColor
+    }
+    
     // MARK: UITextViewDelegate
-    // Set text color to black when editing notesTextView text and remove placeholder text
+    // Set text color to app icon blue when editing notesTextView text and remove placeholder text
     func textViewDidBeginEditing(textView: UITextView) {
         // If notesTextView text color is gray, it is placeholder text
         if textView.textColor == UIColor.lightGrayColor() {
             textView.text = nil                                     // set notesTextView text to nil
-            textView.textColor = UIColor.blackColor()               // set text color to black
+            textView.textColor = blueColor                          // set text color to app icon blue
         }
     }
     

@@ -57,15 +57,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Nc-FdS">
-                                <rect key="frame" x="15" y="325" width="45" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="9Le-0M-ozp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFZ-Dv-yIc">
                                 <rect key="frame" x="70" y="264" width="515" height="40"/>
                                 <constraints>
@@ -96,6 +87,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Nc-FdS">
+                                <rect key="frame" x="15" y="325" width="45" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="9Le-0M-ozp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -130,9 +130,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="a0O-cS-wfW"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cellLabel" destination="G1t-Nc-FdS" id="PPv-Ey-dcP"/>
                         <outlet property="cellTextField" destination="vEX-vY-3Wi" id="wfm-gY-ggn"/>
                         <outlet property="changesSavedLabel" destination="10m-Tp-2Hr" id="7vd-sC-RWN"/>
+                        <outlet property="emailLabel" destination="0Xb-Cp-6Zx" id="XQI-QP-Mee"/>
                         <outlet property="emailTextField" destination="LFZ-Dv-yIc" id="AQ5-kC-AgA"/>
+                        <outlet property="nameLabel" destination="evg-FQ-b7f" id="bOU-hI-kaS"/>
                         <outlet property="nameTextField" destination="wgD-Nj-iAT" id="PlL-FX-n5f"/>
                     </connections>
                 </viewController>
@@ -380,11 +383,16 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateTimeLabel" destination="vxc-uZ-YAS" id="ckZ-Kb-5Pj"/>
                         <outlet property="dateTimeTextView" destination="vl7-Lc-yJk" id="ot0-eI-LIj"/>
+                        <outlet property="eventNameLabel" destination="dKT-pg-axg" id="D5u-ok-AbI"/>
+                        <outlet property="lineupLabel" destination="nXe-nH-Ra8" id="qek-QB-HNc"/>
                         <outlet property="lineupTextView" destination="j9z-xi-17m" id="h4U-Xi-gfR"/>
+                        <outlet property="locationLabel" destination="oBy-Ub-Hyi" id="AI7-aH-jNa"/>
                         <outlet property="locationTextView" destination="Ixc-NT-OeD" id="F2E-Hp-Ibx"/>
                         <outlet property="nameTextView" destination="2lq-cn-jbe" id="P3i-1J-hAm"/>
                         <outlet property="navItem" destination="Rig-Ql-RIL" id="Tqq-lt-PSp"/>
+                        <outlet property="notesLabel" destination="QgK-kH-gLd" id="KQo-Cx-4ad"/>
                         <outlet property="notesTextView" destination="epb-3b-FbS" id="oG6-o3-4fF"/>
                     </connections>
                 </viewController>
@@ -669,8 +677,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cellLabel" destination="IJi-sD-oF1" id="DZ2-dK-MS5"/>
                         <outlet property="cellTextField" destination="Xh6-ad-hHl" id="ORC-tK-k9x"/>
+                        <outlet property="emailLabel" destination="sKv-44-AfE" id="19E-Yi-d4V"/>
                         <outlet property="emailTextField" destination="w4X-Kk-RcU" id="863-1V-hJb"/>
+                        <outlet property="nameLabel" destination="hNx-dv-3yi" id="KZz-BJ-RaA"/>
                         <outlet property="nameTextField" destination="966-wF-OSV" id="AUx-m0-TbO"/>
                         <outlet property="navItem" destination="3a6-S5-bSZ" id="exU-00-31K"/>
                         <outlet property="trashButton" destination="8sU-8g-UzE" id="1qu-Q7-xoM"/>
@@ -848,8 +859,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="lbf-0F-vdu" id="NzQ-TX-EHj"/>
+                        <outlet property="eventNameLabel" destination="SH5-uW-Ref" id="eae-PZ-phy"/>
                         <outlet property="eventNameTextField" destination="iNa-sb-tEd" id="ouZ-R7-k14"/>
+                        <outlet property="lineupLabel" destination="6E2-aA-sD6" id="8Bk-Hy-T7u"/>
                         <outlet property="lineupTableView" destination="zJt-tJ-7iu" id="Ifp-Li-V3w"/>
+                        <outlet property="locationLabel" destination="Hxo-aZ-3QP" id="hpG-ZF-csy"/>
                         <outlet property="locationTextField" destination="g7I-wn-0gK" id="qdQ-fp-xEB"/>
                         <outlet property="navItem" destination="KWh-pf-cal" id="vWq-va-zgP"/>
                         <outlet property="selectLineupButton" destination="DoM-hS-6qv" id="Uuq-ax-dRl"/>

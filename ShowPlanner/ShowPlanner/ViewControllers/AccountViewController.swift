@@ -16,7 +16,15 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!                      // code connection to name textfield
     @IBOutlet weak var emailTextField: UITextField!                     // code connection to email textfield
     @IBOutlet weak var cellTextField: UITextField!                      // code connection to cell textfield
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var changesSavedLabel: UILabel!                      // code connection to changes saved label
+    
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
+    let greenColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
+    
     var userAccount: Account?                                           // declare userAccount var
     
     // Save account info
@@ -39,6 +47,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         }
         dismissKeyboard()                                               // dismiss keyboard when save button hit
         changesSavedLabel.text = "Changes Saved!"                       // set changesSaved label to indicate save has completed
+        changesSavedLabel.textColor = greenColor
     }
 
     // Set the view when loaded for the first time
@@ -75,6 +84,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         catch {
             print("Error in viewWillAppear")                            // print error message
         }
+        
+        nameLabel.textColor = blueColor
+        emailLabel.textColor = blueColor
+        cellLabel.textColor = blueColor
     }
     
     // MARK: Custom functions
@@ -107,6 +120,16 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             // If there is no text displayed, set nameTextField to first responder
             if account.name.characters.count == 0 && account.email.characters.count == 0 && account.cell.characters.count == 0 {
                 nameTextField.becomeFirstResponder()                    // set nameTextField to first responder
+            }
+            
+            if account.name != "" {
+                nameTextField.textColor = blueColor
+            }
+            if account.email != "" {
+                emailTextField.textColor = blueColor
+            }
+            if account.cell != "" {
+                cellTextField.textColor = blueColor
             }
         }
     }

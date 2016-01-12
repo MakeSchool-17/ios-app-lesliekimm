@@ -18,16 +18,23 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     @IBOutlet weak var lineupTableView: UITableView!                        // code connection for lineupTV
     @IBOutlet weak var trashButton: UIBarButtonItem!                        // code connection for trash button
     
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var lineupLabel: UILabel!
+    
     var eventsDataSource = EventsDataSource()
     var event: Event? {                                                     // optional Event var
         didSet {
             displayEvent(event)                                             // display event everytime changes are made
         }
     }
-    var selectedLineupNS: LineupNS?                                           // optional Lineup var used to change whether lineup is confirmed or not
-    var lineupNSToAdd: LineupNS?                                              // optional Lineup var used to add Lineup objects to event LineupList
+    var selectedLineupNS: LineupNS?                                         // optional Lineup var used to change whether lineup is confirmed or not
+    var lineupNSToAdd: LineupNS?                                            // optional Lineup var used to add Lineup objects to event LineupList
     var addNew: Bool = false                                                // Bool to indicate if we are adding new Event or not
     var editedLineupArray: Array<LineupNS>?                                 // optional Lineup Array var
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)             // app icon blue color var
+    let redColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)              // app icon red color var
+    let greenColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)            // app icon green color var
     
     // Depending on segue identifier, perform an action
     @IBAction func backToEventDisplayVC(segue: UIStoryboardSegue) {
@@ -35,10 +42,10 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             switch identifier {
             case "saveLineup":                                              // if saveLineup segue
                 let source = segue.sourceViewController as! SelectLineupViewController
-                if lineupNSToAdd != nil {                                     // save if lineupToAdd is not nil
-                    editedLineupArray!.append(lineupNSToAdd!)                 // add lineupToAdd to event lineupList
+                if lineupNSToAdd != nil {                                   // save if lineupToAdd is not nil
+                    editedLineupArray!.append(lineupNSToAdd!)               // add lineupToAdd to event lineupList
                 }
-                source.lineupNS = nil                                         // set lineup in SelectLineupVC to nil
+                source.lineupNS = nil                                       // set lineup in SelectLineupVC to nil
             default:
                 print("No one loves \(identifier)")                         // print log message
             }
@@ -54,14 +61,6 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         lineupTableView.delegate = self                                     // declare delegate for lineupTV
         lineupTableView.reloadData()                                        // reload data
         
-        if addNew {
-            for lineup in event!.lineupList {
-                let lineupNS = LineupNS()
-                lineupNS.name = lineup.name
-                editedLineupArray!.append(lineupNS)
-            }
-        }
-        
         // Initialize UITapGestureRecognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)                                      // add tap gesture to view
@@ -75,6 +74,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         
         navItem.title = event!.name                                         // use event name as title
         setUpTextFieldDelegates()                                           // set up textfield delegates
+        setColors()
         displayEvent(event)                                                 // display event
         
         if addNew {                                                         // if adding new Contact
@@ -96,6 +96,14 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         locationTextField.delegate = self                                   // set location textfield delegate to self
     }
     
+    func setColors() {
+        eventNameLabel.textColor = blueColor
+        locationLabel.textColor = blueColor
+        lineupLabel.textColor = blueColor
+        selectLineupButton.tintColor = greenColor
+        trashButton.tintColor = greenColor
+    }
+    
     // Display event info for optional Event object
     func displayEvent(event: Event?) {
         // TODO: edit selectLineupButton, lineupTableView
@@ -110,6 +118,13 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
             }
             else {
                 selectLineupButton.setTitle("Select Lineup", forState: .Normal)
+            }
+            
+            if event.name != "" {
+                eventNameTextField.textColor = blueColor
+            }
+            if event.location != "" {
+                locationTextField.textColor = blueColor
             }
         }
     }
@@ -137,8 +152,6 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
 //                editedEvent!.lineupList = event!.lineupList
 //                eventViewController.event = editedEvent                               // set event in EventDisplayVC to selectedEvent
             }
-            
-            
         }
     }
     
@@ -160,9 +173,9 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     // Set Lineup object to be displayed in each lineupTVC
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get a reusable TVC object for LineupCell and add to lineupTV
-        let cell = tableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
+        let cell = lineupTableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
         let row = indexPath.row                                             // get row
-        let lineup = editedLineupArray![row] as LineupNS                      // get Lineup object from editedLineupArray at row index
+        let lineup = editedLineupArray![row] as LineupNS                    // get Lineup object from editedLineupArray at row index
         cell.lineup = lineup                                                // set lineup prop for cell to lineup
         return cell                                                         // return cell
     }
@@ -176,7 +189,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {                                        // if editingStyle is Delete
             editedLineupArray!.removeAtIndex(indexPath.row)                 // delete lineup
-            tableView.reloadData()                                          // reload lineupTV
+            lineupTableView.reloadData()                                          // reload lineupTV
         }
     }
     
@@ -184,15 +197,15 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     // Get selectedLineup when a TVC is selected and edit confirmed prop
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let row = indexPath.row
-        selectedLineupNS = editedLineupArray![row]                 // set selectedLineup to Lineup at row index from editedLineupArray
+        selectedLineupNS = editedLineupArray![row]                          // set selectedLineup to Lineup at row index from editedLineupArray
         
-        if selectedLineupNS!.confirmed {                                      // if selectedLineup is confirmed
-            editedLineupArray![row].confirmed = false             // set confirmed prop to false
+        if selectedLineupNS!.confirmed {                                    // if selectedLineup is confirmed
+            editedLineupArray![row].confirmed = false                       // set confirmed prop to false
         }
         else {                                                              // if selectedLineup is not confirmed
             editedLineupArray![row].confirmed = true
         }
-        tableView.reloadData()
+        lineupTableView.reloadData()                                        // reload lineup TV
     }
     
     // MARK: UIGestureRecognizerDelegate

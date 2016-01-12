@@ -36,10 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make table view separators app icon blue
         let tableViewAppearance = UITableView.appearance()
         tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-        
-        // Make dfault label color app icon blue
-        let labelAppearance = UILabel.appearance()
-        labelAppearance.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
     }
 

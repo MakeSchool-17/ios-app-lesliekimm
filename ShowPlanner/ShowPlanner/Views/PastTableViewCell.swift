@@ -14,6 +14,8 @@ class PastTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!                  // code connection for date label
     @IBOutlet weak var timeLabel: UILabel!                  // code connection for time label
     
+    let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
+    
     // Format appearance of dateLabel
     static var dateFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()                   // declare NSDateFormatter object
@@ -37,6 +39,11 @@ class PastTableViewCell: UITableViewCell {
                 // Set dateLabel and timeLabel to event date and time formatted using declared styles
                 dateLabel.text = PastTableViewCell.dateFormatter.stringFromDate(event.dateTime)
                 timeLabel.text = PastTableViewCell.timeFormatter.stringFromDate(event.dateTime)
+                
+                eventNameLabel.textColor = blueColor
+                locationLabel.textColor = blueColor
+                dateLabel.textColor = blueColor
+                timeLabel.textColor = blueColor
             }
         }
     }
