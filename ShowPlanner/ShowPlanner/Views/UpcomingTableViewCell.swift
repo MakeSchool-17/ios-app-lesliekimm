@@ -49,8 +49,6 @@ class UpcomingTableViewCell: UITableViewCell {
                 
                 confirmationImage.image = UIImage(named: "")
                 
-                
-                
                 // If all lineup is confirmed, set confirmationImage to green check
                 if event.confirmed {
 //                    confirmationImage.image = UIImage(named: "green check")

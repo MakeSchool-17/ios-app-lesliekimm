@@ -43,5 +43,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>System San Francisco Display Bold.ttf</string>
+		<string>System San Francisco Display Regular.ttf</string>
+		<string>System San Francisco Display Thin.ttf</string>
+		<string>System San Francisco Display Ultralight.ttf</string>
+	</array>
 </dict>
 </plist>

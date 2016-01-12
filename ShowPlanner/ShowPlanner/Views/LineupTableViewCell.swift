@@ -24,11 +24,11 @@ class LineupTableViewCell: UITableViewCell {
                 
                 // If lineup confirmed, display green check, otherwise, display red x
                 if lineup.confirmed {
-//                    confirmationButton.setImage(UIImage(named: "green check"), forState: .Normal)
+                    confirmationButton.setImage(UIImage(named: "green check"), forState: .Normal)
                     lineupNameLabel.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
                 }
                 else {
-//                    confirmationButton.setImage(UIImage(named: "red x"), forState: .Normal)
+                    confirmationButton.setImage(UIImage(named: "red x"), forState: .Normal)
                     lineupNameLabel.textColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)
                 }
             }
