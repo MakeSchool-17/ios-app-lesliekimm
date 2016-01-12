@@ -22,22 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var contactStore = CNContactStore()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Make navigation bar background app icon blue with white text and bar items
         let navigationBarAppearance = UINavigationBar.appearance()
-        
         navigationBarAppearance.tintColor = UIColor.whiteColor()
         navigationBarAppearance.barTintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        // Make tab bar white bar background white with selected icons highlighted in app icon green
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.barTintColor = UIColor.whiteColor()
-        tabBarAppearance.tintColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
-        tabBarAppearance.layer.borderWidth = 0.50
-        tabBarAppearance.layer.borderColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b).CGColor
+        tabBarAppearance.tintColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
         
+        // Make table view separators app icon blue
         let tableViewAppearance = UITableView.appearance()
         tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         
+        // Make dfault label color app icon blue
         let labelAppearance = UILabel.appearance()
         labelAppearance.textColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
         return true
