@@ -100,6 +100,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         locationTextField.returnKeyType = .Done                             // change Return to Next
         locationTextField.delegate = self                                   // set location textfield delegate to self
         datePicker.setValue(blueColor, forKeyPath: "textColor")
+        datePicker.minuteInterval = 15
     }
     
     func setColors() {
