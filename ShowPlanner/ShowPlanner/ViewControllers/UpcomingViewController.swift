@@ -122,18 +122,18 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Refresh when user pulls down
     func refresh(sender: AnyObject) {
-        eventsToBeDisplayed = [Event]()                                 // initialize array
-        let currentTime = NSDate()                                      // get current time
+        eventsToBeDisplayed = [Event]()                                     // initialize array
+        let currentTime = NSDate()                                          // get current time
         
         // For each event in eventsDS, compare to current time and if event has not passed, append into
         // the array so table view gets populated from most recent event to latest
         for event in eventsDataSource.events! {
             if event.dateTime.compare(currentTime) ==  NSComparisonResult.OrderedDescending {
-                eventsToBeDisplayed?.append(event)                      // append to end of array
+                eventsToBeDisplayed?.append(event)                          // append to end of array
             }
         }
-        upcomingTableView.reloadData()                                  // reload upcomingTV data
-        self.refreshControl.endRefreshing()
+        upcomingTableView.reloadData()                                      // reload upcomingTV data
+        self.refreshControl.endRefreshing()                                 // end refreshing after reloading data
     }
     
     // MARK: UITableViewDataSource

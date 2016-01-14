@@ -11,7 +11,7 @@ import UIKit
 class AddEventViewController: UIViewController {
     var event: Event?                                                       // optional contact var set in prepareForSegue
     var eventDisplay: EventDisplayViewController?                           // optional VC to access ContactDisplayVC
-    var lineupToUse: Array<LineupNS>?
+    var lineupToUse: Array<LineupNS>?                                       // optional LineupNS Array var to hold lineup as non Realm object
     
     // Set the view every time it appears
     override func viewWillAppear(animated: Bool) {
@@ -32,7 +32,7 @@ class AddEventViewController: UIViewController {
             let eventViewController = segue.destinationViewController as! EventDisplayViewController
             eventViewController.event = event                               // set event in EventDisplayVC to initialized event
             eventViewController.addNew = true                               // set addNew in EventDisplayVC to true
-            eventViewController.editedLineupArray = Array<LineupNS>()         // initialize editedLineupArray in EventDisplayVC
+            eventViewController.editedLineupArray = Array<LineupNS>()       // initialize editedLineupArray in EventDisplayVC
         }
         // If performing saveNewEvent, initialize Event object and set props to corresponding textfield inputs
         // from EventDisplayVC
