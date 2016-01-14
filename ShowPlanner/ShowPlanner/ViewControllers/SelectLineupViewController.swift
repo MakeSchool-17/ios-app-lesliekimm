@@ -9,10 +9,10 @@
 import UIKit
 
 class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var selectLineupTableView: UITableView!
+    @IBOutlet weak var selectLineupTableView: UITableView!              // code connection to selectLineupTV
     var contactsDataSource = ContactsDataSource()                       // grab contactsDS
-    var contactsToSelectFrom: [LineupSelection]?
-    var selectedContact: LineupSelection?                                       // grab reference to selected contact from selectLineupTV
+    var contactsToSelectFrom: [LineupSelection]?                        // non Realm Array of contacts to populate selectLineupTV
+    var selectedContact: LineupSelection?                               // grab reference to selected contact from selectLineupTV
     var lineupNS: LineupNS?                                             // optional lineup var to convert selectedContact to Lineup object
     var lineupNSArray: [LineupNS]?
     var event: Event?
@@ -61,6 +61,15 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
             // Grab a reference to ContactDisplayVC
             let eventDisplayViewController = segue.destinationViewController as! EventDisplayViewController
 //            eventDisplayViewController.lineupNSToAdd = lineupNS         // set lineup in EventDisplayVC to lineup
+            
+            for selectedLineup in contactsToSelectFrom! {
+                if selectedLineup.selected {
+                    lineupNS = LineupNS()
+                    lineupNS!.name = selectedLineup.name
+                    lineupNSArray!.append(lineupNS!)
+                }
+            }
+            
             eventDisplayViewController.lineupNSToAddArray = lineupNSArray
         }
     }
@@ -90,10 +99,10 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         }
         else {
             contactsToSelectFrom![indexPath.row].selected = true
-            lineupNS = LineupNS()                                           // initialize Lineup object
-            lineupNS!.name = (selectedContact?.name)!                       // set lineup name prop
-            
-            lineupNSArray?.append(lineupNS!)
+//            lineupNS = LineupNS()                                           // initialize Lineup object
+//            lineupNS!.name = (selectedContact?.name)!                       // set lineup name prop
+//            
+//            lineupNSArray?.append(lineupNS!)
         }
         
         selectLineupTableView.reloadData()
