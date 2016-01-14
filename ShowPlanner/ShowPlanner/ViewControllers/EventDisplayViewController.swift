@@ -183,7 +183,7 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
         let cell = lineupTableView.dequeueReusableCellWithIdentifier("LineupCell") as! LineupTableViewCell
         let row = indexPath.row                                             // get row
         let lineup = editedLineupArray![row] as LineupNS                    // get Lineup object from editedLineupArray at row index
-        cell.lineup = lineup                                                // set lineup prop for cell to lineup
+        cell.lineupNS = lineup                                                // set lineup prop for cell to lineup
         return cell                                                         // return cell
     }
     

@@ -19,7 +19,7 @@ import Contacts
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var contactStore = CNContactStore()
+    var contactStore = CNContactStore()             // initialize CNContactStore
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Make navigation bar background app icon blue with white text and bar items

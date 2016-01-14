@@ -26,7 +26,7 @@ class UpcomingTableViewCell: UITableViewCell {
         return formatter                                                // return NSDateFormatter object
     }()
     
-    // Formate appearance of timeLabel
+    // Format appearance of timeLabel
     static var timeFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()                               // declare NSDateFormatter object
         formatter.timeStyle = .ShortStyle                               // use ShortStyle for time

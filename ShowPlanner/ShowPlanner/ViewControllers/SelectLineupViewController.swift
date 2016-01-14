@@ -81,7 +81,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         let cell = selectLineupTableView.dequeueReusableCellWithIdentifier("SelectLineupCell") as! SelectLineupTableViewCell
         let row = indexPath.row                                         // get row
         let contact = contactsToSelectFrom![row] as LineupNS     // get Contact object from contactsDS at row index
-        cell.lineupSelection = contact                                          // set contact prop for cell to contact
+        cell.lineupNS = contact                                          // set contact prop for cell to contact
         return cell                                                     // return cell
     }
     

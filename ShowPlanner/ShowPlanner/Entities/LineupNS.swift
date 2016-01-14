@@ -10,6 +10,6 @@ import Foundation
 
 class LineupNS: NSObject {
     dynamic var name: String = ""           // name string
-    dynamic var confirmed: Bool = false     // indicates if contact is confirmed or not
-    dynamic var selected: Bool = false      // indicates if contact is selected or not
+    dynamic var confirmed: Bool = false     // indicates if contact is confirmed or not (use in EventDisplayVC)
+    dynamic var selected: Bool = false      // indicates if contact is selected or not (use in SelectLineupVC)
 }
