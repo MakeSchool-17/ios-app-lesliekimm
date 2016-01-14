@@ -90,15 +90,13 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         }
         else {
             contactsToSelectFrom![indexPath.row].selected = true
+            lineupNS = LineupNS()                                           // initialize Lineup object
+            lineupNS!.name = (selectedContact?.name)!                       // set lineup name prop
+            
+            lineupNSArray?.append(lineupNS!)
         }
         
         selectLineupTableView.reloadData()
-        
-        lineupNS = LineupNS()                                           // initialize Lineup object
-        lineupNS!.name = (selectedContact?.name)!                       // set lineup name prop
-        
-        lineupNSArray?.append(lineupNS!)
-        
 //        self.performSegueWithIdentifier("saveLineup", sender: self)     // perform saveLineup segue
     }
 }
