@@ -17,13 +17,13 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!                     // code connection to email textfield
     @IBOutlet weak var cellTextField: UITextField!                      // code connection to cell textfield
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!                              // code connection for name label
+    @IBOutlet weak var emailLabel: UILabel!                             // code connection for email label
+    @IBOutlet weak var cellLabel: UILabel!                              // code connection for cell label
     @IBOutlet weak var changesSavedLabel: UILabel!                      // code connection to changes saved label
     
     let blueColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)         // app icon blue color var
-    let greenColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)
+    let greenColor = UIColor(red: 0x00, green: 0xa3, blue: 0x88)        // app icon green color var
     
     var userAccount: Account?                                           // declare userAccount var
     
@@ -46,8 +46,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             }
         }
         dismissKeyboard()                                               // dismiss keyboard when save button hit
-        changesSavedLabel.text = "Changes Saved!"                       // set changesSaved label to indicate save has completed
-        changesSavedLabel.textColor = greenColor
+        changesSavedLabel.text = "Changes Saved!"                       // set changesSavedLabel to indicate save has completed
+        changesSavedLabel.textColor = greenColor                        // set changedSavedLabel textColor to app icon green
     }
 
     // Set the view when loaded for the first time
@@ -107,7 +107,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     // Set up cellTextField keyboard type
     func setUpCellTextField() {
         cellTextField.keyboardType = UIKeyboardType.PhonePad            // set cellTextField to display phone number keyboard
-        cellTextField.returnKeyType = UIReturnKeyType.Done              // set cellTextField return type
     }
     
     // Display account information
@@ -122,14 +121,14 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
                 nameTextField.becomeFirstResponder()                    // set nameTextField to first responder
             }
             
-            if account.name != "" {
-                nameTextField.textColor = blueColor
+            if account.name != "" {                                     // if account has a name
+                nameTextField.textColor = blueColor                     // set nameTextField textColor to app icon blue
             }
-            if account.email != "" {
-                emailTextField.textColor = blueColor
+            if account.email != "" {                                    // if account has an email
+                emailTextField.textColor = blueColor                    // set emailTextField textColor to app icon blue
             }
-            if account.cell != "" {
-                cellTextField.textColor = blueColor
+            if account.cell != "" {                                     // if account has a cell
+                cellTextField.textColor = blueColor                     // set cellTextField textColor to app icon blue
             }
         }
     }

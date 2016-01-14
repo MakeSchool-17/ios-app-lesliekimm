@@ -101,10 +101,11 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     func setUpTextFieldDelegates() {
         eventNameTextField.returnKeyType = .Next                                // change Return to Next
         eventNameTextField.delegate = self                                      // set event name textfield delegate to self
-        locationTextField.returnKeyType = .Done                                 // change Return to Next
+        locationTextField.returnKeyType = .Done                                 // change Return to Done
         locationTextField.delegate = self                                       // set location textfield delegate to self
     }
     
+    // Set colors for labels and buttons
     func setColors() {
         eventNameLabel.textColor = blueColor                                    // set eventNameLabel textColor to app icon blue
         locationLabel.textColor = blueColor                                     // set locationLabel textColor to app icon blue
@@ -117,7 +118,6 @@ class EventDisplayViewController: UIViewController, UITextFieldDelegate, UITable
     
     // Display event info for optional Event object
     func displayEvent(event: Event?) {
-        // TODO: edit selectLineupButton, lineupTableView
         if let event = event, eventNameTextField = eventNameTextField, locationTextField = locationTextField, datePicker = datePicker {
             eventNameTextField.text = event.name                                // set eventNameTextField text to event name
             locationTextField.text = event.location                             // set locationTextField text to event location

@@ -23,7 +23,8 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
             case "savePastEvent":                                       // if savePastEvent segue
                 // Grab reference to sourceVC
                 let source = segue.sourceViewController as! PastDisplayViewController
-                let event = source.event                        // set event to event from PastDisplayVC
+                let event = source.event                                // set event to event from PastDisplayVC
+
                 // TODO: Rewrite this to do all saving logic in EventsDataSource
                 if let event = event {
                     do {
@@ -59,7 +60,7 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.refreshControl = UIRefreshControl()                        // initialize refresh control
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.pastTableView.addSubview(refreshControl)
+        self.pastTableView.addSubview(refreshControl)                   // add refresh control
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
@@ -80,6 +81,7 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pastTableView.reloadData()                                      // reload pastTV data
     }
     
+    // MARK: Custom Functions
     // Refresh when user pulls down
     func refresh(sender: AnyObject) {
         eventsToBeDisplayed = [Event]()                                 // initialize array
@@ -92,8 +94,8 @@ class PastViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 eventsToBeDisplayed?.insert(event, atIndex: 0)          // append to end of array
             }
         }
-        pastTableView.reloadData()                                      // reload pastTv data
-        self.refreshControl.endRefreshing()
+        pastTableView.reloadData()                                      // reload pastTV data
+        self.refreshControl.endRefreshing()                             // end refreshing after reloading pastTV data
     }
     
     // MARK: Navigation

@@ -145,17 +145,17 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: UITableViewDelegate
     // Set selectedContact when a TVC is selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedContact = contactsDataSource.contacts[indexPath.row]            // set selectedContact to Contact at row index from contactsDS
-        self.performSegueWithIdentifier("showExistingContact", sender: self)    // perform showExistingContact segue
+        selectedContact = contactsDataSource.contacts[indexPath.row]                // set selectedContact to Contact at row index from contactsDS
+        self.performSegueWithIdentifier("showExistingContact", sender: self)        // perform showExistingContact segue
     }
     
     // MARK: CNContactPickerDelegate
     // Takes all CNContacts selected from CNContactPickerVC and appends to a Contact array and adds to contactsDS
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
-        var selectedContacts = [Contact]()                                      // initialize Contact array
+        var selectedContacts = [Contact]()                                          // initialize Contact array
         
-        for contact in contacts {                                               // for each contact in contacts array
-            let selectedContact = Contact()                                     // initialize new Contact object
+        for contact in contacts {                                                   // for each contact in contacts array
+            let selectedContact = Contact()                                         // initialize new Contact object
             // If contact has first and last name, set selectedContact name prop to full name
             if contact.givenName != "" && contact.familyName != "" {
                 selectedContact.name = "\(contact.givenName) \(contact.familyName)"
@@ -179,10 +179,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
                 selectedContact.cell = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
             }
             
-            selectedContacts.append(selectedContact)                            // add selectedContact to selectedContacts array
+            selectedContacts.append(selectedContact)                                // add selectedContact to selectedContacts array
         }
         
-        didFetchContacts(selectedContacts)                                      // add contacts in selectedContacts array to contactsDS
-        navigationController?.popViewControllerAnimated(true)                   // pop top VC from nav stack & updates display
+        didFetchContacts(selectedContacts)                                          // add contacts in selectedContacts array to contactsDS
+        navigationController?.popViewControllerAnimated(true)                       // pop top VC from nav stack & updates display
     }
 }

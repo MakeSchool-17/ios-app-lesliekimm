@@ -76,7 +76,7 @@ class UpcomingViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.refreshControl = UIRefreshControl()                            // initialize refresh control
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.upcomingTableView.addSubview(refreshControl)
+        self.upcomingTableView.addSubview(refreshControl)                   // add refresh control
     }
     
     // Each time view appears, initialize eventsToBeDisplayed and populate array with events that have
