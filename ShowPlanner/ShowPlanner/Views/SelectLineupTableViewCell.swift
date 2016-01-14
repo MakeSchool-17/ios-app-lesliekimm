@@ -17,7 +17,7 @@ class SelectLineupTableViewCell: UITableViewCell {
     let redColor = UIColor(red: 0xdd, green: 0x53, blue: 0x45)          // app icon red color var
     
     // Create contact var and use didSet method to keep contact updated upon changes
-    var lineupSelection: LineupSelection? {
+    var lineupSelection: LineupNS? {
         didSet {
             if let lineupSelection = lineupSelection {
                 selectLineupNameLabel.text = lineupSelection.name           // set lineupNameLabel text

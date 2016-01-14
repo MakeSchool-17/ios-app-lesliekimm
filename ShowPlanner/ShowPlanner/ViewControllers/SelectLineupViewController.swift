@@ -11,8 +11,8 @@ import UIKit
 class SelectLineupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var selectLineupTableView: UITableView!              // code connection to selectLineupTV
     var contactsDataSource = ContactsDataSource()                       // grab contactsDS
-    var contactsToSelectFrom: [LineupSelection]?                        // non Realm Array of contacts to populate selectLineupTV
-    var selectedContact: LineupSelection?                               // grab reference to selected contact from selectLineupTV
+    var contactsToSelectFrom: [LineupNS]?                        // non Realm Array of contacts to populate selectLineupTV
+    var selectedContact: LineupNS?                               // grab reference to selected contact from selectLineupTV
     var lineupNS: LineupNS?                                             // optional lineup var to convert selectedContact to Lineup object
     var lineupNSArray: [LineupNS]?
     var event: Event?
@@ -27,9 +27,9 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         
         lineupNSArray = [LineupNS]()
         
-        contactsToSelectFrom = [LineupSelection]()
+        contactsToSelectFrom = [LineupNS]()
         for contact in contactsDataSource.contacts {
-            var lineupSelection = LineupSelection()
+            var lineupSelection = LineupNS()
             lineupSelection.name = contact.name
             
             contactsToSelectFrom?.append(lineupSelection)
@@ -80,7 +80,7 @@ class SelectLineupViewController: UIViewController, UITableViewDataSource, UITab
         // Get a reusable TVC object for SelectLineupCell and add to selectLineupTV
         let cell = selectLineupTableView.dequeueReusableCellWithIdentifier("SelectLineupCell") as! SelectLineupTableViewCell
         let row = indexPath.row                                         // get row
-        let contact = contactsToSelectFrom![row] as LineupSelection     // get Contact object from contactsDS at row index
+        let contact = contactsToSelectFrom![row] as LineupNS     // get Contact object from contactsDS at row index
         cell.lineupSelection = contact                                          // set contact prop for cell to contact
         return cell                                                     // return cell
     }

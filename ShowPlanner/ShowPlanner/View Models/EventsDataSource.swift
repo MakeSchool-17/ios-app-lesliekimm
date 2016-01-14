@@ -36,7 +36,7 @@ class EventsDataSource: NSObject {
             
             // iterate through lineupToUse and create Lineup Realm objects to append to lineupList
             for lineupNS in lineupToUse {
-                let lineup = Lineup()                                           // initialize a Lineup object
+                let lineup = Lineup()                                           // initialize a Lineup Realm object
                 lineup.name = lineupNS.name                                     // set lineup name to lineupNS name
                 lineup.confirmed = lineupNS.confirmed                           // set lineup confirmed to lineupNS confirmed
                 lineupList.append(lineup)                                       // append to lineupList

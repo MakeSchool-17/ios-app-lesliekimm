@@ -48,9 +48,9 @@ class ContactsDataSource: NSObject {
             
             try realm.write {                                                   // write to Realm
                 if (contact.name != editedContact.name || contact.email != editedContact.email || contact.cell != editedContact.cell) {
-                    contact.name = editedContact.name
-                    contact.email = editedContact.email
-                    contact.cell = editedContact.cell
+                    contact.name = editedContact.name                           // set name to editedContact name
+                    contact.email = editedContact.email                         // set email to editedContact email
+                    contact.cell = editedContact.cell                           // set cell to editedContact cell
                 }
             }
             contacts = realm.objects(Contact).sorted("name", ascending: true)   // sort by name
