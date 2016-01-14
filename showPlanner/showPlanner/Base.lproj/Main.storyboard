@@ -1169,7 +1169,7 @@
         <image name="upcoming" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S1M-ee-dX7"/>
         <segue reference="gwb-Gd-vBQ"/>
+        <segue reference="S1M-ee-dX7"/>
     </inferredMetricsTieBreakers>
 </document>

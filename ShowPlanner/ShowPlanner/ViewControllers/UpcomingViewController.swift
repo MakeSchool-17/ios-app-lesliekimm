@@ -12,7 +12,7 @@ import UIKit
 
 class UpcomingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var upcomingTableView: UITableView!                      // code connection to upcomingTV
-    var eventsDataSource = EventsDataSource()                               // reference to EventsDataSource
+    var eventsDataSource = EventsDataSource()                               // reference to EventsDS
     var selectedEvent: Event?                                               // selected event
     var eventsToBeDisplayed: [Event]?                                       // array of events to display on upcomingTV
     var refreshControl: UIRefreshControl!                                   // refresh control var

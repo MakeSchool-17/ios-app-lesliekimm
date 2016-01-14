@@ -31,25 +31,33 @@ class EventsDataSource: NSObject {
         do {
             let realm = try Realm()                                             // grab default Realm
             
-            let lineupList = List<Lineup>()
-            var confirmed = true
+            let lineupList = List<Lineup>()                                     // initialize Realm lineupList
+            var confirmed = true                                                // var to keep track of if event is confirmed
             
+            // iterate through lineupToUse and create Lineup Realm objects to append to lineupList
             for lineupNS in lineupToUse {
-                let lineup = Lineup()
-                lineup.name = lineupNS.name
-                lineup.confirmed = lineupNS.confirmed
-                lineupList.append(lineup)
+                let lineup = Lineup()                                           // initialize a Lineup object
+                lineup.name = lineupNS.name                                     // set lineup name to lineupNS name
+                lineup.confirmed = lineupNS.confirmed                           // set lineup confirmed to lineupNS confirmed
+                lineupList.append(lineup)                                       // append to lineupList
             }
             
+            // check to see if all lineup is confirmed
             for lineupNS in lineupToUse {
-                if !lineupNS.confirmed {
-                    confirmed = false
-                    break
-                }
+                if !lineupNS.confirmed {                                        // if lineupNS is not confirmed
+                    confirmed = false                                           // event is not confirmed
+                    break                                                       // break if there is even one non confirmation
+                }                                                               // if all confirmed, event will remained confirmed
             }
             
-            event.lineupList = lineupList
-            event.confirmed = confirmed
+            // if there was no initial lineup, event is unconfirmed
+            if lineupToUse.count == 0 {                                         // if lineupToUse is empty
+                confirmed = false                                               // event is not confirmed
+            }
+            
+            event.confirmed = confirmed                                         // set event confirmed to confirmed
+            
+            event.lineupList = lineupList                                       // set lineupList of event to lineupList
             
             try realm.write() {                                                 // write to Realm
                 realm.add(event)                                                // add event to Realm
@@ -66,7 +74,6 @@ class EventsDataSource: NSObject {
         do {
             let realm = try Realm()                                             // grab default Realm
             
-            // TODO: edit for lineup
             try realm.write {                                                   // write to Realm
                 if (event.name != editedEvent.name || event.location != editedEvent.location || event.dateTime != editedEvent.dateTime) {
                     event.name = editedEvent.name                               // set event name
@@ -74,33 +81,37 @@ class EventsDataSource: NSObject {
                     event.dateTime = editedEvent.dateTime                       // set event date and time
                 }
                 
-                var confirmed = true
+                var confirmed = true                                            // var to keep track of if event is confirmed
                 
                 event.lineupList.removeAll()                                    // clear any lineup objects
+                
+                // iterate through lineupToUse and create Lineup Realm objects to append to lineupList
                 for lineupNS in lineupToUse {
-                    let lineup = Lineup()
-                    lineup.name = lineupNS.name
-                    lineup.confirmed = lineupNS.confirmed
-                    event.lineupList.append(lineup)
+                    let lineup = Lineup()                                       // initialize a Lineup object
+                    lineup.name = lineupNS.name                                 // set lineup name to lineupNS name
+                    lineup.confirmed = lineupNS.confirmed                       // set lineup confirmed to lineupNS confirmed
+                    event.lineupList.append(lineup)                             // append to lineupList
                 }
                 
+                // check to see if all lineup is confirmed
                 for lineupNS in lineupToUse {
-                    if !lineupNS.confirmed {
-                        confirmed = false
-                        break
-                    }
+                    if !lineupNS.confirmed {                                    // if lineupNS is not confirmed
+                        confirmed = false                                       // event is not confirmed
+                        break                                                   // break if there is even one non confirmation
+                    }                                                           // if all confirmed, event will remained confirmed
                 }
                 
-                if lineupToUse.count == 0 {
-                    confirmed = false
+                // if there was no lineup, event is unconfirmed
+                if lineupToUse.count == 0 {                                     // if lineupToUse is empty
+                    confirmed = false                                           // event is not confirmed
                 }
                 
-                event.confirmed = confirmed
+                event.confirmed = confirmed                                     // set event confirmed to confirmed
             }
             events = realm.objects(Event).sorted("dateTime", ascending: true)   // sort by date and time
         }
         catch {
-            print("Error in editEvent")
+            print("Error in editEvent")                                         // print error message
         }
     }
     
