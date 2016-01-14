@@ -13,6 +13,7 @@
 		813306F31C1CAF2400895769 /* PastDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813306F21C1CAF2400895769 /* PastDisplayViewController.swift */; };
 		8142C5DE1C16968000FE915C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5DD1C16968000FE915C /* Account.swift */; };
 		8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142C5E11C1734E000FE915C /* PastViewController.swift */; };
+		814F86641C4747400043DCED /* LineupSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F86631C4747400043DCED /* LineupSelection.swift */; };
 		816740E21C0D5DD6002A3679 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816740E11C0D5DD6002A3679 /* Contact.swift */; };
 		818E98711BF661FF00D8157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E98701BF661FF00D8157F /* AppDelegate.swift */; };
 		818E98761BF661FF00D8157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818E98741BF661FF00D8157F /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		813306F21C1CAF2400895769 /* PastDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastDisplayViewController.swift; sourceTree = "<group>"; };
 		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
+		814F86631C4747400043DCED /* LineupSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineupSelection.swift; sourceTree = "<group>"; };
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				81C23CCC1BFE5001000E3838 /* Event.swift */,
 				81FB476F1C03BD6300705324 /* Lineup.swift */,
 				81EE25861C2503A100EC3828 /* LineupNS.swift */,
+				814F86631C4747400043DCED /* LineupSelection.swift */,
 				816740E11C0D5DD6002A3679 /* Contact.swift */,
 				8142C5DD1C16968000FE915C /* Account.swift */,
 			);
@@ -317,6 +320,7 @@
 				8142C5DE1C16968000FE915C /* Account.swift in Sources */,
 				8142C5E21C1734E000FE915C /* PastViewController.swift in Sources */,
 				81F7B7151C1E429D000C9E3D /* UpcomingViewController.swift in Sources */,
+				814F86641C4747400043DCED /* LineupSelection.swift in Sources */,
 				81F7B71B1C1E4939000C9E3D /* AddEventViewController.swift in Sources */,
 				811313031C1004D8003775E3 /* ContactsViewController.swift in Sources */,
 				81F7B71D1C1E505C000C9E3D /* LineupTableViewCell.swift in Sources */,
