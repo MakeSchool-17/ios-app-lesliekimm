@@ -46,6 +46,7 @@
 		8142C5DD1C16968000FE915C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8142C5E11C1734E000FE915C /* PastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastViewController.swift; sourceTree = "<group>"; };
 		816740E11C0D5DD6002A3679 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		8168CEFE1C72576E006F8B16 /* Mixpanel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mixpanel-Bridging-Header.h"; sourceTree = "<group>"; };
 		818E986D1BF661FE00D8157F /* Show Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		818E98701BF661FF00D8157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		818E98751BF661FF00D8157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				818E98741BF661FF00D8157F /* Main.storyboard */,
 				818E98771BF661FF00D8157F /* Assets.xcassets */,
 				818E98791BF661FF00D8157F /* LaunchScreen.storyboard */,
+				8168CEFE1C72576E006F8B16 /* Mixpanel-Bridging-Header.h */,
 				818E987C1BF661FF00D8157F /* Info.plist */,
 			);
 			path = ShowPlanner;
@@ -218,7 +220,7 @@
 				TargetAttributes = {
 					818E986C1BF661FE00D8157F = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 4EYTWSQE79;
+						DevelopmentTeam = 82KET3LRS2;
 					};
 				};
 			};
@@ -442,14 +444,17 @@
 			baseConfigurationReference = 81EB33946112C4BB0551BAC1 /* Pods-ShowPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlannerv2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimleslie.TalentTracker;
 				PRODUCT_NAME = "Show Planner";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/lesliekimm/Desktop/PROJECTS/iOS_PROJECTS/ios-app-lesliekimm/ShowPlanner/ShowPlanner/Mixpanel-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -458,14 +463,17 @@
 			baseConfigurationReference = 63E9526C9627B88AF1780A61 /* Pods-ShowPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ShowPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lesliekimm.ShowPlannerv2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimleslie.TalentTracker;
 				PRODUCT_NAME = "Show Planner";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/lesliekimm/Desktop/PROJECTS/iOS_PROJECTS/ios-app-lesliekimm/ShowPlanner/ShowPlanner/Mixpanel-Bridging-Header.h";
 			};
 			name = Release;
 		};

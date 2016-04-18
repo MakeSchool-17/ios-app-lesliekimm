@@ -10,5 +10,6 @@ target 'ShowPlanner' do
 
 pod 'RealmSwift'
 pod 'ConvenienceKit'
+pod ‘Mixpanel’
 
 end

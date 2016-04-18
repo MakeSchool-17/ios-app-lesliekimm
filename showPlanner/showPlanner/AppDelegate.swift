@@ -15,6 +15,7 @@
 
 import UIKit
 import Contacts
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make table view separators app icon blue
         let tableViewAppearance = UITableView.appearance()
         tableViewAppearance.separatorColor = UIColor(red: 0x25, green: 0x3b, blue: 0x4b)
+        
+        // Mixpanel analytics
+        let mixpanel = Mixpanel.sharedInstanceWithToken("8a1312d786b53a51a067bdbe2b15de18")
+        mixpanel.track("checkPastEvent")
+        mixpanel.track("createEvent")
+        mixpanel.track("editingExistingEvent")
+        mixpanel.track("importContacts")
         return true
     }
 

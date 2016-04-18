@@ -1,5 +1,8 @@
 PODS:
   - ConvenienceKit (0.4.0)
+  - Mixpanel (2.9.3):
+    - Mixpanel/Mixpanel (= 2.9.3)
+  - Mixpanel/Mixpanel (2.9.3)
   - Realm (0.96.2):
     - Realm/Headers (= 0.96.2)
   - Realm/Headers (0.96.2)
@@ -8,10 +11,12 @@ PODS:
 
 DEPENDENCIES:
   - ConvenienceKit
+  - Mixpanel
   - RealmSwift
 
 SPEC CHECKSUMS:
   ConvenienceKit: ba1ad8797897dc0d011676e961a2f3e9b270c841
+  Mixpanel: b9ff1c5d41fc07037d4b813bf2799c050ee3e49b
   Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
   RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
 
